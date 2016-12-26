@@ -1,0 +1,74 @@
+﻿@using ScottybonsMVC.AppConstants
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = null;
+
+}
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="personal shopping, shopping, shopping for women, personal stylist, Online personal shopping voor vrouwen, speciaal voor jou geselecteerd door een persoonlijk styliste, women" />
+    <meta name="description" content="Online personal shopping voor vrouwen. Complete outfits, speciaal voor jou geselecteerd door een persoonlijk styliste, en thuis bij je bezorgd.">
+    <title>:: Scotty bons ::</title>
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/owl_carousel.css" />
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/giftcard.css" />
+    <link rel="stylesheet" href="/css/datepicker.css">
+
+</head>
+<body>
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TL3XW5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TL3XW5');</script>
+    <header>
+        <div id="top_header" class="header fixed clearfix ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-4 ">
+                        @{
+
+                            <div id="logo"> <a href="/@GlobalConstants.Language"><img src="/media/1012/logo.png" alt="Scotty bons" data-retina="true"></a> </div>
+                        }
+                    </div>
+
+                    @{ Html.RenderPartial("MainNavigation"); }
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+    @RenderSection("BodyContent", required: false)
+
+    <!-- starting footer -->
+    @Umbraco.RenderMacro("FooterSnippet")
+    <section id="footerendingline"></section>
+    <!-- Common scripts -->
+    <script src="~/scripts/js/jquery-1.11.2.min.js"></script>
+    <script src="~/scripts/js/functions.js"></script>
+    <script src="~/scripts/js/bootstrap.js"></script>
+    <script src="~/scripts/js/owl_carousel.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="~/scripts/js/datepicker.js"></script>
+    <script src="~/scripts/js/custom.js"></script>
+    <script src="~/scripts/js/jquery-scrollto.js"></script>
+    <script src="~/scripts/jquery.blockUI.js"></script>
+    
+    @RenderSection("scripts", required: false)
+    @RenderSection("FooterSecion", required: false)
+</body>
+</html>

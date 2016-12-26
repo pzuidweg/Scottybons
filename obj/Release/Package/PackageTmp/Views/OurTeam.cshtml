@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "ScottyBonsMaster.cshtml";
+}
+@section BodyContent {
+
+    <section id ="top-menu">
+        <div id="register-top_no_menu">
+        </div>
+    </section>
+
+    @Umbraco.RenderMacro("OurTeam")
+
+}

@@ -1,0 +1,472 @@
+﻿
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 282.25 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 282.25 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 182.25 === 
+=== Giftcard Item Value After Convertion === 
+=== 182.25 === 
+=== Giftcard Item End === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 100 === 
+=== Giftcard Item Value After Convertion === 
+=== 100 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+28225
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 282.25 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 282.25 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 182.25 === 
+=== Giftcard Item Value After Convertion === 
+=== 182.25 === 
+=== Giftcard Item End === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 100 === 
+=== Giftcard Item Value After Convertion === 
+=== 100 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+28225
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 46.36 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 46.36 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 46.36 === 
+=== Giftcard Item Value After Convertion === 
+=== 46.36 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+4636
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+46.36
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+46.36
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+46.36
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+4636
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 163.46 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 163.46 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 63.46 === 
+=== Giftcard Item Value After Convertion === 
+=== 63.46 === 
+=== Giftcard Item End === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 100 === 
+=== Giftcard Item Value After Convertion === 
+=== 100 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+16346
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+163.46
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+16346
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+163.46
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+16346
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+63.46
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+163.46
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+16346
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 100 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 100 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 100 === 
+=== Giftcard Item Value After Convertion === 
+=== 100 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 100 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 100 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 100 === 
+=== Giftcard Item Value After Convertion === 
+=== 100 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 100 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 100 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 100 === 
+=== Giftcard Item Value After Convertion === 
+=== 100 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 100 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 100 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 100 === 
+=== Giftcard Item Value After Convertion === 
+=== 100 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'GiftCardReOrderPayment' service === 
+
+=== Giftcards foreach 'GiftCardReOrderPayment'  === 
+100
+=== Ordertotal after foreach 'GiftCardReOrderPayment'  === 
+100
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+10000
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 150.5 === 
+
+
+ START SESSION *******************************
+=== Total at HandelGiftcard service === 
+=== 150.5 === 
+=== Giftcards Save Section Loop Start === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 100 === 
+=== Giftcard Item Value After Convertion === 
+=== 100 === 
+=== Giftcard Item End === 
+=== Giftcard Item Start === 
+=== Giftcard Item Value Before Convertion === 
+=== 50.5 === 
+=== Giftcard Item Value After Convertion === 
+=== 50.5 === 
+=== Giftcard Item End === 
+=== Giftcards Save Section Loop End === 
+
+
+*******************************
+=== Total at 'MakePayment' after checkoutRequest === 
+15050

@@ -1,0 +1,82 @@
+﻿@using ScottybonsMVC.AppConstants
+
+<div id="register-top" class="blue-bar">
+    @if (Model == "StyleProfile")
+    {
+        <div class="container">
+            <div class="col-sm-2 "></div>
+            <div class="col-sm-1 col-xs-12  mobile_tab active "><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/styleprofile?Nav=IsForOrder")><h3> @Resources.Scottybons.ScottybonsDataStrings.GreenBar_Register</h3></a> </div>
+            <div class="col-sm-1 col-xs-3  mobile_tab dot_position active">&#8226;</div>
+            <div class="col-sm-2 col-xs-12 text-center mobile_tab"><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/styleprofile?Nav=IsForOrder")><h3> @Resources.Scottybons.ScottybonsDataStrings.StyleProfile</h3></a></div>
+            <div class="col-sm-1 col-xs-3  mobile_tab dot_position"> &#8226;</div>
+            <div class="col-sm-1 col-xs-12  mobile_tab active"><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/styleprofile?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Order</h3></a></div>
+            <div class="col-sm-1 col-xs-3  mobile_tab dot_position ">&#8226;</div>
+            <div class="col-sm-1 col-xs-12  active mobile_tab"> <h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Pay</h3></div>
+            <div class="col-sm-1 "></div>
+        </div>
+    }
+    else if (Model == "Login")
+    {
+        <div id="register-top">
+            <div class="container">
+                <div class="col-sm-2 "></div>
+                <div class="col-sm-1 col-xs-12   mobile_tab "><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/register?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Register</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position">&#8226;</div>
+                <div class="col-sm-2 col-xs-12 text-center  active mobile_tab"><a href=@Url.Content("/" + @GlobalConstants.Language + "/Account/Login?Nav=IsForOrder")><h3> @Resources.Scottybons.ScottybonsDataStrings.StyleProfile</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position"> &#8226;</div>
+                <div class="col-sm-1 col-xs-12  active mobile_tab"><a href=@Url.Content("/" + @GlobalConstants.Language + "/Account/Login?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Order</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position ">&#8226;</div>
+                <div class="col-sm-1 col-xs-12  active mobile_tab"><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Pay</h3></div>
+                <div class="col-sm-1 "></div>
+            </div>
+        </div>
+    }
+    else if (Model == "Planscotty")
+    {
+        <div id="register-top">
+            <div class="container">
+                <div class="col-sm-2 "></div>
+                <div class="col-sm-1 col-xs-3  active mobile_tab "><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/styleprofile?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Register</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position">&#8226;</div>
+                <div class="col-sm-2 col-xs-12 text-center  active mobile_tab"><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/styleprofile?Nav=IsForOrder")><h3> @Resources.Scottybons.ScottybonsDataStrings.StyleProfile</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position"> &#8226;</div>
+                <div class="col-sm-1 col-xs-3  mobile_tab"><a href=@Url.Content("/" + @GlobalConstants.Language + "/order/planscottybox?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Order</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position ">&#8226;</div>
+                <div class="col-sm-1 col-xs-3  active mobile_tab"><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Pay</h3></div>
+                <div class="col-sm-1 "></div>
+            </div>
+        </div>
+    }
+    else if (Model == "ConfirmOrder")
+    {
+        <div id="register-top">
+            <div class="container">
+                <div class="col-sm-2 "></div>
+                <div class="col-sm-1 col-xs-12  active mobile_tab "><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/register?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Register</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position">&#8226;</div>
+                <div class="col-sm-2 col-xs-12 text-center  active mobile_tab"><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/styleprofile?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.StyleProfile</h3></a> </div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position"> &#8226;</div>
+                <div class="col-sm-1 col-xs-12  active mobile_tab"><a href=@Url.Content("/" + @GlobalConstants.Language + "/order/planscottybox?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Order</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position ">&#8226;</div>
+                <div class="col-sm-1 col-xs-12 mobile_tab"> <h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Pay</h3></div>
+                <div class="col-sm-1 "></div>
+            </div>
+        </div>
+    }
+    else if (Model == "Register")
+    {
+        <div id="register-top">
+            <div class="container">
+                <div class="col-sm-2 "></div>
+                <div class="col-sm-1 col-xs-12  mobile_tab "><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/register?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Register</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position">&#8226;</div>
+                <div class="col-sm-2 col-xs-12 text-center  active mobile_tab"><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/register?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.StyleProfile</h3></a> </div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position"> &#8226;</div>
+                <div class="col-sm-1 col-xs-12  mobile_tab active"><a href=@Url.Content("/" + @GlobalConstants.Language + "/account/register?Nav=IsForOrder")><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Order</h3></a></div>
+                <div class="col-sm-1 col-xs-3  mobile_tab dot_position ">&#8226;</div>
+                <div class="col-sm-1 col-xs-12  active mobile_tab"><h3>@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Pay</h3></div>
+                <div class="col-sm-1 "></div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,332 @@
+﻿@using ScottybonsMVC.Models.Entities
+@using ScottybonsMVC.Models.ViewModels;
+@model ScottybonsMVC.Models.ViewModels.Customer.StyleProfileViewModel
+
+@{
+    Layout = null;
+    var i = 0;
+}
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="farm activities, itineraries, farm holidays, country holidays, bed and breakfast, hotel, country hotel" />
+    <meta name="description" content="Country Holidays - Premium site template for a country accommodation.">
+    <title>:: Scotty bons ::</title>
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />    
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/owl_carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.css" />
+    <!-- Common scripts -->
+  
+    <script src="~/scripts/js/jquery-1.11.2.min.js"></script>
+    <script src="~/scripts/js/functions.js"></script>
+    <script src="~/scripts/js/bootstrap.js"></script>
+    <script src="~/scripts/js/owl_carousel.js"></script>
+    <script src="~/scripts/js/custom.js"></script>
+    <script type="text/javascript">
+
+    $(function () {
+        $('.submitAnswers').on('click', function () {
+
+            var Q1Answer = $("input[name='Question1']:checked").val();
+            var Q1AnswerControl = $("#Question1Control").val();
+
+            var Q2Answer = $("input[name='Question2']:checked").val();
+            var Q2AnswerControl = $("#Question2Control").val();
+
+            var Q3Answer = $("input[name='Question3']:checked").val();
+            var Q3AnswerControl = $("#Question3Control").val();
+
+            var Q4Answer = $("input[name='Question4']:checked").val();
+            var Q4AnswerControl = $("#Question4Control").val();
+
+            var Q5Answer = $("input[name='Question5']:checked").val();
+            var Q5AnswerControl = $("#Question5Control").val();
+
+            var Q6Answer = $("input[name='Question6']:checked").val();
+            var Q6AnswerControl = $("#Question6Control").val();
+
+            var Q7Answer = $("input[name='Question7']:checked").val();
+            var Q7AnswerControl = $("#Question7Control").val();
+
+            var Q8Answer = $("input[name='Question8']:checked").val();
+            var Q8AnswerControl = $("#Question8Control").val();
+
+            var Q9Answer = $("input[name='Question9']:checked").val();
+            var Q9AnswerControl = $("#Question9Control").val();
+
+            var Q10Answer = $("#Question10").val();
+            var Q10AnswerControl = $("#Question10Control").val();
+
+            var Q11Answer = $("#Question11").val();
+            var Q11AnswerControl = $("#Question11Control").val();
+
+            var Q12Answer = $("#Question12").val();
+            var Q12AnswerControl = $("#Question12Control").val();
+
+            var Q13Answer = $("input[name='Question13']:checked").val();
+            var Q13AnswerControl = $("#Question13Control").val();
+
+            var Question14checked_checkboxes = $("[id*=Question14] input:checked");
+            var Question14SelectedValues = "";
+            $.each($("input[id*=Question14]:checked"), function () {
+                var value = $(this).val();
+                Question14SelectedValues += value + ",";
+            });
+            var Q14Answer = Question14SelectedValues;
+            var Q14AnswerControl = $("#Question14Control").val();
+
+            var Q15Answer = $("input[name='Question15']:checked").val();
+            var Q15AnswerControl = $("#Question15Control").val();
+
+            var Question16checked_checkboxes = $("[id*=Question16] input:checked");
+            var Question16SelectedValues = "";
+            $.each($("input[id*=Question16]:checked"), function () {
+                var value = $(this).val();
+                Question16SelectedValues += value + ",";
+            });
+            var Q16Answer = Question16SelectedValues;
+            var Q16AnswerControl = $("#Question16Control").val();
+
+            var lstCustomerAnswers = [
+                { CustomerId: 1, QuestionId: 1, AnswerId: Q1Answer, Answer: Q1Answer, QuestionControlId: Q1AnswerControl },
+                { CustomerId: 1, QuestionId: 2, AnswerId: Q2Answer, Answer: Q2Answer, QuestionControlId: Q2AnswerControl },
+                { CustomerId: 1, QuestionId: 3, AnswerId: Q3Answer, Answer: Q3Answer, QuestionControlId: Q3AnswerControl },
+                { CustomerId: 1, QuestionId: 4, AnswerId: Q4Answer, Answer: Q4Answer, QuestionControlId: Q4AnswerControl },
+                { CustomerId: 1, QuestionId: 5, AnswerId: Q5Answer, Answer: Q5Answer, QuestionControlId: Q5AnswerControl },
+                { CustomerId: 1, QuestionId: 6, AnswerId: Q6Answer, Answer: Q6Answer, QuestionControlId: Q6AnswerControl },
+                { CustomerId: 1, QuestionId: 7, AnswerId: Q7Answer, Answer: Q7Answer, QuestionControlId: Q7AnswerControl },
+                { CustomerId: 1, QuestionId: 8, AnswerId: Q8Answer, Answer: Q8Answer, QuestionControlId: Q8AnswerControl },
+                { CustomerId: 1, QuestionId: 9, AnswerId: Q9Answer, Answer: Q9Answer, QuestionControlId: Q9AnswerControl },
+                { CustomerId: 1, QuestionId: 10, AnswerId: '', Answer: Q10Answer, QuestionControlId: Q10AnswerControl },
+                { CustomerId: 1, QuestionId: 11, AnswerId: '', Answer: Q11Answer, QuestionControlId: Q11AnswerControl },
+                { CustomerId: 1, QuestionId: 12, AnswerId: '', Answer: Q12Answer, QuestionControlId: Q12AnswerControl },
+                { CustomerId: 1, QuestionId: 13, AnswerId: Q13Answer, Answer: Q13Answer, QuestionControlId: Q13AnswerControl },
+                { CustomerId: 1, QuestionId: 14, AnswerId: '', Answer: Q14Answer, QuestionControlId: Q14AnswerControl },
+                { CustomerId: 1, QuestionId: 15, AnswerId: Q15Answer, Answer: Q15Answer, QuestionControlId: Q15AnswerControl },
+                { CustomerId: 1, QuestionId: 16, AnswerId: '', Answer: Q16Answer, QuestionControlId: Q16AnswerControl }
+            ];
+
+            $.ajax({
+                url: '/StyleProfile/SubmitAnswers/',
+                data: JSON.stringify(lstCustomerAnswers),
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    alert(data);
+                }
+            });
+
+        });
+    })
+
+    </script>
+
+
+
+
+
+</head>
+<body>
+    <form class="form-horizontal">
+        
+        <!-- End Header -->
+        
+        <section id="register">
+            <div class="container">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10 ">
+                    <div class="row">
+                        <h2>VERTEL ONS OVER JEZELF</h2>
+                        <h5>
+                            Er volgen nu ongeveer 50 vragen. Door jouw antwoorden krijgen wij een goed<br>
+                            beeld van jouw stijl. En welke maten en kleuren het beste bij jou passen.
+                        </h5>
+                    </div>
+                    <div class="line"></div>
+
+                    @foreach (StyleProfileQuestion objQuestion in Model.ProfileQuestion.ToList())
+                    {
+                        i = i + 1;
+
+                        if (objQuestion.AnswerControlID == 2)
+                        {
+
+                            string questionId = "Question" + @i;
+                            string questionControl = "Question" + @i + "Control";
+
+                            <div class="row">
+
+                                <h2>@i. @objQuestion.Question</h2>
+
+                                @if (!string.IsNullOrEmpty(objQuestion.QuestionDescription))
+                                {
+                                    <h5>@objQuestion.QuestionDescription</h5>
+                                }
+
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-sm-12">
+                                        <input type="email" class="form-control" style="width:100%; text-align:center" id="@questionId" placeholder="">
+                                        <label id="@questionControl" style="display:none;">@objQuestion.AnswerControlID</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+
+                        if (objQuestion.AnswerControlID == 8 || objQuestion.AnswerControlID == 5)
+                        {
+
+                            string questionId = "Question" + @i;
+                            string questionControl = "Question" + @i + "Control";
+
+                            <div class="row">
+                                <h2>@i. @objQuestion.Question</h2>
+
+                                @if (!string.IsNullOrEmpty(objQuestion.QuestionDescription))
+                                {
+                                    <h5>@objQuestion.QuestionDescription</h5>
+                                }
+                            </div>
+
+                            <div class="row">
+
+                                <div class="form-group">
+                                    <label for="inputEmail" class="control-label col-sm-4 col-xs-12"></label>
+
+                                    <div class="col-xs-12 col-sm-8">
+                                        @foreach (StyleProfileAnswer objAnswer in Model.ProfileAnswers.Where(x => x.QuestionID == objQuestion.QuestionID).ToList())
+                                        {
+                                            <div class="checkbox">
+                                                <label>
+                                                    @if (Convert.ToInt32(objAnswer.IsImageTobeShown) == 1)
+                                                    {
+                                                        @Html.RadioButton(@questionId, @objAnswer.AnswerID, isChecked: false)
+                                                        <img src="@objAnswer.Answer" alt="@objAnswer.AnswerID" />
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.RadioButton(@questionId, @objAnswer.AnswerID, isChecked: false)@objAnswer.Answer
+                                    <
+                                                        <br />
+                                                    }
+
+                                                </label>
+                                            </div>
+                                        }
+                                        <label id="@questionControl" style="display:none;">@objQuestion.AnswerControlID</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+
+                        if (objQuestion.AnswerControlID == 7)
+                        {
+
+                            string questionId = "Question" + @i;
+                            string questionControl = "Question" + @i + "Control";
+
+                            <div class="row">
+                                <h2>@i. @objQuestion.Question</h2>
+
+                                @if (!string.IsNullOrEmpty(objQuestion.QuestionDescription))
+                                {
+                                    <h5>@objQuestion.QuestionDescription</h5>
+                                }
+                            </div>
+
+                            <div class="row text-center">
+
+                                <div class="form-group">
+
+                                    @foreach (StyleProfileAnswer objAnswer in Model.ProfileAnswers.Where(x => x.QuestionID == objQuestion.QuestionID).ToList())
+                                    {
+                                        if (Convert.ToInt32(objAnswer.IsImageTobeShown) == 1)
+                                        {
+                                            <div class="col-xs-12 col-sm-6">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" id="@questionId" value="@objAnswer.AnswerID" class="checkbox_typeform" name="@questionId">
+                                                        <img src="@objAnswer.Answer" alt="@objAnswer.AnswerID" />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="col-xs-12 col-sm-4">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" id="@questionId" value="@objAnswer.AnswerID" class="checkbox_typeform" name="@questionId">
+                                                        <span class="check_box_text"> @objAnswer.Answer </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    }
+                                    <label id="@questionControl" style="display:none;">@objQuestion.AnswerControlID</label>
+                                </div>
+
+                            </div>
+                        }
+
+                    }
+
+                </div>
+
+                <div class="col-sm-10 ">
+                    <div class="row">
+                        <button class="submitAnswers">Submit</button>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-1"></div>
+            </div>
+        </section>
+        <section id="process_arrows">
+            <div class="container">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6">
+                            <p>50% voltooid</p>
+                            <div class="process_box">
+                                <div class="process_box_active"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-6 text-right">
+                            <div class="row">
+
+                                <div class="process_arrows">
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                                <div class="process_arrows">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </section>
+        <!-- starting footer -->
+    
+        <!-- starting footer -->
+        <section id="footerendingline"></section>
+    </form>
+</body>
+</html>
+

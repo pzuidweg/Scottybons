@@ -1,0 +1,11 @@
+﻿@using ScottybonsMVC.Models.ViewModels.Customer
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+}
+
+@section BodyContent {
+    
+    <h1>@ViewBag.Title</h1>
+    @Html.Partial("_ContactUs", new ContactUsViewModel())
+}

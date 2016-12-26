@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+}
+@section BodyContent {
+
+    <section id="top-menu">
+        <div id="register-top_no_menu">
+        </div>
+    </section>
+
+    @Html.Action("GiftCard", "Promotions")
+}
+
+@section scripts{
+    <script type="text/javascript">
+        $('input[class="issuer-bank-type"]:radio').change(function () {
+            $('#gc_bank_msg').slideUp('slow');
+        });
+    </script>
+    }

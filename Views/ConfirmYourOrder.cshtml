@@ -1,0 +1,33 @@
+﻿@using ScottybonsMVC.Models.ViewModels
+@using ScottybonsMVC.Models.ViewModels.Customer
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+    var greenBar = "ConfirmOrder";
+}
+@section BodyContent {
+    <section id="top-menu">
+        @Html.Partial("Account/_GreenBar", greenBar)
+    </section>
+
+    @Html.Partial("Order/_YourOrder", new ConfirmYourOrderVm())
+
+    @Umbraco.RenderMacro("TermsandConditionsModelPopup")
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {            
+            $('#PermissionToCollectFutureInvoices').prop('checked', true);
+            $('#AgreeGeneralConditions').prop('checked', false);
+            $('.gc-redeemed').val('false');
+        });
+       
+        $("input:radio[name=SelectIssuer]").click(function () {            
+            if ($("input[name='SelectIssuer']:checked").val()) {                
+                $('#issuer_msg').css('display', 'none');
+            }
+        });
+      
+    </script>
+    }

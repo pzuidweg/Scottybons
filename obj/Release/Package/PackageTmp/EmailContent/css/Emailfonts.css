@@ -1,0 +1,19 @@
+   @font-face {
+	font-family: 'Playfair Display';
+	src: url('*|HOMEFONTURL|*/fonts/PlayfairDisplay-Regular.eot');
+	src: url('*|HOMEFONTURL|*/fonts/PlayfairDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+		url('*|HOMEFONTURL|*/fonts/PlayfairDisplay-Regular.woff') format('woff'),
+		url('*|HOMEFONTURL|*/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir Next Condensed';
+	src: url('*|HOMEFONTURL|*/fonts/AvenirNextCondensed-Regular.eot');
+	src: url('*|HOMEFONTURL|*/fonts/AvenirNextCondensed-Regular.eot?#iefix') format('embedded-opentype'),
+		url('*|HOMEFONTURL|*/fonts/AvenirNextCondensed-Regular.woff') format('woff'),
+		url('*|HOMEFONTURL|*/fonts/AvenirNextCondensed-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

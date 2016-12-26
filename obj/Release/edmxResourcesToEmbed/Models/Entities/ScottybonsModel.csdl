@@ -1,0 +1,2498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ScottybonsEComModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TwoLetterISOCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="TwoLetterLanguageCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ThreeLetterISOCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="NumericISOCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Published" Type="Byte" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="ExtensionData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VATPercentage1" Type="Int32" />
+    <Property Name="VATPercentage2" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LanguageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="ScottybonsEComModel.FK_Orders_OrderCountry" FromRole="CountryMaster" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerstatusID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrePosition" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SaltKey" Type="Int32" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="AlternativePhoneNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="LocaleSetting" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderShippings" Relationship="ScottybonsEComModel.FK_OrderShipping_Customer" FromRole="Customer" ToRole="OrderShipping" />
+    <NavigationProperty Name="ForgotPasswords" Relationship="ScottybonsEComModel.FK_ForgotPassword_Customer" FromRole="Customer" ToRole="ForgotPassword" />
+    <NavigationProperty Name="OrderTransactions" Relationship="ScottybonsEComModel.FK_OrderTransactions_Customer" FromRole="Customer" ToRole="OrderTransaction" />
+    <NavigationProperty Name="PasswordLog" Relationship="ScottybonsEComModel.FK_PasswordLog_Customer" FromRole="Customer" ToRole="PasswordLog" />
+    <NavigationProperty Name="Orders" Relationship="ScottybonsEComModel.FK_Orders_Customer" FromRole="Customer" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="CustomerStatusMaster">
+    <Key>
+      <PropertyRef Name="CustomerStatusID" />
+    </Key>
+    <Property Name="CustomerStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerStatusName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ErrorDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Source" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="ScottybonsEComEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CountryMasters" EntityType="Self.CountryMaster" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="CustomerStatusMasters" EntityType="Self.CustomerStatusMaster" />
+    <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLog" />
+    <EntitySet Name="EmailContents" EntityType="ScottybonsEComModel.EmailContent" />
+    <EntitySet Name="NewsletterMailLists" EntityType="ScottybonsEComModel.NewsletterMailList" />
+    <EntitySet Name="OrderItemReviewGeneralMasters" EntityType="ScottybonsEComModel.OrderItemReviewGeneralMaster" />
+    <EntitySet Name="OrderItemReviewPriceMasters" EntityType="ScottybonsEComModel.OrderItemReviewPriceMaster" />
+    <EntitySet Name="OrderItemReviewSizeMasters" EntityType="ScottybonsEComModel.OrderItemReviewSizeMaster" />
+    <EntitySet Name="OrderItemReviewStyleMasters" EntityType="ScottybonsEComModel.OrderItemReviewStyleMaster" />
+    <EntitySet Name="OrderItems" EntityType="ScottybonsEComModel.OrderItem" />
+    <EntitySet Name="OrderItemStatusMasters" EntityType="ScottybonsEComModel.OrderItemStatusMaster" />
+    <EntitySet Name="OrderShippings" EntityType="ScottybonsEComModel.OrderShipping" />
+    <EntitySet Name="OrderStatusMasters" EntityType="ScottybonsEComModel.OrderStatusMaster" />
+    <AssociationSet Name="FK_OrderShipping_Customer" Association="ScottybonsEComModel.FK_OrderShipping_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="OrderShipping" EntitySet="OrderShippings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_OrderItemReviewPriceMaster" Association="ScottybonsEComModel.FK_OrderItems_OrderItemReviewPriceMaster">
+      <End Role="OrderItemReviewPriceMaster" EntitySet="OrderItemReviewPriceMasters" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_OrderItemReviewSizeMaster" Association="ScottybonsEComModel.FK_OrderItems_OrderItemReviewSizeMaster">
+      <End Role="OrderItemReviewSizeMaster" EntitySet="OrderItemReviewSizeMasters" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_OrderItemReviewStyleMaster" Association="ScottybonsEComModel.FK_OrderItems_OrderItemReviewStyleMaster">
+      <End Role="OrderItemReviewStyleMaster" EntitySet="OrderItemReviewStyleMasters" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_OrderItemStatusMaster" Association="ScottybonsEComModel.FK_OrderItems_OrderItemStatusMaster">
+      <End Role="OrderItemStatusMaster" EntitySet="OrderItemStatusMasters" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <EntitySet Name="ForgotPasswords" EntityType="ScottybonsEComModel.ForgotPassword" />
+    <AssociationSet Name="FK_ForgotPassword_Customer" Association="ScottybonsEComModel.FK_ForgotPassword_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="ForgotPassword" EntitySet="ForgotPasswords" />
+    </AssociationSet>
+    <EntitySet Name="OrderTransactions" EntityType="ScottybonsEComModel.OrderTransaction" />
+    <EntitySet Name="PaymentTypeMasters" EntityType="ScottybonsEComModel.PaymentTypeMaster" />
+    <EntitySet Name="PeriodicalScottyBoxMasters" EntityType="ScottybonsEComModel.PeriodicalScottyBoxMaster" />
+    <AssociationSet Name="FK_OrderTransactions_Customer" Association="ScottybonsEComModel.FK_OrderTransactions_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="OrderTransaction" EntitySet="OrderTransactions" />
+    </AssociationSet>
+    <EntitySet Name="OccasionForScottyBoxMasters" EntityType="ScottybonsEComModel.OccasionForScottyBoxMaster" />
+    <EntitySet Name="PasswordLogs" EntityType="ScottybonsEComModel.PasswordLog" />
+    <AssociationSet Name="FK_PasswordLog_Customer" Association="ScottybonsEComModel.FK_PasswordLog_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="PasswordLog" EntitySet="PasswordLogs" />
+    </AssociationSet>
+    <EntitySet Name="Orders" EntityType="ScottybonsEComModel.Order" />
+    <AssociationSet Name="FK_Orders_OrderCountry" Association="ScottybonsEComModel.FK_Orders_OrderCountry">
+      <End Role="CountryMaster" EntitySet="CountryMasters" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customer" Association="ScottybonsEComModel.FK_Orders_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_OccasionForScottyBoxMaster" Association="ScottybonsEComModel.FK_Orders_OccasionForScottyBoxMaster">
+      <End Role="OccasionForScottyBoxMaster" EntitySet="OccasionForScottyBoxMasters" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_OrderStatusMaster" Association="ScottybonsEComModel.FK_Orders_OrderStatusMaster">
+      <End Role="OrderStatusMaster" EntitySet="OrderStatusMasters" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_PaymentTypeMaster" Association="ScottybonsEComModel.FK_Orders_PaymentTypeMaster">
+      <End Role="PaymentTypeMaster" EntitySet="PaymentTypeMasters" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_PeriodicalScottyBoxMaster" Association="ScottybonsEComModel.FK_Orders_PeriodicalScottyBoxMaster">
+      <End Role="PeriodicalScottyBoxMaster" EntitySet="PeriodicalScottyBoxMasters" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <EntitySet Name="Histories" EntityType="ScottybonsEComModel.History" />
+    <EntitySet Name="StyleProfileQuestions" EntityType="ScottybonsEComModel.StyleProfileQuestion" />
+    <EntitySet Name="AnswerTypeofControls" EntityType="ScottybonsEComModel.AnswerTypeofControl" />
+    <FunctionImport Name="sp_PerodicalScottyBox" />
+    <EntitySet Name="OrderIcePayTransactions" EntityType="ScottybonsEComModel.OrderIcePayTransaction" />
+    <FunctionImport Name="GetOrders" ReturnType="Collection(ScottybonsEComModel.OrderListInfo)" />
+    <FunctionImport Name="GetCustomerDetailsByOrderID" ReturnType="Collection(ScottybonsEComModel.OrderDetailsInfo)">
+      <Parameter Name="OrderNumber" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="CustomerAnswers" EntityType="ScottybonsEComModel.CustomerAnswer" />
+    <FunctionImport Name="IsCustomerAnsweredAllRequiredQuestions">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Language" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="C__MigrationHistory" EntityType="ScottybonsEComModel.C__MigrationHistory" />
+    <EntitySet Name="Articles" EntityType="ScottybonsEComModel.Article" />
+    <EntitySet Name="ArticleColors" EntityType="ScottybonsEComModel.ArticleColor" />
+    <EntitySet Name="ArticlePhotos" EntityType="ScottybonsEComModel.ArticlePhoto" />
+    <EntitySet Name="ArticleSKUs" EntityType="ScottybonsEComModel.ArticleSKU" />
+    <EntitySet Name="AspNetRoles" EntityType="ScottybonsEComModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="ScottybonsEComModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="ScottybonsEComModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="ScottybonsEComModel.AspNetUser" />
+    <EntitySet Name="Brands" EntityType="ScottybonsEComModel.Brand" />
+    <EntitySet Name="BudgetMasters" EntityType="ScottybonsEComModel.BudgetMaster" />
+    <EntitySet Name="BudgetOptionMasters" EntityType="ScottybonsEComModel.BudgetOptionMaster" />
+    <EntitySet Name="Categories" EntityType="ScottybonsEComModel.Category" />
+    <EntitySet Name="ColarTypeMasters" EntityType="ScottybonsEComModel.ColarTypeMaster" />
+    <EntitySet Name="ColorCategoryMasters" EntityType="ScottybonsEComModel.ColorCategoryMaster" />
+    <EntitySet Name="ColorPalletMasters" EntityType="ScottybonsEComModel.ColorPalletMaster" />
+    <EntitySet Name="ColorSubCategoryMasters" EntityType="ScottybonsEComModel.ColorSubCategoryMaster" />
+    <EntitySet Name="ComfortMasters" EntityType="ScottybonsEComModel.ComfortMaster" />
+    <EntitySet Name="CustomerTypeForms" EntityType="ScottybonsEComModel.CustomerTypeForm" />
+    <EntitySet Name="ExtravaganceMasters" EntityType="ScottybonsEComModel.ExtravaganceMaster" />
+    <EntitySet Name="FigureMasters" EntityType="ScottybonsEComModel.FigureMaster" />
+    <EntitySet Name="FitMasters" EntityType="ScottybonsEComModel.FitMaster" />
+    <EntitySet Name="FootWidthMasters" EntityType="ScottybonsEComModel.FootWidthMaster" />
+    <EntitySet Name="GenderMasters" EntityType="ScottybonsEComModel.GenderMaster" />
+    <EntitySet Name="HeelHeightMasters" EntityType="ScottybonsEComModel.HeelHeightMaster" />
+    <EntitySet Name="Languages" EntityType="ScottybonsEComModel.Language" />
+    <EntitySet Name="MaterialMasters" EntityType="ScottybonsEComModel.MaterialMaster" />
+    <EntitySet Name="MoodMasters" EntityType="ScottybonsEComModel.MoodMaster" />
+    <EntitySet Name="PantsLengthMasters" EntityType="ScottybonsEComModel.PantsLengthMaster" />
+    <EntitySet Name="PantsModelMasters" EntityType="ScottybonsEComModel.PantsModelMaster" />
+    <EntitySet Name="PantsWaistMasters" EntityType="ScottybonsEComModel.PantsWaistMaster" />
+    <EntitySet Name="SeasonMasters" EntityType="ScottybonsEComModel.SeasonMaster" />
+    <EntitySet Name="SexynessMasters" EntityType="ScottybonsEComModel.SexynessMaster" />
+    <EntitySet Name="ShoeMaterialMasters" EntityType="ScottybonsEComModel.ShoeMaterialMaster" />
+    <EntitySet Name="SizeConsistencyMasters" EntityType="ScottybonsEComModel.SizeConsistencyMaster" />
+    <EntitySet Name="SizeMasters" EntityType="ScottybonsEComModel.SizeMaster" />
+    <EntitySet Name="SkirtLengthMasters" EntityType="ScottybonsEComModel.SkirtLengthMaster" />
+    <EntitySet Name="SkirtWidthMasters" EntityType="ScottybonsEComModel.SkirtWidthMaster" />
+    <EntitySet Name="SKUStatusMasters" EntityType="ScottybonsEComModel.SKUStatusMaster" />
+    <EntitySet Name="SleeveLengthMasters" EntityType="ScottybonsEComModel.SleeveLengthMaster" />
+    <EntitySet Name="StyleMasters" EntityType="ScottybonsEComModel.StyleMaster" />
+    <EntitySet Name="Stylists" EntityType="ScottybonsEComModel.Stylist" />
+    <EntitySet Name="StylistToolTransactions" EntityType="ScottybonsEComModel.StylistToolTransaction" />
+    <EntitySet Name="SubCategories" EntityType="ScottybonsEComModel.SubCategory" />
+    <EntitySet Name="SubCategoryProperties" EntityType="ScottybonsEComModel.SubCategoryProperty" />
+    <EntitySet Name="Suppliers" EntityType="ScottybonsEComModel.Supplier" />
+    <EntitySet Name="SupplierContacts" EntityType="ScottybonsEComModel.SupplierContact" />
+    <EntitySet Name="SupplierContactTypeMasters" EntityType="ScottybonsEComModel.SupplierContactTypeMaster" />
+    <EntitySet Name="WaistFitMasters" EntityType="ScottybonsEComModel.WaistFitMaster" />
+    <EntitySet Name="WearMomentMasters" EntityType="ScottybonsEComModel.WearMomentMaster" />
+    <AssociationSet Name="FK_Article_Brand" Association="ScottybonsEComModel.FK_Article_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_Category" Association="ScottybonsEComModel.FK_Article_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_GenerMaster" Association="ScottybonsEComModel.FK_Article_GenerMaster">
+      <End Role="GenderMaster" EntitySet="GenderMasters" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_SubCategory" Association="ScottybonsEComModel.FK_Article_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategories" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_SubCategoryProperty" Association="ScottybonsEComModel.FK_Article_SubCategoryProperty">
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_Suppliery" Association="ScottybonsEComModel.FK_Article_Suppliery">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_Article" Association="ScottybonsEComModel.FK_ArticleColor_Article">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleSKU_Article" Association="ScottybonsEComModel.FK_ArticleSKU_Article">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="ArticleSKU" EntitySet="ArticleSKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_ColorpalletMaster" Association="ScottybonsEComModel.FK_ArticleColor_ColorpalletMaster">
+      <End Role="ColorPalletMaster" EntitySet="ColorPalletMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_ColorSubCategory" Association="ScottybonsEComModel.FK_ArticleColor_ColorSubCategory">
+      <End Role="ColorSubCategoryMaster" EntitySet="ColorSubCategoryMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_ExtravaganceMaster" Association="ScottybonsEComModel.FK_ArticleColor_ExtravaganceMaster">
+      <End Role="ExtravaganceMaster" EntitySet="ExtravaganceMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_GendereMaster" Association="ScottybonsEComModel.FK_ArticleColor_GendereMaster">
+      <End Role="GenderMaster" EntitySet="GenderMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_MoodMaster" Association="ScottybonsEComModel.FK_ArticleColor_MoodMaster">
+      <End Role="MoodMaster" EntitySet="MoodMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_SeasonMaster" Association="ScottybonsEComModel.FK_ArticleColor_SeasonMaster">
+      <End Role="SeasonMaster" EntitySet="SeasonMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_SexynessMaster" Association="ScottybonsEComModel.FK_ArticleColor_SexynessMaster">
+      <End Role="SexynessMaster" EntitySet="SexynessMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_StyleMaster" Association="ScottybonsEComModel.FK_ArticleColor_StyleMaster">
+      <End Role="StyleMaster" EntitySet="StyleMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_WearMomentMaster" Association="ScottybonsEComModel.FK_ArticleColor_WearMomentMaster">
+      <End Role="WearMomentMaster" EntitySet="WearMomentMasters" />
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticlePhotos_ArticleColor" Association="ScottybonsEComModel.FK_ArticlePhotos_ArticleColor">
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+      <End Role="ArticlePhoto" EntitySet="ArticlePhotos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleSKU_ArticleColor" Association="ScottybonsEComModel.FK_ArticleSKU_ArticleColor">
+      <End Role="ArticleColor" EntitySet="ArticleColors" />
+      <End Role="ArticleSKU" EntitySet="ArticleSKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleSKU_Size" Association="ScottybonsEComModel.FK_ArticleSKU_Size">
+      <End Role="SizeMaster" EntitySet="SizeMasters" />
+      <End Role="ArticleSKU" EntitySet="ArticleSKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleSKU_StatusSKU" Association="ScottybonsEComModel.FK_ArticleSKU_StatusSKU">
+      <End Role="SKUStatusMaster" EntitySet="SKUStatusMasters" />
+      <End Role="ArticleSKU" EntitySet="ArticleSKUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ScottybonsEComModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ScottybonsEComModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SizeMaster_Category" Association="ScottybonsEComModel.FK_SizeMaster_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="SizeMaster" EntitySet="SizeMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_Category" Association="ScottybonsEComModel.FK_SubCategory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="SubCategory" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_ColorTypeMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_ColorTypeMaster">
+      <End Role="ColarTypeMaster" EntitySet="ColarTypeMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_ComfortMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_ComfortMaster">
+      <End Role="ComfortMaster" EntitySet="ComfortMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_FigureMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_FigureMaster">
+      <End Role="FigureMaster" EntitySet="FigureMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_FitMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_FitMaster">
+      <End Role="FitMaster" EntitySet="FitMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_FootWidthMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_FootWidthMaster">
+      <End Role="FootWidthMaster" EntitySet="FootWidthMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_MaterialMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_MaterialMaster">
+      <End Role="MaterialMaster" EntitySet="MaterialMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Stylist" Association="ScottybonsEComModel.FK_OrderItems_Stylist">
+      <End Role="Stylist" EntitySet="Stylists" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StylistToolTransaction_OrderStatusMaster" Association="ScottybonsEComModel.FK_StylistToolTransaction_OrderStatusMaster">
+      <End Role="OrderStatusMaster" EntitySet="OrderStatusMasters" />
+      <End Role="StylistToolTransaction" EntitySet="StylistToolTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_PantsLengthMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_PantsLengthMaster">
+      <End Role="PantsLengthMaster" EntitySet="PantsLengthMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_PantsModelMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_PantsModelMaster">
+      <End Role="PantsModelMaster" EntitySet="PantsModelMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_PantsWaistMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_PantsWaistMaster">
+      <End Role="PantsWaistMaster" EntitySet="PantsWaistMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_ShoeMaterialMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_ShoeMaterialMaster">
+      <End Role="ShoeMaterialMaster" EntitySet="ShoeMaterialMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SizeMaster_SubCategory" Association="ScottybonsEComModel.FK_SizeMaster_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategories" />
+      <End Role="SizeMaster" EntitySet="SizeMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_SkirtLengthMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_SkirtLengthMaster">
+      <End Role="SkirtLengthMaster" EntitySet="SkirtLengthMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_SkirtWidthMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_SkirtWidthMaster">
+      <End Role="SkirtWidthMaster" EntitySet="SkirtWidthMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_SleeveLengthMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_SleeveLengthMaster">
+      <End Role="SleeveLengthMaster" EntitySet="SleeveLengthMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StylistToolTransaction_Stylist" Association="ScottybonsEComModel.FK_StylistToolTransaction_Stylist">
+      <End Role="Stylist" EntitySet="Stylists" />
+      <End Role="StylistToolTransaction" EntitySet="StylistToolTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_SubCategory" Association="ScottybonsEComModel.FK_SubCategoryProperties_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategories" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_WaistFitMaster" Association="ScottybonsEComModel.FK_SubCategoryProperties_WaistFitMaster">
+      <End Role="WaistFitMaster" EntitySet="WaistFitMasters" />
+      <End Role="SubCategoryProperty" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="ScottybonsEComModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="StyleProfileAnswers" EntityType="ScottybonsEComModel.StyleProfileAnswer" />
+    <EntitySet Name="GiftCards" EntityType="ScottybonsEComModel.GiftCard" />
+    <EntitySet Name="GiftCardStatus" EntityType="ScottybonsEComModel.GiftCardStatu" />
+    <EntitySet Name="CustomerTypes" EntityType="ScottybonsEComModel.CustomerType" />
+    <EntitySet Name="GiftCardOrderByTypes" EntityType="ScottybonsEComModel.GiftCardOrderByType" />
+    <EntitySet Name="GiftCardRedemptions" EntityType="ScottybonsEComModel.GiftCardRedemption" />
+    <EntitySet Name="GIftCardsOrders" EntityType="ScottybonsEComModel.GIftCardsOrder" />
+    <EntitySet Name="GiftCardRedemptionStatus" EntityType="ScottybonsEComModel.GiftCardRedemptionStatu" />
+    <EntitySet Name="OrderPeriodicSubscriptionDetails" EntityType="ScottybonsEComModel.OrderPeriodicSubscriptionDetail" />
+    <EntitySet Name="PromoCodeOrders" EntityType="ScottybonsEComModel.PromoCodeOrder" />
+  </EntityContainer>
+  <EntityType Name="EmailContent">
+    <Key>
+      <PropertyRef Name="EmailContentID" />
+    </Key>
+    <Property Name="EmailContentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailContentLang" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="EmailType" Type="Int32" Nullable="false" />
+    <Property Name="EmailTypeDescription" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Intro" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BodyMiddle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Closing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EndNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailHTMLFormat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NewsletterMailList">
+    <Key>
+      <PropertyRef Name="NewsletterMailListID" />
+    </Key>
+    <Property Name="NewsletterMailListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SubscriptionConfirmed" Type="Boolean" />
+    <Property Name="AddedOn" Type="DateTime" Precision="3" />
+    <Property Name="SubscribedOn" Type="DateTime" Precision="3" />
+    <Property Name="UnsubscribedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="OrderItemReviewGeneralMaster">
+    <Key>
+      <PropertyRef Name="OrderItemReviewGeneralID" />
+    </Key>
+    <Property Name="OrderItemReviewGeneralID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderItemReviewGeneral" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="OrderItemReviewPriceMaster">
+    <Key>
+      <PropertyRef Name="OrderItemReviewPriceID" />
+    </Key>
+    <Property Name="OrderItemReviewPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderItemReviewPriceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderItems" Relationship="ScottybonsEComModel.FK_OrderItems_OrderItemReviewPriceMaster" FromRole="OrderItemReviewPriceMaster" ToRole="OrderItem" />
+  </EntityType>
+  <EntityType Name="OrderItemReviewSizeMaster">
+    <Key>
+      <PropertyRef Name="OrderItemReviewSizeID" />
+    </Key>
+    <Property Name="OrderItemReviewSizeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderItemReviewSizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderItems" Relationship="ScottybonsEComModel.FK_OrderItems_OrderItemReviewSizeMaster" FromRole="OrderItemReviewSizeMaster" ToRole="OrderItem" />
+  </EntityType>
+  <EntityType Name="OrderItemReviewStyleMaster">
+    <Key>
+      <PropertyRef Name="OrderItemReviewStyleID" />
+    </Key>
+    <Property Name="OrderItemReviewStyleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderItemReviewStyleName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderItems" Relationship="ScottybonsEComModel.FK_OrderItems_OrderItemReviewStyleMaster" FromRole="OrderItemReviewStyleMaster" ToRole="OrderItem" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="SKUID" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int16" Nullable="false" />
+    <Property Name="Discount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Fulfilled" Type="Boolean" Nullable="false" />
+    <Property Name="OrderItemStatusID" Type="Int32" Nullable="false" />
+    <Property Name="SalesTax" Type="Int32" Nullable="false" />
+    <Property Name="VAT" Type="Int32" Nullable="false" />
+    <Property Name="VAT1" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="StylistID" Type="Int32" />
+    <Property Name="OrderCommentStylist" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OrderStyleAdvice" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfArticles" Type="Int32" />
+    <Property Name="ReviewOverallInformation" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OrderItemReviewStyleID" Type="Int32" />
+    <Property Name="OrderItemReviewSizeID" Type="Int32" />
+    <Property Name="OrderItemReviewPriceID" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderItemReviewPriceMaster" Relationship="ScottybonsEComModel.FK_OrderItems_OrderItemReviewPriceMaster" FromRole="OrderItem" ToRole="OrderItemReviewPriceMaster" />
+    <NavigationProperty Name="OrderItemReviewSizeMaster" Relationship="ScottybonsEComModel.FK_OrderItems_OrderItemReviewSizeMaster" FromRole="OrderItem" ToRole="OrderItemReviewSizeMaster" />
+    <NavigationProperty Name="OrderItemReviewStyleMaster" Relationship="ScottybonsEComModel.FK_OrderItems_OrderItemReviewStyleMaster" FromRole="OrderItem" ToRole="OrderItemReviewStyleMaster" />
+    <NavigationProperty Name="OrderItemStatusMaster" Relationship="ScottybonsEComModel.FK_OrderItems_OrderItemStatusMaster" FromRole="OrderItem" ToRole="OrderItemStatusMaster" />
+    <NavigationProperty Name="Stylist" Relationship="ScottybonsEComModel.FK_OrderItems_Stylist" FromRole="OrderItem" ToRole="Stylist" />
+  </EntityType>
+  <EntityType Name="OrderItemStatusMaster">
+    <Key>
+      <PropertyRef Name="OrderItemStatusID" />
+    </Key>
+    <Property Name="OrderItemStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderItemStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderItems" Relationship="ScottybonsEComModel.FK_OrderItems_OrderItemStatusMaster" FromRole="OrderItemStatusMaster" ToRole="OrderItem" />
+  </EntityType>
+  <EntityType Name="OrderShipping">
+    <Key>
+      <PropertyRef Name="OrderShippingID" />
+    </Key>
+    <Property Name="OrderShippingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="ShipDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ShipperID" Type="Int32" Nullable="false" />
+    <Property Name="Freight" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Octroi" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ShippingNotes" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="ScottybonsEComModel.FK_OrderShipping_Customer" FromRole="OrderShipping" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="OrderStatusMaster">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderStatusName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Orders" Relationship="ScottybonsEComModel.FK_Orders_OrderStatusMaster" FromRole="OrderStatusMaster" ToRole="Order" />
+    <NavigationProperty Name="StylistToolTransactions" Relationship="ScottybonsEComModel.FK_StylistToolTransaction_OrderStatusMaster" FromRole="OrderStatusMaster" ToRole="StylistToolTransaction" />
+  </EntityType>
+  <Association Name="FK_OrderShipping_Customer">
+    <End Type="ScottybonsEComModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.OrderShipping" Role="OrderShipping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="OrderShipping">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_OrderItemReviewPriceMaster">
+    <End Type="ScottybonsEComModel.OrderItemReviewPriceMaster" Role="OrderItemReviewPriceMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemReviewPriceMaster">
+        <PropertyRef Name="OrderItemReviewPriceID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderItemReviewPriceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_OrderItemReviewSizeMaster">
+    <End Type="ScottybonsEComModel.OrderItemReviewSizeMaster" Role="OrderItemReviewSizeMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemReviewSizeMaster">
+        <PropertyRef Name="OrderItemReviewSizeID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderItemReviewSizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_OrderItemReviewStyleMaster">
+    <End Type="ScottybonsEComModel.OrderItemReviewStyleMaster" Role="OrderItemReviewStyleMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemReviewStyleMaster">
+        <PropertyRef Name="OrderItemReviewStyleID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderItemReviewStyleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_OrderItemStatusMaster">
+    <End Type="ScottybonsEComModel.OrderItemStatusMaster" Role="OrderItemStatusMaster" Multiplicity="1" />
+    <End Type="ScottybonsEComModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemStatusMaster">
+        <PropertyRef Name="OrderItemStatusID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderItemStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ForgotPassword">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ResetGuid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="ScottybonsEComModel.FK_ForgotPassword_Customer" FromRole="ForgotPassword" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_ForgotPassword_Customer">
+    <End Type="ScottybonsEComModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="ScottybonsEComModel.ForgotPassword" Role="ForgotPassword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="ForgotPassword">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OrderTransaction">
+    <Key>
+      <PropertyRef Name="OrderTransactionID" />
+    </Key>
+    <Property Name="OrderTransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="TransactStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ErrLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ErrMsg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Fulfilled" Type="Boolean" />
+    <Property Name="Remarks" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="ScottybonsEComModel.FK_OrderTransactions_Customer" FromRole="OrderTransaction" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="PaymentTypeMaster">
+    <Key>
+      <PropertyRef Name="PaymentTypeID" />
+    </Key>
+    <Property Name="PaymentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentTypeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Orders" Relationship="ScottybonsEComModel.FK_Orders_PaymentTypeMaster" FromRole="PaymentTypeMaster" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="PeriodicalScottyBoxMaster">
+    <Key>
+      <PropertyRef Name="PeriodicalScottyBoxID" />
+    </Key>
+    <Property Name="PeriodicalScottyBoxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PeriodicalScottyBox" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Orders" Relationship="ScottybonsEComModel.FK_Orders_PeriodicalScottyBoxMaster" FromRole="PeriodicalScottyBoxMaster" ToRole="Order" />
+    <Property Name="PerodicalMonths" Type="Int32" />
+    <Property Name="Language" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_OrderTransactions_Customer">
+    <End Type="ScottybonsEComModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.OrderTransaction" Role="OrderTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="OrderTransaction">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OccasionForScottyBoxMaster">
+    <Key>
+      <PropertyRef Name="OccasionForScottyBoxID" />
+    </Key>
+    <Property Name="OccasionForScottyBoxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OccasionForScottyBoxName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Orders" Relationship="ScottybonsEComModel.FK_Orders_OccasionForScottyBoxMaster" FromRole="OccasionForScottyBoxMaster" ToRole="Order" />
+    <Property Name="Language" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PasswordLog">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OldPassword" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SaltKey" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="ScottybonsEComModel.FK_PasswordLog_Customer" FromRole="PasswordLog" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_PasswordLog_Customer">
+    <End Type="ScottybonsEComModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="ScottybonsEComModel.PasswordLog" Role="PasswordLog" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="PasswordLog">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="OrderOccasion" Type="Int32" />
+    <Property Name="OccasionComments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="WishList" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RequiredDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+    <Property Name="AgreeGeneralConditions" Type="Boolean" />
+    <Property Name="OrderStreet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderHouseNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OrderPostalCode" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OrderTown" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OrderCountryID" Type="Int32" />
+    <Property Name="OrderComments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DeliverNeighbours" Type="Boolean" />
+    <Property Name="OrderStatusID" Type="Int32" />
+    <Property Name="PaymentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsStylistContactYou" Type="Boolean" />
+    <Property Name="ContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="OrderCommentStylist" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderStyleAdvice" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfArticles" Type="Int32" Nullable="false" />
+    <Property Name="ReviewOverall" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PeriodicalScottyBoxID" Type="Int32" Nullable="false" />
+    <Property Name="NextPerodicalScottyBoxDate" Type="DateTime" Precision="3" />
+    <Property Name="ParentOrderID" Type="Int32" />
+    <NavigationProperty Name="CountryMaster" Relationship="ScottybonsEComModel.FK_Orders_OrderCountry" FromRole="Order" ToRole="CountryMaster" />
+    <NavigationProperty Name="Customer" Relationship="ScottybonsEComModel.FK_Orders_Customer" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="OccasionForScottyBoxMaster" Relationship="ScottybonsEComModel.FK_Orders_OccasionForScottyBoxMaster" FromRole="Order" ToRole="OccasionForScottyBoxMaster" />
+    <NavigationProperty Name="OrderStatusMaster" Relationship="ScottybonsEComModel.FK_Orders_OrderStatusMaster" FromRole="Order" ToRole="OrderStatusMaster" />
+    <NavigationProperty Name="PaymentTypeMaster" Relationship="ScottybonsEComModel.FK_Orders_PaymentTypeMaster" FromRole="Order" ToRole="PaymentTypeMaster" />
+    <NavigationProperty Name="PeriodicalScottyBoxMaster" Relationship="ScottybonsEComModel.FK_Orders_PeriodicalScottyBoxMaster" FromRole="Order" ToRole="PeriodicalScottyBoxMaster" />
+    <Property Name="PermissionToCollectFutureInvoices" Type="Boolean" />
+    <Property Name="OrderComanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PromoCodeOrderId" Type="Int32" />
+    <Property Name="PromoCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Orders_OrderCountry">
+    <End Type="ScottybonsEComModel.CountryMaster" Role="CountryMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryMaster">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderCountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customer">
+    <End Type="ScottybonsEComModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_OccasionForScottyBoxMaster">
+    <End Type="ScottybonsEComModel.OccasionForScottyBoxMaster" Role="OccasionForScottyBoxMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OccasionForScottyBoxMaster">
+        <PropertyRef Name="OccasionForScottyBoxID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderOccasion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_OrderStatusMaster">
+    <End Type="ScottybonsEComModel.OrderStatusMaster" Role="OrderStatusMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatusMaster">
+        <PropertyRef Name="OrderStatusID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_PaymentTypeMaster">
+    <End Type="ScottybonsEComModel.PaymentTypeMaster" Role="PaymentTypeMaster" Multiplicity="1" />
+    <End Type="ScottybonsEComModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentTypeMaster">
+        <PropertyRef Name="PaymentTypeID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PaymentMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_PeriodicalScottyBoxMaster">
+    <End Type="ScottybonsEComModel.PeriodicalScottyBoxMaster" Role="PeriodicalScottyBoxMaster" Multiplicity="1" />
+    <End Type="ScottybonsEComModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PeriodicalScottyBoxMaster">
+        <PropertyRef Name="PeriodicalScottyBoxID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PeriodicalScottyBoxID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="ModifiedUserID" />
+    </Key>
+    <Property Name="ModifiedUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModifiedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RecordId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OldValue" Type="DateTime" Precision="3" />
+    <Property Name="NewValue" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="StyleProfileQuestion">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnswerControlID" Type="Int32" />
+    <Property Name="QuestionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isRequired" Type="Boolean" />
+    <Property Name="ValidationMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsImageTobeShown" Type="Boolean" />
+    <Property Name="isDependent" Type="Boolean" />
+    <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Int16" />
+    <Property Name="Language" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="QuestionNumber" Type="Int32" />
+    <Property Name="AdminDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AnswerTypeofControl">
+    <Key>
+      <PropertyRef Name="ControlID" />
+    </Key>
+    <Property Name="ControlID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ControlName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OrderIcePayTransaction">
+    <Key>
+      <PropertyRef Name="OrderTransactionID" />
+    </Key>
+    <Property Name="OrderTransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentID" Type="Int32" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Currency" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Duration" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerAccountNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerHouseNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerCity" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerCountry" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerPhoneNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerIPAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Issuer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderTime" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentTime" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Reference" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="StatusCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TestMode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="OrderListInfo">
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="CreatedOn" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="OrderOccasion" Nullable="true" />
+    <Property Type="String" Name="OccasionForScottyBoxName" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="OrderStreet" Nullable="true" />
+    <Property Type="String" Name="OrderHouseNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OrderPostalCode" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OrderTown" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="OrderCountryID" Nullable="true" />
+    <Property Type="String" Name="CountryName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="CollectFutureInvoices" Nullable="false" MaxLength="3" />
+    <Property Type="Boolean" Name="PermissionToCollectFutureInvoices" Nullable="true" />
+    <Property Type="Boolean" Name="DeliverNeighbours" Nullable="true" />
+    <Property Type="String" Name="PermissionToDeliverAtNeighbours" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="15" />
+    <Property Type="Boolean" Name="IsStylistContactYou" Nullable="true" />
+    <Property Type="String" Name="PermissionToCall" Nullable="false" MaxLength="3" />
+    <Property Type="DateTime" Name="NextPerodicalScottyBoxDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="PeriodicalScottyBoxID" Nullable="false" />
+    <Property Type="String" Name="PeriodicalScottyBox" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="PerodicalMonths" Nullable="true" />
+    <Property Type="String" Name="OrderStatusName" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="OrderDetailsInfo">
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="CreatedOn" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="OrderOccasion" Nullable="true" />
+    <Property Type="String" Name="OccasionForScottyBoxName" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="OrderStreet" Nullable="true" />
+    <Property Type="String" Name="OrderHouseNumber" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OrderPostalCode" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OrderTown" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="OrderCountryID" Nullable="true" />
+    <Property Type="String" Name="CountryName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="CollectFutureInvoices" Nullable="false" MaxLength="3" />
+    <Property Type="Boolean" Name="PermissionToCollectFutureInvoices" Nullable="true" />
+    <Property Type="Boolean" Name="DeliverNeighbours" Nullable="true" />
+    <Property Type="String" Name="PermissionToDeliverAtNeighbours" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="15" />
+    <Property Type="Boolean" Name="IsStylistContactYou" Nullable="true" />
+    <Property Type="String" Name="PermissionToCall" Nullable="false" MaxLength="3" />
+    <Property Type="DateTime" Name="NextPerodicalScottyBoxDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="PeriodicalScottyBoxID" Nullable="false" />
+    <Property Type="String" Name="PeriodicalScottyBox" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="PerodicalMonths" Nullable="true" />
+    <Property Type="String" Name="OrderStatusName" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="CustomerAnswer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="QuestionId" Type="Int32" />
+    <Property Name="AnswerId" Type="Int32" />
+    <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionControlId" Type="Int32" />
+    <Property Name="CustomerImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="QuestionNumber" Type="Int32" />
+    <Property Name="ANSWERNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OtherAnswer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleID" />
+    </Key>
+    <Property Name="ArticleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="GenerID" Type="Int32" />
+    <Property Name="SubCategoryID" Type="Int32" />
+    <Property Name="SubCategoryPropertyID" Type="Int32" />
+    <Property Name="BrandID" Type="Int32" />
+    <Property Name="ArticleName" Type="Int32" Nullable="false" />
+    <Property Name="ArticleDescription" Type="Int32" Nullable="false" />
+    <Property Name="SizeConsistencey" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Brand" Relationship="ScottybonsEComModel.FK_Article_Brand" FromRole="Article" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="ScottybonsEComModel.FK_Article_Category" FromRole="Article" ToRole="Category" />
+    <NavigationProperty Name="GenderMaster" Relationship="ScottybonsEComModel.FK_Article_GenerMaster" FromRole="Article" ToRole="GenderMaster" />
+    <NavigationProperty Name="SubCategory" Relationship="ScottybonsEComModel.FK_Article_SubCategory" FromRole="Article" ToRole="SubCategory" />
+    <NavigationProperty Name="SubCategoryProperty" Relationship="ScottybonsEComModel.FK_Article_SubCategoryProperty" FromRole="Article" ToRole="SubCategoryProperty" />
+    <NavigationProperty Name="Supplier" Relationship="ScottybonsEComModel.FK_Article_Suppliery" FromRole="Article" ToRole="Supplier" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_Article" FromRole="Article" ToRole="ArticleColor" />
+    <NavigationProperty Name="ArticleSKUs" Relationship="ScottybonsEComModel.FK_ArticleSKU_Article" FromRole="Article" ToRole="ArticleSKU" />
+  </EntityType>
+  <EntityType Name="ArticleColor">
+    <Key>
+      <PropertyRef Name="ArticleColorID" />
+    </Key>
+    <Property Name="ArticleColorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArticleID" Type="Int32" />
+    <Property Name="ColorSubCategoryID" Type="Int32" />
+    <Property Name="ColorpalletID" Type="Int32" />
+    <Property Name="WearMomentID" Type="Int32" />
+    <Property Name="MoodID" Type="Int32" />
+    <Property Name="StyleID" Type="Int32" />
+    <Property Name="ExtravaganceID" Type="Int32" />
+    <Property Name="SexynessID" Type="Int32" />
+    <Property Name="GenderID" Type="Int32" />
+    <Property Name="SeasonID" Type="Int32" />
+    <Property Name="ArticleColorDescription" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Article" Relationship="ScottybonsEComModel.FK_ArticleColor_Article" FromRole="ArticleColor" ToRole="Article" />
+    <NavigationProperty Name="ColorPalletMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_ColorpalletMaster" FromRole="ArticleColor" ToRole="ColorPalletMaster" />
+    <NavigationProperty Name="ColorSubCategoryMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_ColorSubCategory" FromRole="ArticleColor" ToRole="ColorSubCategoryMaster" />
+    <NavigationProperty Name="ExtravaganceMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_ExtravaganceMaster" FromRole="ArticleColor" ToRole="ExtravaganceMaster" />
+    <NavigationProperty Name="GenderMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_GendereMaster" FromRole="ArticleColor" ToRole="GenderMaster" />
+    <NavigationProperty Name="MoodMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_MoodMaster" FromRole="ArticleColor" ToRole="MoodMaster" />
+    <NavigationProperty Name="SeasonMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_SeasonMaster" FromRole="ArticleColor" ToRole="SeasonMaster" />
+    <NavigationProperty Name="SexynessMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_SexynessMaster" FromRole="ArticleColor" ToRole="SexynessMaster" />
+    <NavigationProperty Name="StyleMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_StyleMaster" FromRole="ArticleColor" ToRole="StyleMaster" />
+    <NavigationProperty Name="WearMomentMaster" Relationship="ScottybonsEComModel.FK_ArticleColor_WearMomentMaster" FromRole="ArticleColor" ToRole="WearMomentMaster" />
+    <NavigationProperty Name="ArticlePhotos" Relationship="ScottybonsEComModel.FK_ArticlePhotos_ArticleColor" FromRole="ArticleColor" ToRole="ArticlePhoto" />
+    <NavigationProperty Name="ArticleSKUs" Relationship="ScottybonsEComModel.FK_ArticleSKU_ArticleColor" FromRole="ArticleColor" ToRole="ArticleSKU" />
+  </EntityType>
+  <EntityType Name="ArticlePhoto">
+    <Key>
+      <PropertyRef Name="ArticlePhotoID" />
+    </Key>
+    <Property Name="ArticlePhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArticleColorID" Type="Int32" />
+    <Property Name="Photo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColor" Relationship="ScottybonsEComModel.FK_ArticlePhotos_ArticleColor" FromRole="ArticlePhoto" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="ArticleSKU">
+    <Key>
+      <PropertyRef Name="ArticleSKUID" />
+    </Key>
+    <Property Name="ArticleSKUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArticleID" Type="Int32" />
+    <Property Name="ArticleColorID" Type="Int32" />
+    <Property Name="SizeID" Type="Int32" />
+    <Property Name="CostPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Margin" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CurrentRRP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="OriginalRRP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Stock" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="NumberReceived" Type="Int32" Nullable="false" />
+    <Property Name="NumberCustSent" Type="Int32" Nullable="false" />
+    <Property Name="NumberCustReturns" Type="Int32" Nullable="false" />
+    <Property Name="NumberReturned" Type="Int32" Nullable="false" />
+    <Property Name="NumberPaid" Type="Int32" Nullable="false" />
+    <Property Name="StatusSKUID" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Article" Relationship="ScottybonsEComModel.FK_ArticleSKU_Article" FromRole="ArticleSKU" ToRole="Article" />
+    <NavigationProperty Name="ArticleColor" Relationship="ScottybonsEComModel.FK_ArticleSKU_ArticleColor" FromRole="ArticleSKU" ToRole="ArticleColor" />
+    <NavigationProperty Name="SizeMaster" Relationship="ScottybonsEComModel.FK_ArticleSKU_Size" FromRole="ArticleSKU" ToRole="SizeMaster" />
+    <NavigationProperty Name="SKUStatusMaster" Relationship="ScottybonsEComModel.FK_ArticleSKU_StatusSKU" FromRole="ArticleSKU" ToRole="SKUStatusMaster" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ScottybonsEComModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="ScottybonsEComModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="ScottybonsEComModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="ScottybonsEComModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="ScottybonsEComModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetRoles" Relationship="ScottybonsEComModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="BrandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Articles" Relationship="ScottybonsEComModel.FK_Article_Brand" FromRole="Brand" ToRole="Article" />
+  </EntityType>
+  <EntityType Name="BudgetMaster">
+    <Key>
+      <PropertyRef Name="BudgetID" />
+    </Key>
+    <Property Name="BudgetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BudgetName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="BudgetOptionMaster">
+    <Key>
+      <PropertyRef Name="BudgetOptionID" />
+    </Key>
+    <Property Name="BudgetOptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BudgetOptionName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Articles" Relationship="ScottybonsEComModel.FK_Article_Category" FromRole="Category" ToRole="Article" />
+    <NavigationProperty Name="SizeMasters" Relationship="ScottybonsEComModel.FK_SizeMaster_Category" FromRole="Category" ToRole="SizeMaster" />
+    <NavigationProperty Name="SubCategories" Relationship="ScottybonsEComModel.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="ColarTypeMaster">
+    <Key>
+      <PropertyRef Name="ColarTypeID" />
+    </Key>
+    <Property Name="ColarTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColarTypeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_ColorTypeMaster" FromRole="ColarTypeMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="ColorCategoryMaster">
+    <Key>
+      <PropertyRef Name="ColorCategoryID" />
+    </Key>
+    <Property Name="ColorCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColorCategoryName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ColorPalletMaster">
+    <Key>
+      <PropertyRef Name="ColorPalletID" />
+    </Key>
+    <Property Name="ColorPalletID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColorPalletName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_ColorpalletMaster" FromRole="ColorPalletMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="ColorSubCategoryMaster">
+    <Key>
+      <PropertyRef Name="ColorSubCategoryID" />
+    </Key>
+    <Property Name="ColorSubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColorCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ColorSubCategoryName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_ColorSubCategory" FromRole="ColorSubCategoryMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="ComfortMaster">
+    <Key>
+      <PropertyRef Name="ComfortID" />
+    </Key>
+    <Property Name="ComfortID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComfortName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_ComfortMaster" FromRole="ComfortMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="CustomerTypeForm">
+    <Key>
+      <PropertyRef Name="CustomerTypeID" />
+    </Key>
+    <Property Name="CustomerTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CFirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CLastName" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CEmailAddress" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyleBohemian" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle3" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle4" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle5" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle6" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle7" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle8" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle9" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreStyle10" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScorePants" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CommentScorepants" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ScoreExperiment" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Sector" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CommentSector" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Function" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Transportation" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionWorkDresscode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="PerceivedAge" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CBirthdate" Type="DateTime" Precision="3" />
+    <Property Name="FreqBusiness" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OrderOccasion" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CommentOrderOccasion" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorPreference" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HairColor" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EyeColor" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="SkinColor" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Photograph" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyBlack" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyBrown" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyGreen" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyYellow" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyOrange" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyRed" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyWhite" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyPurple" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyPink" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyGray" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyOther" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ColorAntipathyNone" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathyWool" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathyPolyester" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathySilk" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathyViscose" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathyAcryl" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathyNylon" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathyCotton" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathyLinnen" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialAntipathyOther" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Length" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="BodyShape" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccentArms" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccentLegs" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccentBum" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccentWaist" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccentHoulders" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccentDecollet" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccentBoosom" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccentNone" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageUpperarms" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageShoulders" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageNeck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageBreasts" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageDecollete" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageBelly" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageUpperlegs" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageLowerlegs" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageBum" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CamouflageAnkles" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="SizeTop" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CommentSizeTop" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="SizeCup" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CommentSizeCup" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="FitTop" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="SizePants" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CommentSizePants" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="FitPants" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HighWaistJeans" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AverageWaistJeans" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="LowWaistJeans" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="SizeShoes" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="NoHeel" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="LowHeel" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AverageHeel" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HighHeel" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="BudgetBottom" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="BudgetPumps" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="BudgetSneakers" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="BudgetBag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="BudgetOutfit" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="BudgetMonth" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ArticleNOTTops" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ArticleNOTPants" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ArticleNOTSkirt" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ArticleNOTDresses" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ArticleNOTBlazers" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ArticleNOTAccesories" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ArticleNOTShoes" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ArticleNOTOther" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Wishlist" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CStreet" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CNumber" Type="Int32" />
+    <Property Name="CPostalcode" Type="Int32" />
+    <Property Name="CTown" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="PermissionToCall" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CPhoneNumber1" Type="Int32" />
+    <Property Name="DateStarted" Type="DateTime" Precision="3" />
+    <Property Name="DateJoined" Type="DateTime" Precision="3" />
+    <Property Name="NetworkID" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ExtravaganceMaster">
+    <Key>
+      <PropertyRef Name="ExtravaganceID" />
+    </Key>
+    <Property Name="ExtravaganceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExtravaganceName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_ExtravaganceMaster" FromRole="ExtravaganceMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="FigureMaster">
+    <Key>
+      <PropertyRef Name="FigureID" />
+    </Key>
+    <Property Name="FigureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FigureName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_FigureMaster" FromRole="FigureMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="FitMaster">
+    <Key>
+      <PropertyRef Name="FitID" />
+    </Key>
+    <Property Name="FitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FitName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_FitMaster" FromRole="FitMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="FootWidthMaster">
+    <Key>
+      <PropertyRef Name="FootWidthID" />
+    </Key>
+    <Property Name="FootWidthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FootWidthName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_FootWidthMaster" FromRole="FootWidthMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="GenderMaster">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GenderName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Articles" Relationship="ScottybonsEComModel.FK_Article_GenerMaster" FromRole="GenderMaster" ToRole="Article" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_GendereMaster" FromRole="GenderMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="HeelHeightMaster">
+    <Key>
+      <PropertyRef Name="HeelHeightID" />
+    </Key>
+    <Property Name="HeelHeightID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HeelHeightName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Language1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LanguageAbbre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MaterialMaster">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+    </Key>
+    <Property Name="MaterialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_MaterialMaster" FromRole="MaterialMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="MoodMaster">
+    <Key>
+      <PropertyRef Name="MoodID" />
+    </Key>
+    <Property Name="MoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MoodName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_MoodMaster" FromRole="MoodMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="PantsLengthMaster">
+    <Key>
+      <PropertyRef Name="PantsLengthID" />
+    </Key>
+    <Property Name="PantsLengthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PantsLengthName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_PantsLengthMaster" FromRole="PantsLengthMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="PantsModelMaster">
+    <Key>
+      <PropertyRef Name="PantsModelID" />
+    </Key>
+    <Property Name="PantsModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PantsModelName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_PantsModelMaster" FromRole="PantsModelMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="PantsWaistMaster">
+    <Key>
+      <PropertyRef Name="PantsWaistID" />
+    </Key>
+    <Property Name="PantsWaistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PantsWaistName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_PantsWaistMaster" FromRole="PantsWaistMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="SeasonMaster">
+    <Key>
+      <PropertyRef Name="SeasonID" />
+    </Key>
+    <Property Name="SeasonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SeasonName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_SeasonMaster" FromRole="SeasonMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="SexynessMaster">
+    <Key>
+      <PropertyRef Name="SexynessID" />
+    </Key>
+    <Property Name="SexynessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SexynessName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_SexynessMaster" FromRole="SexynessMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="ShoeMaterialMaster">
+    <Key>
+      <PropertyRef Name="ShoeMaterialID" />
+    </Key>
+    <Property Name="ShoeMaterialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShoeMaterialName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_ShoeMaterialMaster" FromRole="ShoeMaterialMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="SizeConsistencyMaster">
+    <Key>
+      <PropertyRef Name="SizeConsistencyID" />
+    </Key>
+    <Property Name="SizeConsistencyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SizeConsistencyName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SizeMaster">
+    <Key>
+      <PropertyRef Name="SizeID" />
+    </Key>
+    <Property Name="SizeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="SubCategoryID" Type="Int32" />
+    <Property Name="Size" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AdditionalSize" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleSKUs" Relationship="ScottybonsEComModel.FK_ArticleSKU_Size" FromRole="SizeMaster" ToRole="ArticleSKU" />
+    <NavigationProperty Name="Category" Relationship="ScottybonsEComModel.FK_SizeMaster_Category" FromRole="SizeMaster" ToRole="Category" />
+    <NavigationProperty Name="SubCategory" Relationship="ScottybonsEComModel.FK_SizeMaster_SubCategory" FromRole="SizeMaster" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="SkirtLengthMaster">
+    <Key>
+      <PropertyRef Name="SkirtLengthID" />
+    </Key>
+    <Property Name="SkirtLengthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SkirtLengthName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_SkirtLengthMaster" FromRole="SkirtLengthMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="SkirtWidthMaster">
+    <Key>
+      <PropertyRef Name="SkirtWidthID" />
+    </Key>
+    <Property Name="SkirtWidthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SkirtWidthName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_SkirtWidthMaster" FromRole="SkirtWidthMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="SKUStatusMaster">
+    <Key>
+      <PropertyRef Name="SKUStatusID" />
+    </Key>
+    <Property Name="SKUStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SKUStatusName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleSKUs" Relationship="ScottybonsEComModel.FK_ArticleSKU_StatusSKU" FromRole="SKUStatusMaster" ToRole="ArticleSKU" />
+  </EntityType>
+  <EntityType Name="SleeveLengthMaster">
+    <Key>
+      <PropertyRef Name="SleeveLengthID" />
+    </Key>
+    <Property Name="SleeveLengthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SleeveLengthName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_SleeveLengthMaster" FromRole="SleeveLengthMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="StyleMaster">
+    <Key>
+      <PropertyRef Name="StyleID" />
+    </Key>
+    <Property Name="StyleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StyleName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_StyleMaster" FromRole="StyleMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <EntityType Name="Stylist">
+    <Key>
+      <PropertyRef Name="StylistID" />
+    </Key>
+    <Property Name="StylistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PrePosition" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FAX" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderItems" Relationship="ScottybonsEComModel.FK_OrderItems_Stylist" FromRole="Stylist" ToRole="OrderItem" />
+    <NavigationProperty Name="StylistToolTransactions" Relationship="ScottybonsEComModel.FK_StylistToolTransaction_Stylist" FromRole="Stylist" ToRole="StylistToolTransaction" />
+  </EntityType>
+  <EntityType Name="StylistToolTransaction">
+    <Key>
+      <PropertyRef Name="StylistToolTransactionID" />
+    </Key>
+    <Property Name="StylistToolTransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleRecordID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionMode" Type="Int32" Nullable="false" />
+    <Property Name="StylistID" Type="Int32" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="OrderStatusID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderStatusMaster" Relationship="ScottybonsEComModel.FK_StylistToolTransaction_OrderStatusMaster" FromRole="StylistToolTransaction" ToRole="OrderStatusMaster" />
+    <NavigationProperty Name="Stylist" Relationship="ScottybonsEComModel.FK_StylistToolTransaction_Stylist" FromRole="StylistToolTransaction" ToRole="Stylist" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Articles" Relationship="ScottybonsEComModel.FK_Article_SubCategory" FromRole="SubCategory" ToRole="Article" />
+    <NavigationProperty Name="Category" Relationship="ScottybonsEComModel.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
+    <NavigationProperty Name="SizeMasters" Relationship="ScottybonsEComModel.FK_SizeMaster_SubCategory" FromRole="SubCategory" ToRole="SizeMaster" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_SubCategory" FromRole="SubCategory" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="SubCategoryProperty">
+    <Key>
+      <PropertyRef Name="SubCategoryPropertyID" />
+    </Key>
+    <Property Name="SubCategoryPropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryName" Type="Int32" Nullable="false" />
+    <Property Name="SubCategoryID" Type="Int32" />
+    <Property Name="MaterialID" Type="Int32" />
+    <Property Name="FitID" Type="Int32" />
+    <Property Name="ComfortID" Type="Int32" />
+    <Property Name="FigureID" Type="Int32" />
+    <Property Name="PantsWaistID" Type="Int32" />
+    <Property Name="PantsModelID" Type="Int32" />
+    <Property Name="PantsLengthID" Type="Int32" />
+    <Property Name="SkirtWidthID" Type="Int32" />
+    <Property Name="SkirtLengthID" Type="Int32" />
+    <Property Name="SleeveLengthID" Type="Int32" />
+    <Property Name="WaistFitID" Type="Int32" />
+    <Property Name="ColarTypeID" Type="Int32" />
+    <Property Name="FootWidthID" Type="Int32" />
+    <Property Name="ShoeMaterialID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Articles" Relationship="ScottybonsEComModel.FK_Article_SubCategoryProperty" FromRole="SubCategoryProperty" ToRole="Article" />
+    <NavigationProperty Name="ColarTypeMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_ColorTypeMaster" FromRole="SubCategoryProperty" ToRole="ColarTypeMaster" />
+    <NavigationProperty Name="ComfortMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_ComfortMaster" FromRole="SubCategoryProperty" ToRole="ComfortMaster" />
+    <NavigationProperty Name="FigureMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_FigureMaster" FromRole="SubCategoryProperty" ToRole="FigureMaster" />
+    <NavigationProperty Name="FitMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_FitMaster" FromRole="SubCategoryProperty" ToRole="FitMaster" />
+    <NavigationProperty Name="FootWidthMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_FootWidthMaster" FromRole="SubCategoryProperty" ToRole="FootWidthMaster" />
+    <NavigationProperty Name="MaterialMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_MaterialMaster" FromRole="SubCategoryProperty" ToRole="MaterialMaster" />
+    <NavigationProperty Name="PantsLengthMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_PantsLengthMaster" FromRole="SubCategoryProperty" ToRole="PantsLengthMaster" />
+    <NavigationProperty Name="PantsModelMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_PantsModelMaster" FromRole="SubCategoryProperty" ToRole="PantsModelMaster" />
+    <NavigationProperty Name="PantsWaistMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_PantsWaistMaster" FromRole="SubCategoryProperty" ToRole="PantsWaistMaster" />
+    <NavigationProperty Name="ShoeMaterialMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_ShoeMaterialMaster" FromRole="SubCategoryProperty" ToRole="ShoeMaterialMaster" />
+    <NavigationProperty Name="SkirtLengthMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_SkirtLengthMaster" FromRole="SubCategoryProperty" ToRole="SkirtLengthMaster" />
+    <NavigationProperty Name="SkirtWidthMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_SkirtWidthMaster" FromRole="SubCategoryProperty" ToRole="SkirtWidthMaster" />
+    <NavigationProperty Name="SleeveLengthMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_SleeveLengthMaster" FromRole="SubCategoryProperty" ToRole="SleeveLengthMaster" />
+    <NavigationProperty Name="SubCategory" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_SubCategory" FromRole="SubCategoryProperty" ToRole="SubCategory" />
+    <NavigationProperty Name="WaistFitMaster" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_WaistFitMaster" FromRole="SubCategoryProperty" ToRole="WaistFitMaster" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PortalURL" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PortalUserName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PortalPassword" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RecordNames" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMethods" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MarkUp" Type="Int32" Nullable="false" />
+    <Property Name="PaymentTerm" Type="Int32" Nullable="false" />
+    <Property Name="ReturnRight" Type="Boolean" Nullable="false" />
+    <Property Name="CostPerOrder" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CostPerReturn" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Credit" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Other" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="ScottybonsCustomerID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Articles" Relationship="ScottybonsEComModel.FK_Article_Suppliery" FromRole="Supplier" ToRole="Article" />
+  </EntityType>
+  <EntityType Name="SupplierContact">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierContactTypeID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierContactTypeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CPEmailAddress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CPFirstName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CPLastName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CPPreposition" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CPFunction" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CPStreet" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CPHouseNumber" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CPPostalCode" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CPTown" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CPCountry" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CPLanguage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CPPhoneNumber1" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CPPhoneNumber2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SupplierContactTypeMaster">
+    <Key>
+      <PropertyRef Name="SupplierContactTypeID" />
+    </Key>
+    <Property Name="SupplierContactTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierContactTypeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="WaistFitMaster">
+    <Key>
+      <PropertyRef Name="WaistFitID" />
+    </Key>
+    <Property Name="WaistFitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WaistFitName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubCategoryProperties" Relationship="ScottybonsEComModel.FK_SubCategoryProperties_WaistFitMaster" FromRole="WaistFitMaster" ToRole="SubCategoryProperty" />
+  </EntityType>
+  <EntityType Name="WearMomentMaster">
+    <Key>
+      <PropertyRef Name="WearMomentID" />
+    </Key>
+    <Property Name="WearMomentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WearMomentName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ArticleColors" Relationship="ScottybonsEComModel.FK_ArticleColor_WearMomentMaster" FromRole="WearMomentMaster" ToRole="ArticleColor" />
+  </EntityType>
+  <Association Name="FK_Article_Brand">
+    <End Type="ScottybonsEComModel.Brand" Role="Brand" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_Category">
+    <End Type="ScottybonsEComModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_GenerMaster">
+    <End Type="ScottybonsEComModel.GenderMaster" Role="GenderMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderMaster">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="GenerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_SubCategory">
+    <End Type="ScottybonsEComModel.SubCategory" Role="SubCategory" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_SubCategoryProperty">
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategoryProperty">
+        <PropertyRef Name="SubCategoryPropertyID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="SubCategoryPropertyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_Suppliery">
+    <End Type="ScottybonsEComModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_Article">
+    <End Type="ScottybonsEComModel.Article" Role="Article" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="ArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleSKU_Article">
+    <End Type="ScottybonsEComModel.Article" Role="Article" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleSKU" Role="ArticleSKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleID" />
+      </Principal>
+      <Dependent Role="ArticleSKU">
+        <PropertyRef Name="ArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_ColorpalletMaster">
+    <End Type="ScottybonsEComModel.ColorPalletMaster" Role="ColorPalletMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColorPalletMaster">
+        <PropertyRef Name="ColorPalletID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="ColorpalletID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_ColorSubCategory">
+    <End Type="ScottybonsEComModel.ColorSubCategoryMaster" Role="ColorSubCategoryMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColorSubCategoryMaster">
+        <PropertyRef Name="ColorSubCategoryID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="ColorSubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_ExtravaganceMaster">
+    <End Type="ScottybonsEComModel.ExtravaganceMaster" Role="ExtravaganceMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExtravaganceMaster">
+        <PropertyRef Name="ExtravaganceID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="ExtravaganceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_GendereMaster">
+    <End Type="ScottybonsEComModel.GenderMaster" Role="GenderMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderMaster">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_MoodMaster">
+    <End Type="ScottybonsEComModel.MoodMaster" Role="MoodMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MoodMaster">
+        <PropertyRef Name="MoodID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="MoodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_SeasonMaster">
+    <End Type="ScottybonsEComModel.SeasonMaster" Role="SeasonMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SeasonMaster">
+        <PropertyRef Name="SeasonID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="SeasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_SexynessMaster">
+    <End Type="ScottybonsEComModel.SexynessMaster" Role="SexynessMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SexynessMaster">
+        <PropertyRef Name="SexynessID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="SexynessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_StyleMaster">
+    <End Type="ScottybonsEComModel.StyleMaster" Role="StyleMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StyleMaster">
+        <PropertyRef Name="StyleID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="StyleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_WearMomentMaster">
+    <End Type="ScottybonsEComModel.WearMomentMaster" Role="WearMomentMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WearMomentMaster">
+        <PropertyRef Name="WearMomentID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="WearMomentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticlePhotos_ArticleColor">
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticlePhoto" Role="ArticlePhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArticleColor">
+        <PropertyRef Name="ArticleColorID" />
+      </Principal>
+      <Dependent Role="ArticlePhoto">
+        <PropertyRef Name="ArticleColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleSKU_ArticleColor">
+    <End Type="ScottybonsEComModel.ArticleColor" Role="ArticleColor" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleSKU" Role="ArticleSKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArticleColor">
+        <PropertyRef Name="ArticleColorID" />
+      </Principal>
+      <Dependent Role="ArticleSKU">
+        <PropertyRef Name="ArticleColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleSKU_Size">
+    <End Type="ScottybonsEComModel.SizeMaster" Role="SizeMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleSKU" Role="ArticleSKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SizeMaster">
+        <PropertyRef Name="SizeID" />
+      </Principal>
+      <Dependent Role="ArticleSKU">
+        <PropertyRef Name="SizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleSKU_StatusSKU">
+    <End Type="ScottybonsEComModel.SKUStatusMaster" Role="SKUStatusMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.ArticleSKU" Role="ArticleSKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SKUStatusMaster">
+        <PropertyRef Name="SKUStatusID" />
+      </Principal>
+      <Dependent Role="ArticleSKU">
+        <PropertyRef Name="StatusSKUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="ScottybonsEComModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ScottybonsEComModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="ScottybonsEComModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ScottybonsEComModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SizeMaster_Category">
+    <End Type="ScottybonsEComModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SizeMaster" Role="SizeMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SizeMaster">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategory_Category">
+    <End Type="ScottybonsEComModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategory" Role="SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_ColorTypeMaster">
+    <End Type="ScottybonsEComModel.ColarTypeMaster" Role="ColarTypeMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColarTypeMaster">
+        <PropertyRef Name="ColarTypeID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="ColarTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_ComfortMaster">
+    <End Type="ScottybonsEComModel.ComfortMaster" Role="ComfortMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComfortMaster">
+        <PropertyRef Name="ComfortID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="ComfortID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_FigureMaster">
+    <End Type="ScottybonsEComModel.FigureMaster" Role="FigureMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FigureMaster">
+        <PropertyRef Name="FigureID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="FigureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_FitMaster">
+    <End Type="ScottybonsEComModel.FitMaster" Role="FitMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FitMaster">
+        <PropertyRef Name="FitID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="FitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_FootWidthMaster">
+    <End Type="ScottybonsEComModel.FootWidthMaster" Role="FootWidthMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FootWidthMaster">
+        <PropertyRef Name="FootWidthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="FootWidthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_MaterialMaster">
+    <End Type="ScottybonsEComModel.MaterialMaster" Role="MaterialMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialMaster">
+        <PropertyRef Name="MaterialID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="MaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_Stylist">
+    <End Type="ScottybonsEComModel.Stylist" Role="Stylist" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stylist">
+        <PropertyRef Name="StylistID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="StylistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StylistToolTransaction_OrderStatusMaster">
+    <End Type="ScottybonsEComModel.OrderStatusMaster" Role="OrderStatusMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.StylistToolTransaction" Role="StylistToolTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatusMaster">
+        <PropertyRef Name="OrderStatusID" />
+      </Principal>
+      <Dependent Role="StylistToolTransaction">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_PantsLengthMaster">
+    <End Type="ScottybonsEComModel.PantsLengthMaster" Role="PantsLengthMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PantsLengthMaster">
+        <PropertyRef Name="PantsLengthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="PantsLengthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_PantsModelMaster">
+    <End Type="ScottybonsEComModel.PantsModelMaster" Role="PantsModelMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PantsModelMaster">
+        <PropertyRef Name="PantsModelID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="PantsModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_PantsWaistMaster">
+    <End Type="ScottybonsEComModel.PantsWaistMaster" Role="PantsWaistMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PantsWaistMaster">
+        <PropertyRef Name="PantsWaistID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="PantsWaistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_ShoeMaterialMaster">
+    <End Type="ScottybonsEComModel.ShoeMaterialMaster" Role="ShoeMaterialMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShoeMaterialMaster">
+        <PropertyRef Name="ShoeMaterialID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="ShoeMaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SizeMaster_SubCategory">
+    <End Type="ScottybonsEComModel.SubCategory" Role="SubCategory" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SizeMaster" Role="SizeMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="SizeMaster">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_SkirtLengthMaster">
+    <End Type="ScottybonsEComModel.SkirtLengthMaster" Role="SkirtLengthMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkirtLengthMaster">
+        <PropertyRef Name="SkirtLengthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="SkirtLengthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_SkirtWidthMaster">
+    <End Type="ScottybonsEComModel.SkirtWidthMaster" Role="SkirtWidthMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkirtWidthMaster">
+        <PropertyRef Name="SkirtWidthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="SkirtWidthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_SleeveLengthMaster">
+    <End Type="ScottybonsEComModel.SleeveLengthMaster" Role="SleeveLengthMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SleeveLengthMaster">
+        <PropertyRef Name="SleeveLengthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="SleeveLengthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StylistToolTransaction_Stylist">
+    <End Type="ScottybonsEComModel.Stylist" Role="Stylist" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.StylistToolTransaction" Role="StylistToolTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stylist">
+        <PropertyRef Name="StylistID" />
+      </Principal>
+      <Dependent Role="StylistToolTransaction">
+        <PropertyRef Name="StylistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_SubCategory">
+    <End Type="ScottybonsEComModel.SubCategory" Role="SubCategory" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_WaistFitMaster">
+    <End Type="ScottybonsEComModel.WaistFitMaster" Role="WaistFitMaster" Multiplicity="0..1" />
+    <End Type="ScottybonsEComModel.SubCategoryProperty" Role="SubCategoryProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WaistFitMaster">
+        <PropertyRef Name="WaistFitID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperty">
+        <PropertyRef Name="WaistFitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="ScottybonsEComModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="ScottybonsEComModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityType Name="StyleProfileAnswer">
+    <Key>
+      <PropertyRef Name="AnswerID" />
+    </Key>
+    <Property Name="AnswerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionID" Type="Int32" />
+    <Property Name="Answer" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DependentQuestion" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AnswerDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AnswerImagePath" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="FLAG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="QuestionNumber" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="AnswerNumber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GiftCard">
+    <Key>
+      <PropertyRef Name="GiftCardId" />
+    </Key>
+    <Property Name="GiftCardId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GiftCardCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GiftCardValue" Type="Double" Nullable="false" />
+    <Property Name="CurrentGiftCardValue" Type="Double" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PersonalMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="GiftCardStatu">
+    <Key>
+      <PropertyRef Name="GiftCardOrderStatusId" />
+    </Key>
+    <Property Name="GiftCardOrderStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GiftCardOrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CustomerType">
+    <Key>
+      <PropertyRef Name="CustomerTypeId" />
+    </Key>
+    <Property Name="CustomerTypeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GiftCardOrderByType">
+    <Key>
+      <PropertyRef Name="GiftCardOrderByTypeId" />
+    </Key>
+    <Property Name="GiftCardOrderByTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GiftCardOrderById" Type="Int32" />
+    <Property Name="GiftCardOrderByType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GiftCardRedemption">
+    <Key>
+      <PropertyRef Name="GiftCardRedemptionId" />
+    </Key>
+    <Property Name="GiftCardRedemptionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GiftCardCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AmounOfRedemption" Type="Double" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="RedemptionDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="StatusText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GIftCardsOrder">
+    <Key>
+      <PropertyRef Name="GiftCardOrderId" />
+    </Key>
+    <Property Name="GiftCardOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerType" Type="Int64" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderTotal" Type="Double" />
+    <Property Name="PayerFirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayerLastName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ShipmentFirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ShipmentLastName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="StreetName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HouseNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Town" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="PaymentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IssuerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VendorId" Type="Int32" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="RandomOrderSuffixer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GiftCardRedemptionStatu">
+    <Key>
+      <PropertyRef Name="GiftCardRedemptionStatusId" />
+    </Key>
+    <Property Name="GiftCardRedemptionStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GiftCardRedemptionStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OrderPeriodicSubscriptionDetail">
+    <Key>
+      <PropertyRef Name="OrderPeriodicSubscriptionID" />
+    </Key>
+    <Property Name="OrderPeriodicSubscriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="PeriodicalScottyBoxID" Type="Int32" />
+    <Property Name="NewPeriodicalScottyBoxID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ChangedByAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="AdminId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PromoCodeOrder">
+    <Key>
+      <PropertyRef Name="PromoCodeOrderId" />
+    </Key>
+    <Property Name="PromoCodeOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PromoCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="PromoCodeValue" Type="Double" />
+    <Property Name="IsPercentage" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+</Schema>

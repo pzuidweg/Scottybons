@@ -1,0 +1,21 @@
+﻿@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+
+@{
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("/umbraco_client/ui/jquery.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.min.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.unobtrusive.min.js");
+}
+
+@Html.RenderJsHere()
+<section id="contact">
+    <div class="container">
+        <div class="col-sm-6 text-center">
+            <h2>@Resources.Scottybons.ScottybonsDataStrings.ThanksForYourMessageWeWillGet <br>@Resources.Scottybons.ScottybonsDataStrings.MESSAGEWELL <br>@Resources.Scottybons.ScottybonsDataStrings.GETBACK <br>@Resources.Scottybons.ScottybonsDataStrings.TOYOUSHORTLY</h2>
+        </div>
+        <div class="col-sm-6 text-center"> <img src="/media/1050/contact_img_1.png" class="img-responsive"> </div>
+    </div>
+</section>

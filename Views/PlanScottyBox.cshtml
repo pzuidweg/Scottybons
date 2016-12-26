@@ -1,0 +1,56 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+    var greenBar = "Planscotty";
+}
+
+@section BodyContent {
+    
+   @* <section id ="top-menu">
+        <div id="register-top">
+        <div class="container">
+              
+            <div class="col-sm-3 col-xs-3  active mobile_tab"><h3> &#8226; &nbsp; @Resources.Scottybons.ScottybonsDataStrings.GreenBar_Register</h3></div>
+            <div class="col-sm-3 col-xs-3  active mobile_tab"><h3> &#8226; &nbsp; @Resources.Scottybons.ScottybonsDataStrings.StyleProfile</h3></div>
+            <div class="col-sm-3 col-xs-3   mobile_tab" ><h3> &#8226; &nbsp;@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Order</h3> </div>
+            <div class="col-sm-3 col-xs-3  active mobile_tab"><h3>&#8226; &nbsp;@Resources.Scottybons.ScottybonsDataStrings.GreenBar_Pay</h3></div>
+
+        </div>
+            </div>
+    </section> *@
+<section id ="top-menu">
+    @Html.Partial("Account/_GreenBar", greenBar)
+</section>
+    
+    @Html.Partial("Order/_PlanScottyBox", Model)
+}
+
+
+@section scripts {
+<script type="text/javascript">
+//Function to allow only numbers to textbox
+function validate(key)
+{
+//getting key code of pressed key
+var keycode = (key.which) ? key.which : key.keyCode;
+var phn = document.getElementById('Phonenumber');
+//comparing pressed keycodes
+if (!(keycode==8 || keycode==46)&&(keycode < 48 || keycode > 57))
+{
+return false;
+}
+else
+{
+//Condition to check textbox contains ten numbers or not
+if (phn.value.length <10)
+{
+return true;
+}
+else
+{
+return false;
+}
+}
+}
+</script>
+    }

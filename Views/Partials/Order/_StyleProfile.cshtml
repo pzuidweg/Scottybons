@@ -1,0 +1,63 @@
+﻿@model ScottybonsMVC.Models.ViewModels.Customer.StyleProfileDisplayVm
+@using System.Web.Mvc.Html
+@using ScottybonsMVC.AppConstants
+@using ClientDependency.Core.Mvc
+@{
+    var planScottyBoxModel = Model;
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("/umbraco_client/ui/jquery.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.min.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.unobtrusive.min.js");
+}
+
+@using (Html.BeginForm("ProfileQuestions", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <section id="styleprofile" class="planscotybox">
+        <div class="container">
+            <div class="row text-center style-profile-heading">
+                <h1 style='text-transform:uppercase'>@Resources.Scottybons.ScottybonsDataStrings.IsYourStyleProfileUpToDate <br> @Resources.Scottybons.ScottybonsDataStrings.IsYourStyleStillUptodate</h1>
+                <p>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsDescription2_<br> @Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsDescription2_StyleProfilesubtitle1</p>
+            </div>
+            <div class="col-sm-12 col-xs-12 no_border mobile_yourstyle">
+                <div class="col-xs-12 col-sm-12" style="margin: 0px; padding: 0px;">
+                    <div class="col-sm-4 col-xs-12"></div>
+                    <div class="col-sm-6 col-xs-12 mobile_yourstyle style-profile-radio-options">
+
+                        <div class="checkbox">
+                            @foreach (var styleProfile in planScottyBoxModel.StyleProfileTypes)
+                            {
+                                <p>
+                                    <label> @Html.RadioButtonFor(m => m.SelectedStyleProfileId, styleProfile.StyleProfileId, new { id = styleProfile.StyleProfileId, @checked = styleProfile.StyleProfileChecked })</label>
+                                    @Html.Label(styleProfile.StyleProfileId, styleProfile.StyleProfileType, new { @for = styleProfile.StyleProfileId })
+                                </p>
+                            }
+                        </div>
+
+                        <div class="row text-right payment_btn style-profile-btn">
+                            @*<a id="nxt-btn" href=@Url.Content("/" + @GlobalConstants.Language + "/order/planscottybox") class="animated fadeInUp button_intro outline">@Resources.Scottybons.ScottybonsDataStrings.ButtonNext</a>*@
+                            <input type="submit" value="@Resources.Scottybons.ScottybonsDataStrings.ButtonNext" class="animated fadeInUp plan-button_intro_next outline" id="login-btn"  />
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+
+
+<script type="text/javascript">
+    function CheckStyleProfileType(obj) {
+        if (parseInt($(obj).attr("id")) > 1) {
+            $(".scottybox-link").hide();
+            $(".profile-link").show();
+        } else {
+            $(".scottybox-link").show();
+            $(".profile-link").hide();
+        }
+    }
+
+</script>

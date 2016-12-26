@@ -1,0 +1,203 @@
+﻿<error errorId="d6e05e33-f900-4aa2-82d7-6ca36f1db42d" application="/LM/W3SVC/2/ROOT" host="18X1TQ1-N" type="System.ComponentModel.Win32Exception" message="The network path was not found" detail="System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---&gt; System.ComponentModel.Win32Exception (0x80004005): The network path was not found&#xD;&#xA;   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)&#xD;&#xA;   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.Open()&#xD;&#xA;   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.&lt;&gt;c__DisplayClass1.&lt;ExecuteAction&gt;b__0()&#xD;&#xA;   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)&#xD;&#xA;   at Umbraco.Core.Persistence.Database.OpenSharedConnection()&#xD;&#xA;   at Umbraco.Core.Persistence.Database.&lt;Query&gt;d__7`1.MoveNext()&#xD;&#xA;   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)&#xD;&#xA;   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)&#xD;&#xA;   at Umbraco.Core.Sync.DatabaseServerMessenger.ProcessDatabaseInstructions()&#xD;&#xA;   at Umbraco.Core.Sync.DatabaseServerMessenger.Sync()&#xD;&#xA;   at Umbraco.Web.UmbracoModule.OnRouteAttempt(RoutableAttemptEventArgs args)&#xD;&#xA;   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)&#xD;&#xA;   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)&#xD;&#xA;ClientConnectionId:00000000-0000-0000-0000-000000000000&#xD;&#xA;Error Number:53,State:0,Class:20" user="pbram@loginsoft.com" time="2016-12-22T10:03:47.1292948Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8&#xD;&#xA;HTTP_COOKIE:_ga=GA1.1.1403609390.1473338167; UMB_UPDCHK=1; ASP.NET_SessionId=r4tmlvwwppnsw5mvagpjz1j5; XSRF-TOKEN=RlnGj8TGdZXKH-kul3RTWfY5X3Vx0xlCuP1E3-HKGPu5Xh626tRLGBPDLH2jGzYuFNJnBTzT4myezGVIDNQBe3J9Seq4gZEgiobVmmzYzRDFIJXLRVGRYke7LGPF1-KQ0; XSRF-V=nFkdgYWaiQiCdDgIYdL7R93pY4CNPqpylOD7YkpJKBS4fKDwJ7cPwLgGAZsOb-6ZQYm-8U6zukbP3ysIfTISUiVUqTFyoTmYeHExUId14981; ScottybonsMVC=E16A7F6BE73C94D41C521AAA0057A0AADF09F42662066598FA7C634E21EBEA93C75668273E6CD9B41C9D057877B0443FFA5C3EEA05CE37FEF7180243818B00C07F36532F024C1D6F51716BEB4EDF76748808102BF13CDBDA973E4D5D4EC558EDD48AF26B2D5B14A06574F8C5EE5521E8CEF926A7FB0844DBCE7AA14840D54125; culture=nl-EN; __utmt_UA-71086997-1=1; __utma=111872281.1403609390.1473338167.1482380229.1482393830.154; __utmb=111872281.25.10.1482393830; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)&#xD;&#xA;HTTP_HOST:localhost:81&#xD;&#xA;HTTP_REFERER:http://localhost:81/en/order/ConfirmYourOrder&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch, br&#xD;&#xA;Accept-Language: en-US,en;q=0.8&#xD;&#xA;Cookie: _ga=GA1.1.1403609390.1473338167; UMB_UPDCHK=1; ASP.NET_SessionId=r4tmlvwwppnsw5mvagpjz1j5; XSRF-TOKEN=RlnGj8TGdZXKH-kul3RTWfY5X3Vx0xlCuP1E3-HKGPu5Xh626tRLGBPDLH2jGzYuFNJnBTzT4myezGVIDNQBe3J9Seq4gZEgiobVmmzYzRDFIJXLRVGRYke7LGPF1-KQ0; XSRF-V=nFkdgYWaiQiCdDgIYdL7R93pY4CNPqpylOD7YkpJKBS4fKDwJ7cPwLgGAZsOb-6ZQYm-8U6zukbP3ysIfTISUiVUqTFyoTmYeHExUId14981; ScottybonsMVC=E16A7F6BE73C94D41C521AAA0057A0AADF09F42662066598FA7C634E21EBEA93C75668273E6CD9B41C9D057877B0443FFA5C3EEA05CE37FEF7180243818B00C07F36532F024C1D6F51716BEB4EDF76748808102BF13CDBDA973E4D5D4EC558EDD48AF26B2D5B14A06574F8C5EE5521E8CEF926A7FB0844DBCE7AA14840D54125; culture=nl-EN; __utmt_UA-71086997-1=1; __utma=111872281.1403609390.1473338167.1482380229.1482393830.154; __utmb=111872281.25.10.1482393830; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)&#xD;&#xA;Host: localhost:81&#xD;&#xA;Referer: http://localhost:81/en/order/ConfirmYourOrder&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\Ceredox\Projects\Ram-SB\Scottybons04112016\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="pbram@loginsoft.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="pbram@loginsoft.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/umbraco/surface/OrderPage/ValidatePromoCode" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\Ceredox\Projects\Ram-SB\Scottybons04112016\umbraco\surface\OrderPage\ValidatePromoCode" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="promoCode=promoeuroonline" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="63075" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/umbraco/surface/OrderPage/ValidatePromoCode" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="81" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/umbraco/surface/OrderPage/ValidatePromoCode" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="_ga=GA1.1.1403609390.1473338167; UMB_UPDCHK=1; ASP.NET_SessionId=r4tmlvwwppnsw5mvagpjz1j5; XSRF-TOKEN=RlnGj8TGdZXKH-kul3RTWfY5X3Vx0xlCuP1E3-HKGPu5Xh626tRLGBPDLH2jGzYuFNJnBTzT4myezGVIDNQBe3J9Seq4gZEgiobVmmzYzRDFIJXLRVGRYke7LGPF1-KQ0; XSRF-V=nFkdgYWaiQiCdDgIYdL7R93pY4CNPqpylOD7YkpJKBS4fKDwJ7cPwLgGAZsOb-6ZQYm-8U6zukbP3ysIfTISUiVUqTFyoTmYeHExUId14981; ScottybonsMVC=E16A7F6BE73C94D41C521AAA0057A0AADF09F42662066598FA7C634E21EBEA93C75668273E6CD9B41C9D057877B0443FFA5C3EEA05CE37FEF7180243818B00C07F36532F024C1D6F51716BEB4EDF76748808102BF13CDBDA973E4D5D4EC558EDD48AF26B2D5B14A06574F8C5EE5521E8CEF926A7FB0844DBCE7AA14840D54125; culture=nl-EN; __utmt_UA-71086997-1=1; __utma=111872281.1403609390.1473338167.1482380229.1482393830.154; __utmb=111872281.25.10.1482393830; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:81" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:81/en/order/ConfirmYourOrder" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="promoCode">
+      <value string="promoeuroonline" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="_ga">
+      <value string="GA1.1.1403609390.1473338167" />
+    </item>
+    <item name="UMB_UPDCHK">
+      <value string="1" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="r4tmlvwwppnsw5mvagpjz1j5" />
+    </item>
+    <item name="XSRF-TOKEN">
+      <value string="RlnGj8TGdZXKH-kul3RTWfY5X3Vx0xlCuP1E3-HKGPu5Xh626tRLGBPDLH2jGzYuFNJnBTzT4myezGVIDNQBe3J9Seq4gZEgiobVmmzYzRDFIJXLRVGRYke7LGPF1-KQ0" />
+    </item>
+    <item name="XSRF-V">
+      <value string="nFkdgYWaiQiCdDgIYdL7R93pY4CNPqpylOD7YkpJKBS4fKDwJ7cPwLgGAZsOb-6ZQYm-8U6zukbP3ysIfTISUiVUqTFyoTmYeHExUId14981" />
+    </item>
+    <item name="ScottybonsMVC">
+      <value string="E16A7F6BE73C94D41C521AAA0057A0AADF09F42662066598FA7C634E21EBEA93C75668273E6CD9B41C9D057877B0443FFA5C3EEA05CE37FEF7180243818B00C07F36532F024C1D6F51716BEB4EDF76748808102BF13CDBDA973E4D5D4EC558EDD48AF26B2D5B14A06574F8C5EE5521E8CEF926A7FB0844DBCE7AA14840D54125" />
+    </item>
+    <item name="culture">
+      <value string="nl-EN" />
+    </item>
+    <item name="__utmt_UA-71086997-1">
+      <value string="1" />
+    </item>
+    <item name="__utma">
+      <value string="111872281.1403609390.1473338167.1482380229.1482393830.154" />
+    </item>
+    <item name="__utmb">
+      <value string="111872281.25.10.1482393830" />
+    </item>
+    <item name="__utmc">
+      <value string="111872281" />
+    </item>
+    <item name="__utmz">
+      <value string="111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" />
+    </item>
+  </cookies>
+</error>

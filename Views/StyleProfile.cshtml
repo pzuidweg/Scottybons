@@ -1,0 +1,28 @@
+﻿@using ScottybonsMVC.AppConstants
+@using ScottybonsMVC.Models.Entities
+@using ScottybonsMVC.Models.ViewModels.Customer
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+    var greenBar = "StyleProfile";
+
+    var _scottybonsEComEntities = new ScottybonsEComEntities();
+}
+@section BodyContent {
+
+    @if (Members.IsLoggedIn())
+    {
+        <section id="top-menu">
+            @Html.Partial("Account/_GreenBar", greenBar)
+        </section>
+
+
+        @Html.Partial("Order/_StyleProfile", new StyleProfileDisplayVm())
+    }
+    else
+    {
+
+
+        @Html.Partial("Account/_Login", new LoginVm())
+    }
+}

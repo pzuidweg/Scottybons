@@ -1,0 +1,199 @@
+﻿<error errorId="7b2d9348-61bb-429f-8f76-d4b866d289d9" application="/LM/W3SVC/2/ROOT" host="18X1TQ1-N" type="System.Net.Sockets.SocketException" message="A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 104.45.26.245:443" source="System" detail="System.Web.HttpException (0x80004005): Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'. ---&gt; System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 104.45.26.245:443&#xD;&#xA;   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)&#xD;&#xA;   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Exception&amp; exception)&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at ScottybonsMVC.Models.Services.GiftCardServices.GetIssuers() in E:\Ceredox\Projects\ScottyBons\Solution\ScottybonsMVC\Models\Services\GiftCardServices.cs:line 178&#xD;&#xA;   at ScottybonsMVC.Controllers.PromotionsController.GiftCard() in E:\Ceredox\Projects\ScottyBons\Solution\ScottybonsMVC\Controllers\PromotionsController.cs:line 74&#xD;&#xA;   at lambda_method(Closure , ControllerBase , Object[] )&#xD;&#xA;   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;BeginInvokeSynchronousActionMethod&gt;b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3d()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerWrapper.&lt;&gt;c__DisplayClass4.&lt;Wrap&gt;b__3()&#xD;&#xA;   at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerWrapper.Wrap[TResult](Func`1 func)&#xD;&#xA;   at System.Web.HttpServerUtility.ExecuteInternal(IHttpHandler handler, TextWriter writer, Boolean preserveForm, Boolean setPreviousPage, VirtualPath path, VirtualPath filePath, String physPath, Exception error, String queryStringOverride)&#xD;&#xA;   at System.Web.HttpServerUtility.ExecuteInternal(IHttpHandler handler, TextWriter writer, Boolean preserveForm, Boolean setPreviousPage, VirtualPath path, VirtualPath filePath, String physPath, Exception error, String queryStringOverride)&#xD;&#xA;   at System.Web.HttpServerUtility.Execute(IHttpHandler handler, TextWriter writer, Boolean preserveForm, Boolean setPreviousPage)&#xD;&#xA;   at System.Web.HttpServerUtility.Execute(IHttpHandler handler, TextWriter writer, Boolean preserveForm)&#xD;&#xA;   at System.Web.Mvc.Html.ChildActionExtensions.ActionHelper(HtmlHelper htmlHelper, String actionName, String controllerName, RouteValueDictionary routeValues, TextWriter textWriter)&#xD;&#xA;   at System.Web.Mvc.Html.ChildActionExtensions.Action(HtmlHelper htmlHelper, String actionName, String controllerName, RouteValueDictionary routeValues)&#xD;&#xA;   at ASP._Page_Views_GiftCard_cshtml.&lt;Execute&gt;b__0() in e:\Ceredox\Projects\ScottyBons\Solution\ScottybonsMVC\Views\GiftCard.cshtml:line 12&#xD;&#xA;   at System.Web.WebPages.WebPageBase.&lt;&gt;c__DisplayClass7.&lt;RenderSection&gt;b__5(TextWriter tw)&#xD;&#xA;   at System.Web.WebPages.WebPageBase.Write(HelperResult result)&#xD;&#xA;   at ASP._Page_Views_ScottyBonsMaster_cshtml.Execute() in e:\Ceredox\Projects\ScottyBons\Solution\ScottybonsMVC\Views\ScottyBonsMaster.cshtml:line 54&#xD;&#xA;   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()&#xD;&#xA;   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()&#xD;&#xA;   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)&#xD;&#xA;   at System.Web.WebPages.WebPageBase.&lt;&gt;c__DisplayClass3.&lt;RenderPageCore&gt;b__2(TextWriter writer)&#xD;&#xA;   at System.Web.WebPages.WebPageBase.Write(HelperResult result)&#xD;&#xA;   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)&#xD;&#xA;   at System.Web.WebPages.WebPageBase.PopContext()&#xD;&#xA;   at Umbraco.Core.Profiling.ProfilingView.Render(ViewContext viewContext, TextWriter writer)&#xD;&#xA;   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" time="2016-10-17T05:47:15.0453688Z" statusCode="500">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8&#xD;&#xA;HTTP_COOKIE:_ga=GA1.1.1403609390.1473338167; UMB_UPDCHK=1; ASP.NET_SessionId=4sqbvcn3hw2xkhlhfb5uzx24; __RequestVerificationToken=OJcsen9Iudtdv5CYFZuFHa-oyxk5Dw1np2WCa0T4TpCA8MmQhAy5fdtJOzNB8heZO7_4_WEbzX2vNQfP7QXKEv6IS9F9smdGvEWtY0oUWc41; .AspNet.ApplicationCookie=ob6ZSQhKeAF96oxmZTzm4sg9coWsKRwhkc5gnXTloqJ4PGSvDB-oAsICKlFQGVnR1azsKV8iQ6wpuW03LSDVou17xn6fKR_NnCom9_RyHqrSjyabHs5H2RI63uO7zHtdK5RjO3pjgb5K5b5vV3Ksdf09Gf67fqUovnHMdx7XCiddXB84lFYoPMn3kivGlSw5cxVywrW2ik2WjeJBMHj_eST0nzSvW8mvkGQlaTOLKn7cN51BOupatCcd5wYmmSHPz4p3TIN1iqakYVZONHtqkbbBmgyuyIzGAKz1Oc-3MPVffeVQiVXdoN0_O5fOilLwunOlNi4HMUTlhxQHBsaQvC8-kS50CfMNB2RMdpKjtOwpe5daLEm7k4C0wrQaZPzfo4sJy3MIbn2w2d5wcW_uoXbxkbdzH5P7sbe1qOJQdzJ7rpaBltM_-0oguYv2feuB7OulHyDnpVSbKKh6tDkfSSm_uex804-qcKriBrCmSYqRUtqvP1bof_7Qs5Xeq05B; culture=nl-EN; __utmt_UA-71086997-1=1; __utma=111872281.1403609390.1473338167.1476677782.1476680127.42; __utmb=111872281.5.10.1476680127; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)&#xD;&#xA;HTTP_HOST:localhost:81&#xD;&#xA;HTTP_REFERER:http://localhost:81/en/giftcard/&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch&#xD;&#xA;Accept-Language: en-US,en;q=0.8&#xD;&#xA;Cookie: _ga=GA1.1.1403609390.1473338167; UMB_UPDCHK=1; ASP.NET_SessionId=4sqbvcn3hw2xkhlhfb5uzx24; __RequestVerificationToken=OJcsen9Iudtdv5CYFZuFHa-oyxk5Dw1np2WCa0T4TpCA8MmQhAy5fdtJOzNB8heZO7_4_WEbzX2vNQfP7QXKEv6IS9F9smdGvEWtY0oUWc41; .AspNet.ApplicationCookie=ob6ZSQhKeAF96oxmZTzm4sg9coWsKRwhkc5gnXTloqJ4PGSvDB-oAsICKlFQGVnR1azsKV8iQ6wpuW03LSDVou17xn6fKR_NnCom9_RyHqrSjyabHs5H2RI63uO7zHtdK5RjO3pjgb5K5b5vV3Ksdf09Gf67fqUovnHMdx7XCiddXB84lFYoPMn3kivGlSw5cxVywrW2ik2WjeJBMHj_eST0nzSvW8mvkGQlaTOLKn7cN51BOupatCcd5wYmmSHPz4p3TIN1iqakYVZONHtqkbbBmgyuyIzGAKz1Oc-3MPVffeVQiVXdoN0_O5fOilLwunOlNi4HMUTlhxQHBsaQvC8-kS50CfMNB2RMdpKjtOwpe5daLEm7k4C0wrQaZPzfo4sJy3MIbn2w2d5wcW_uoXbxkbdzH5P7sbe1qOJQdzJ7rpaBltM_-0oguYv2feuB7OulHyDnpVSbKKh6tDkfSSm_uex804-qcKriBrCmSYqRUtqvP1bof_7Qs5Xeq05B; culture=nl-EN; __utmt_UA-71086997-1=1; __utma=111872281.1403609390.1473338167.1476677782.1476680127.42; __utmb=111872281.5.10.1476680127; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)&#xD;&#xA;Host: localhost:81&#xD;&#xA;Referer: http://localhost:81/en/giftcard/&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\Ceredox\Projects\ScottyBons\Solution\ScottybonsMVC\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/en/giftcard/" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\Ceredox\Projects\ScottyBons\Solution\ScottybonsMVC\en\giftcard\" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="51699" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/en/giftcard/" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="81" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/en/giftcard/" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="_ga=GA1.1.1403609390.1473338167; UMB_UPDCHK=1; ASP.NET_SessionId=4sqbvcn3hw2xkhlhfb5uzx24; __RequestVerificationToken=OJcsen9Iudtdv5CYFZuFHa-oyxk5Dw1np2WCa0T4TpCA8MmQhAy5fdtJOzNB8heZO7_4_WEbzX2vNQfP7QXKEv6IS9F9smdGvEWtY0oUWc41; .AspNet.ApplicationCookie=ob6ZSQhKeAF96oxmZTzm4sg9coWsKRwhkc5gnXTloqJ4PGSvDB-oAsICKlFQGVnR1azsKV8iQ6wpuW03LSDVou17xn6fKR_NnCom9_RyHqrSjyabHs5H2RI63uO7zHtdK5RjO3pjgb5K5b5vV3Ksdf09Gf67fqUovnHMdx7XCiddXB84lFYoPMn3kivGlSw5cxVywrW2ik2WjeJBMHj_eST0nzSvW8mvkGQlaTOLKn7cN51BOupatCcd5wYmmSHPz4p3TIN1iqakYVZONHtqkbbBmgyuyIzGAKz1Oc-3MPVffeVQiVXdoN0_O5fOilLwunOlNi4HMUTlhxQHBsaQvC8-kS50CfMNB2RMdpKjtOwpe5daLEm7k4C0wrQaZPzfo4sJy3MIbn2w2d5wcW_uoXbxkbdzH5P7sbe1qOJQdzJ7rpaBltM_-0oguYv2feuB7OulHyDnpVSbKKh6tDkfSSm_uex804-qcKriBrCmSYqRUtqvP1bof_7Qs5Xeq05B; culture=nl-EN; __utmt_UA-71086997-1=1; __utma=111872281.1403609390.1473338167.1476677782.1476680127.42; __utmb=111872281.5.10.1476680127; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:81" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:81/en/giftcard/" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="_ga">
+      <value string="GA1.1.1403609390.1473338167" />
+    </item>
+    <item name="UMB_UPDCHK">
+      <value string="1" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="4sqbvcn3hw2xkhlhfb5uzx24" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="OJcsen9Iudtdv5CYFZuFHa-oyxk5Dw1np2WCa0T4TpCA8MmQhAy5fdtJOzNB8heZO7_4_WEbzX2vNQfP7QXKEv6IS9F9smdGvEWtY0oUWc41" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="ob6ZSQhKeAF96oxmZTzm4sg9coWsKRwhkc5gnXTloqJ4PGSvDB-oAsICKlFQGVnR1azsKV8iQ6wpuW03LSDVou17xn6fKR_NnCom9_RyHqrSjyabHs5H2RI63uO7zHtdK5RjO3pjgb5K5b5vV3Ksdf09Gf67fqUovnHMdx7XCiddXB84lFYoPMn3kivGlSw5cxVywrW2ik2WjeJBMHj_eST0nzSvW8mvkGQlaTOLKn7cN51BOupatCcd5wYmmSHPz4p3TIN1iqakYVZONHtqkbbBmgyuyIzGAKz1Oc-3MPVffeVQiVXdoN0_O5fOilLwunOlNi4HMUTlhxQHBsaQvC8-kS50CfMNB2RMdpKjtOwpe5daLEm7k4C0wrQaZPzfo4sJy3MIbn2w2d5wcW_uoXbxkbdzH5P7sbe1qOJQdzJ7rpaBltM_-0oguYv2feuB7OulHyDnpVSbKKh6tDkfSSm_uex804-qcKriBrCmSYqRUtqvP1bof_7Qs5Xeq05B" />
+    </item>
+    <item name="culture">
+      <value string="nl-EN" />
+      <value string="nl-EN" />
+    </item>
+    <item name="__utmt_UA-71086997-1">
+      <value string="1" />
+    </item>
+    <item name="__utma">
+      <value string="111872281.1403609390.1473338167.1476677782.1476680127.42" />
+    </item>
+    <item name="__utmb">
+      <value string="111872281.5.10.1476680127" />
+    </item>
+    <item name="__utmc">
+      <value string="111872281" />
+    </item>
+    <item name="__utmz">
+      <value string="111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" />
+    </item>
+    <item name="ScottybonsMVC">
+      <value string="" />
+    </item>
+  </cookies>
+</error>

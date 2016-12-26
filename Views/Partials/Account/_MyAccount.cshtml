@@ -1,0 +1,26 @@
+﻿@using ScottybonsMVC.AppConstants
+@model ScottybonsMVC.Models.ViewModels.Customer.MyAccountViewModel
+@{
+
+    var myAccountModel = Model;
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+}
+<section id="myaccount">
+    <div class="container">
+        <div class="myaccount_bg">
+            <h2>@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_MyAccount</h2>
+            <div class="row ">
+
+                <a href=@Url.Content("/" + @GlobalConstants.Language + "/account/ProfileQuestions/")><h3>@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_Title_MyAccountTitle_<br />@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_Profile_MyAccountProfile</h3></a>
+                <a href=@Url.Content("/"+@GlobalConstants.Language+"/Order/PlanScottyBox")><h4>@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_PLaning_Next_Scotty_Box_Planing<br />@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_PLaning_Next_Scotty_Box_Next<br />@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_PLaning_Next_Scotty_Box_ScottyBox</h4></a><br />
+            </div>
+            <div class=" row">
+                <a href=@Url.Content("/"+@GlobalConstants.Language+ "/account/ChangePassword")><h3>@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_ChangePassword</h3></a>
+                <a href="@Url.Content("/"+@GlobalConstants.Language+ "/account/mysubscription")"><h4 class="account-secondrow">@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_Manage_Subscription</h4></a>
+            </div>
+        </div>
+
+    </div>
+</section>

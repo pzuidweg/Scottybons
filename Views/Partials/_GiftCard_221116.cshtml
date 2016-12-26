@@ -1,0 +1,1246 @@
+﻿@inherits UmbracoViewPage<ScottybonsMVC.Models.PageViewModels.GiftCardPageViewModel>
+
+<div class="order-gift-card-main container">
+    <input type="hidden" class="loggedin-user" value="@Model.IsLoggedIn.ToString()" />
+    <input type="hidden" class="loggedin-user-email" value="@Model.LoggedUserEmaild" />
+
+    <div class="order-gift-card-content">
+        @if (!Model.IsOrder)
+        {
+            <div class="add-gift-cards-section gift-card-wizard">
+                <div class="order-gift-card-header row">
+                    <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_OrderaGiftCard</h2>
+                    <h3>@Resources.Scottybons.ScottybonsDataStrings.GC_OrderaGiftCardTitle1, <br />@Resources.Scottybons.ScottybonsDataStrings.GC_OrderaGiftCardTitle2</h3>
+                    <div class="line_2"></div>
+                </div>
+                <div class="row col-sm-12 gc-error-header">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <label class="gcfields-required-error" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.GC_Check_Mandatory</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="gift-cards-section">
+                            </div>
+                            <div class="add-gift-card">
+                                <div class="row add-gift-card-ctrls">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-8 col-xs-12">
+                                            <label class="lbl-want-order"><input type="checkbox" class="chk-want-order" onclick="AddGiftCard(this)" /> &nbsp; @Resources.Scottybons.ScottybonsDataStrings.GC_Iwanttoorderagiftcard</label>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-12 text-right no-padding">
+                                            <button type="button" class="next-btn btn btn-primary btn-wizard-next btn-add-gift-card" style="display:none;" onclick="ProceedToLoginOrAddress(this)">@Resources.Scottybons.ScottybonsDataStrings.GC_Next_Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 hetprocess col-xs-12">
+                            <h4>@Model.ProcessTitle</h4>
+                            <p>@Html.Raw(Model.ProcessText)</p>
+                            @*<p>
+                                    @Html.Raw(Model.ProcessTextOne)
+                                </p>
+                                <p>
+                                    @Html.Raw(Model.ProcessTextTwo)
+                                </p>*@
+                            <img src="@Model.ProcessImage" class="img-responsive" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            if (!Model.IsLoggedIn)
+            {
+                <div class="login-gift-card-section gift-card-wizard" style="display:none">
+
+                    <div class="order-gift-card-header row">
+                        <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_Login_Title1</h2>
+                    </div>
+                    <div class="line"></div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2 no-width">
+
+                            </div>
+                            <div class="col-sm-8 full-width">
+                                <div class="col-sm-6 gift-card-login gift-card-login-container">
+                                    <h4>@Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_Text</h4>
+                                    <h5>
+                                        @Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_Description
+                                    </h5>
+                                    <div class="row col-sm-12 gc-error-header">
+                                        <label class="gc-login-invalid-user-error" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.GC_Login_Invaid_User_Login_Error_Msg</label>
+                                        <label class="gc-login-required-error" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_Login_Error_Msg</label>
+                                        <label class="gc-login-valid-error" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_Login_Error_Msg</label>
+                                    </div>
+                                    <div class="row gift-card-login-fields">
+                                        <div class="col-sm-4 no-padding">
+                                            <label>@Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_EmailAddress</label>
+                                        </div>
+                                        <div class="col-sm-8 no-padding">
+                                            <input type="text" class="form-control gc-emailaddress gift-card-login-emailaddress" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_PhEmail" />
+                                        </div>
+                                    </div>
+                                    <div class="row gift-card-login-fields">
+                                        <div class="col-sm-4 no-padding">
+                                            <label>@Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_Password</label>
+                                        </div>
+                                        <div class="col-sm-8 no-padding">
+                                            <input type="password" class="form-control gc-password gift-card-login-pwd" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_PhPassword" />
+                                        </div>
+                                    </div>
+                                    <div class="row gift-card-login-fields">
+                                        <div class="col-sm-4">
+                                        </div>
+                                        <div class="col-sm-8 gift-card-btn-address-them no-padding">
+                                            <button class="btn btn-login btn-default btn-address-them" onclick="ProceedToDelivery(this);">@Resources.Scottybons.ScottybonsDataStrings.GC_Login_User_Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-5 gift-card-login gift-card-login-guest-container">
+                                    <h4>@Resources.Scottybons.ScottybonsDataStrings.GC_Login_Guest_Text</h4>
+                                    <h5>
+                                        @Resources.Scottybons.ScottybonsDataStrings.GC_Login_Guest_Description
+                                    </h5>
+                                    <div class="row col-sm-12 gc-error-header">
+                                        <label class="gc-loginguest-required-error" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.GC_Login_Guest_Valid_Email</label>
+                                        <label class="gc-loginguest-valid-error" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.GC_Login_Guest_Valid_Email</label>
+                                    </div>
+                                    <div class="row gift-card-login-guest-fields">
+                                        <div class="col-sm-4 no-padding">
+                                            <label> @Resources.Scottybons.ScottybonsDataStrings.GC_Login_Guest_EmailAddress</label>
+                                        </div>
+                                        <div class="col-sm-8 no-padding">
+                                            <input type="text" class="form-control gc-emailaddress gift-card-login-guest-emailaddress" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Login_Guest_PhEmail" />
+                                        </div>
+                                    </div>
+                                    <div class="row gift-card-login-guest-fields">
+                                        <div class="col-sm-4">
+                                        </div>
+                                        <div class="col-sm-8 gift-card-guest-btn-address-them no-padding">
+                                            <button class="btn btn-login btn-default btn-guest-address-them" onclick="ProceedToDeliveryAsGuest(this);">@Resources.Scottybons.ScottybonsDataStrings.GC_Login_Guest_Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 back-next-wizard">
+                                    <button type="button" class="next-btn btn btn-primary btn-wizard-back btn-back-gift-card" onclick="BackToWizard(this)">@Resources.Scottybons.ScottybonsDataStrings.GC_Back_Button</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="order-gift-card-address gift-card-wizard" style="display:none">
+                <div class="order-gift-card-header row">
+                    <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Title1</h2>
+                    <h3>@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Title2 <br /> @Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Title3 </h3>
+                    <div class="line_2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row col-sm-12 gc-error-header">
+                                <label class="gc-addr-required-error" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.GC_Check_Mandatory</label>
+                            </div>
+                            <div class="row col-sm-12 gc-name-header">
+                                <h4>@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_YourName_Text</h4>
+                            </div>
+                            <div class="row gc-addr-name">
+                                <div class="col-sm-6">
+                                    @{
+                                        if (Model.IsLoggedIn)
+                                        {
+                                            <input type="text" class="form-control gc-payersaddr-firstname gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_PhFirstname" value="@Model.LoggedUserFirstName" disabled="disabled" />
+
+                                        }
+                                        else
+                                        {
+                                            <input type="text" class="form-control gc-payersaddr-firstname gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_PhFirstname" />
+
+                                        }
+
+                                    }
+                                </div>
+                                <div class="col-sm-6">
+                                    @{
+                                        if (Model.IsLoggedIn)
+                                        {
+                                            <input type="text" class="form-control gc-payersaddr-lastname gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_PhLastname" value="@Model.LoggedUserLastName" disabled="disabled" />
+
+                                        }
+                                        else
+                                        {
+                                            <input type="text" class="form-control gc-payersaddr-lastname gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_PhLastname" />
+
+                                        }
+
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="delivery_border"></div>
+                            <div class="row col-sm-12 gc-deladdr-header">
+                                <h4>@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Address_Text</h4>
+                            </div>
+
+                            <div class="row gc-deladdr-flastname">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control gc-addr-deladd-firstname gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Address_PhFirstname" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control gc-addr-deladd-lastname gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Address_PhLastname" />
+                                </div>
+                            </div>
+
+                            <div class="row gc-deladdr-street-hnumber">
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control gc-addr-streetname gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Address_Street" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control gc-addr-housenumber gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Address_House" />
+                                </div>
+                            </div>
+                            <div class="row gc-deladdr-post-city">
+                                <div class="col-sm-4">
+                                    <input class="form-control gc-addr-post gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Address_Zip" type="text">
+                                    <span class="gc-addr-post-error" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Address_Postalcode_Error_Msg</span>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control gc-addr-city gc-deladdr-field" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_Delivary_Address_City" />
+                                </div>
+                            </div>
+                            <div class="row gc-deladdr-country">
+                                <div class="col-sm-12">
+                                    @Html.DropDownList("gccountry", (List<SelectListItem>)ViewBag.Country, new { @class = "form-control gc-addr-country gc-deladdr-field" })
+                                    @*<input type="text" class="form-control gc-addr-country gc-deladdr-field" placeholder="Country" />*@
+                                </div>
+                            </div>
+                            <div class="row gc-deladdr-order-action back-next-wizard">
+                                <div class="col-sm-4">
+                                    <button type="button" class="next-btn btn btn-primary btn-wizard-back float-left" onclick="BackToWizard(this)">@Resources.Scottybons.ScottybonsDataStrings.GC_Back_Button</button>
+                                </div>
+                                <div class="col-sm-8">
+                                    <button class="next-btn btn-default btn-guest-address-them btn-gc-deladdr-order float-right" onclick="ProceedToPayment(this);">@Resources.Scottybons.ScottybonsDataStrings.GC_Delivery_Address_OrderButton</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-gift-card-payment gift-card-wizard" style="display:@(Model.OrderExists ? "block" : "none")">
+                <div class="order-gift-card-header row">
+                    <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Title</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box_bg">
+                                <div class="gc-payt-name-header">
+                                    <h4>@Resources.Scottybons.ScottybonsDataStrings.GC_Overview</h4>
+                                </div>
+                                <div class="row gc-payt-items-section">
+                                    <div class="gc-payt-items-holder col-sm-12">
+                                        @{
+                                            if (Model.OrderExists)
+                                            {
+                                                foreach (var giftcard in Model.OrderGiftCards)
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <p>@giftcard.Title</p>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <p>@giftcard.Name</p>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <p>@giftcard.Value</p>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <div class="row">
+                                                    <div class="col-sm-4 gc-total">
+                                                        <p>@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Overview_Total</p>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <p>@Model.OrderTotal.ToString()</p>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row gc-payt-method">
+                                <div class="col-xs-12 col-sm-12">
+                                    <h6>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_Chooseapaymentmethod_</h6>
+                                    <div class="checkbox">
+                                        @if (ViewBag.PaymentTypes != null)
+                                        {
+                                            foreach (var paymentTypes in ViewBag.PaymentTypes as List<SelectListItem>)
+                                            {
+                                                @Html.RadioButton("paymentvendor", paymentTypes.Value, paymentTypes.Selected, new { @class = "vendortype" })
+                                                <label class="paymentTypes-type" for="@paymentTypes.Value">@paymentTypes.Text</label>
+                                            }
+                                        }
+                                    </div>
+
+                                    <h6>@Resources.Scottybons.ScottybonsDataStrings.PaymentGatewaySelectIssuer</h6>
+                                    <span id="gc_bank_msg">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Payment_Issuer_Error_Msg</span>
+                                    <div class="checkbox">
+                                        @if (ViewBag.IssuerTypes != null)
+                                        {
+                                            foreach (var iTypes in ViewBag.IssuerTypes as List<SelectListItem>)
+                                            {
+                                                @Html.RadioButton("paymentbank", iTypes.Value, false, new { @class = "issuer-bank-type" })
+                                                <label class="paymentTypes-type" for="@iTypes.Value">@iTypes.Text</label>
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gc-payt-order-action back-next-wizard">
+                                <div class="col-sm-4">
+                                    <button type="button" class="next-btn btn btn-primary btn-wizard-back float-left" onclick="BackToWizard(this)">@Resources.Scottybons.ScottybonsDataStrings.GC_Back_Button</button>
+                                </div>
+                                <div class="col-sm-8">
+                                    <button class="btn next-btn btn-default btn-gc-payment-order float-right" onclick="ProceedToConfirmation(this);">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Payment_Button</button>
+                                </div>
+                            </div>
+                            <div class="row gc-payt-order-terms text-right">
+                                <div class="col-sm-12">
+                                    <label class="lbl-payt-order-conditions">
+                                        <input type="checkbox" onchange="OrderTermCheck();" class="chk-payt-order-conditions" />&nbsp;@*@Resources.Scottybons.ScottybonsDataStrings.GC_Order_GeneralConditions*@
+                                        @Resources.Scottybons.ScottybonsDataStrings.IAmAgreeWithTheGeneralConditons <a href=@Url.Content("/" +@ScottybonsMVC.AppConstants.GlobalConstants.Language+ "/termsandcondition/") target="_blank" style="text-decoration:underline;" class="Registrationhref"> @Resources.Scottybons.ScottybonsDataStrings.IAmAgreeWithTheGeneralConditons_general_conditons</a>
+                                    </label>
+                                    <span id="tc_msg"> @Resources.Scottybons.ScottybonsDataStrings.YourOrder_Permissons</span>
+                                    <h5 class="lbl-payt-order-confirm-text">&nbsp; @Resources.Scottybons.ScottybonsDataStrings.GC_Order_ConfirmOrder_Text</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="order-gift-card-payment-status gift-card-wizard" style="display:none">
+
+                    <div class="order-gift-card-success-status">
+                        <div class="order-gift-card-header row">
+                            <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Description</h2>
+                        </div>
+
+                        <div class="row col-sm-12">
+                            <div class="col-sm-1">
+
+                            </div>
+                            <div class="col-sm-10 order-gc-success-content">
+                                @Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Description
+                            </div>
+                            <div class="col-sm-1">
+
+                            </div>
+                        </div>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-1">
+
+                            </div>
+                            <div class="col-sm-10 order-gc-success-img-content">
+                                <img src="~/Images/GiftcardSuccess.jpg" alt="success" />
+                            </div>
+                            <div class="col-sm-1">
+
+                            </div>
+                        </div>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-1">
+
+                            </div>
+                            <div class="col-sm-10 no-padding">
+                                <div class="gc-payt-order-action back-next-wizard text-center">
+                                    <div>
+                                        <a class="next-btn btn btn-primary btn-wizard-back" href="">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Back_To_Catalog</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-gift-card-failure-status">
+                        <div class="order-gift-card-header row">
+                            <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Fail_Title</h2>
+                        </div>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-1">
+
+                            </div>
+                            <div class="col-sm-10 order-gc-failure-content">
+
+                            </div>
+                            <div class="col-sm-1">
+
+                            </div>
+                        </div>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-1">
+
+                            </div>
+                            <div class="col-sm-10 no-padding">
+                                <div class="gc-payt-order-action back-next-wizard text-center">
+                                    <div>
+                                        <button type="button" class="next-btn btn btn-primary btn-wizard-back" onclick="BackToWizard(this)">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Back_To_Payment</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                                            }
+                                            else
+                                            {
+                                                if (Model.OrderStatus)
+                                                {
+                                                    <div class="order-gift-card-payment-status gift-card-wizard" style="display:block">
+
+                                                        <div class="order-gift-card-success-status">
+                                                            <div class="order-gift-card-header row">
+                                                                <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Title</h2>
+                                                            </div>
+                                                            <div class="order-gc-success-line"></div>
+                                                            <div class="row col-sm-12">
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                                <div class="col-sm-10 order-gc-success-content">
+                                                                    <p>@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Description : @Model.OrderNumber</p>
+                                                                </div>
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row col-sm-12">
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                                <div class="col-sm-10 order-gc-success-img-content">
+                                                                    <img src="~/Images/GiftcardSuccess.jpg" alt="success" />
+                                                                </div>
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row col-sm-12">
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                                <div class="col-sm-10 no-padding">
+                                                                    <div class="gc-payt-order-action back-next-wizard text-center">
+                                                                        <div>
+                                                                            <a class="next-btn btn btn-primary btn-wizard-back" href="/">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Back_To_Catalog</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="order-gift-card-payment gift-card-wizard" style="display:none">
+                                                        <div class="order-gift-card-header row">
+                                                            <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Title</h2>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="col-sm-3">
+
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="box_bg">
+                                                                        <div class="gc-payt-name-header">
+                                                                            <h4>@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Overview_Text</h4>
+                                                                        </div>
+                                                                        <div class="row gc-payt-items-section">
+                                                                            <div class="gc-payt-items-holder col-sm-12">
+                                                                                @{
+                                                                                    if (Model.OrderExists)
+                                                                                    {
+                                                                                        foreach (var giftcard in Model.OrderGiftCards)
+                                                                                        {
+                                                                                            <div class="row">
+                                                                                                <div class="col-sm-4">
+                                                                                                    <p>@giftcard.Title</p>
+                                                                                                </div>
+                                                                                                <div class="col-sm-4">
+                                                                                                    <p>@giftcard.Name</p>
+                                                                                                </div>
+                                                                                                <div class="col-sm-4">
+                                                                                                    <p>@giftcard.Value</p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        }
+                                                                                        <div class="gc-payt-item-separator"></div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-4 gc-total">
+                                                                                                <p>@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Overview_Total </p>
+                                                                                            </div>
+                                                                                            <div class="col-sm-4">
+                                                                                            </div>
+                                                                                            <div class="col-sm-4">
+                                                                                                <p>@Model.OrderTotal.ToString()</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    }
+                                                                                }
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row gc-payt-method">
+                                                                        <div class="col-xs-12 col-sm-12">
+                                                                            <h6>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_Chooseapaymentmethod_</h6>
+                                                                            <div class="checkbox">
+                                                                                @if (ViewBag.PaymentTypes != null)
+                                                                                {
+                                                                                    foreach (var paymentTypes in ViewBag.PaymentTypes as List<SelectListItem>)
+                                                                                    {
+                                                                                        @Html.RadioButton("paymentvendor", paymentTypes.Value, paymentTypes.Selected, new { @class = "vendortype" })
+                                                                                        <label class="paymentTypes-type" for="@paymentTypes.Value">@paymentTypes.Text</label>
+                                                                                    }
+                                                                                }
+                                                                            </div>
+                                                                            <h6>@Resources.Scottybons.ScottybonsDataStrings.PaymentGatewaySelectIssuer</h6>
+                                                                            <div class="checkbox">
+                                                                                @if (ViewBag.IssuerTypes != null)
+                                                                                {
+                                                                                    foreach (var iTypes in ViewBag.IssuerTypes as List<SelectListItem>)
+                                                                                    {
+                                                                                        @Html.RadioButton("paymentbank", iTypes.Value, false, new { @class = "issuer-bank-type" })
+                                                                                        <label class="paymentTypes-type" for="@iTypes.Value">@iTypes.Text</label>
+                                                                                    }
+
+                                                                                }
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gc-payt-order-action back-next-wizard">
+                                                                        <div class="col-sm-12">
+                                                                            <button class="btn next-btn btn-default btn-gc-payment-order float-right" onclick="ReOrderToConfirmation(this);">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Payment_Button</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gc-payt-order-terms text-right">
+                                                                        <div class="col-sm-12">
+                                                                            <label class="lbl-payt-order-conditions">
+                                                                                <input type="checkbox" onchange="OrderTermCheck();" class="chk-payt-order-conditions" />&nbsp;@*@Resources.Scottybons.ScottybonsDataStrings.GC_Order_GeneralConditions*@
+                                                                                @Resources.Scottybons.ScottybonsDataStrings.IAmAgreeWithTheGeneralConditons <a href=@Url.Content("/" +@ScottybonsMVC.AppConstants.GlobalConstants.Language+ "/termsandcondition/") target="_blank" style="text-decoration:underline;" class="Registrationhref"> @Resources.Scottybons.ScottybonsDataStrings.IAmAgreeWithTheGeneralConditons_general_conditons</a>
+                                                                            </label>
+                                                                            <span id="tc_msg"> @Resources.Scottybons.ScottybonsDataStrings.YourOrder_Permissons</span>
+                                                                            <h5 class="lbl-payt-order-confirm-text">&nbsp; @Resources.Scottybons.ScottybonsDataStrings.GC_Order_ConfirmOrder_Text</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="order-gift-card-payment-status gift-card-wizard" style="display:block">
+
+                                                        <div class="order-gift-card-failure-status">
+                                                            <div class="order-gift-card-header row">
+                                                                <h2 class="text-uppercase">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Fail_Title</h2>
+                                                            </div>
+                                                            <div class="row col-sm-12">
+                                                                <div class="col-sm-1">
+                                                                    
+                                                                </div>
+                                                                <div class="col-sm-10 order-gc-failure-content">                                                                    <p>@Resources.Scottybons.ScottybonsDataStrings.GC_Payment_Fail_Ordernumber&nbsp;@Model.OrderNumber</p>
+                                                                    <p>@Resources.Scottybons.ScottybonsDataStrings.PaymentErrorSubHeading</p>
+                                                                </div>
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row col-sm-12">
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                                <div class="col-sm-10 no-padding">
+                                                                    <div class="gc-payt-order-action back-next-wizard text-center payment-fail-back-btn">
+                                                                        <div>
+                                                                            <button type="button" class="btn btn-primary btn-wizard-back" onclick="BackToWizard(this)">@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Response_Back_To_Payment</button>
+                                                                            <p>@Resources.Scottybons.ScottybonsDataStrings.PaymentErrorDescription</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                        }
+                                                                                    }
+
+    </div>
+
+    <div class="row order-gift-card-copy" style="display:none">
+        <div class="row gift-card-actions padding-bottom-1ptg">
+            <div class="col-sm-12">
+                <div class="col-sm-10">
+                    <label class="lbl-want-gift-card"><input type="checkbox" class="chk-want-gift-card" onclick="ManageGiftCardStatus(this)" />&nbsp; @Resources.Scottybons.ScottybonsDataStrings.GC_Iwanttoorderagiftcard</label>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-default btn-xs btn-danger float-right btn-custom" onclick="RemoveGiftCard(this)">
+                        <span class="glyphicon glyphicon glyphicon-remove gift-card-glyphicon-remove"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row gift-card-value-section padding-bottom-1ptg">
+            <div class="col-sm-12">
+                <div class="col-sm-4">
+                    <label class="">@Resources.Scottybons.ScottybonsDataStrings.GC_Value</label>
+                </div>
+                <div class="col-sm-8">
+                    <div class="required-field-error-holder" style="display:none;">
+                        <label class="required-field-error float-right">@Resources.Scottybons.ScottybonsDataStrings.GC_ValueOtherError</label>
+                    </div>
+                    <div class="col-sm-12 no-padding">
+                        <div class="col-sm-9 no-padding padding-right-1ptg">
+                            <select class="manage-state form-control sel-prices" onchange="SelPrizesOnChange(this)">
+                                <option value="1">€25</option>
+                                <option value="2">€100</option>
+                                <option value="3">€200</option>
+                                <option value="4">€500</option>
+                                <option value="5">@Resources.Scottybons.ScottybonsDataStrings.GC_Other_Value</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <input type="text" min="25" onkeypress="return OnlyNumeric(this);" class="manage-state form-control gift-card-other-value" disabled="disabled" placeholder="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row gift-card-forwhom-section padding-bottom-1ptg">
+
+            <div class="col-sm-12">
+                <div class="col-sm-4">
+                    <label class="">@Resources.Scottybons.ScottybonsDataStrings.GC_ForWho</label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" class="manage-state form-control gift-card-for-whom float-right" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_PhFirstName" />
+                </div>
+            </div>
+        </div>
+        <div class="row gift-card-permsg-section padding-bottom-1ptg ">
+            <div class="col-sm-12">
+                <div class="col-sm-4">
+                    <label class="">@Resources.Scottybons.ScottybonsDataStrings.GC_PersonalMessage</label>
+                </div>
+                <div class="col-sm-8">
+                    <textarea class="manage-state form-control gift-card-personal-msg float-right" maxlength="100" rows="2" placeholder="@Resources.Scottybons.ScottybonsDataStrings.GC_PhMax100characters"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row padding-bottom-1ptg padding-top-1ptg">
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-8 add-gift-card-note  ">
+
+
+                <p class="gift-card-row-separator">
+                    @Resources.Scottybons.ScottybonsDataStrings.GC_GiftCardNote
+                </p>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+    var giftCards = []; var priceValueIndicator = "€"; var ShipmentDetails = {}; var isGuest = false; var email = "";
+
+    function CheckDeliveryAddressField() {
+
+        $('.gc-deladdr-field').each(function (index, ctrl) {
+            $(ctrl).focusout(function () {
+                if ($(this).val().trim() == "") {
+                    if (!$(this).hasClass('required-field')) {
+                        $(this).addClass('required-field');
+                    }
+                } else {
+                    $(this).removeClass('required-field');
+                }
+            });
+        });
+    }
+
+    function OnlyNumeric(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+    function AddGiftCard(ele) {
+        var cloneDiv = $('div.order-gift-card-copy:last').clone();
+        var giftCardsCount = $('div.order-gift-card-copy').length;
+
+        var giftCardIndexClass = 'gift-card-' + giftCardsCount;
+        $(cloneDiv).addClass(giftCardIndexClass).addClass('valid-gift-card').find('input[type="checkbox"]').prop('checked', true);
+
+        $(cloneDiv).find('input.gift-card-other-value:eq(0)').focusout(function () {
+            $(this).val('€' + $(this).val().replace('€', ''));
+            if ($(this).val().trim() != "") {
+                $('.gcfields-required-error').slideUp('slow');
+                if (parseFloat($(this).val().replace('€', '')) < 26) {
+                    $(this).addClass('min-required-field');
+                    $(this).closest('div.order-gift-card-copy').find('div.required-field-error-holder:eq(0)').slideDown('slow');
+                } else {
+                    $(this).removeClass('min-required-field');
+                    $(this).removeClass('required-field');
+                    $(this).closest('div.order-gift-card-copy').find('div.required-field-error-holder:eq(0)').slideUp('slow');
+                }
+            } else {
+                $(this).addClass('required-field');
+                $('.gcfields-required-error').slideDown('slow');
+                $(this).removeClass('min-required-field');
+                $(this).closest('div.order-gift-card-copy').find('div.required-field-error-holder:eq(0)').slideUp('slow');
+            }
+        });
+
+        $('.gift-cards-section').append(cloneDiv);
+        $(cloneDiv).show();
+        $(ele).prop('checked', false);
+
+        $(cloneDiv).find('select.sel-prices:eq(0)').focus();
+
+        if ($('div.order-gift-card-copy').length > 0) {
+            $('.btn-wizard-next').show();
+        }
+
+        $('.lbl-want-order').contents().last().replaceWith(' @Resources.Scottybons.ScottybonsDataStrings.GC_Iwanttoorderanothergiftcard');
+        // Disable cut,copy,paste for "other" textbox
+        $('.gift-card-other-value').bind("cut copy paste", function (e) {
+            e.preventDefault();
+        });
+    }
+
+    function RemoveGiftCard(ele) {
+        $(ele).closest('div.order-gift-card-copy').remove();
+
+        if ($('div.order-gift-card-copy').length > 1) {
+            $('.btn-wizard-next').show();
+        } else {
+            $('.btn-wizard-next').hide();
+            $('.lbl-want-order').contents().last().replaceWith(' @Resources.Scottybons.ScottybonsDataStrings.GC_Iwanttoorderagiftcard');
+        }
+    }
+
+    function SelPrizesOnChange(ctrl) {
+        if ($(ctrl).find('option:selected').text().toLowerCase() == 'other' || $(ctrl).find('option:selected').text().toLowerCase() == 'anders') {
+            $(ctrl).closest('div.gift-card-value-section').find('input.gift-card-other-value').prop('disabled', false);
+        } else {
+            $('.gcfields-required-error').slideUp('slow');
+            $(ctrl).closest('div.gift-card-value-section').find('div.required-field-error-holder:eq(0)').slideUp('slow');
+            $(ctrl).closest('div.gift-card-value-section').find('input.gift-card-other-value').val('');
+            $(ctrl).closest('div.gift-card-value-section').find('input.gift-card-other-value').prop('disabled', true);
+            $(ctrl).closest('div.gift-card-value-section').find('input.gift-card-other-value:eq(0)').removeClass('required-field');
+            $(ctrl).closest('div.gift-card-value-section').find('input.gift-card-other-value:eq(0)').removeClass('min-required-field');
+        }
+    }
+
+    function ManageGiftCardStatus(ctrl) {
+        if ($(ctrl).is(':checked')) {
+
+            $(ctrl).closest('div.order-gift-card-copy').addClass('valid-gift-card');
+
+            $(ctrl).closest('div.order-gift-card-copy').find('.manage-state').prop('disabled', false);
+
+            if ($(ctrl).closest('div.order-gift-card-copy').find('select.sel-prices').find('option:selected').text().toLowerCase() == 'other' || $(ctrl).closest('div.order-gift-card-copy').find('select.sel-prices').find('option:selected').text().toLowerCase() == 'anders') {
+                $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').prop('disabled', false);
+                if ($(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').val().trim() == "") {
+                    $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').addClass('required-field');
+                    $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').focus();
+                } else {
+                    if (parseFloat($(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').val()) < 25) {
+                        if (!$(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').hasClass('min-required-field')) {
+                            $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').addClass('min-required-field');
+                            $(ctrl).closest('div.order-gift-card-copy').find('div.required-field-error-holder:eq(0)').slideDown('slow');
+                        }
+                    }
+                }
+
+            } else {
+                $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').removeClass('required-field');
+                $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').removeClass('min-required-field');
+                $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').prop('disabled', true);
+            }
+
+        } else {
+
+            $(ctrl).closest('div.order-gift-card-copy').removeClass('valid-gift-card');
+            $(ctrl).closest('div.order-gift-card-copy').find('.manage-state').prop('disabled', true);
+            $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').removeClass('required-field');
+            $(ctrl).closest('div.order-gift-card-copy').find('input.gift-card-other-value').removeClass('min-required-field');
+            $(ctrl).closest('div.order-gift-card-copy').find('div.required-field-error-holder:eq(0)').slideUp('slow');
+        }
+
+        if ($('.chk-want-gift-card:checked').length > 0) {
+            $('.btn-add-gift-card').slideDown('slow');
+        } else {
+            $('.btn-add-gift-card').slideUp('slow');
+        }
+    }
+
+    function ProceedToLoginOrAddress(ctrl) {
+        CheckDeliveryAddressField();
+        var otherValueEmpty = false; var otherValueMinCheck = false;
+        $('.chk-want-gift-card:checked').each(function (index, ele) {
+            //if (!otherValueEmpty ) {
+            if ($(ele).closest('div.order-gift-card-copy').find('select.sel-prices').find('option:selected').text().toLowerCase() == 'other' || $(ele).closest('div.order-gift-card-copy').find('select.sel-prices').find('option:selected').text().toLowerCase() == 'anders') {
+                if ($(ele).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').val().trim() == "" || $(ele).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').val().trim() == "€") {
+                    otherValueEmpty = true;
+                    $(ele).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').addClass('required-field');
+                    //return;
+                } else {
+                    if (parseFloat($(ele).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').val()) < 26) {
+                        otherValueMinCheck = true;
+                        if (!$(ele).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').hasClass('min-required-field')) {
+                            $(ele).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').addClass('min-required-field');
+                            $(ele).closest('div.order-gift-card-copy').find('div.required-field-error-holder:eq(0)').slideDown('slow');
+                        }
+                    } else {
+                        $(ele).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').removeClass('min-required-field');
+                        $(ele).closest('div.order-gift-card-copy').find('input.gift-card-other-value:eq(0)').removeClass('required-field');
+                        $(ele).closest('div.order-gift-card-copy').find('div.required-field-error-holder:eq(0)').slideUp('slow');
+                        $('.gcfields-required-error').slideUp('slow');
+                    }
+                }
+            }
+            //}
+        });
+
+        if (otherValueEmpty) {
+            //alert('check the required fields.');
+            $('.gcfields-required-error').slideDown('slow');
+            $('.required-field:eq(0)').focus();
+            return;
+        } else if (otherValueMinCheck) {
+            $('.gcfields-required-error').slideUp('slow');
+            $('.min-required-field:eq(0)').focus();
+            //alert('value should be grater than 25');
+            return;
+        } else {
+            $('.gcfields-required-error').slideUp('slow');
+        }
+
+        $(ctrl).closest('div.gift-card-wizard').slideUp('slow');
+        $(ctrl).closest('div.gift-card-wizard').next().slideDown('slow');
+
+        //event for login
+        $('.gift-card-login-emailaddress').focusout(function () {
+
+            if ($(this).val().trim() != "") {
+                if (!isValidEmailAddress($(this))) {
+                    $('.gc-login-valid-error').slideDown('slow');
+                    $('.gc-login-required-error').slideUp('slow');
+                    $(this).addClass('required-field');
+                    //$('.btn-address-them').prop('disabled', true);
+                    return;
+                }
+            }
+        });
+
+        //event for guest login
+        $('.gift-card-login-guest-emailaddress').focusout(function () {
+            if ($(this).val().trim() != "") {
+                if (!isValidEmailAddress($(this))) {
+                    $('.gc-loginguest-valid-error').slideDown('slow');
+                    $('.gc-loginguest-required-error').slideUp('slow');
+                    $(this).addClass('required-field');
+                    //$('.btn-guest-address-them').prop('disabled', true);
+                    return;
+                }
+            }
+        });
+
+        $('.gc-addr-post').focusout(function () {
+            var ctrl = this;
+            if ($(ctrl).val().trim() != '') {
+                var regex = new RegExp("^\[0-9]{4}[A-z]{2}$");
+                var result = regex.test($(ctrl).val().trim());
+                if (!result) {
+                    $(ctrl).next('span.gc-addr-post-error:eq(0)').fadeIn('slow');
+                    $(ctrl).addClass('zip-error');
+                } else {
+                    $(ctrl).next('span.gc-addr-post-error:eq(0)').fadeOut('slow');
+                    $(ctrl).removeClass('zip-error');
+                }
+            }
+        });
+    }
+
+    function ProceedToDelivery(ctrl, isLoginUser) {
+        var ctrlValid = true;
+        isGuest = false;
+
+        $('.gc-login-required-error').slideUp('slow');
+        $('.gc-login-valid-error').slideUp('slow');
+
+        email = ($('.loggedin-user').val().toLowerCase() == "true") ? $('.loggedin-user-email').val() : $('.gift-card-login-emailaddress').val();
+
+        ctrlValid = ($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)').val().trim() != "");
+
+        if (ctrlValid) {
+
+            if (!isValidEmailAddress($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'))) {
+                FocusControlRequiredError($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'));
+                $('.gc-login-valid-error').slideDown('slow');
+                //alert('please enter valid email.')
+                return;
+            }
+            $('.gc-login-valid-error').slideUp('slow');
+            RemoveControlError($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'));
+
+            ctrlValid = ($(ctrl).closest('div.gift-card-login').find('input.gc-password:eq(0)').val().trim() != "");
+
+            if (!ctrlValid)
+                FocusControlRequiredError($(ctrl).closest('div.gift-card-login').find('input.gc-password:eq(0)'));
+
+        } else {
+            FocusControlRequiredError($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'));
+        }
+
+        if (ctrlValid) {
+
+            RemoveControlError($(ctrl).closest('div.gift-card-login').find('input.gc-password:eq(0)'));
+            RemoveControlError($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'));
+            $('.gc-login-required-error').slideUp('slow');
+            $('.gc-login-valid-error').slideUp('slow');
+            //login
+            var model = {
+                Email: $(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)').val(),
+                Password: $(ctrl).closest('div.gift-card-login').find('input.gc-password:eq(0)').val()
+            }
+
+            $.ajax({
+                //url: '/ScottyBonsPhase2Test/umbraco/surface/Promotions/Login/',
+                url: '/umbraco/surface/Promotions/Login/',
+                data: JSON.stringify(model),
+                type: 'POST',
+                async: false,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.Status) {
+                        $(ctrl).closest('div.gift-card-wizard').slideUp('slow');
+                        $(ctrl).closest('div.gift-card-wizard').next().slideDown('slow');
+                        $(ctrl).closest('div.login-gift-card-section').remove();
+                        $('.gc-payersaddr-firstname').val(data.FirstName).prop('disabled', true);
+                        $('.gc-payersaddr-lastname').val(data.LastName).prop('disabled', true);
+                        $('.gc-payersaddr-firstname').removeClass('required-field');
+                        $('.gc-payersaddr-lastname').removeClass('required-field');
+
+                    } else {
+                        //alert(data.ErrorMsg);
+                        $('.gc-login-invalid-user-error').slideDown('slow');
+                    }
+                },
+                error: function () {
+                    alert('Error');
+                }
+            });
+        } else {
+            //alert('Please fill the details.')
+            $('.gc-login-required-error').slideDown('slow');
+        }
+
+        CheckDeliveryAddressField();
+    }
+
+    function ProceedToDeliveryAsGuest(ctrl) {
+        var ctrlValid = true;
+        isGuest = true;
+
+        $('.gc-loginguest-valid-error').slideUp('slow');
+        $('.gc-loginguest-required-error').slideUp('slow');
+
+        email = ($('.loggedin-user').val().toLowerCase() == "true") ? $('.loggedin-user-email').val() : $('.gift-card-login-guest-emailaddress').val();
+
+        ctrlValid = ($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)').val().trim() != "");
+
+        if (!ctrlValid) {
+            FocusControlRequiredError($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'));
+        } else {
+
+            if (!isValidEmailAddress($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'))) {
+                FocusControlRequiredError($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'));
+                $('.gc-loginguest-valid-error').slideDown('slow');
+                //alert('please enter valid email.')
+                return;
+            }
+            $('.gc-loginguest-valid-error').slideUp('slow');
+            RemoveControlError($(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress:eq(0)'));
+        }
+
+        if (ctrlValid) {
+
+            $(ctrl).closest('div.gift-card-login').find('input.gc-emailaddress').each(function (index, ele) {
+                RemoveControlError(ele);
+            });
+
+            $(ctrl).closest('div.gift-card-wizard').slideUp('slow');
+            $(ctrl).closest('div.gift-card-wizard').next().slideDown('slow');
+
+            $('.gc-loginguest-required-error').slideUp('slow');
+
+        } else {
+            //alert('Please fill the details.')
+            $('.gc-loginguest-required-error').slideDown('slow');
+        }
+
+        CheckDeliveryAddressField();
+    }
+
+    var total = 0;
+
+    function ProceedToPayment(ctrl) {
+
+        giftCards.length = 0;
+        email = ($('.loggedin-user').val().toLowerCase() == "true") ? $('.loggedin-user-email').val() : email;
+
+        var valid = $('.gc-deladdr-field').filter(function (index, ele) { return $(ele).val().trim() == ""; }).length == 0;
+
+        if (!valid) {
+            var setFocus = false;
+            $('.gc-deladdr-field').filter(function (index, ele) {
+                if ($(ele).val().trim() == "") {
+                    if (!setFocus) {
+                        setFocus = true;
+                        $(ele).focus();
+                    }
+                    $(ele).addClass('required-field');
+                } else {
+                    $(ele).removeClass('required-field');
+                }
+            });
+
+            //alert('please fill delivery address');
+            $('.gc-addr-required-error').slideDown('slow');
+            return;
+        }
+
+        $('.gc-deladdr-field').removeClass('required-field');
+
+        $('.gc-addr-required-error').slideUp('slow');
+
+        $('.gc-payt-items-holder').empty();
+
+        //Zipcode validity check
+
+        if ($('.zip-error').length > 0) {
+            $('.zip-error').focus();
+            return;
+        }
+        total = 0;
+
+        $('.valid-gift-card').each(function (index, ele) {
+            var giftCardObject = {};
+            giftCardObject.Title = "@Resources.Scottybons.ScottybonsDataStrings.GC_Giftcard_For";
+            giftCardObject.Name = $(ele).find('input.gift-card-for-whom:eq(0)').val();
+            giftCardObject.PersonalMessage = $(ele).find('textarea.gift-card-personal-msg:eq(0)').val();
+
+            var cardValueSelectEle = $(ele).find('select.sel-prices:eq(0)');
+
+            if ($(cardValueSelectEle).find('option:selected').text().toLowerCase() == "other" || $(cardValueSelectEle).find('option:selected').text().toLowerCase() == "anders") {
+
+                giftCardObject.Value = $(ele).find('input.gift-card-other-value').val().replace('€', '€ ');
+                total += parseFloat($(ele).find('input.gift-card-other-value').val().replace('€', '').trim());
+            } else {
+
+                giftCardObject.Value = priceValueIndicator + " " + $(cardValueSelectEle).find('option:selected').text().replace('€', '');
+                total += parseFloat($(cardValueSelectEle).find('option:selected').text().replace('€', ''));
+            }
+            giftCards.push(giftCardObject);
+
+            var giftCardRow = $('<div>').addClass('row');
+            var titleColDiv = giftCardRow.append($('<div>').addClass('col-sm-4').append($('<p>').append(giftCardObject.Title)));
+            var nameColDiv = giftCardRow.append($('<div>').addClass('col-sm-4').append($('<p>').append(giftCardObject.Name)));
+            var valueColDiv = giftCardRow.append($('<div>').addClass('col-sm-4').append($('<p>').append(giftCardObject.Value)));
+            $('.gc-payt-items-holder').append(giftCardRow);
+
+        });
+
+        var rowSeparator = $('<div>').addClass('gc-payt-item-separator');
+        var totalGiftCardRow = $('<div>').addClass('row');
+        totalGiftCardRow.append($('<div>').addClass('col-sm-4 gc-total').append($('<p>').append('@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Overview_Total ')));
+        totalGiftCardRow.append($('<div>').addClass('col-sm-4'));
+        totalGiftCardRow.append($('<div>').addClass('col-sm-4').append($('<p>').append(priceValueIndicator + " " + total)));
+        $('.gc-payt-items-holder').append(rowSeparator);
+        $('.gc-payt-items-holder').append(totalGiftCardRow);
+
+        ShipmentDetails.Email = email;
+        ShipmentDetails.PayersFirstName = $('.gc-payersaddr-firstname').val();
+        ShipmentDetails.PayersLastName = $('.gc-payersaddr-lastname').val();
+        ShipmentDetails.FirstName = $('.gc-addr-deladd-firstname').val();
+        ShipmentDetails.LastName = $('.gc-addr-deladd-lastname').val();
+        ShipmentDetails.StreetName = $('.gc-addr-streetname').val();
+        ShipmentDetails.HouseNumber = $('.gc-addr-housenumber').val();
+        ShipmentDetails.PostalCode = $('.gc-addr-post').val();
+        ShipmentDetails.City = $('.gc-addr-city').val();
+        ShipmentDetails.Country = parseInt($('.gc-addr-country').val());
+
+        $(ctrl).closest('div.gift-card-wizard').slideUp('slow');
+        $(ctrl).closest('div.gift-card-wizard').next().slideDown('slow');
+    }
+
+    //Check the terms ad conditions enable or not
+    function OrderTermCheck() {
+        if (!$('.chk-payt-order-conditions').is(":checked")) {
+            $('#tc_msg').slideDown('slow');
+        } else {
+            $('#tc_msg').slideUp('slow');
+        }
+    }
+
+    function ProceedToConfirmation(ctrl) {
+        if ($('.issuer-bank-type:checked').length == 0) {
+            $('#gc_bank_msg').slideDown('slow');
+            @*alert('@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Payment_Issuer_Error_Msg');*@
+            return;
+        } else if (!$('.chk-payt-order-conditions').is(':checked')) {
+            $('#tc_msg').css('display', 'block');
+            return;
+        }
+        else {//Make Payment
+
+            var model = {};
+            model.GiftCards = giftCards;
+            model.Email = email;
+            model.IsGuest = isGuest;
+            model.ShipmentDetails = ShipmentDetails;
+            model.VendorId = parseInt($('.vendortype:checked').val());
+            model.IssuerType = $('.issuer-bank-type:checked').val();
+            model.OrderTotal = total;
+            $.ajax({
+                //url: '/ScottyBonsPhase2Test/umbraco/surface/Promotions/HandleGiftCardsAction/',
+                url: '/umbraco/surface/Promotions/HandleGiftCardsAction/',
+                data: JSON.stringify(model),
+                type: 'POST',
+                async: false,
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    window.location.href = result.PaymentUrl;
+                },
+                error: function () {
+                    alert('Error');
+                }
+            });
+        }
+
+    }
+
+    function ReOrderToConfirmation(ctrl) {
+
+        if ($('.issuer-bank-type:checked').length == 0) {
+            alert('@Resources.Scottybons.ScottybonsDataStrings.GC_Order_Payment_Issuer_Error_Msg');
+            return;
+        } else if (!$('.chk-payt-order-conditions').is(':checked')) {
+            $('#tc_msg').css('display', 'block');
+            return;
+        } else {
+            var model = {};
+            model.VendorId = parseInt($('.vendortype:checked').val());
+            model.IssuerType = $('.issuer-bank-type:checked').val();
+
+            $.ajax({
+                //url: '/ScottyBonsPhase2Test/umbraco/surface/Promotions/HandleGiftCardsReOrderAction/',
+                url: '/umbraco/surface/Promotions/HandleGiftCardsReOrderAction/',
+                data: JSON.stringify(model),
+                type: 'POST',
+                async: false,
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    window.location.href = result.PaymentUrl;
+                },
+                error: function () {
+                    alert('Error');
+                }
+            });
+        }
+    }
+
+    function getParameterByName(name, url) {
+
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    function FocusControlRequiredError(ctrl) {
+        $(ctrl).addClass('required-field');
+        $(ctrl).focus();
+    }
+
+    function RemoveControlError(ctrl) {
+        $(ctrl).removeClass('required-field');
+    }
+
+    function isValidEmailAddress(inputText) {
+        if ($(inputText).val().trim() != "") {
+            if (/^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(inputText).val())) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
+    function BackToWizard(ctrl) {
+        $(ctrl).closest('div.gift-card-wizard').prev().slideDown('slow').next().slideUp('slow');
+    }
+</script>

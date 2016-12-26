@@ -1,0 +1,557 @@
+﻿@using ScottybonsMVC.AppConstants
+@using ScottybonsMVC.Controllers
+@using ScottybonsMVC.Models.Entities
+@using ScottybonsMVC.Models.ViewModels;
+@model ScottybonsMVC.Models.ViewModels.Customer.ProfileQuestionsVm
+@{
+
+// var i = 0;
+}
+
+@using (Html.BeginForm("ProfileQuestions", "Account", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <section id="create-profile_save_qes">
+        <div class="container">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 text-right edit-save">
+                        @*<div class="row">
+                            <a href=@Url.Content("/" + @GlobalConstants.Language + "/order/planscottybox") class="next_btns">@Resources.Scottybons.ScottybonsDataStrings.Edit_profile_Button_GoToPlanScottyBox</a>
+                        </div>*@
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" style="height:auto; margin:0px;">
+        <div class="container">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 text-center">
+                @if (Model.ProfileQuestionsViewModel.QuestionNumber == 1)
+                {
+
+                    <div class="row">
+                        <h2>@Resources.Scottybons.ScottybonsDataStrings.ProfileQuestionsHeading</h2>
+                        <h5>
+                            @Resources.Scottybons.ScottybonsDataStrings.ProfileQuestionsSubHeading <br> @Resources.Scottybons.ScottybonsDataStrings.ProfileQuestionsSubHeading_idea_ofyour_style
+                        </h5>
+                    </div>
+                  <!--<div class="line"></div> -->
+                }
+                @Html.ValidationSummary(true, null, new { @class = "validation-control" })
+                @Html.ValidationMessage("ValidationError", null, new { @class = "validation-control" })
+                @if (!string.IsNullOrEmpty(Model.ProfileQuestionsViewModel.ErrorMessage))
+                {
+                    <div class="col-sm-10 text-center" style="color: red;">
+                        @Html.ValidationMessageFor(m => m.ProfileQuestionsViewModel.ErrorMessage, null, new { @class = "validation-control" })
+                        @*@Html.DisplayFor(m => m.ProfileQuestionsViewModel.ErrorMessage, null, new { @class = "validation-control" })*@
+                    </div>
+                }
+                <div class="row">
+                    <h2>
+                        @Model.ProfileQuestionsViewModel.QuestionNumber @Model.ProfileQuestionsViewModel.Question @if (Model.ProfileQuestionsViewModel.IsRequired == true)
+                        { <span style="color:red;">*</span> }
+                    </h2>
+                    @if (!string.IsNullOrEmpty(Model.ProfileQuestionsViewModel.QuestionSubDescription))
+                    {
+                        <h5>@Model.ProfileQuestionsViewModel.QuestionSubDescription </h5>
+                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.QuestionSubDescription)
+                    }
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </section>
+
+
+
+    switch (Model.ProfileQuestionsViewModel.AnswerControlType)
+    {
+        case ProfileQuestionAnswerControlTypes.RadioButton:
+            {
+                <section id="type_qes">
+                    <div class="container">
+
+                        <div class="col-sm-10 col-xs-offset-1 text-center" style="padding: 0px;" id="style_radioprofile">
+                            @if ((Model.ProfileQuestionsViewModel.IsImageTobeShown == true))
+                            {
+                                <img src="@Model.ProfileQuestionsViewModel.ImagePath" class="img-responsive type-form-img-border">
+                                @Html.HiddenFor(m => m.ProfileQuestionsViewModel.ImagePath)
+
+                                <br />
+                                <div class="row">
+                                    @{
+                                        var iobjAnswerCount = Model.ProfileQuestionsViewModel.Answers.Count;
+
+                                    }
+                                    @for (int answerCount = 0; answerCount < Model.ProfileQuestionsViewModel.Answers.Count; answerCount++)
+                                    {
+                                        var cssClass = "col-sm-2 divice_ver text-center";
+                                        if ((Model.ProfileQuestionsViewModel.Answers[0].AnswerID == Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID) || (Model.ProfileQuestionsViewModel.Answers[iobjAnswerCount - 1].AnswerID == Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID))
+                                        {
+                                            cssClass = "col-sm-3 divice_ver text-center";
+                                        }
+                                        else
+                                        {
+                                            cssClass = "col-sm-2 divice_ver text-center";
+                                        }
+                                        <div class="@cssClass">
+                                            <h3>@Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].Answer)</h3>
+                                            <div class="radio-btn">
+                                                <label>
+                                                    @*@Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID })*@
+                                                    @if (Model.ProfileQuestionsViewModel.Answers[answerCount].FLAG == "O")
+                                                    {
+                                                        @Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber, @class = "RadiobtnOther" })
+                                                        @Html.TextBoxFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber, @autocomplete = "off", @style = "display:none;" })
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber })
+                                                    }
+
+                                                </label>
+                                            </div>
+                                            @if (!String.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription))
+                                            {
+                                                <h4>@Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)</h4>
+                                            }
+                                        </div>
+
+                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].Answer)
+                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerID)
+                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].QuestionID)
+                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].CreatedOn)
+                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].FLAG)
+                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerNumber)
+                                    }
+                                    @if (Model.ProfileQuestionsViewModel.IsRequired == true)
+                                    {
+                                        @Html.ValidationMessageFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "validation-control" })
+                                    }
+                                </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="row">
+                                                <div class="control-label col-sm-2 col-xs-12"></div>
+                                                <div class="col-xs-12 col-sm-10">
+                                                    @{
+                                                        var iobjAnswerCount = Model.ProfileQuestionsViewModel.Answers.Count;
+                                                    }
+                                                    @for (int answerCount = 0; answerCount < Model.ProfileQuestionsViewModel.Answers.Count; answerCount++)
+                                                    {
+                                                        if (Model.ProfileQuestionsViewModel.Answers.Count > 5 && string.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerImagePath))
+                                                        {
+                                                            <div class="img_ans col-xs-12 col-sm-5">
+                                                                @for (int i = 0; i < 4; i++)
+                                                                {
+                                                                    if (answerCount < Model.ProfileQuestionsViewModel.Answers.Count)
+                                                                    {
+                                                                        <div class="typeform-radio">
+                                                                            <label>
+                                                                                @*@Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID })*@
+
+                                                                                @if (Model.ProfileQuestionsViewModel.Answers[answerCount].FLAG == "O")
+                                                                                {
+                                                                                    @Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber, @class = "RadiobtnOther" })
+                                                                                    if (!String.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription))
+                                                                                    {
+                                                                                        @Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                                                    }
+                                                                                    @Html.TextBoxFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber, @autocomplete = "off", @style = "display:none;" })
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].Answer)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerID)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].QuestionID)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].CreatedOn)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].FLAG)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerNumber)
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    @Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber })
+                                                                                    if (!String.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription))
+                                                                                    {
+                                                                                        @Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                                                    }
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].Answer)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerID)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].QuestionID)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].CreatedOn)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].FLAG)
+                                                                                    @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerNumber)
+                                                                                }
+
+
+                                                                            </label>
+                                                                        </div>
+
+                                                                    }
+                                                                    if (i != 3)
+                                                                    {
+                                                                        answerCount++;
+                                                                    }
+                                                                }
+                                                            </div>
+                                                        }
+                                                        else if (!string.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerImagePath))
+                                                        {
+                                                            <div class="img_ans col-xs-12 col-sm-5">
+                                                                <img src="@Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerImagePath" class="img-responsive type-form-img-border">
+                                                                @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerImagePath)
+                                                                @*@Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID })*@
+
+                                                                @if (Model.ProfileQuestionsViewModel.Answers[answerCount].FLAG == "O")
+                                                                {
+                                                                    @Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber, @class = "RadiobtnOther" })
+                                                                    if (!String.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription))
+                                                                    {
+                                                                        @Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                                    }
+                                                                    @Html.TextBoxFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber, @autocomplete = "off", @style = "display:none;" })
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber })
+                                                                    if (!String.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription))
+                                                                    {
+                                                                        @Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                                    }
+                                                                }
+
+
+
+                                                            </div>
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].Answer)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerID)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].QuestionID)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].CreatedOn)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].FLAG)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerNumber)
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="typeform-radio">
+                                                                <label>
+                                                                    @*<h3>@Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].Answer)</h3>*@
+                                                                    @*@Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID })*@
+
+                                                                    @if (Model.ProfileQuestionsViewModel.Answers[answerCount].FLAG == "O")
+                                                                    {
+                                                                        @Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber, @class = "RadiobtnOther" })
+                                                                        if (!String.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription))
+                                                                        {
+                                                                            @Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                                        }
+                                                                        @Html.TextBoxFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber, @autocomplete = "off", @style = "display:none;" })
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Html.RadioButtonFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerID, new { id = "Response" + Model.ProfileQuestionsViewModel.Answers[answerCount].QuestionNumber })
+                                                                        if (!String.IsNullOrEmpty(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription))
+                                                                        {
+                                                                            @Html.Label(Model.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                                        }
+                                                                    }
+                                                                    
+                                                                </label>
+                                                            </div>
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].Answer)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerID)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerDescription)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].QuestionID)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].CreatedOn)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].FLAG)
+                                                            @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[answerCount].AnswerNumber)
+                                                        }
+
+                                                    }
+                                                    @if (Model.ProfileQuestionsViewModel.IsRequired == true)
+                                                    {
+                                                        @Html.ValidationMessageFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "validation-control" })
+                                                    }
+
+                                                </div>
+                                            </div>
+                                                        }
+                        </div>
+                    </div>
+                </section>
+                                                                break;
+                                                            }
+                                                        case ProfileQuestionAnswerControlTypes.CheckBox:
+                                                            {
+                                                                <section id="type_qes">
+                                                                    <div class="container">
+
+                                                                        <div class="col-sm-10 col-xs-offset-1 text-center" style="padding: 0px;">
+                                                                            <div class="row">
+                                                                                <div class="form-group">
+                                                                                    <div class="control-label col-sm-4 col-xs-12"></div>
+                                                                                    <div class="col-xs-12 col-sm-8">
+                                                                                        @if (!ReferenceEquals(Model.ProfileQuestionsViewModel.CheckBoxAnswers, null))
+                                                                                        {
+                                                                                            for (int iCount = 0; iCount < Model.ProfileQuestionsViewModel.CheckBoxAnswers.Count; iCount++)
+                                                                                            {
+                                                                                                if (Model.ProfileQuestionsViewModel.CheckBoxAnswers.Count > 5)
+                                                                                                {
+                                                                                                    <div class="typeform-radio col-xs-12 col-sm-5">
+                                                                                                        @for (int i = 0; i < 4; i++)
+                                                                                                        {
+                                                                                                            if (iCount < Model.ProfileQuestionsViewModel.CheckBoxAnswers.Count)
+                                                                                                            {
+                                                                                                                <div class="typeform-radio ">
+
+                                                                                                                        @if (Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Flag == "N")
+                                                                                                                        {
+                                                                                                                            @Html.CheckBoxFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].IsSelected, new { id = "chkboxAnswers" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim(), @class = "chkboxAnswers" })
+                                                                                                                            <label>
+                                                                                                                                @Html.DisplayFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerDescription)
+                                                                                                                            </label>   
+                                                                                                                        }
+                                                                                                                        else if (Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Flag == "O")
+                                                                                                                        {
+                                                                                                                            @Html.CheckBoxFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].IsSelected, new { id = "chkboxOther" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim(), @class = "chkboxOtherAnswers" })
+                                                                                                                            <label>
+                                                                                                                                @Html.DisplayFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerDescription)
+                                                                                                                            </label>
+                                                                                                                            @Html.TextBoxFor(m => m.ProfileQuestionsViewModel.SelectedOtherAnswer, null, new { @class = "chkboxOther" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim(), @autocomplete = "off", @style = "display:none;" })
+                                                                                                                        }
+                                                                                                                        else
+                                                                                                                        {
+                                                                                                                            @Html.CheckBoxFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].IsSelected, new { id = "chkboxAnswers" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim(), @class = "chkboxAnswers" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim() })
+                                                                                                                            <label>
+                                                                                                                                @Html.DisplayFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerDescription)
+                                                                                                                            </label>
+                                                                                                                        }
+                                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionId)
+                                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Answer)
+                                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerId)
+                                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerDescription)
+                                                                                                                        @*@Html.DisplayFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Answer)*@
+                                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber)
+                                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Flag)
+                                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[iCount].AnswerNumber)
+                                                                                                                    
+                                                                                                                </div>
+                                                                                                            }
+                                                                                                            if (i != 3)
+                                                                                                            {
+                                                                                                                iCount++;
+                                                                                                            }
+                                                                                                        }
+                                                                                                    </div>
+
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    <div class="checkbox ">
+                                                                                                        <label>
+                                                                                                            @if (Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Flag == "N")
+                                                                                                            {
+                                                                                                                @Html.CheckBoxFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].IsSelected, new { id = "chkboxAnswers" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim(), @class = "chkboxAnswers" })
+
+                                                                                                                @Html.DisplayFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerDescription)
+
+                                                                                                            }
+                                                                                                            else if (Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Flag == "O")
+                                                                                                            {
+                                                                                                                @Html.CheckBoxFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].IsSelected, new { id = "chkboxOther" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim(), @class = "chkboxOtherAnswers" })
+
+                                                                                                                @Html.DisplayFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerDescription)
+
+                                                                                                                @Html.TextBoxFor(m => m.ProfileQuestionsViewModel.SelectedOtherAnswer, null, new { @class = "chkboxOther" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim(), @autocomplete = "off", @style = "display:none;" })
+                                                                                                            }
+                                                                                                            else
+                                                                                                            {
+                                                                                                                @Html.CheckBoxFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].IsSelected, new { id = "chkboxAnswers" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim(), @class = "chkboxAnswers" + @Model.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber.Trim() })
+
+                                                                                                                @Html.DisplayFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerDescription)
+
+                                                                                                            }
+                                                                                                        </label>
+                                                                                                        
+                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionId)
+                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Answer)
+                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerId)
+                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].AnswerDescription)
+                                                                                                        @*@Html.DisplayFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Answer)*@
+                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].QuestionNumber)
+                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.CheckBoxAnswers[iCount].Flag)
+                                                                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Answers[iCount].AnswerNumber)
+
+                                                                                                    </div>
+                                                                                                }
+
+                                                                                            }
+                                                                                            if (Model.ProfileQuestionsViewModel.IsRequired == true)
+                                                                                            {
+                                                                                                @Html.ValidationMessageFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "validation-control" })
+                                                                                            }
+                                                                                        }
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </section>
+                                                                break;
+                                                            }
+                                                        case ProfileQuestionAnswerControlTypes.UploadControl:
+                                                            {
+                                                                <section id="register">
+                                                                    <div class="container">
+
+                                                                        <div class="col-sm-10 col-xs-offset-1 text-center" style="padding: 0px;">
+                                                                            <div class="form-group">
+                                                                                <div class="col-xs-12 col-sm-12">
+                                                                                    <input type="file" name="file" id="file" class="form-control" />
+                                                                                    <span class="valid_cls" id="valid_img"></span>
+                                                                                    @if (!ReferenceEquals(Model.ProfileQuestionsViewModel.SelectedAnswerImage, null))
+                                                                                    {
+                                                                                        var base64 = Convert.ToBase64String(Model.ProfileQuestionsViewModel.SelectedAnswerImage);
+                                                                                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                                                                        <img src="@imgSrc" />
+                                                                                    }
+                                                                                    
+                                                                                </div>
+                                                                            </div> 
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </section>
+                                                                break;
+                                                            }
+                                                        case ProfileQuestionAnswerControlTypes.TextBox:
+                                                            {
+                                                                <section id="register" style="height:auto;">
+                                                                    <div class="container">
+
+                                                                        <div class="col-sm-10 col-xs-offset-1 text-center" style="padding: 0px;">
+                                                                            <!-- <div class="line"></div> -->
+                                                                            <div class="row">
+                                                                                <div class="form-horizontal">
+                                                                                    <div class="form-group">
+                                                                                        <div class="col-xs-12 col-sm-12">
+                                                                                            <span id="ProfileQuestionsForView-@Model.ProfileQuestionsViewModel.QuestionNumber" style="color:red;font-weight:600;"></span>                                                                                            
+                                                                                            @Html.TextBoxFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "form-control typeFormTextBox", @id = "ProfileQuestionsViewModel-" + @Model.ProfileQuestionsViewModel.QuestionNumber })
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </section>
+                                                                break;
+                                                            }
+                                                        case ProfileQuestionAnswerControlTypes.Calendar:
+                                                            {
+                                                                <section id="register" style="height:auto;">
+                                                                    <div class="container">
+                                                                        <div class="col-sm-10 col-xs-offset-1 text-center" style="padding: 0px;">
+                                                                            <!-- <div class="line"></div>-->
+                                                                            <div class="row">
+                                                                                <div class="form-group">
+                                                                                    <div class="col-xs-12 col-sm-12">
+                                                                                        @*<input type="email" class="form-control" style="width:100%; text-align:center" id="inputEmail" placeholder="180cm">*@
+                                                                                        @Html.TextBoxFor(m => m.ProfileQuestionsViewModel.SelectedAnswer, null, new { @class = "form-control typeFormTextBox", @id = "example1", @placeholder = "DD-MM-YYYY" })
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                                    break;
+                                                                }
+                                                        }
+                                                        <section id="">
+                                                            <div class="container">
+                                                                <div class="col-sm-1"></div>
+                                                                <div class="col-sm-10">
+                                                                    <div class="row">
+                                                                        @if (Model.ProfileQuestionsViewModel.NumberOfQuestions == Model.ProfileQuestionsViewModel.QuestionNumber)
+                                                                        {
+                                                                            <h2 style="text-align:center; font-family:'Playfair Display'; margin-top:5%; font-size:28px; letter-spacing:2px;"> @Resources.Scottybons.ScottybonsDataStrings.Edit_profile_Als_jestijlprofielcompleetis_kun_jeverdergaanomeenstijladviesen_Scottyboxtebestellen</h2>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-1"></div>
+                                                            </div>
+                                                        </section>
+                                                        <section id="process_arrows">
+                                                            <div class="container">
+                                                                <div class="col-sm-1"></div>
+                                                                <div class="col-sm-10">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6 col-xs-6">
+                                                                            <p>@Model.ProfileQuestionsViewModel.Percentage voltooid</p>
+                                                                            <div class="process_box">
+                                                                                <div class="process_box_active" id="process_box_active_progress"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6 col-xs-6 text-right">
+                                                                            <div class="row">
+                                                                                <div class="process_arrows">
+                                                                                    <button name="button" type="submit" class="fa fa-chevron-down" id="Next-btn" value="Next" title="@Resources.Scottybons.ScottybonsDataStrings.ButtonNext"></button>
+                                                                                </div>
+                                                                                @if (!Model.ProfileQuestionsViewModel.IsDisablePrevious)
+                                                                                { <div class="process_arrows">
+                                                                                    <button name="button" type="submit" class="fa fa-chevron-up" id="Previous-btn" value="Previous" title="@Resources.Scottybons.ScottybonsDataStrings.Profile_Previous"></button>
+                                                                                    @*@Html.EditorFor(m => m.ProfileQuestionsViewModel.PreviousQuestionNumber)*@
+                                                                                    @*<i class="fa fa-chevron-down"></i>*@
+                                                                                </div>
+
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <div class="process_arrows" style="pointer-events: none;  opacity: 0.5; background: #CCC;">
+                                                                                        <button name="button" type="submit" class="fa fa-chevron-up" id="Previous-btn" value="Previous" title="Previous"></button>
+                                                                                        @*@Html.EditorFor(m => m.ProfileQuestionsViewModel.PreviousQuestionNumber)*@
+                                                                                        @*<i class="fa fa-chevron-down"></i>*@
+                                                                                    </div>
+                                                                                }
+
+
+                                                                                @*@Html.EditorFor(m => m.ProfileQuestionsViewModel.NextQuestionNumber)*@
+                                                                                @*<i class="fa fa-chevron-up"></i>*@
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-1"></div>
+                                                            </div>
+                                                        </section>
+                                                        
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.ValidationMessage)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.QuestionId)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.QuestionNumber)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.NumberOfQuestions)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.NextQuestionNumber)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.PreviousQuestionNumber)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.IsRequired)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.IsDisableNext)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.IsDisablePrevious)
+
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.IsImageTobeShown)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Question)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.AnswerControlId)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.AnswerControlType)
+                                                        @Html.HiddenFor(m => m.ProfileQuestionsViewModel.Percentage)
+
+                                                        }
+

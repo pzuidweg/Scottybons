@@ -1,0 +1,80 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html
+@using ScottybonsMVC.Controllers
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+}
+@section BodyContent{
+    <section id="top-menu">
+        <div id="register-top_no_menu">
+        </div>
+    </section>
+    <div>
+        @Html.Action("ManageSubscription", "Promotions")
+    </div>
+
+}
+@section scripts {
+    <script type="text/javascript">
+        $(":input").not("[id=enableEditSubscription]").prop("disabled", true);
+        $(':input:disabled').prop('title', '@Resources.Scottybons.ScottybonsDataStrings.Click_Edit');
+        $("#saveSubscription").hide();
+        //$('fieldset#mysubscriptions :input:not("button")').prop('disabled', true);
+        $("#enableEditSubscription").click(function () {
+            $(this).slideUp(600);
+            $(":input").not("[id=enableEditSubscription]").prop("disabled", false);
+            $("#saveSubscription").slideDown(800);
+        });
+
+        $(".drp-occasions").change(function() {
+            if ($('.drp-occasions option:selected').index() > 0) {
+                $("#occasion-err").slideUp(800);
+                return true;
+            } else {
+                $("#occasion-err").slideDown(800);
+            }
+        });
+        $('.drp-phone').blur(function () {
+            if ($(this).val() == null || $(this).val() == '') {
+                $('#dAddressPhone-err').slideDown(600);
+            } else {
+                $('#dAddressPhone-err').slideUp(600);
+                return true;
+            }
+        });
+        $('.drp-street').blur(function () {
+            if ($(this).val() == null || $(this).val() == '') {
+                $('#dAddressStreet-err').slideDown(600);
+            } else {
+                $('#dAddressStreet-err').slideUp(600);
+                return true;
+            }
+        });
+        $('.drp-hno').blur(function () {
+            if ($(this).val() == null || $(this).val() == '') {
+                $('#dAddressHno-err').slideDown(600);
+            } else {
+                $('#dAddressHno-err').slideUp(600);
+                return true;
+            }
+        });
+        $('.drp-zip').blur(function () {
+            if ($(this).val() == null || $(this).val() == '') {
+                $('#dAddressZip-err').slideDown(600);
+            } else {
+                $('#dAddressZip-err').slideUp(600);
+                return true;
+            }
+        });
+        $('.drp-town').blur(function () {
+            if ($(this).val() == null || $(this).val() == '') {
+                $('#dAddressTown-err').slideDown(600);
+            } else {
+                $('#dAddressTown-err').slideUp(600);
+                return true;
+            }
+        });
+
+    </script>
+}
+

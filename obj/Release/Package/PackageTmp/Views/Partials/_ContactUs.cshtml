@@ -1,0 +1,79 @@
+﻿@model ScottybonsMVC.Models.ViewModels.Customer.ContactUsVm
+@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using ScottybonsMVC.Controllers
+
+@{
+
+    var cntactUsViewModel = Model.ContactViewModel;
+    //Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("/umbraco_client/ui/jquery.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.min.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.unobtrusive.min.js");
+    var success = TempData["FormSuccess"] != null;
+}
+
+@*NOTE: This RenderJsHere code should be put on your main template page where the rest of your script tags are placed*@
+@Html.RenderJsHere()
+
+@using (Html.BeginUmbracoForm<HomeController>("ContactUs", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    
+    @Html.ValidationSummary("cntactUsViewModel", true)
+    <section id="contact">
+        <div class="container">
+            @if (success)
+            {
+                <p>@Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_Loginsuccess__Login_Success_</p>
+            }
+            else
+            {
+                <div class="col-sm-6 no-padding contact-reg">
+                    <h1>@Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_Contact_CONTACT</h1>
+                    <h5>@Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_Remarkorquestion_Do_you_have_a_remark_or_question_</h5>
+                    <h5>@Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_Sendmessage_Send_us_a_message_</h5>
+                    <div class="form-group">
+                        <div class="form-group">
+                            @Html.ValidationSummary(true, null, new { @class = "validation-control" })
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            @Html.TextBoxFor(m => Model.ContactViewModel.Topic, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_Topic_Topic })
+                            @Html.ValidationMessageFor(m => Model.ContactViewModel.Topic, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-10">
+                            @Html.TextAreaFor(m => Model.ContactViewModel.Message, new { @class = "form-control contact_textarea", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_Message_Message })
+                            @Html.ValidationMessageFor(m => Model.ContactViewModel.Message, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-10">
+                            @Html.TextBoxFor(m => Model.ContactViewModel.Name, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_Name_Name })
+                            @Html.ValidationMessageFor(m => Model.ContactViewModel.Name, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-10">
+                            @Html.TextBoxFor(m => Model.ContactViewModel.EmailAddress, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_EmailAddress_Email_Address })
+                            @Html.ValidationMessageFor(m => Model.ContactViewModel.EmailAddress, null, new { @class = "validation-control" })
+
+                            @Html.HiddenFor(m => Model.ContactViewModel.Status)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12 text-right"> <input type="submit" class="animated fadeInUp button_intro outline" value="@Resources.Scottybons.ScottybonsDataStrings.ButtonSend" /> </div>
+                    </div>
+                    <div class="form-group" style="font-family: 'Avenir Next Condensed'; font-size: 16px; padding-left:18px;">
+                        <div class="col-sm-8 col-xs-12 or-call">
+                            @Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_Callus__Or_call_us_on_number__31_85_7500_490  <b>@Resources.Scottybons.ScottybonsDataStrings.ContactUsViewModel_CallusContactNumber</b>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="col-sm-6 text-center"> <img src="/media/1050/contact_img_1.png" class="img-responsive"> </div>
+        </div>
+    </section>
+
+}

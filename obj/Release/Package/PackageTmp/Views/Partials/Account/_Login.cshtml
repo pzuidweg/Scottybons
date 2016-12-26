@@ -1,0 +1,245 @@
+﻿@*@model LoginViewModel*@
+@model ScottybonsMVC.Models.ViewModels.Customer.LoginVm
+@using System.Web.Mvc.Html
+@using ScottybonsMVC.AppConstants
+@using ClientDependency.Core.Mvc
+@using ScottybonsMVC.Models.ViewModels
+
+@{
+    //Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("/umbraco_client/ui/jquery.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.min.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.unobtrusive.min.js");
+
+    var nav = "";
+    if (@Request["Nav"] == "IsForOrder")
+    {
+        nav = "?Nav=IsForOrder";
+    }
+}
+
+@*NOTE: This RenderJsHere code should be put on your main template page where the rest of your script tags are placed*@
+@Html.RenderJsHere()
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    var redirectUrl = (string)HttpContext.Current.Session["redirectURL"];
+
+    var currentUrl = HttpContext.Current.Request.Url.ToString();
+    if (HttpContext.Current.Session["redirectURL"] != null)
+    {
+        // clear the session variable for future logins
+        HttpContext.Current.Session["redirectURL"] = null;
+        HttpContext.Current.Response.Redirect(redirectUrl);
+    }
+    else
+    {
+        // Nothing in the session so we will go home
+        HttpContext.Current.Response.Redirect("/");
+    }
+}
+else
+{
+    var ccls = "";
+    if (nav !="") {
+        ccls = "planscotybox";
+    }
+    <section id="register"  class="@ccls">
+        <div class="container">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <h2 class="spacing">@Resources.Scottybons.ScottybonsDataStrings.LoginVm_loginheader_YOUR_SCOTTYBONS_ACCOUNT</h2>
+                    <h5>@Resources.Scottybons.ScottybonsDataStrings.LoginVm_loginsubheader_Log_in_and_manage_your_information__your_styleprofile_and_your_orders </h5>
+                </div>
+                <div class="line"></div>
+                @if (ViewBag.errMsg != null)
+                {
+                <div class="form-group">
+                    <div class="form-group col-sm-10 text-center">
+                        @*@Html.LabelFor(m => Model.ErrorMessage, new { @class = "validation-control" })*@
+                        <span class="validation-control">@ViewBag.errMsg</span>
+                    </div>
+                </div>
+                }
+                <div class="row">
+                    @*@if (ViewBag.errMsg != null)
+                    {
+                        <div class="form-group">
+                            <div class="form-group col-sm-10 text-center">
+                                @Html.LabelFor(m => Model.ErrorMessage, new { @class = "validation-control" })
+                            </div>
+                        </div>
+                    }*@
+                    @using (Html.BeginUmbracoForm("Login", "Profile", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @*<div class="form-group">
+                            @Html.ValidationSummary(true, null, new { @class = "validation-control" })
+                        </div>*@
+
+                        <div class="form-group">
+
+                            @Html.LabelFor(m => Model.Email, new { @class = "control-label col-sm-5 col-xs-12" })
+                            <div class="col-xs-12 col-sm-7">
+                                @Html.TextBoxFor(m => Model.Email, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Email_address })
+                                @Html.ValidationMessageFor(m => Model.Email, null, new { @class = "validation-control", @id= "permission_msgs" })  
+                                <span id="permission_msgs"></span>                              
+                                <span id="permission_msg"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => Model.Password, new { @class = "control-label col-sm-5 col-xs-12" })
+                            <div class="col-xs-12 col-sm-7">
+                                <div class="account_password">
+                                    <label><input type="radio" name="account-type" data-account-type="register" onclick="javascript: passwordHide();" onchange="javascript: toggleAccountAction(); ">&nbsp;&nbsp;&nbsp;&nbsp;@Resources.Scottybons.ScottybonsDataStrings.Scottybons_Account_No_MakingNewAccount</label>
+                                    <div class="checkbox yesmypassword">
+                                        <label><input type="radio" name="account-type" checked="checked" onclick="javascript: passwordShow();" data-account-type="login" onchange="javascript: toggleAccountAction();">&nbsp;&nbsp;&nbsp;&nbsp;@Resources.Scottybons.ScottybonsDataStrings.Scottybons_Account_Yes_my_password_is</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail" class="control-label col-sm-5 col-xs-12"></label>
+                            <div class="col-xs-12 col-sm-7">
+                                @Html.PasswordFor(m => Model.Password, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.RegisterViewModel1_Password_Password })
+                                @Html.ValidationMessageFor(m => Model.Password, null, new { @class = "validation-control pswdVaild" })
+                            </div>
+                        </div>
+                  
+
+                        <div class="form-group">
+                            <div class="col-sm-12 forgotpassword-login text-right">
+                                <div class="checkbox">
+                                    <a id="forgotPassword" class="forgot-pswd" href=@Url.Content("/" +@GlobalConstants.Language+"/account/forgotpassword/") style="text-decoration:underline;">
+                                        @Html.LabelFor(m => Model.Forgotpasssword, new { @style = "text-decoration: underline; padding-top:5px; " })
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                       @*if (ViewBag.errMsg != null)
+                        {
+                                <div class="form-group">
+                                    <div class="form-group col-sm-10 text-center">
+                                        @Html.LabelFor(m => Model.ErrorMessage, new { @class = "validation-control" })
+                                    </div>
+                                </div>
+                        }*@
+                        <div class="form-group">
+                            <div class=" col-sm-12 text-right">
+                               <!--     <input type="submit" value="@Resources.Scottybons.ScottybonsDataStrings.ButtonLogin" class="animated fadeInUp button_intro outline-login" id="register-btn" onclick="javascript: CheckRegister();" /> -->
+                            @*<a id="register-btn" style="display: none" href=@Url.Content("/" + @GlobalConstants.Language + "/account/register" + nav) class="animated fadeInUp button_intro outline-login">@Resources.Scottybons.ScottybonsDataStrings.LoginVm_Register_REGISTER</a>*@ 
+                                <input type="button" style="display: none" value="@Resources.Scottybons.ScottybonsDataStrings.ButtonRegister" class="animated fadeInUp button_intro outline-login" id="register-btn" onclick="javascript: CheckRegister();" />
+                                <input type="submit"  value="@Resources.Scottybons.ScottybonsDataStrings.ButtonLogin" class="animated fadeInUp button_intro outline-login" id="login-btn" onclick="javascript: CheckLogin();" />
+                            </div>
+                        </div>
+
+                    }
+                    <div class="line"></div>
+                    <script type="text/javascript">
+
+                        function toggleAccountAction() {
+                            $(".password, #forgot-pswd, #login-btn, #register-btn").toggle();
+                        }
+                        function CheckLogin() {
+                            if (parseInt($('.account-type').find('input[type="radio"]:checked').attr('data-account-type')) == 'login') {
+                                if ($('.email-address').val() == "") {
+                                    alert("Please enter Email-Id");
+                                    return false;
+                                }
+                                else if ($('.password').val() == "") {
+                                    alert("Please enter password");
+                                    return false;
+                                }
+                                return true;
+                            }
+                        }
+
+                        function CheckRegister(nav) {
+                            
+                            var re = /[A-Z0-9._%+-]+@@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+                            var email = $('#Email').val();
+                            if ($('#Email').val() == "") {
+                          
+                                $('#permission_msgs').html('@Resources.Scottybons.ScottybonsDataStrings.EmailLogin');
+                                $('#permission_msg').hide();
+                                $('#permission_msgs').show();
+                                return false;
+                            }
+                            else if (!re.test(email)) {
+                               
+                                $('#permission_msg').html('@Resources.Scottybons.ScottybonsDataStrings.EmailInvalid');
+                                $('#permission_msgs').hide();
+                                $('#permission_msg').show();
+                                return false;
+
+                            } else {
+                                var enLanguage = '/en';
+                                var nlLanguage = '/nl';
+                                var url = window.location.href;
+
+                                if (url.indexOf('?') > -1) {
+                                    addurl = '&email=' + $('#Email').val();
+                                } else {
+                                    addurl = '?email=' + $('#Email').val();
+                                }
+                                url = url.replace("Login", "register");
+                                url = url.replace("login", "register");
+                                window.location.href = url + addurl;
+                            }
+                            return false;
+                        }
+                        function passwordHide() {
+                            $('#Password').hide();
+                            $("#permission_msgs").hide();
+                            $(".pswdVaild").html('');
+                            $(".validation-control").hide();
+                        }
+                        function passwordShow() {
+                            $('#Password').show();
+                        }
+
+                        function CheckAccountType(obj) {
+                            if (parseInt($(obj).attr("id")) > 1) {
+                                $(".password").show();
+                                $(".login-btn").show();
+                                $(".register-link").hide();
+                            } else {
+                                $(".password").hide();
+                                $(".login-btn").hide();
+                                $(".register-link").show();
+                            }
+                        }
+
+                        $(function () {
+                            $('input[name="account-type"][data-account-type="login"]').prop('checked', true);
+
+                            //toggleAccountAction();
+                            $("[id$='login-btn']").click(function () {
+
+                                if (parseInt($('.account-type').find('input[type="radio"]:checked').attr('data-account-type')) == 'login') {
+
+                                    ValidatorEnable($("[id$='PasswordRequired']")[0], false);
+                                }
+
+
+                            });
+                            if (window.location.href.indexOf('type=register') > -1) {
+                                $('input[name="account-type"]:first').prop('checked', true).click();
+                                $(".password, #login-btn").hide();
+                                $('#register-btn').show();
+
+                                //CheckRegister(nav);
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+    </section>
+
+}

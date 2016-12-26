@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "ScottyBonsMaster.cshtml";
+}
+
+@section BodyContent { 
+
+		@Umbraco.RenderMacro("HomePageBannerImage")					
+		<!-- starting tell-us section -->
+		<section id="Tell-us-aboutyourself">
+		@Umbraco.RenderMacro("HomePageRow1Promos")																	
+		@Umbraco.RenderMacro("HomePageRow2Promos")
+		</section>
+		<!-- ending tell-us section -->
+		<!-- starting Scottybons section -->
+		@Umbraco.RenderMacro("HomePageRow3Promos")
+		<!-- starting brands section -->
+		@Umbraco.RenderMacro("HomeBrandsSnippet")
+		<!-- endinging brands -->
+		@Umbraco.RenderMacro("HomeCarousel")
+		<!-- endinging EXAMPLE Outfits -->							
+		@Umbraco.RenderMacro("WhoarewePromos")
+
+}

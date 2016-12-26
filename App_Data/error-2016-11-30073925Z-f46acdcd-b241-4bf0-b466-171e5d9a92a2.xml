@@ -1,0 +1,193 @@
+﻿<error errorId="f46acdcd-b241-4bf0-b466-171e5d9a92a2" application="/LM/W3SVC/2/ROOT" host="18X1TQ1-N" type="System.ComponentModel.Win32Exception" message="The network path was not found" detail="System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---&gt; System.ComponentModel.Win32Exception (0x80004005): The network path was not found&#xD;&#xA;   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)&#xD;&#xA;   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)&#xD;&#xA;   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.Open()&#xD;&#xA;   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.&lt;&gt;c__DisplayClass1.&lt;ExecuteAction&gt;b__0()&#xD;&#xA;   at Umbraco.Core.Persistence.FaultHandling.RetryPolicy.ExecuteAction[TResult](Func`1 func)&#xD;&#xA;   at Umbraco.Core.Persistence.Database.OpenSharedConnection()&#xD;&#xA;   at Umbraco.Core.Persistence.Database.&lt;Query&gt;d__1c`1.MoveNext()&#xD;&#xA;   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)&#xD;&#xA;   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)&#xD;&#xA;   at Umbraco.Core.Persistence.Repositories.PublicAccessRepository.PerformGetAll(Guid[] ids)&#xD;&#xA;   at Umbraco.Core.Cache.FullDataSetRepositoryCachePolicy`2.PerformGetAll(Func`2 getFromRepo)&#xD;&#xA;   at Umbraco.Core.Cache.FullDataSetRepositoryCachePolicy`2.GetAll(TId[] ids, Func`2 getFromRepo)&#xD;&#xA;   at Umbraco.Core.Persistence.Repositories.RepositoryBase`2.GetAll(TId[] ids)&#xD;&#xA;   at Umbraco.Core.Services.PublicAccessService.GetEntryForContent(String contentPath)&#xD;&#xA;   at Umbraco.Core.Services.PublicAccessService.IsProtected(String contentPath)&#xD;&#xA;   at Umbraco.Web.Routing.PublishedContentRequestEngine.EnsurePublishedContentAccess()&#xD;&#xA;   at Umbraco.Web.Routing.PublishedContentRequestEngine.HandlePublishedContent()&#xD;&#xA;   at Umbraco.Web.Routing.PublishedContentRequestEngine.FindPublishedContentAndTemplate()&#xD;&#xA;   at Umbraco.Web.Routing.PublishedContentRequestEngine.PrepareRequest()&#xD;&#xA;   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)&#xD;&#xA;   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)&#xD;&#xA;ClientConnectionId:84527d00-2d5b-46b9-9410-689870c46f25&#xD;&#xA;Error Number:53,State:0,Class:20" time="2016-11-30T07:39:25.0357093Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8&#xD;&#xA;HTTP_COOKIE:_ga=GA1.1.1403609390.1473338167; ASP.NET_SessionId=mawt4pewfeg05hlbbq1kkqdn; .AspNet.ApplicationCookie=YO7nTbsdqINIFGJsc9Id8nWKD2ADitMxOi7LjLG9jGdDFABexV6zOYWLNEgg5x566Uk2ysDJzWZUmRU0GF9OxhDfLHVo1vLEGlOfJ8Bp9P1-kYyExtQRTkV6IodUfcomw6DKruQYhULcX7lMI2xehWkc2C9jfksU6TNIawTPnZ61CQHpFlLS1wx9sHgTUnMBxFVwkq-oU3kspX0WPAwjLtZQ7mbMuW_XMP5_oreZNDGzskoHoMNCGyOq-xZDwujpGbVq3sreRY0Rm3eNIs206dzgYn0CxSGe5MosavshG9V7TksovUYdDbJ-eceJ5wU4keRegxWpi44DxRASDbAN6FTHSZaSZ9UD1t6sCLZWQYKWHUPsATjiXSSfJf9zihmgqVMttCDYdXDHXdOvSrixpqSYlKJusHG6UUPGB6xfLx60UVirVfDxsoz2oxmCG56SW5GsddalfPipS77SsiX4EvDmMw6t2ifWfkTlHOYVDqDt4st6qeN42wzCNaduMEy0; XSRF-TOKEN=3n2J61--wVRJ1dRJi96AAxMMJ34GP_s0_WYIgNEMx0ts-0TOLMBAjHJZmLiL3II3TWe3IcFqY7hfnk1MKvA1vPxAGT7026nOHgROrQu3vS-WclOWacya7U7Qbqy0cQ4Z0; XSRF-V=Ol9rG5GknyBPOVAorAhEvEhYQaB-X1BkzyRUlzNmWz66XwgW3LnLP3DZTt2tnvwBoYUVOVQAc8lCjoEH-qehH-9yXLMLjf9pH6Z0xTokhNE1; UMB_UPDCHK=1; ScottybonsMVC=CC4837CAB7D9E746E6C0CA041D6825199F9A5F7A0B3154D05D634ABB7AA1552ED2D3385FE9644CBB2B93440C26C712E38D4B7AF1A487E152685A90AD584D3F35D2AC13F6D5E6A9BBF9CF2E740B6B82491C03BF4DD8096D2DB9C339748B844611BD96ED7581CF4B528F4169B1EC75EA953618CD1B7FBF87E7FEDCB1E792799D83; culture=nl-EN; __RequestVerificationToken=Tgsd-xVQAaG6V5cJ4MUnJJhcgOjS_uKTBkhI99yhXKKeMrBK8puJgylZTp89HbfIcy9DBqI3G4tVEz0vK4sY5y0M0U9lnXxqEYywofnLXWs1; __utma=111872281.1403609390.1473338167.1480482454.1480488980.107; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)&#xD;&#xA;HTTP_HOST:localhost:81&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch, br&#xD;&#xA;Accept-Language: en-US,en;q=0.8&#xD;&#xA;Cookie: _ga=GA1.1.1403609390.1473338167; ASP.NET_SessionId=mawt4pewfeg05hlbbq1kkqdn; .AspNet.ApplicationCookie=YO7nTbsdqINIFGJsc9Id8nWKD2ADitMxOi7LjLG9jGdDFABexV6zOYWLNEgg5x566Uk2ysDJzWZUmRU0GF9OxhDfLHVo1vLEGlOfJ8Bp9P1-kYyExtQRTkV6IodUfcomw6DKruQYhULcX7lMI2xehWkc2C9jfksU6TNIawTPnZ61CQHpFlLS1wx9sHgTUnMBxFVwkq-oU3kspX0WPAwjLtZQ7mbMuW_XMP5_oreZNDGzskoHoMNCGyOq-xZDwujpGbVq3sreRY0Rm3eNIs206dzgYn0CxSGe5MosavshG9V7TksovUYdDbJ-eceJ5wU4keRegxWpi44DxRASDbAN6FTHSZaSZ9UD1t6sCLZWQYKWHUPsATjiXSSfJf9zihmgqVMttCDYdXDHXdOvSrixpqSYlKJusHG6UUPGB6xfLx60UVirVfDxsoz2oxmCG56SW5GsddalfPipS77SsiX4EvDmMw6t2ifWfkTlHOYVDqDt4st6qeN42wzCNaduMEy0; XSRF-TOKEN=3n2J61--wVRJ1dRJi96AAxMMJ34GP_s0_WYIgNEMx0ts-0TOLMBAjHJZmLiL3II3TWe3IcFqY7hfnk1MKvA1vPxAGT7026nOHgROrQu3vS-WclOWacya7U7Qbqy0cQ4Z0; XSRF-V=Ol9rG5GknyBPOVAorAhEvEhYQaB-X1BkzyRUlzNmWz66XwgW3LnLP3DZTt2tnvwBoYUVOVQAc8lCjoEH-qehH-9yXLMLjf9pH6Z0xTokhNE1; UMB_UPDCHK=1; ScottybonsMVC=CC4837CAB7D9E746E6C0CA041D6825199F9A5F7A0B3154D05D634ABB7AA1552ED2D3385FE9644CBB2B93440C26C712E38D4B7AF1A487E152685A90AD584D3F35D2AC13F6D5E6A9BBF9CF2E740B6B82491C03BF4DD8096D2DB9C339748B844611BD96ED7581CF4B528F4169B1EC75EA953618CD1B7FBF87E7FEDCB1E792799D83; culture=nl-EN; __RequestVerificationToken=Tgsd-xVQAaG6V5cJ4MUnJJhcgOjS_uKTBkhI99yhXKKeMrBK8puJgylZTp89HbfIcy9DBqI3G4tVEz0vK4sY5y0M0U9lnXxqEYywofnLXWs1; __utma=111872281.1403609390.1473338167.1480482454.1480488980.107; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)&#xD;&#xA;Host: localhost:81&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\Ceredox\Projects\Ram-SB\Scottybons04112016\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/en/" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\Ceredox\Projects\Ram-SB\Scottybons04112016\en\" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="64054" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/en/" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="81" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/en/" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="_ga=GA1.1.1403609390.1473338167; ASP.NET_SessionId=mawt4pewfeg05hlbbq1kkqdn; .AspNet.ApplicationCookie=YO7nTbsdqINIFGJsc9Id8nWKD2ADitMxOi7LjLG9jGdDFABexV6zOYWLNEgg5x566Uk2ysDJzWZUmRU0GF9OxhDfLHVo1vLEGlOfJ8Bp9P1-kYyExtQRTkV6IodUfcomw6DKruQYhULcX7lMI2xehWkc2C9jfksU6TNIawTPnZ61CQHpFlLS1wx9sHgTUnMBxFVwkq-oU3kspX0WPAwjLtZQ7mbMuW_XMP5_oreZNDGzskoHoMNCGyOq-xZDwujpGbVq3sreRY0Rm3eNIs206dzgYn0CxSGe5MosavshG9V7TksovUYdDbJ-eceJ5wU4keRegxWpi44DxRASDbAN6FTHSZaSZ9UD1t6sCLZWQYKWHUPsATjiXSSfJf9zihmgqVMttCDYdXDHXdOvSrixpqSYlKJusHG6UUPGB6xfLx60UVirVfDxsoz2oxmCG56SW5GsddalfPipS77SsiX4EvDmMw6t2ifWfkTlHOYVDqDt4st6qeN42wzCNaduMEy0; XSRF-TOKEN=3n2J61--wVRJ1dRJi96AAxMMJ34GP_s0_WYIgNEMx0ts-0TOLMBAjHJZmLiL3II3TWe3IcFqY7hfnk1MKvA1vPxAGT7026nOHgROrQu3vS-WclOWacya7U7Qbqy0cQ4Z0; XSRF-V=Ol9rG5GknyBPOVAorAhEvEhYQaB-X1BkzyRUlzNmWz66XwgW3LnLP3DZTt2tnvwBoYUVOVQAc8lCjoEH-qehH-9yXLMLjf9pH6Z0xTokhNE1; UMB_UPDCHK=1; ScottybonsMVC=CC4837CAB7D9E746E6C0CA041D6825199F9A5F7A0B3154D05D634ABB7AA1552ED2D3385FE9644CBB2B93440C26C712E38D4B7AF1A487E152685A90AD584D3F35D2AC13F6D5E6A9BBF9CF2E740B6B82491C03BF4DD8096D2DB9C339748B844611BD96ED7581CF4B528F4169B1EC75EA953618CD1B7FBF87E7FEDCB1E792799D83; culture=nl-EN; __RequestVerificationToken=Tgsd-xVQAaG6V5cJ4MUnJJhcgOjS_uKTBkhI99yhXKKeMrBK8puJgylZTp89HbfIcy9DBqI3G4tVEz0vK4sY5y0M0U9lnXxqEYywofnLXWs1; __utma=111872281.1403609390.1473338167.1480482454.1480488980.107; __utmc=111872281; __utmz=111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:81" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="_ga">
+      <value string="GA1.1.1403609390.1473338167" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="mawt4pewfeg05hlbbq1kkqdn" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="YO7nTbsdqINIFGJsc9Id8nWKD2ADitMxOi7LjLG9jGdDFABexV6zOYWLNEgg5x566Uk2ysDJzWZUmRU0GF9OxhDfLHVo1vLEGlOfJ8Bp9P1-kYyExtQRTkV6IodUfcomw6DKruQYhULcX7lMI2xehWkc2C9jfksU6TNIawTPnZ61CQHpFlLS1wx9sHgTUnMBxFVwkq-oU3kspX0WPAwjLtZQ7mbMuW_XMP5_oreZNDGzskoHoMNCGyOq-xZDwujpGbVq3sreRY0Rm3eNIs206dzgYn0CxSGe5MosavshG9V7TksovUYdDbJ-eceJ5wU4keRegxWpi44DxRASDbAN6FTHSZaSZ9UD1t6sCLZWQYKWHUPsATjiXSSfJf9zihmgqVMttCDYdXDHXdOvSrixpqSYlKJusHG6UUPGB6xfLx60UVirVfDxsoz2oxmCG56SW5GsddalfPipS77SsiX4EvDmMw6t2ifWfkTlHOYVDqDt4st6qeN42wzCNaduMEy0" />
+    </item>
+    <item name="XSRF-TOKEN">
+      <value string="3n2J61--wVRJ1dRJi96AAxMMJ34GP_s0_WYIgNEMx0ts-0TOLMBAjHJZmLiL3II3TWe3IcFqY7hfnk1MKvA1vPxAGT7026nOHgROrQu3vS-WclOWacya7U7Qbqy0cQ4Z0" />
+    </item>
+    <item name="XSRF-V">
+      <value string="Ol9rG5GknyBPOVAorAhEvEhYQaB-X1BkzyRUlzNmWz66XwgW3LnLP3DZTt2tnvwBoYUVOVQAc8lCjoEH-qehH-9yXLMLjf9pH6Z0xTokhNE1" />
+    </item>
+    <item name="UMB_UPDCHK">
+      <value string="1" />
+    </item>
+    <item name="culture">
+      <value string="nl-EN" />
+      <value string="nl-EN" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="Tgsd-xVQAaG6V5cJ4MUnJJhcgOjS_uKTBkhI99yhXKKeMrBK8puJgylZTp89HbfIcy9DBqI3G4tVEz0vK4sY5y0M0U9lnXxqEYywofnLXWs1" />
+    </item>
+    <item name="__utma">
+      <value string="111872281.1403609390.1473338167.1480482454.1480488980.107" />
+    </item>
+    <item name="__utmc">
+      <value string="111872281" />
+    </item>
+    <item name="__utmz">
+      <value string="111872281.1475228572.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" />
+    </item>
+  </cookies>
+</error>

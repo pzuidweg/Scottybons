@@ -1,0 +1,8799 @@
+body {
+    margin: 0px auto;
+    padding: 0px;
+    font-size: 12px;
+    line-height: 24px;
+}
+   #u_0_0 ._2p3a {
+    width: 100% !important;
+}
+
+#logo {
+    padding-left: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display';
+}
+/*starting header*/
+.main-menu {
+    position: relative;
+    z-index: 9;
+    float: right;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.main-menu a {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+.main-menu ul, .main-menu ul li, .main-menu ul li a {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+    .main-menu ul li a {
+        display: block;
+        line-height: 20px;
+        padding: 4px 28px;
+    }
+
+.main-menu > ul > li > a {
+    color: #183141;
+    padding: 18px 12px 15px;
+    font-size: 15px;
+    font-family: 'Playfair Display';
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.main-menu > ul > li:hover > a {
+    color: #ccc;
+}
+
+.layer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #000;
+    opacity: 0;
+    z-index: 99999;
+}
+
+.layer-is-visible {
+    display: block;
+    -webkit-animation: fade-in-layer .3s;
+    -moz-animation: fade-in-layer .3s;
+    -ms-animation: fade-in-layer .3s;
+    -o-animation: fade-in-layer .3s;
+    animation: fade-in-layer .3s;
+    opacity: .5;
+}
+
+#close_in, #header_menu, .cmn-toggle-switch {
+    display: none;
+}
+
+a.dropdown-toggle.icon-search {
+    display: inline-block;
+}
+
+.ie9 a.show-submenu, .ie9 a.show-submenu-mega {
+    background: url(../AppData/Local/AppData/Local/Temp/AppData/Local/Temp/img/fix_ie_9_menu.png);
+}
+
+.main-menu span {
+    color: #414d56;
+    font-size: 15px;
+    font-family: 'Avenir Next Condensed';
+    font-style: italic;
+    padding-left: 7%;
+}
+
+span.down_arrow {
+    position: absolute;
+    padding-left: 13%;
+    cursor: pointer;
+    top: 39%;
+}
+
+@media only screen and (min-width:992px) {
+    .main-menu {
+        width: auto;
+    }
+
+        .main-menu a {
+            white-space: nowrap;
+        }
+
+        .main-menu ul li {
+            display: inline-block;
+        }
+
+            .main-menu ul li.submenu:hover > a:after, .main-menu ul li.submenu:hover > a:before {
+                bottom: -20px;
+                opacity: 0;
+            }
+
+        .main-menu ul .menu-wrapper, .main-menu ul ul {
+            position: absolute;
+            border: 3px solid #fff;
+            display: none;
+            z-index: 1;
+            height: auto;
+            left: -37px;
+            top: 109%;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            text-align: center; 
+        
+            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+            text-decoration: none;
+            font-family: 'Playfair Display';
+        }
+
+            .main-menu ul ul .menu-wrapper, .main-menu ul ul ul {
+                position: absolute;
+                border-top: 0;
+                display: none;
+                z-index: 1;
+                height: auto;
+                left: 100%;
+                top: 0;
+                margin: 0;
+                padding: 0;
+                background: #fff;
+                min-width: 170px;
+                -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+            }
+
+            .main-menu ul ul:before {
+                bottom: 100%;
+                left: -19%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-bottom-color: #000;
+                border-width: 7px;
+                margin-left: 47px;
+            }
+
+            .main-menu ul ul ul:before {
+                border-width: 0;
+                margin-left: 0;
+            }
+
+            .main-menu ul .menu-wrapper ul {
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+                border-top: none;
+                margin: 0;
+                padding: 0;
+            }
+
+                .main-menu ul .menu-wrapper ul:before {
+                    border: 0;
+                }
+
+        .main-menu ul li:hover > .menu-wrapper, .main-menu ul li:hover > ul {
+            display: block;
+            padding: 0;
+            text-decoration: none;
+            font-family: 'Playfair Display';
+        }
+
+        .main-menu ul ul li {
+            display: block;
+            height: auto;
+            padding: 0;
+            margin-left: 10px;
+            margin-right: 10px;
+            border: 1px solid #cacaca;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-family: 'Playfair Display';
+            text-align: center;
+        }
+
+            .main-menu ul ul li a {
+                font-size: 13px;
+                color: #414d56;
+                display: block;
+                font-family: 'Playfair Display';
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+
+            .main-menu ul ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .main-menu ul ul li:hover > a {
+                background-color: #ccc;
+                color: #000;
+            }
+
+        .main-menu ul li.megamenu {
+            position: static;
+        }
+
+            .main-menu ul li.megamenu .menu-wrapper {
+                position: absolute;
+                top: 100%;
+                width: 1170px;
+                float: left;
+                left: auto;
+                right: 0;
+                padding: 10px 15px 0;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+        .main-menu ul .menu-wrapper h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ededed;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+        }
+
+        .main-menu ul .menu-wrapper ul {
+            position: relative;
+            display: block;
+            margin-bottom: 15px;
+            left: 0;
+        }
+
+    .show-submenu.active {
+        color: #ffba00;
+    }
+
+        .show-submenu.active:hover {
+            color: #ffba00;
+        }
+}
+
+@media only screen and (max-width:991px) {
+    #header_menu {
+        text-align: center;
+        padding: 4px 15px 10px;
+        position: relative;
+        display: block;
+        background: #040404;
+    }
+
+    .main-menu ul li a:hover, a.show-submenu-mega:focus, a.show-submenu-mega:hover, a.show-submenu:focus, a.show-submenu:hover {
+        color: #6f962c !important;
+        background-color: #f9f9f9;
+        text-decoration: none;
+    }
+
+    .main-menu ul li {
+        border-top: none;
+        border-bottom: 1px solid #ededed;
+        color: #fff;
+    }
+
+        .main-menu ul li a {
+            padding: 10px 15px !important;
+        }
+
+    .main-menu h3 {
+        font-size: 12px;
+        line-height: 14px;
+        margin: 0;
+        padding: 0 0 15px 15px;
+        color: #333;
+        text-transform: uppercase;
+    }
+
+    .megamenu .menu-wrapper > div {
+        padding: 0;
+    }
+
+    .main-menu a, .main-menu li {
+        display: block;
+        color: #333 !important;
+    }
+
+    .main-menu li {
+        position: relative;
+    }
+
+    .main-menu a:hover {
+        color: #6f962c !important;
+    }
+
+    .main-menu ul > li {
+        padding-bottom: 0;
+    }
+
+        .main-menu ul > li i {
+            float: right;
+        }
+
+    .main-menu ul li.submenu ul {
+        font-size: 12px;
+        border-left: 1px solid #ededed;
+        margin: 0 0 15px 25px;
+    }
+
+        .main-menu ul li.submenu ul li {
+            font-size: 12px;
+            border: 0;
+        }
+
+        .main-menu ul li.submenu ul ul {
+            border-left: none;
+            margin: 0 0 15px 15px;
+        }
+
+    .main-menu {
+        overflow: auto;
+        left: -100%;
+        bottom: 0;
+        width: 55%;
+        height: 100%;
+        opacity: 0;
+        position: fixed;
+        background-color: #fff;
+        -webkit-transition: left .8s, opacity .5s;
+        -moz-transition: left .8s, opacity .5s;
+        transition: left .8s, opacity .5s;
+        z-index: 9999;
+        -webkit-box-shadow: 1px 0 5px 0 rgba(50, 50, 50, .55);
+        -moz-box-shadow: 1px 0 5px 0 rgba(50, 50, 50, .55);
+        box-shadow: 1px 0 5px 0 rgba(50, 50, 50, .55);
+    }
+
+        .main-menu.show {
+            visibility: visible;
+            left: 0;
+            opacity: 1;
+        }
+
+        .main-menu .show-submenu + ul, a.show-submenu-mega + .menu-wrapper {
+            display: none;
+            visibility: hidden;
+        }
+
+            .main-menu a.show-submenu + ul.show_normal, a.show-submenu-mega + .menu-wrapper.show_mega {
+                display: block;
+                visibility: visible;
+            }
+
+    .cmn-toggle-switch {
+        display: block;
+        overflow: visible;
+        position: absolute;
+        top: 11px;
+        right: 25px;
+        margin: 0;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        font-size: 0;
+        text-indent: -9999px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -appearance: none;
+        box-shadow: none;
+        border: none;
+        cursor: pointer;
+    }
+
+        .cmn-toggle-switch:focus {
+            outline: 0;
+        }
+
+        .cmn-toggle-switch span {
+            display: block;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #000;
+        }
+
+            .cmn-toggle-switch span::after, .cmn-toggle-switch span::before {
+                position: absolute;
+                display: block;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #000;
+                content: "";
+            }
+
+    .sticky .cmn-toggle-switch span, .sticky .cmn-toggle-switch span::after, .sticky .cmn-toggle-switch span::before {
+        background-color: #000;
+    }
+
+    .cmn-toggle-switch span::before {
+        top: -10px;
+    }
+
+    .cmn-toggle-switch span::after {
+        bottom: -10px;
+    }
+
+    .cmn-toggle-switch__rot span {
+        -webkit-transition: -webkit-transform .3s;
+        transition: transform .3s;
+    }
+
+    .cmn-toggle-switch__rot.active span {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+ 
+}
+
+@media only screen and (max-width:480px) {
+
+
+    .main-menu {
+        width: 100%;
+    }
+
+    a#close_in {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    #close_in i {
+        color: #555 !important;
+        font-size: 16px;
+    }
+}
+/*starting header*/
+
+/*starting slide*/
+#slider {
+    background-color: #CCCCCC;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: hidden;
+}
+
+#slider_continer {
+    position: relative;
+    height: 640px;
+    padding-top: 50px;
+    background: #ccc url(/media/1029/slider_img.jpg) no-repeat center top;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 0%;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.intro_title_booking {
+    margin-top: 140px;
+    height: 270px;
+}
+
+.slider_review_bg {
+    margin-top: 55%;
+    height: 121px;
+    border: 1px solid #ccc;
+    left: 20%;
+    position: absolute;
+    padding: 20px;
+}
+
+.button_intro.outline {
+    border: none;
+    color: #000;
+    background: none;
+    padding: 12px 0px;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-family: 'Playfair Display';
+    margin-right: 0%;
+    font-weight: 600;
+}
+
+    .button_intro.outline:hover {
+        border-bottom: 2px solid #000;
+        border-top: 2px solid #000;
+        color: #000;
+        padding: 12px 0px;
+        text-transform: uppercase;
+        font-size: 18px;
+        text-decoration: none;
+        margin-right: 0%;
+        font-weight: 600;
+    }
+
+#slider_continer .button_intro.outline {
+    border: none;
+    color: #000;
+    background: none;
+    padding: 12px 0px;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-family: 'Playfair Display';
+    margin-right: 23%;
+    text-decoration: none;
+}
+
+    #slider_continer .button_intro.outline:hover {
+        border-bottom: 2px solid #000;
+        color: #000;
+        padding: 12px 0px;
+        text-transform: uppercase;
+        font-size: 18px;
+        text-decoration: none;
+        margin-right: 23%;
+        text-decoration: none;
+    }
+
+#slider_continer h1 {
+    font-size: 55px;
+    margin-bottom: -3px;
+    color: #000;
+    /* text-transform: uppercase; */
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0px;
+    line-height: 64px;
+    letter-spacing: 5px;
+    font-family: 'Playfair Display';
+    padding-right: 23%;
+    padding-bottom: 11px;
+}
+
+#slider_continer p {
+    font-size: 50px;
+    font-family: 'Playfair Display';
+    color: #000;
+    font-style: italic;
+    margin: 0px;
+    padding-top: 30px;
+    letter-spacing: 5px;
+    padding-left: 16%;
+}
+
+#slider_continer .line {
+    border-bottom: 2px solid #3E3E3E;
+    width: 11%;
+    margin: 0px 0px 0px 32%;
+}
+/*ending slider*/
+
+
+/*starting  tell-us section*/
+#Tell-us-aboutyourself {
+    width: 100%;
+    margin: 0px auto;
+    overflow: hidden;
+    margin-top: 0%;
+    padding-bottom: 4%;
+}
+
+.box {
+    padding: 0px 26px;
+    margin-top: 15%;
+}
+
+#Tell-us-aboutyourself h1 {
+    font-size: 30px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    color: #333333;
+    padding: 0px;
+    margin: 0px;
+}
+
+#Tell-us-aboutyourself h2 {
+    font-size: 20px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    color: #183141;
+    padding: 0px;
+    margin: 0px;
+    text-transform: uppercase;
+    padding-top: 1%;
+    letter-spacing: 2px;
+    font-family: 'Playfair Display';
+    line-height: 22px;
+}
+
+.whatdoseitcost h2 {
+    padding-top: 10.5% !important;
+    font-size: 19px !important;
+}
+
+#Tell-us-aboutyourself p {
+    font-size: 16px;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    color: #183141;
+    padding: 1px 7% 0% 7%;
+    padding-top: 10px;
+    font-family: 'Avenir Next Condensed';
+    line-height: 31px;
+}
+
+#Tell-us-aboutyourself span {
+    text-align: center;
+    color: #000;
+    padding-left: 44%;
+}
+
+#What-does-it-cost-bg {
+    border-top: 1px solid #0b0b0b;
+    border-bottom: 1px solid #0b0b0b;
+    width: 91%;
+    margin: 0px auto;
+    padding: 0px;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    text-align: left;
+}
+
+    #What-does-it-cost-bg h2 {
+        text-align: left;
+    }
+
+    #What-does-it-cost-bg p {
+        text-align: left;
+        padding: 10px 0% 0% 0%;
+    }
+
+#Tell-us-aboutyourself .line {
+    border-bottom: 2px solid #183141;
+    width: 13%;
+    margin: 0px auto;
+    padding-top: 12px;
+}
+/*ending  tell-us section*/
+
+/*starting   Scottybons-stand */
+#Scottybons-stand {
+    width: 100%;
+    margin: 0px;
+    padding: 21px 0px;
+    background-color: #dae7e2;
+    overflow: hidden;
+}
+
+    #Scottybons-stand h1 {
+        color: #183141;
+        font-size: 29px;
+        text-align: right;
+        padding-left: 30%;
+        line-height: 150%;
+        padding-right: 1%;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        padding-top: 2%;
+    }
+
+    #Scottybons-stand h4 {
+        color: #183141;
+        text-align: left;
+        line-height: 33px;
+        font-size: 19px;
+        font-family: 'Playfair Display';
+        letter-spacing: 1px;
+        font-weight: 600;
+        padding-top: 0px;
+        margin-top: 0px; /* font-weight: 600; */
+    }
+
+    #Scottybons-stand span {
+        font-style: italic;
+        font-size: 19px;
+        font-family: 'Playfair Display';
+        letter-spacing: 1px;
+    }
+
+.Scottybons-stand-right-border {
+    border-left: 1px solid #fff;
+    padding-left: 2%;
+}
+/*ending   Scottybons-stand */
+
+/*starting  brand */
+#brands {
+    width: 100%;
+    margin: 0px;
+    padding: 75px;
+}
+
+    #brands ul {
+        margin: 0px auto;
+        padding: 0px;
+    }
+
+        #brands ul li {
+            margin: 0px auto;
+            display: inline-block;
+            padding: 20px 50px 0px;
+            float: left;
+        }
+/*ending   brand */
+/*starting   EXAMPLE Outfits */
+#Outfits {
+    width: 100%;
+    overflow: hidden;
+    margin: 0px auto;
+    margin-top: 0%;
+}
+
+    #Outfits span {
+        color: #FFFFFF;
+        font-size: 30px;
+    }
+
+.Outfits_center_bg {
+    background-color: none;
+    height: auto;
+    margin: 0px auto;
+}
+
+#Outfits h2 {
+    text-align: center;
+    color: #FFF;
+    vertical-align: text-bottom;
+    padding-top: 2%;
+    letter-spacing: 4px;
+    font-family: 'Playfair Display';
+}
+
+#Outfits .line {
+    border-bottom: 2px solid #fff;
+    width: 15%;
+    margin: 0px auto;
+    padding-top: 24%;
+}
+
+#Outfits .line_bottom {
+    border-bottom: 2px solid #fff;
+    width: 15%;
+    margin: 0px auto;
+}
+
+#Outfits .product_box {
+    background-color: #183141;
+    position: absolute;
+    height: 430px;
+    width: 29.3%;
+    z-index: 99;
+    left: 35.1%;
+}
+
+.product-head {
+    margin-top: 10px;
+    margin-bottom: 17px;
+    font-size: 35px;
+    color: #202020;
+    text-align: center;
+    font-weight: 400;
+}
+
+.product-carousel .owl-carousel {
+    margin-top: 40px;
+}
+
+.owl-carousel {
+    /*display: none;*/
+    position: relative;
+    width: 100%;
+    -ms-touch-action: pan-y;
+}
+
+    .owl-carousel .owl-wrapper-outer {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .owl-carousel .owl-wrapper {
+        display: none;
+        position: relative;
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+
+    .owl-carousel .owl-item {
+        float: left;
+    }
+
+#owl-product .item {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.outfits_bg {
+    width: 80%;
+    margin: 0px auto;
+    padding: 0%;
+}
+
+.product-col {
+    margin-bottom: 0px;
+    padding: 0px;
+    text-align: center;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 0px;
+}
+
+.outfits {
+    font-style: italic;
+}
+
+.product-col .image .img-responsive {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-col .caption {
+    padding: 5px 40px 12px 40px;
+    display: none;
+}
+
+span.fa.fa-angle-right {
+    font-size: 30px !important;
+}
+
+span.fa.fa-angle-left {
+    font-size: 30px !important;
+}
+
+.center div.caption {
+    display: block;
+}
+
+.product-col .price {
+    padding: 14px 0 0;
+    font-weight: bold;
+}
+
+    .product-col .price span.price-new {
+        color: #b60017;
+        font-size: 30px;
+        padding-right: 5px;
+    }
+
+.product-col h4, .product-col h4 a {
+    color: #000;
+}
+
+.product-col h4 {
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0% 2%;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.product-col .description {
+    padding: 5px 0 10px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+    .product-col .description p {
+        padding: 0px 0 10px;
+        color: #000;
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+.product-col .cart-button {
+    padding-top: 10px;
+}
+
+.product-col .btn-cart {
+    padding: 9px 18px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    background: #b60017;
+    text-transform: uppercase;
+}
+
+    .product-col .btn-cart i.fa {
+        margin-right: 5px;
+        font-size: 18px;
+    }
+
+#owl-product .owl-controls .owl-buttons .owl-prev {
+    right: 52%;
+    cursor: pointer;
+}
+
+#owl-product .owl-controls .owl-buttons .owl-prev, #owl-product .owl-controls .owl-buttons .owl-next {
+    top: 175px;
+    color: #b60017;
+    font-size: 30px;
+    z-index: 999;
+    left: 42%;
+}
+
+#owl-product .owl-controls .owl-buttons div {
+    position: absolute;
+    background: none;
+    font-size: 26px;
+}
+
+#owl-product .owl-controls .owl-buttons .owl-next {
+    left: 52%;
+}
+
+#owl-product .owl-controls .owl-buttons .owl-next {
+    left: 58%;
+    z-index: 999;
+}
+
+#owl-product .owl-controls .owl-buttons div {
+    position: absolute;
+    background: none;
+    font-size: 26px;
+}
+
+.owl-controls .owl-buttons div {
+    cursor: pointer;
+}
+/*ending   EXAMPLE Outfits */
+
+/*starting   WHO ARE WE? */
+#whoarewe {
+    width: 100%;
+    overflow: hidden;
+    background-color: #efece7;
+    margin-top: 97px;
+    margin: 50px 0px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #efece7;
+    margin-top: 97px;
+    margin: 97px 0px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #efece7;
+    margin-top: 97px;
+    margin: 50px 0px;
+}
+
+    #whoarewe h2 {
+        font-size: 28px;
+        text-align: right;
+        color: #30373c;
+        padding-top: 2%;
+        /* padding-right: 26%; */
+        letter-spacing: 4px;
+        text-transform: uppercase;
+    }
+
+    #whoarewe p {
+        font-size: 16px;
+        text-align: right;
+        color: #183141;
+        line-height: 29px;
+        padding-left: 28%;
+        font-family: 'Avenir Next Condensed';
+    }
+
+.whoarewe-img {
+    width: 100%;
+    background-image: url(/media/1011/img.jpg);
+    height: 327px;
+    background-repeat: no-repeat;
+}
+/*ending   WHO ARE WE? */
+
+/*starting footer*/
+#footer {
+    width: 100%;
+    overflow: hidden;
+    margin: 0px auto;
+    background-color: #f5f3f0;
+    ;
+    margin-top: 0px;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+    #footer h3 {
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        text-align: left;
+        color: #153140;
+        letter-spacing: 2px;
+    }
+
+    #footer ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        #footer ul li {
+            line-height: 24px;
+            font-size: 13px;
+            text-align: left;
+            font-family: 'Playfair Display';
+            color: #153140;
+        }
+
+            #footer ul li a {
+                line-height: 24px;
+                font-family: 'Playfair Display';
+                text-align: left;
+                color: #153140;
+                text-decoration: none;
+                font-size: 16px;
+            }
+
+            #footer ul li :hover {
+                line-height: 24px;
+                text-align: left;
+                color: #666;
+                text-decoration: none;
+                font-size: 15px;
+            }
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+#footerendingline {
+    width: 100%;
+    height: 12px;
+    margin: 0px auto;
+    background-color: #183141;
+}
+/*ending footer*/
+
+/*starting regisister page*/
+#register {
+    margin: 52px auto;
+    padding: 0px;
+}
+
+#re_set_apssword {
+    margin: 0px auto;
+    padding: 0px;
+    min-height: 600px;
+}
+
+#register .line {
+    border-bottom: 1px solid #8b98a0;
+    width: 25%;
+    margin: 0px auto;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#register h3 {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.active h3 {
+    color: #000 !important;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+#register-top {
+    width: 100%;
+    margin: 0px;
+    background-color: #dae6e2;
+    padding: 0px;
+    overflow: hidden;
+    padding-top: 0px;
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+
+#register-top_no_menu {
+    height: 20px;
+    background-color: #dae6e2;
+    width: 100%;
+    margin-top: 54px;
+}
+
+#register-top_typeform {
+    height: 20px;
+    background-color: #dae6e2;
+    width: 100%;
+    margin-top: 23px;
+}
+
+
+#register-top_typeform-create-profile {
+    height: 20px;
+    background-color: #dae6e2;
+    width: 100%;
+    margin-top: 43px;
+}
+
+#create-profile_save_qes {
+    width: 100%;
+    margin: 0px auto;
+    background-color: #dae7e2 !important;
+    height: 33px;
+    margin-top: 0%;
+}
+
+#register h2 {
+    font-size: 28px;
+    padding-top: 0%;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #183141;
+    line-height: 30px;
+}
+
+#register h5 {
+    font-size: 16px;
+    padding-top: 1%;
+    font-weight: normal;
+    text-align: center;
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+}
+
+#register form {
+    padding-top: 2%;
+}
+
+.form-horizontal .control-label {
+    padding-top: 14px;
+    margin-bottom: 0;
+    text-align: left;
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+    font-weight: normal;
+    color: #183141;
+}
+
+#register .form-control {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+    width: 74%;
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #bbb3a6;
+    background-color: #f5f3f0;
+    background-image: none;
+    border: 0px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    font-family: 'Avenir Next Condensed';
+}
+
+.form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+    padding-top: 6px;
+    position:static;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.forgot_text {
+    text-align: right !important;
+}
+
+#register input.form-control {
+    color: #bbb3a6 !important;
+}
+
+#register .button_intro.outline {
+    border: 2px solid #000;
+    color: #000;
+    background: none;
+    padding: 2px 35px;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 1%;
+    margin-right: 17%;
+}
+
+
+    #register .button_intro.outline:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #0A1B25;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 17%;
+    }
+
+#register .register.outline {
+    border: 2px solid #000;
+    color: #000;
+    background: none;
+    padding: 2px 35px;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 3%;
+    margin-right: 17%;
+}
+
+    #register .register.outline:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #0A1B25;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 3%;
+        margin-right: 17%;
+    }
+
+#register .plan-button_intro {
+    border: 2px solid #000;
+    color: #000;
+    background: none;
+    padding: 2px 35px;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 1%;
+    margin-right: 12%;
+}
+
+    #register .plan-button_intro:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #0A1B25;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 12%;
+    }
+
+#register .button_intro.outline-login {
+    border: 2px solid #000;
+    color: #000;
+    background: none;
+    padding: 2px 35px;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 1%;
+    margin-right: 15%;
+}
+
+    #register .button_intro.outline-login:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #0A1B25;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 15%;
+    }
+
+
+
+
+.radio label, .checkbox label {
+    padding-top: 12px;
+    margin-bottom: 0;
+    text-align: left;
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+    font-weight: normal;
+    color: #183141;
+}
+
+a {
+    color: #183141;
+    text-decoration: none;
+}
+
+.delivery_textbox {
+    width: 100% !important;
+}
+
+.number {
+    width: 13.3%;
+    padding: 0px 15px 0px 0px;
+}
+
+.zip {
+    width: 10.7%;
+    padding: 0px 0px 0px 15px;
+}
+/*ending regisister page*/
+
+/*starting contact page */
+#contact {
+    width: 100%;
+    height: auto;
+    margin: 54px 0px 0px 0px;
+   /* height: 635px; */
+    padding-top: 0%;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeeeee+0,ededed+25,e8e8e8+52,d9d9d9+100 */
+    background: #eeeeee; /* Old browsers */
+    background: -moz-linear-gradient(top, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#d9d9d9', GradientType=0 ); /* IE6-9 */
+}
+
+    #contact h2 {
+        color: #183141;
+        padding-top: 38%;
+        font-size: 29px;
+        width: 100%;
+        padding-left: 20%;
+        line-height: 50px;
+        padding-right: 0%;
+        letter-spacing: 4px;
+    }
+
+    #contact h1 {
+        color: #183141;
+    }
+
+    #contact h5 {
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        margin-top: 0px;
+        margin-bottom: 7px;
+        padding-left: 2px;
+    }
+
+.contact_textbox {
+    width: 74%;
+}
+
+#contact .form-control {
+    display: block;
+    width: 100%;
+    height: 30px;
+    padding: 6px 12px;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #4C4C4C;
+    font-weight: 500;
+    background-color: #fff;
+    background-image: none;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    font-family: 'Avenir Next Condensed';
+}
+
+#contact .contact_textarea {
+    height: 208px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#contact .form-group {
+    margin-bottom: 7px;
+}
+
+#contact .button_intro.outline {
+    border: 2px solid #fff;
+    color: #fff;
+    background: none;
+    padding: 2px 35px;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-left: 0%;
+    margin-right: 26%;
+    margin-top: 1%;
+}
+
+    #contact .button_intro.outline:hover {
+        border: 2px solid #fff;
+        color: #fff;
+        background: #000;
+        padding: 3px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-left: 0%;
+        margin-right: 26%;
+        margin-top: 1%;
+    }
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: inline;
+    width: 83%;
+    max-width: none;
+    height: auto;
+}
+
+#contact p {
+    color: #183141;
+    font-size: 16px;
+    font-family: 'Avenir Next Condensed';
+}
+
+#contact h1 {
+    font-size: 28px;
+}
+
+b, strong {
+    font-weight: bold;
+    /*color: #183141;*/
+    font-size: 16px;
+}
+/*ending contact page */
+
+/*starting your order page */
+
+span.sp-gc-code-balance-after-pay {color:#000;font-weight:bold;}
+
+#yourorderpage {
+    margin: 0px auto;
+    padding: 0px;
+    background: #FFF;
+    padding-top: 2%;
+    padding-bottom: 7%;
+}
+
+#left_menu ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+    #left_menu ul li {
+        margin: 0px;
+        line-height: 43px;
+        font-size: 13px;
+        display: block;
+        text-align: right;
+        font-weight: 700;
+        padding-right: 3%;
+    }
+
+#yourorderpage .button_intro.outline {
+    border: 2px solid #000;
+    color: #000;
+    background: none;
+    padding: 2px 7px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-top: 1%;
+    /* margin-left: 34%; */
+    margin-top: 0%;
+    font-weight: 700;
+}
+
+    #yourorderpage .button_intro.outline:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #000;
+        padding: 2px 7px;
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-top: 1%;
+        /* margin-left: 34%; */
+        margin-top: 0%;
+        font-weight: 700;
+    }
+
+.left_border {
+    border-left: 1px solid #ccc;
+}
+
+.no_border {
+    border-left: none;
+}
+
+.total-payment p {
+    padding: 10px 0px 10px 15px !important;
+}
+
+#yourorderpage .box_bg {
+    background: #f4f3ef;
+    width: 100%;
+}
+
+    #yourorderpage .box_bg p {
+        padding-left: 15px;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 15px;
+        padding-top: 0px;
+        color: #183141;
+        margin: 0 0 1px;
+        line-height: 20px;
+    }
+
+    #yourorderpage .box_bg h4 {
+        border-bottom: 1px solid #8b98a0;
+        padding: 0.5% 0%;
+        font-size: 18px;
+        margin: 0px 2%;
+        font-family: 'Avenir Next Condensed';
+        font-weight: bold;
+    }
+
+#yourorderpage h3 {
+    border-bottom: 1px solid #8b98a0;
+    padding: 3% 1% 1% 0%;
+    font-size: 18px;
+    margin: 0px 0%;
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+    font-weight: bold;
+}
+
+#yourorderpage h5 {
+    border-bottom: 1px solid #8b98a0;
+    padding: 0% 1% 0% 0%;
+    margin-bottom: 1% !important;
+    font-size: 18px;
+    margin: 0px 0%;
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+    font-weight: bold;
+}
+
+#yourorderpage .checkbox label {
+    padding-top: 5px !important;
+}
+
+#yourorderpage h2 {
+    padding-left: 2%;
+}
+
+.dot_position {
+    padding-top: 9px;
+    text-align: center;
+}
+
+.col-sm-12, .col-md-12, .col-lg-12 {
+    position: inherit !important;
+}
+
+.press_img {
+    padding-top: 33px;
+}
+
+#accord p {
+    text-align: left !important;
+    color: #183141 !important;
+    padding: 0% !important;
+    font-size: 15px !important;
+    font-family: 'Avenir Next Condensed' !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+#register {
+    margin: 50px 0px 50px 0px;
+    padding: 0px;
+    height: 590px;
+}
+
+#yourorderpage .total_cart {
+    border-top: 1px solid #8b98a0;
+    padding: 2% 0%;
+    font-size: 13px;
+    margin: 0px 0%;
+}
+
+#yourorderpage h4 {
+    padding: 0px;
+    margin: 0px;
+    color: #183141;
+    font-weight: bold;
+}
+
+#yourorderpage p {
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+    padding-top: 15px;
+    color: #183141;
+}
+
+.form-horizontal .radio, .form-horizontal .checkbox {
+    min-height: 27px;
+    font-size: 16px;
+    font-family: 'Avenir Next Condensed';
+}
+
+.click-text {
+    font-size: 16px;
+    font-family: 'Avenir Next Condensed';
+}
+
+#yourorderpage .radio {
+    position: relative;
+    display: block;
+    min-height: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#yourorderpage .payment_btn {
+    margin-top: 60px;
+    margin-right: 1px;
+}
+
+#yourorderpage .check_box {
+    margin-left: 20px;
+}
+
+p.sp-gc-amount {text-align: left !important;padding-left: 0 !Important;}
+.gc-section {margin-top: 1%;}
+button[disabled], html input[disabled] {
+    cursor: not-allowed !important;
+}
+/*ending your order page */
+
+/*starting thank you for order page */
+
+#thankyou_fororder {
+    width: 100%;
+    overflow: hidden;
+    margin: 0px auto;
+    padding: 0% 0px;
+    /*min-height: 600px; */
+    min-height: 570px;
+}
+
+    #thankyou_fororder h1 {
+        color: #183141;
+        text-decoration: none;
+        font-size: 30px;
+        text-transform: uppercase;
+        line-height: 45px;
+        letter-spacing: 4px;
+    }
+
+    #thankyou_fororder p {
+        color: #183141;
+        text-decoration: none;
+        text-align: center;
+        line-height: 16px;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+    }
+/*starting thank you for order page */
+
+/*starting my account */
+#myaccount {
+    margin: 0px auto;
+    overflow: hidden;
+    min-height: 630px;
+    background: #fefbfa;
+}
+
+.myaccount_bg {
+    background-image: url( /media/1014/my_account.jpg);
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 675px;
+}
+
+#myaccount h2 {
+    padding-top: 12%;
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+#myaccount h3 {
+    border: 1px solid #000;
+    font-size: 18px;
+    text-align: center;
+    width: 14%;
+    line-height: 30px;
+    margin-left: 33%;
+    color: #183141;
+    float: left;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-top: 9px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+    #myaccount h3:hover {
+        border: 1px solid #000;
+        font-size: 18px;
+        text-align: center;
+        width: 14%;
+        line-height: 30px;
+        margin-left: 33%;
+        color: #183141;
+        float: left;
+        background-color: #000;
+        color: #FFF;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        margin-top: 9px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+#myaccount h4 {
+    padding-top: 1%;
+    border: 1px solid #000;
+    padding: 2%;
+    font-size: 18px;
+    text-align: center;
+    width: 14%;
+    line-height: 27px;
+    margin-left: 4%;
+    color: #183141;
+    float: left;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+    #myaccount h4:hover {
+        padding-top: 1%;
+        border: 1px solid #000;
+        padding: 2%;
+        font-size: 18px;
+        text-align: center;
+        width: 14%;
+        line-height: 27px;
+        margin-left: 4%;
+        color: #183141;
+        float: left;
+        background-color: #000;
+        color: #FFF;
+        text-transform: uppercase;
+    }
+/*ending my account */
+/*starting our story */
+#our_story {
+    margin: 0px auto;
+    width: 100%;
+        padding: 0px 0px 80px 0px;
+}
+
+    #our_story h3 {
+        text-align: center;
+        text-decoration: none;
+        font-size: 28px;
+        padding: 20px 0px;
+        text-transform: uppercase;
+    }
+
+    #our_story h4 {
+        text-align: right;
+        padding-right: 10%;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+
+    #our_story p {
+        text-align: right;
+        font-size: 15px;
+        color: #183141;
+        padding-right: 10%;
+        padding-left:0%;
+        width: 100%;
+        padding-left: 0%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+    }
+
+
+
+
+.our_story_img_left {
+    padding-right: 6%;
+}
+
+.our_story_img_right h4 {
+    text-align: right !important;
+    padding-right: 10% !important;
+}
+
+.our_story_img_right p {
+    padding-right: 10% !important;
+    padding-left: 0% !important;
+}
+
+.our_story_list_space {
+    padding-bottom: 5%;
+    padding-top: 4%;
+}
+
+.our_story_list_topspace {
+    padding-top: 2%;
+    padding-bottom: 0%;
+}
+
+.line {
+    border-bottom: 1px solid #8b98a0;
+   width: 15%;
+    margin: 0px auto;
+    padding: 0px;
+    height: 5px;
+}
+
+.mobile_ourstory_desktop {
+    display: none;
+}
+/*starting our story */
+/*starting our team */
+#our_team {
+    width: 100%;
+    margin: 0px auto;
+    padding: 3% 0px 3% 0px;
+}
+
+    #our_team h3 {
+        font-size: 28px;
+        color: #183141;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    #our_team p {
+        padding-top: 2%;
+        line-height: 27px;
+        font-size: 16px;
+        font-family: 'Avenir Next Condensed';
+    }
+
+.our_team_BlueChalk_section {
+    margin-top: 10%;
+}
+
+.our_team_Floral_White_section {
+    margin-top: 2%;
+}
+
+.our_team_BlueChalk_bg {
+    background-color: #dae7e2;
+    padding: 0px;
+    margin: 0px;
+    height: 196px;
+}
+
+.our_team_BlueChalk_bg_img_right {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.our_team_Floral_White_bg {
+    background-color: #f5f3f0;
+    padding: 0px;
+    margin: 0px;
+    height: 180px;
+}
+
+.our_team_BlueChalk_bg h4 {
+    text-align: right;
+    padding-right: 6%;
+    font-family: 'Avenir Next Condensed';
+    padding-top: 8px;
+}
+
+.our_team_BlueChalk_bg p {
+    text-align: right;
+    padding-right: 6%;
+    padding-top: 0% !important;
+    padding-left: 1%;
+    font-family: 'Avenir Next Condensed';
+}
+
+.our_team_BlueChalk_bg_img {
+    padding-left: 0px;
+    margin: 0px;
+    padding-right: 0px;
+}
+
+.our_team_Floral_White_bg {
+    background-color: #f5f3f0;
+    padding: 0px;
+    margin: 0px;
+    height: 195px;
+}
+
+    .our_team_Floral_White_bg p {
+        text-align: left;
+        padding-left: 6%;
+        padding-top: 0% !important;
+        padding-right: 2%;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    .our_team_Floral_White_bg h4 {
+        text-align: left;
+        padding-left: 6%;
+        padding-top: 8px;
+        font-family: 'Avenir Next Condensed';
+    }
+
+.our_team_BlueChalk_bg_img_left {
+    padding-right: 0px;
+    margin: 0px;
+    padding-right: 0px;
+}
+
+.our_team_line {
+    border-bottom: 1px solid #8b98a0;
+    width: 15%;
+    margin: 0px auto;
+    padding-top: 6%;
+}
+/*ending our team */
+
+/*starting faq  and  press */
+#press ul li ul {
+    padding-left: 0px;
+}
+
+    #press ul li ul li a {
+        padding-left: 0px;
+    }
+
+#press {
+    width: 100%;
+    margin: 0px 0px 40px 0px;
+    padding: 0px;
+}
+
+    #press h3 {
+        text-align: center;
+        color: #183141;
+        padding: 2% 0%;
+        text-transform: uppercase;
+        letter-spacing: 7px;
+        font-size: 28px;
+    }
+
+    #press p {
+        text-align: center;
+        color: #183141;
+        padding: 0%;
+        font-size: 15px;
+        font-family: 'Avenir Next Condensed';
+        margin-bottom: -29px;
+        margin-top: -22px;
+    }
+
+.press_team_line {
+    border-bottom: 1px solid #8b98a0;
+    width: 15%;
+    margin: 0px auto;
+    padding-top: 3%;
+}
+
+#press h1 {
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 80px;
+}
+
+    #press h1 a {
+        color: #c12c42;
+        font-size: 16px;
+    }
+
+#press .accordion {
+    width: 100%;
+    margin: 30px auto 20px;
+    background: #FFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+    #press .accordion .link {
+        cursor: pointer;
+        display: block;
+        padding: 15px 15px 15px 0px;
+        color: #4D4D4D;
+        font-size: 16px;
+        border-bottom: 1px solid #CCC;
+        position: relative;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        font-family: 'Avenir Next Condensed';
+        font-weight: 500;
+        color: #000;
+    }
+
+    #press.accordion li:last-child .link {
+        border-bottom: 0;
+    }
+
+    #press .accordion li i {
+        position: absolute;
+        top: 16px;
+        left: 99%;
+        font-size: 18px;
+        color: #595959;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+
+.accordion li i.fa-chevron-right {
+    right: 12px;
+    left: auto;
+    font-size: 16px;
+}
+
+.accordion li.open .link {
+    color: #b63b4d;
+}
+
+.accordion li.open i {
+    color: #b63b4d;
+}
+
+    .accordion li.open i.fa-chevron-right {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+#press span {
+    color: #808080;
+    padding-left: 0%;
+    font-family: 'Avenir Next Condensed';
+}
+
+#press ul {
+    list-style-type: none;
+}
+
+#press a {
+    color: #b63b4d;
+    text-decoration: none;
+}
+/**
+ * Submenu
+ -----------------------------*/
+
+
+#press .submenu {
+    display: none;
+    font-size: 14px;
+}
+
+ul.submenu {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+#press .submenu a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 0px 12px 0px 0px;
+    font-size: 16px;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    font-family: 'Avenir Next Condensed';
+}
+
+    #press .submenu a:hover {
+        color: #ccc;
+    }
+
+.press_img ul {
+    margin: 0px;
+    padding: 0px;
+    margin-top: 3%;
+}
+
+    .press_img ul li {
+        display: inline;
+        padding-right: 14%;
+        padding-left: 1%;
+    }
+/*ending press */
+
+.send-Nofiy {
+    padding-top: 10px;
+}
+
+
+#type_qes {
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 5%;
+}
+
+    #type_qes h4 {
+        font-size: 15px;
+        line-height: 25px;
+        padding-top: 30px;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+#process_arrows {
+    width: 100%;
+    margin: 0px auto;
+    background-color: #dae7e2;
+    height: 66px;
+    margin-top: 0%;
+}
+
+    #process_arrows p {
+        font-size: 12px;
+        font-family: 'Avenir Next Condensed';
+        padding-top: 2px;
+        color: #183141;
+    }
+
+.process_box {
+    width: 50%;
+    height: 10px;
+    background-color: #fff;
+    margin-top: -10px;
+}
+
+.process_box_active {
+    width: 40%;
+    height: 8px;
+    background-color: #183141;
+    margin-top: -10px;
+}
+
+.process_arrows {
+    height: 43px;
+    background-color: #ebf6f2;
+    float: right;
+    margin: 5px;
+    padding: 13px;
+}
+
+    .process_arrows:hover {
+        background-color: #FFF;
+    }
+
+i.fa.fa-chevron-up {
+    color: #183141 !important;
+}
+
+i.fa.fa-chevron-down {
+    color: #183141 !important;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background-color: #f5f3f0;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 46%;
+}
+
+.dot_active {
+    width: 15px;
+    height: 15px;
+    background-color: #183141;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 46%;
+}
+
+.checkbox_typeform {
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.check_box_text {
+    font-size: 17px;
+}
+
+.social_media {
+    width: 100%;
+    border: 3px solid #ccc;
+    min-height: 600px;
+}
+
+iframe#twitter-widget-0 {
+    height: 590px !important;
+}
+
+#type_form_scrool {
+    display: none;
+}
+
+.panel ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.news-item {
+    padding: 4px 4px;
+    margin: 0px;
+    border-bottom: 1px dotted #555;
+}
+
+.news-item {
+    padding: 4px 4px;
+    margin: 0px;
+    border-bottom: 1px dotted #555;
+}
+
+a {
+    color: #428bca;
+    text-decoration: none;
+}
+
+.glyphicon {
+    margin-right: 4px !important; /*override*/
+}
+
+.pagination .glyphicon {
+    margin-right: 0px !important; /*override*/
+}
+
+.pagination a {
+    color: #555;
+}
+
+.panel ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.news-item {
+    padding: 4px 4px;
+    margin: 0px;
+    border-bottom: none;
+}
+
+.panel {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.panel {
+    margin-bottom: 0px;
+    background-color: #fff;
+    border: 0px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-footer {
+    padding: 10px 82px;
+    background-color: #DAE7E2;
+    border-top: 1px solid #DAE7E2;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.pagination > li > a, .pagination > li > span {
+    /* position: relative; */
+    float: left;
+    padding: 13px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #428bca;
+    text-decoration: none;
+    background-color: #fff;
+    margin-left: 10px !important;
+    border: 1px solid #ddd;
+}
+
+.header {
+    padding-top: 0px;
+    background-color: #fff;
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    top: 0px;
+    z-index: 1006;
+    border-bottom: 0px solid #ccc;
+}
+
+.radio label, .checkbox label {
+    padding-left: 0px;
+    margin-bottom: 0;
+    font-weight: 400;
+    
+}
+
+.no-padding {
+    padding: 0px;
+}
+/*ending press */
+#type_qes {
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 1%;
+}
+
+    #type_qes h4 {
+        font-size: 15px;
+        line-height: 0px;
+        padding-top: 0px;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+#process_arrows {
+    width: 100%;
+    margin: 0px auto;
+    background-color: #dae7e2;
+    height: 54px;
+}
+
+    #process_arrows p {
+        font-size: 12px;
+        font-family: 'Avenir Next Condensed';
+        padding-top: 2px;
+        color: #183141;
+    }
+
+.process_box {
+    width: 50%;
+    height: 10px;
+    background-color: #fff;
+    margin-top: -10px;
+}
+
+.process_box_active {
+    width: 40%;
+    height: 8px;
+    background-color: #183141;
+    margin-top: -10px;
+}
+
+.process_arrows {
+    height: 43px;
+    background-color: #ebf6f2;
+    float: right;
+    margin: 5px;
+    padding: 13px;
+}
+
+    .process_arrows:hover {
+        background-color: #FFF;
+    }
+
+i.fa.fa-chevron-up {
+    color: #183141 !important;
+}
+
+i.fa.fa-chevron-down {
+    color: #183141 !important;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background-color: #f5f3f0;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 46%;
+}
+
+.dot_active {
+    width: 15px;
+    height: 15px;
+    background-color: #183141;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 46%;
+}
+
+.checkbox_typeform {
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.check_box_text {
+    font-size: 17px;
+}
+
+a.show-submenu.yellow {
+    color: #ffbd24;
+}
+
+.col-sm-10.col-xs-offset-1.termsconditions p span {
+    font-size: 16px !important;
+}
+
+.social_media {
+    width: 100%;
+    border: 3px solid #ccc;
+    min-height: 600px;
+}
+
+iframe#twitter-widget-0 {
+    height: 590px !important;
+}
+
+div#u_0_0 {
+    overflow: scroll;
+}
+
+.Embed {
+    padding: 8px;
+    overflow: scroll;
+}
+
+.validation-control {
+    color: red;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+    padding-top: 10px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    /* font-weight: 700; */
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+    padding-top: 0px;
+}
+
+.contactNumberBold {
+    font-weight: bold;
+}
+
+#reviews h3 {
+    text-align: center;
+    padding-right: 0%;
+    font-family: 'Avenir Next Condensed';
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+#reviews h4 {
+    font-family: 'Avenir Next Condensed';
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+#reviews p {
+    text-align: left;
+    padding-right: 0%;
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+}
+
+.bottom-line {
+    border-bottom: 1px solid #85aa9d;
+    margin-bottom: 0.5%;
+}
+
+span.ui-helper-hidden-accessible {
+    display: block;
+    color: #F90202;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+}
+
+.account_password {
+    min-height: 27px;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+    padding-top: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#Terms {
+    width: 100%;
+    margin: 80px auto;
+    padding: 0px;
+}
+
+    #Terms h3 {
+        text-align: center;
+        color: #183141;
+        padding: 1% 10%;
+        text-transform: uppercase;
+        letter-spacing: 7px;
+        font-size: 28px;
+    }
+
+    #Terms p {
+        text-align: justify;
+        color: #183141;
+        padding: 0%;
+        font-size: 16px;
+        font-family: 'Avenir Next Condensed';
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+/*pop up window*/
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+    .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .modalDialog > div {
+        width: 61%;
+        height: 65%;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: #fff;
+        background: -moz-linear-gradient(#fff, #999);
+        background: -webkit-linear-gradient(#fff, #999);
+        background: -o-linear-gradient(#fff, #999);
+    }
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+    .close:hover {
+        background: #00d9ff;
+    }
+
+a.Registrationhref {
+    font-size: 16px;
+    color: black;
+    font-family: 'Avenir Next Condensed';
+}
+
+.contact-reg {
+    padding-top: 5%;
+    padding-left: 6%;
+}
+
+.contact-reg {
+    padding-top: 96px;
+    padding-left: 10%;
+}
+
+label.control-label {
+    padding-top: 2%;
+    padding-left: 10%;
+}
+
+.number-align {
+    float: left;
+    text-align: left;
+}
+
+.link p {
+    text-align: left !important;
+}
+
+#tc_msg {
+    display: none;
+    color: red;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+    padding-top: 0px;
+}
+#gc_bank_msg{
+    display: none;
+    color: red;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+    padding-top: 0px;
+}
+#permission_msg {
+    display: none;
+    color: red;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+    float: left;
+}
+
+#permission_msgs {    
+    color: red !important;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+    float: left;
+}
+.typeFormTextBox {
+    width: 100% !important;
+    text-align: center !important;
+}
+
+
+
+.or-call {
+    padding: 0px;
+}
+
+.whoweare-text {
+    padding: 25px 0px 80px 0px;
+}
+
+.checkbox {
+    position: initial;
+    display: block;
+    min-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#styleprofile {
+    margin-bottom: 15.5%;
+}
+
+button#Previous-btn {
+    background: none;
+    border: none;
+    text-decoration: none;
+}
+
+    button#Previous-btn:hover {
+        background: none;
+        border: none;
+        text-decoration: none;
+    }
+
+button#Next-btn {
+    background: none;
+    border: none;
+    text-decoration: none;
+}
+
+    button#Next-btn:hover {
+        background: none;
+        border: none;
+        text-decoration: none;
+    }
+
+.blue-bar {
+    padding-top: 0px;
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    top: 51px;
+    z-index: 999;
+}
+
+.planscotybox {
+    margin-top: 7% !important;
+}
+
+.Your_order {
+    margin-top: 5% !important;
+}
+
+.forgotpassword-confrm h4 {
+    font-family: 'Avenir Next Condensed';
+    font-size: 18px;
+    min-height: 500px;
+    padding-top: 12%;
+}
+
+.forgotpassword-login {
+    padding-right: 17%;
+}
+
+#register .plan-button_intro {
+    border: 2px solid #000;
+    color: #000;
+    background: none;
+    padding: 2px 35px;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 1%;
+    margin-right: 12%;
+}
+
+    #register .plan-button_intro:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #0A1B25;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 12%;
+    }
+
+.your_order_terms {
+    padding-top: 5% !important;
+}
+
+.forgot_text {
+    padding-top: 14px !important;
+}
+
+.edit-save button {
+    border: 2px solid #000;
+    color: #000;
+    background: #fff;
+    padding: 2px 35px;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 1.5%;
+    margin-right: 1%;
+}
+
+    .edit-save button:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #000;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        margin-right: 1%;
+    }
+#style_radioprofile input[type="radio"] {
+       width: 15px;
+    height: 15px;
+   /* border:1px solid red;
+      background:red;*/
+}
+#style_radioprofile .img-responsive {
+ 
+    display: inline;
+    width: 100%;
+    max-width: none;
+    height: auto;
+}
+
+#type_qes .checkbox {
+    padding: 15px !important;
+}
+.ltr_img{
+    display: none;
+}
+.img_size{
+max-width:450px;
+ min-height:400px;
+}
+.ltr_ourTm{
+    display:none;
+}
+.whoare-img {
+        height: 535px;
+        width: 100%;
+    }
+
+@media only screen and (min-width: 1366px) {
+     
+    .yesmypassword {
+        padding-top: 0px !important;
+    }
+     #whoarewe p {
+        font-size: 16px;
+        text-align: right;
+        color: #183141;
+        line-height: 29px;
+        padding-left: 20%;
+        font-family: 'Avenir Next Condensed';
+    }
+    #yourorderpage .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 7px;
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-top: 1%;
+        /* margin-left: 34%; */
+        margin-right: 2.5%;
+        margin-top: 0%;
+        font-weight: 700;
+    }
+
+        #yourorderpage .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #000;
+            padding: 2px 7px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-top: 1%;
+            /* margin-left: 34%; */
+            margin-right: 2.5%;
+            margin-top: 0%;
+            font-weight: 700;
+        }
+
+    .your_order_terms {
+        padding-top: 7% !important;
+    }
+
+    .out_team_img_tab {
+        height: 195px;
+        width: 100%;
+    }
+
+    .team_mainimg {
+        height: auto;
+    }
+
+    #register .plan-button_intro {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 12%;
+    }
+
+        #register .plan-button_intro:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 12%;
+        }
+
+    .planscotybox {
+        margin-top: 10% !important;
+    }
+
+    .Your_order {
+        margin-top: 9% !important;
+    }
+
+
+
+    #styleprofile .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #styleprofile .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    .or-call {
+        padding: 0px;
+    }
+
+    #contact .button_intro.outline {
+        border: 2px solid #fff;
+        color: #fff;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-left: 0%;
+        margin-right: 18%;
+        margin-top: 1%;
+    }
+
+        #contact .button_intro.outline:hover {
+            border: 2px solid #fff;
+            color: #fff;
+            background: #000;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-left: 0%;
+            margin-right: 18%;
+            margin-top: 1%;
+        }
+
+
+    #slider_continer {
+        position: relative;
+        height: 840px;
+        padding-top: 50px;
+        background: #ccc url(/media/1029/slider_img.jpg) no-repeat center top;
+        background-size: cover;
+        color: #fff;
+        width: 100%;
+        margin-bottom: 0%;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    .intro_title_booking {
+        margin-top: 208px;
+        height: 270px;
+    }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: auto;
+    }
+
+        #register .plan-button_intro_next {
+            border: 2px solid #000;
+            color: #000;
+            background: none;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 15%;
+        }
+
+            #register .plan-button_intro_next:hover {
+                border: 2px solid #000;
+                color: #fff;
+                background: #0A1B25;
+                padding: 2px 35px;
+                text-transform: uppercase;
+                font-size: 18px;
+                margin-top: 1%;
+                margin-right: 15%;
+            }
+
+    #top-menu {
+        margin: 52px 0px 20px 0px;
+        padding: 0px;
+    }
+
+        #top-menu .line {
+            border-bottom: 1px solid #8b98a0;
+            width: 25%;
+            margin: 0px auto;
+            padding-top: 1%;
+            padding-bottom: 3%;
+        }
+
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 16px;
+        margin-bottom: 3px;
+    }
+
+    .dot_position {
+        padding-top: 12px;
+        text-align: center;
+    }
+
+    #top-menu h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    #top-menu h2 {
+        font-size: 28px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    #top-menu h5 {
+        font-size: 16px;
+        padding-top: 1%;
+        font-weight: normal;
+        text-align: center;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    .whoare-img {
+        height:460px;
+        width: 100%;
+    }
+    #Outfits .product_box {
+        background-color: #183141;
+        position: absolute;
+        height: 460px;
+        width: 305px;
+        z-index: 99;
+        left: 40%;
+        padding-top: 4%;
+    }
+
+    .owl-item {
+        width: 280px !important;
+        cursor: pointer;
+    }
+
+    .outfits_bg {
+        width: 100%;
+        margin: 0px auto;
+        padding: 0%;
+    }
+
+    .owl-controls .owl-nav .owl-next {
+        left: 58%;
+        z-index: 999;
+        position: absolute;
+        top: 184px;
+        color: #b60017;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-prev {
+        top: 184px;
+        color: #b60017;
+        font-size: 30px;
+        z-index: 999;
+        position: absolute;
+        left: 41.2%;
+    }
+
+    .product-head {
+        margin-top: 10px;
+        margin-bottom: 17px;
+        font-size: 25px;
+        color: #202020;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    #Outfits span {
+        color: #FFFFFF;
+        font-size: 20px;
+    }
+
+    .main-menu ul .menu-wrapper, .main-menu ul ul {
+        position: absolute;
+        border: 3px solid #EFECE7;
+        display: none;
+        z-index: 1;
+        height: auto;
+        left: 13px;
+        top: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        padding-left: 1%;
+       
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        text-decoration: none;
+        font-family: 'Playfair Display';
+    }
+
+    .press_img ul li {
+        display: inline;
+        padding-right: 0%;
+        padding-left: 10%;
+    }
+
+    #register .plan-button_intro {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 12%;
+    }
+
+        #register .plan-button_intro:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 12%;
+        }
+
+    .forgotpassword {
+        padding-right: 7%;
+    }
+
+    .condition {
+        padding-right: 10% !important;
+    }
+
+    .forgotpassword-login {
+        padding-right: 17%;
+    }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 17%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 17%;
+        }
+
+    .form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+        padding-top: 4px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .yesmypassword {
+        padding-top: 0px !important;
+    }
+
+    .radio label, .checkbox label {
+        padding-top: 19px;
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    .form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+        padding-top: 0px;
+        position:static;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .form-horizontal .control-label {
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    .radio + .radio, .checkbox + .checkbox {
+        margin-top: -39px !important;
+    }
+
+    #yourorderpage .payment_btn {
+        margin-top: 20px;
+        margin-right: 1px;
+    }
+
+    .planscotybox label.control-label {
+        padding-top: 2%;
+        padding-left: 7% !important;
+    }
+
+    .checkbox.yesmypassword label {
+        padding-top: 0px !important;
+    }
+}
+
+
+
+
+@media only screen and (min-width:1920px) {
+    .whoare-img {
+        height: 535px;
+        width: 100%;
+    }
+    #yourorderpage .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 7px;
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-top: 1%;
+        /* margin-left: 34%; */
+        margin-right: 0%;
+        margin-top: 0%;
+        font-weight: 700;
+    }
+
+        #yourorderpage .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #000;
+            padding: 2px 7px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-top: 1%;
+            /* margin-left: 34%; */
+            margin-right:0%;
+            margin-top: 0%;
+            font-weight: 700;
+        }
+
+    .form-horizontal .control-label {
+        padding-top: 14px;
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    .whatdoseitcost h2 {
+        padding-top: 8% !important;
+        font-size: 19px !important;
+    }
+
+    .planscotybox {
+        margin-top: 7% !important;
+    }
+
+    .Your_order {
+        margin-top: 5% !important;
+    }
+
+    .or-call {
+        padding: 0px;
+    }
+
+    #contact .button_intro.outline {
+        border: 2px solid #fff;
+        color: #fff;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-left: 0%;
+        margin-right: 18%;
+        margin-top: 1%;
+    }
+
+        #contact .button_intro.outline:hover {
+            border: 2px solid #fff;
+            color: #fff;
+            background: #000;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-left: 0%;
+            margin-right: 18%;
+            margin-top: 1%;
+        }
+
+    .condition {
+        padding-right: 10% !important;
+    }
+
+    .checkbox + .checkbox {
+        margin-top: -30px;
+    }
+
+    .tellus_mob_tab {
+        padding-top: 4%;
+    }
+
+    .out_team_img_tab {
+        height: 195px;
+        width: 100%;
+    }
+
+    #slider_continer {
+        position: relative;
+        height: 955px;
+        padding-top: 50px;
+        background: #ccc url(/media/1029/slider_img.jpg) no-repeat center top;
+        background-size: cover;
+        color: #fff;
+        width: 100%;
+        margin-bottom: 0%;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    .intro_title_booking {
+        margin-top: 220px;
+        height: 270px;
+        margin-bottom: 2%;
+    }
+
+    .Profile_update {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 9px 34px;
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-top: 1%;
+        /* margin-left: 34%; */
+        margin-top: 3%;
+        font-weight: 700;
+    }
+
+        .Profile_update:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #000;
+            padding: 9px 34px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-top: 1%;
+            /* margin-left: 34%; */
+            text-decoration: none;
+            margin-top: 3%;
+            font-weight: 700;
+        }
+
+    #whoarewe p {
+        font-size: 16px;
+        text-align: right;
+        color: #183141;
+        line-height: 29px;
+        padding-left: 0%;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    .whoare-img {
+        height: 447px;
+        width: 100%;
+    }
+
+    #Outfits .line {
+        border-bottom: 2px solid #fff;
+        width: 15%;
+        margin: 0px auto;
+        padding-top: 34%;
+    }
+
+    #Outfits .product_box {
+        background-color: #183141;
+        position: static;
+        z-index: 0;
+        left: 0;
+    }
+
+    .owl-controls .owl-nav .owl-next {
+        left: 58%;
+        z-index: 999;
+        top: 200px;
+        position: absolute;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-prev {
+        top: 200px;
+        color: #b60017;
+        font-size: 30px;
+        z-index: 999;
+        left: 41.2%;
+        position: absolute;
+    }
+
+    .outfits_bg {
+        width: 79.5%;
+        margin: 0px auto;
+        padding: 0%;
+    }
+
+    .owl-item {
+        width: 302px !important;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .team_mainimg {
+        height: auto;
+    }
+
+    #register .plan-button_intro {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 12%;
+    }
+
+        #register .plan-button_intro:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 12%;
+        }
+
+    #register .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 15%;
+    }
+
+        #register .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 15%;
+        }
+
+
+    #styleprofile .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #styleprofile .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    #styleprofile {
+        margin-bottom: 15.5%;
+    }
+
+        #styleprofile p {
+            font-family: 'Avenir Next Condensed';
+            font-size: 16px;
+        }
+
+
+    .plan_box_line_space {
+        margin-top: 2%;
+    }
+
+    #yourorderpage .payment_btn {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 3%;
+        margin-right: 17%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 3%;
+            margin-right: 17%;
+        }
+
+    .forgotpassword {
+        padding-right: 19%;
+    }
+
+    .forgotpassword-login {
+        padding-right: 17%;
+    }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: 590px;
+    }
+
+        #register .form-group {
+            margin-bottom: 0px;
+        }
+
+    .active h3 {
+        color: #000 !important;
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+
+    #register-top {
+        width: 100%;
+        margin: 0px;
+        background-color: #dae6e2;
+        padding: 0px;
+        overflow: hidden;
+        padding-top: 0px;
+        text-align: center;
+        font-size: 15px;
+        height: 40px;
+    }
+
+    #register-top_no_menu {
+        height: 20px;
+        background-color: #dae6e2;
+        width: 100%;
+        margin-top: 54px;
+    }
+
+    #top-menu {
+        margin: 52px 0px 50px 0px;
+        padding: 0px;
+    }
+
+        #top-menu .line {
+            border-bottom: 1px solid #8b98a0;
+            width: 25%;
+            margin: 0px auto;
+            padding-top: 1%;
+            padding-bottom: 3%;
+        }
+
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 12px;
+        margin-bottom: 10px;
+    }
+
+    #top-menu h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    #top-menu h2 {
+        font-size: 28px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    #top-menu h5 {
+        font-size: 16px;
+        padding-top: 1%;
+        font-weight: normal;
+        text-align: center;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    #top-menu {
+        margin: 52px 0px 50px 0px;
+        padding: 0px;
+    }
+
+        #top-menu .line {
+            border-bottom: 1px solid #8b98a0;
+            width: 25%;
+            margin: 0px auto;
+            padding-top: 1%;
+            padding-bottom: 3%;
+        }
+
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 12px;
+        margin-bottom: 10px;
+    }
+
+    #top-menu h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    #top-menu h2 {
+        font-size: 28px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    #top-menu h5 {
+        font-size: 16px;
+        padding-top: 1%;
+        font-weight: normal;
+        text-align: center;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    .checkbox.yesmypassword label {
+        padding-top: 0px !important;
+    }
+
+}
+
+@media only screen and (min-width:1024px) and (max-width: 1366px) {
+
+    #register .plan-button_intro {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 12%;
+    }
+
+        #register .plan-button_intro:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 12%;
+        }
+
+    #register .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 15%;
+    }
+
+        #register .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 15%;
+        }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: 590px;
+    }
+
+    .planscotybox {
+        margin-top: 10% !important;
+    }
+
+    .Your_order {
+        margin-top: 10% !important;
+    }
+
+    #styleprofile .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #styleprofile .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    .or-call {
+        padding: 0px;
+    }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 17%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 17%;
+        }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: auto;
+    }
+
+    .payment-con {
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 14px !important;
+        font-weight: normal;
+        color: #183141;
+    }
+
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    .condition {
+        padding-right: 10% !important;
+    }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 13%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 13%;
+        }
+
+    .out_team_img_tab {
+        height: 195px;
+    }
+
+    #What-does-it-cost-bg {
+        border-top: 1px solid #0b0b0b;
+        border-bottom: 1px solid #0b0b0b;
+        width: 100%;
+        margin: 0px auto;
+        padding: 0px;
+        margin-top: 5%;
+        text-align: left;
+        margin-bottom: 1%;
+    }
+
+    .team_mainimg {
+        height: auto;
+    }
+
+    #What-does-it-cost-bg h2 {
+        text-align: left;
+    }
+
+    #What-does-it-cost-bg p {
+        text-align: left;
+        padding: 10px 0% 0% 0%;
+        font-size: 16px !important;
+    }
+
+    #register-top {
+        width: 100%;
+        margin: 0px;
+        background-color: #dae6e2;
+        padding: 0px;
+        overflow: hidden;
+        padding-top: 0px;
+        text-align: left;
+        font-size: 10px;
+        padding-bottom: 0px;
+    }
+
+    #register .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-left: 54%;
+    }
+
+        #register .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-left: 54%;
+        }
+
+    .press_img ul li {
+        display: inline;
+        padding-right: 7%;
+        padding-left: 5%;
+    }
+
+    .box {
+        padding: -2px 26px;
+        margin-top: 6%;
+    }
+
+    .tellus_mob_tab {
+        padding-top: 4%;
+    }
+
+    .intro_title_booking {
+        margin-top: 160px;
+        height: 275px;
+    }
+
+    .styleprof_btn {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 6px 33px;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 2px;
+        font-family: 'Playfair Display';
+    }
+
+        .styleprof_btn:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #000;
+            padding: 4px 33px;
+            text-transform: uppercase;
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-family: 'Playfair Display';
+        }
+
+    .style_pro_p p {
+        text-align: center;
+    }
+
+    .style_pro_radio {
+        padding-left: 20%;
+    }
+
+    .style-pro_btn {
+        margin-top: 25%;
+    }
+
+    #Tell-us-aboutyourself p {
+        font-size: 16px;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        color: #183141;
+        padding: 1px 3% 0% 3%;
+        margin: 0px;
+        padding: 10px 0px;
+        font-family: 'Avenir Next Condensed';
+        line-height: 27px;
+    }
+
+    .whatdoseitcost h2 {
+        padding-top: 7% !important;
+        font-size: 17px !important;
+    }
+
+    #Scottybons-stand h1 {
+        color: #183141;
+        font-size: 27px;
+        text-align: right;
+        padding-left: 18%;
+        line-height: 150%;
+        padding-right: 7%;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        padding-top: 2%;
+    }
+
+    #whoarewe h2 {
+        font-size: 28px;
+        text-align: right;
+        color: #30373c;
+        padding-top: 5%;
+        padding-right: 0%;
+        letter-spacing: 4px;
+    }
+
+    .whoare-img {
+        height: 454px;
+        width: 100%;
+    }
+    .whoarewe-text {
+        padding: 27px 0px !important;
+}
+
+
+    #whoarewe p {
+        font-size: 16px;
+        text-align: right;
+        color: #183141;
+        padding-right: 0%;
+        line-height: 29px;
+        padding-left: 0%;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    .main-menu ul ul {
+        position: absolute;
+        border: 3px solid #fff;
+        display: none;
+        z-index: 1;
+        height: auto;
+            left: -4px;
+        top: 101%;
+        margin: 0;
+        padding: 0;
+        background: #FFF;
+        text-align: left;
+ 
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        text-decoration: none;
+        font-family: 'Playfair Display';
+    }
+
+        .main-menu ul ul:before {
+            bottom: 103%;
+            left: 5%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-bottom-color: #000;
+            border-width: 7px;
+               margin-left: 37px;
+        }
+
+    #slider_continer h1 {
+        font-size: 46px;
+        margin-bottom: -3px;
+        color: #000;
+        /* text-transform: uppercase; */
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0px;
+        line-height: 64px;
+        letter-spacing: 5px;
+        font-family: 'Playfair Display';
+        padding-left: 13% !important;
+        padding-bottom: 11px;
+    }
+
+    #slider_continer .line {
+        border-bottom: 2px solid #3E3E3E;
+        width: 11%;
+        margin: 0px 0px 0px 51%;
+    }
+
+    #slider_continer .button_intro.outline {
+        border: none;
+        color: #000;
+        background: none;
+        padding: 12px 0px;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 2px;
+        font-family: 'Playfair Display';
+        margin-right: -13%;
+        text-decoration: none;
+    }
+
+        #slider_continer .button_intro.outline:hover {
+            border-bottom: 2px solid #000;
+            color: #000;
+            padding: 12px 0px;
+            text-transform: uppercase;
+            font-size: 18px;
+            text-decoration: none;
+            margin-right: -13%;
+            text-decoration: none;
+        }
+
+    #slider_continer p {
+        font-size: 50px;
+        font-family: 'Playfair Display';
+        color: #000;
+        font-style: italic;
+        margin: 0px;
+        padding-top: 30px;
+        letter-spacing: 5px;
+        padding-left: 36%;
+    }
+
+    #slider_continer {
+        position: relative;
+        height: 750px;
+        padding-top: 50px;
+        background: #ccc url(/media/1029/slider_img.jpg) no-repeat center top;
+        background-size: cover;
+        color: #fff;
+        width: 100%;
+        margin-bottom: 0%;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    .no-padding {
+        padding-top: 96px;
+        padding-left: 10%;
+    }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 3%;
+        margin-right: 17%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 3%;
+            margin-right: 17%;
+        }
+
+    .m_width {
+        width: 100%;
+        padding: 0px;
+    }
+
+    #brands ul li {
+        margin: 0px auto;
+        display: inline-block;
+        padding: 0px 54px;
+        float: left;
+    }
+
+    #Outfits .product_box {
+        background-color: #183141;
+        position: absolute;
+        height: 430px;
+        width: 257px;
+        z-index: 99;
+        left: 42%;
+    }
+
+    #Outfits {
+        width: 100%;
+        overflow: hidden;
+        margin: 0px auto;
+        margin-top: 0%;
+    }
+
+    .outfits_bg {
+        width: 100%;
+        margin: 0px auto;
+        padding: 0%;
+    }
+
+    .owl-item {
+        width: 252px !important;
+    }
+
+    .product-col .caption {
+        padding: 5px 8px 12px 8px;
+        display: none;
+    }
+
+    #whoarewe {
+        width: 100%;
+        overflow: hidden;
+        background-color: #efece7;
+        margin-top: 70px;
+    }
+
+    #Outfits .line {
+        border-bottom: 2px solid #fff;
+        width: 15%;
+        margin: 0px auto;
+        padding-top: 46%;
+    }
+
+    .product-head {
+        margin-top: 10px;
+        margin-bottom: 17px;
+        font-size: 20px;
+        color: #202020;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    #Outfits span {
+        color: #FFFFFF;
+        font-size: 20px;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-prev {
+        top: 175px;
+        color: #b60017;
+        font-size: 30px;
+        z-index: 999;
+        left: 42%;
+        position: absolute;
+    }
+
+    .owl-controls .owl-nav .owl-next {
+        left: 57%;
+        top: 175px;
+        z-index: 999;
+        position: absolute;
+    }
+
+    .outr_team_img_tab {
+        display: inline;
+        width: 100%;
+        max-width: none;
+        height: 166px;
+    }
+
+    .our_team_BlueChalk_bg {
+        background-color: #dae7e2;
+        padding: 0px;
+        margin: 0px;
+        height: 196px;
+    }
+
+    #our_story p {
+        text-align: right;
+        font-size: 15px;
+        color: #183141;
+        padding-right: 10%;
+        padding-left: 10%;
+        width: 100%;
+        padding-left: 24%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+    }
+
+    .our_story_img_right p {
+        padding-right: 30% !important;
+        padding-left: 0% !important;
+    }
+
+    .our_story_img_left {
+        padding-right: 5%;
+    }
+
+    .our_story_img_right h4 {
+        text-align: right !important;
+        padding-right: 30% !important;
+    }
+
+    .condition {
+        padding-right: 10% !important;
+    }
+
+    #yourorderpage .payment_btn {
+        margin-top: 25px;
+        margin-right: 16px;
+
+    }
+
+    #yourorderpage {
+        margin: 0px auto;
+        padding: 0px;
+        background: #FFF;
+        padding-top: 0%;
+        padding-bottom: 2%;
+    }
+
+    .forgotpassword {
+        padding-right: 7%;
+    }
+
+    a.Registrationhref {
+        font-size: 16px;
+        color: black;
+        font-family: 'Avenir Next Condensed';
+        text-decoration: underline;
+    }
+
+    #top-menu {
+        margin: 52px 0px 25px 0px;
+        padding: 0px;
+    }
+
+        #top-menu .line {
+            border-bottom: 1px solid #8b98a0;
+            width: 25%;
+            margin: 0px auto;
+            padding-top: 1%;
+            padding-bottom: 3%;
+        }
+
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 15px;
+        margin-bottom: 14px;
+    }
+
+    .dot_position {
+        padding-top: 13px;
+        text-align: center;
+    }
+
+    #top-menu h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    .form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+        padding-top: 8px;
+        position:static;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .yesmypassword {
+        padding-top: 0px !important;
+    }
+
+    .checkbox.yesmypassword label {
+        padding-top: 0px !important;
+    }
+
+    #contact .button_intro.outline {
+        border: 2px solid #fff;
+        color: #fff;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-left: 0%;
+        margin-right: 18%;
+        margin-top: 1%;
+    }
+
+        #contact .button_intro.outline:hover {
+            border: 2px solid #fff;
+            color: #fff;
+            background: #000;
+            padding: 3px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-left: 0%;
+            margin-right: 18%;
+            margin-top: 1%;
+        }
+
+
+    .radio label, .checkbox label {
+        padding-top: 11px;
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px !important;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    .form-horizontal .control-label {
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    #top-menu h2 {
+        font-size: 28px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    #top-menu h5 {
+        font-size: 16px;
+        padding-top: 1%;
+        font-weight: normal;
+        text-align: center;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    .planscotybox label.control-label {
+        padding-top: 10px;
+        padding-left: 2%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    .img_size {
+    max-width: 300px;
+    min-height: 400px;
+}
+    #type_qes .checkbox {
+    padding: 6px !important;
+}
+
+    #type_qes h4 {
+    font-size: 15px;
+    line-height: 24px;
+    padding-top: 0px;
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+}
+    .checkbox.yesmypassword label {
+        padding-top: 0px !important;
+    }
+
+    .form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+        padding-top: 0px;
+        position:static;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .plan-your_scottybox_tab {
+        width: 100%;
+        margin: 0px auto;
+        padding: 0px 32px;
+    }
+
+
+    .planscotybox {
+        margin-top: 17% !important;
+    }
+
+    .Your_order {
+        margin-top: 13% !important;
+    }
+
+    .planscotybox label.control-label {
+        padding-top: 0%;
+        padding-left: 0% !important;
+    }
+
+    .radio label, .checkbox label {
+        padding-top: 22px;
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    #left_menu {
+        display: none;
+    }
+
+    .no_border {
+        border-left: none;
+        width: 60%;
+    }
+
+    #myaccount h4 {
+        padding-top: 1%;
+        border: 1px solid #000;
+        padding: 2%;
+        font-size: 18px;
+        text-align: center;
+        width: 20%;
+        line-height: 27px;
+        margin-left: 4%;
+        color: #183141;
+        float: left;
+        cursor: pointer;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+        #myaccount h4:hover {
+            padding-top: 1%;
+            border: 1px solid #000;
+            padding: 2%;
+            font-size: 18px;
+            text-align: center;
+            width: 20%;
+            line-height: 27px;
+            margin-left: 4%;
+            color: #fff;
+            float: left;
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background-color: #000;
+        }
+
+    #myaccount h3 {
+        border: 1px solid #000;
+        font-size: 18px;
+        text-align: center;
+        width: 20%;
+        line-height: 30px;
+        margin-left: 33%;
+        color: #183141;
+        float: left;
+        padding-top: 3%;
+        padding-bottom: 4%;
+        margin-top: 9px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+        #myaccount h3:hover {
+            border: 1px solid #000;
+            font-size: 18px;
+            text-align: center;
+            width: 20%;
+            line-height: 30px;
+            margin-left: 33%;
+            color: #fff;
+            float: left;
+            padding-top: 3%;
+            padding-bottom: 4%;
+            margin-top: 9px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background-color: #000;
+        }
+
+    .payment-con {
+        font-size: 15px !important;
+    }
+
+    .tab_footer_fullwith {
+        /* padding-left: 0% !important; */
+        margin-left: 0;
+    }
+
+    .tab_footer {
+        width: 30%;
+        float: left;
+    }
+
+    .hetprocess {
+        width: 40%;
+    }
+
+    #yourorderpage h2 {
+        padding-left: 5%;
+    }
+
+    .radio + .radio, .checkbox + .checkbox {
+        margin-top: -25px !important;
+    }
+
+    #register h2 {
+        font-size: 24px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    #styleprofile .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #styleprofile .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    .or-call {
+        padding: 0px;
+    }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 17%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 17%;
+        }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: auto;
+    }
+
+        #register .plan-button_intro_next {
+            border: 2px solid #000;
+            color: #000;
+            background: none;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 6%;
+        }
+
+            #register .plan-button_intro_next:hover {
+                border: 2px solid #000;
+                color: #fff;
+                background: #0A1B25;
+                padding: 2px 35px;
+                text-transform: uppercase;
+                font-size: 18px;
+                margin-top: 1%;
+                margin-right: 6%;
+            }
+
+    .forgotpassword {
+        padding-right: 9%;
+    }
+
+    #slider_continer {
+        position: relative;
+        height: 888px;
+        padding-top: 50px;
+        background: #ccc url(/media/1029/slider_img.jpg) no-repeat center top;
+        background-size: cover;
+        color: #fff;
+        width: 100%;
+        margin-bottom: 0%;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    #register {
+        margin: 52px 0px 50px 0px;
+        padding: 0px;
+    }
+
+        #register .reset {
+            border: 2px solid #000;
+            color: #000;
+            background: none;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 7%;
+        }
+
+            #register .reset:hover {
+                border: 2px solid #000;
+                color: #fff;
+                background: #0A1B25;
+                padding: 2px 35px;
+                text-transform: uppercase;
+                font-size: 18px;
+                margin-top: 1%;
+                margin-right: 7%;
+            }
+
+    .condition {
+        padding-right: 1% !important;
+    }
+
+    #register .register.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 7%;
+    }
+
+        #register .register.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 7%;
+        }
+
+    #register .form-control {
+        display: block;
+        margin-top: 10px;
+        font-style: italic;
+        width: 90%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #bbb3a6;
+        background-color: #f5f3f0;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #register .plan-button_intro {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 6%;
+    }
+
+        #register .plan-button_intro:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 6%;
+        }
+
+    #yourorderpage .payment_btn {
+        margin-top: 25px;
+        margin-right: 20px;
+    }
+
+    .delivery_textbox {
+        width: 100% !important;
+    }
+
+    .zip {
+        width: 19.5% !important;
+    }
+
+    .number {
+        width: 21.3% !important;
+    }
+
+    #What-does-it-cost-bg {
+        border-top: 1px solid #0b0b0b;
+        border-bottom: 1px solid #0b0b0b;
+        width: 88%;
+        margin: 0px auto;
+        padding: 0px;
+        margin-top: 3%;
+        text-align: left;
+    }
+
+    #whoarewe p {
+        font-size: 16px;
+        text-align: right;
+        color: #183141;
+        line-height: 29px;
+        padding-left: 0%;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    .main-menu ul ul:before {
+        bottom: 100%;
+        left: 15%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-bottom-color: #000;
+        border-width: 7px;
+       margin-left: 47px;
+    }
+
+    .container {
+        width: 100%;
+
+    }
+
+    img.contact_img {
+        width: 100%;
+    }
+
+    #Tell-us-aboutyourself p {
+        font-size: 16px;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        color: #183141;
+        padding: 1px 2% 0% 2%;
+        margin: 0px;
+        padding-top: 10px;
+        font-family: 'Avenir Next Condensed';
+        line-height: 31px;
+    }
+
+    .whatdoseitcost h2 {
+        padding-top: 8% !important;
+        font-size: 17px !important;
+    }
+
+    .Scottybons-stand-right-border {
+        border-left: 1px solid #fff;
+        padding-left: 6%;
+    }
+
+    #slider_continer p {
+        font-size: 37px;
+        font-family: 'Playfair Display';
+        color: #000;
+        font-style: italic;
+        margin: 0px;
+        text-align: center;
+        padding-top: 19px;
+        letter-spacing: 5px;
+        padding-right: 41%;
+    }
+
+    #slider_continer h1 {
+        font-size: 46px;
+        margin-bottom: -3px;
+        color: #000;
+        /* text-transform: uppercase; */
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0px;
+        line-height: 64px;
+        letter-spacing: 5px;
+        font-family: 'Playfair Display';
+        padding-right: 20%;
+    }
+
+    #slider_continer .line {
+        border-bottom: 2px solid #3E3E3E;
+        width: 11%;
+        margin: 0px 0px 0px 36%;
+    }
+
+    #slider_continer .button_intro.outline {
+        border: none;
+        color: #000;
+        text-shadow: 2px 2px #000000;
+        background: none;
+        padding: 12px 0px;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 2px;
+        font-family: 'Playfair Display';
+        margin-right: 17% !important;
+    }
+
+        #slider_continer .button_intro.outline:hover {
+            border-bottom: 2px solid #000;
+            color: #000;
+            text-shadow: 2px 2px #000000;
+            padding: 12px 0px;
+            text-transform: uppercase;
+            font-size: 18px;
+            text-decoration: none;
+            margin-right: 17% !important;
+        }
+
+    #Tell-us-aboutyourself p {
+        font-size: 14px;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        color: #183141;
+        padding: 0px 2% 0% 2%;
+        margin: 0px;
+        padding-top: 3px;
+        font-family: 'Avenir Next Condensed';
+        line-height: 31px;
+    }
+
+    .intro_title_booking {
+        margin-top: 250px;
+        height: 270px;
+    }
+
+    main-menu span {
+        color: #424242;
+        font-size: 14px;
+        font-family: 'Avenir Next Condensed';
+        padding-left: 7%;
+    }
+
+    #brands ul li {
+        margin: 0px auto;
+        display: inline-block;
+        padding: 26px 94px;
+        float: left;
+    }
+
+    .main-menu ul ul {
+        position: absolute;
+        border: 3px solid #EFECE7;
+        display: none;
+        z-index: 1;
+        height: auto;
+        left: -42px;
+        top: 100%;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        text-align: left;
+        padding-left: 1%;
+      
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        text-decoration: none;
+        font-family: 'Playfair Display';
+    }
+
+    .main-menu ul li.submenu ul li {
+        font-size: 12px;
+        border: 1px solid #ccc;
+    }
+
+    .main-menu ul li.submenu ul {
+        font-size: 12px;
+        margin: 0 0 15px 25px;
+    }
+
+        .main-menu ul li.submenu ul li {
+            font-size: 12px;
+            border: 1px solid #ccc;
+            
+    margin: 4px 2px !important;
+}
+
+
+
+    #whoarewe {
+        width: 100%;
+        overflow: hidden;
+        background-color: #efece7;
+        margin-top: 92px;
+    }
+
+    .outfits_bg {
+        width: 100%;
+        margin: 0px auto;
+        padding: 0%;
+    }
+
+    .product-col .caption {
+        padding: 5px 2px 12px 2px;
+        display: none;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-prev {
+        top: 163px;
+        z-index: 999;
+        position: absolute;
+        left: 39%;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-next {
+        left: 60%;
+        z-index: 999;
+        position: absolute;
+        top: 163px;
+    }
+
+    .product-head {
+        margin-top: -35px;
+        margin-bottom: 17px;
+        font-size: 16px;
+        color: #202020;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    #Outfits {
+        width: 100%;
+        overflow: hidden;
+        margin: 0px auto;
+        margin-top: 0%;
+    }
+
+    .owl-controls {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        z-index: 99999;
+    }
+
+    #Outfits .line {
+        border-bottom: none;
+        width: 15%;
+        margin: 0px auto;
+        padding-top: 24%;
+    }
+
+    #Outfits .line_bottom {
+        border-bottom: none;
+        width: 15%;
+        margin: 0px auto;
+    }
+
+    .Outfits_center_bg {
+        background-color: none;
+        height: auto;
+        margin: 0px auto;
+    }
+
+    #Outfits span {
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .owl-item {
+        width: 250px !important;
+    }
+
+    #Scottybons-stand h1 {
+        color: #183141;
+        font-size: 29px;
+        text-align: center;
+        padding-left: 0%;
+        line-height: 150%;
+        padding-right: 0%;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        padding-top: 2%;
+    }
+
+    #register-top {
+        width: 100%;
+        margin: 0px;
+        background-color: #dae6e2;
+        padding: 0px;
+        overflow: hidden;
+        padding-top: 0px;
+        text-align: left;
+        font-size: 10px;
+        padding-bottom: 0px;
+    }
+
+    #register .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 7%;
+    }
+
+        #register .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 7%;
+        }
+
+    #register .outline_tab {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 12% !important;
+    }
+
+        #register .outline_tab:hover {
+            border: 2px solid #000;
+            color: #000;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 12% !important;
+        }
+
+    #contact .button_intro.outline {
+        border: 2px solid #fff;
+        color: #fff;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-left: 0%;
+        margin-right: 18%;
+        margin-top: 1%;
+    }
+
+        #contact .button_intro.outline:hover {
+            border: 2px solid #fff;
+            color: #fff;
+            background: #000;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-left: 0%;
+            margin-right: 18%;
+            margin-top: 1%;
+        }
+
+    #contact .contact_textarea {
+        height: 108px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .out_team_img_tab {
+        height: 157px;
+    }
+
+    a.show-submenu.yellow {
+        color: #ffbd24 !important;
+    }
+
+    b, strong {
+        font-weight: bold;
+        color: #183141;
+        font-size: 16px;
+    }
+
+
+
+    .team_mainimg {
+        height: auto;
+    }
+
+    #contact {
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        background-color: #d1d1d1;
+        min-height: 460px;
+        padding-top: 4%;
+    }
+
+        #contact h2 {
+            color: #183141;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 36%;
+            font-size: 29px;
+            width: 100%;
+            text-align: center;
+            line-height: 50px;
+        }
+
+    .press_img ul li {
+        display: inline;
+        padding-right: 3%;
+        padding-left: 2%;
+    }
+
+    .no_padding {
+        padding: 0px;
+    }
+
+    .whoare-img {
+        height: 551px;
+        width: 100%;
+    }
+
+    #yourorderpage .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 12px;
+        text-transform: uppercase;
+        font-size: 10px;
+        margin-top: 1%;
+        /* margin-left: 34%; */
+        margin-top: 0%;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .our_story_list_topspace {
+        padding-top: 4%;
+        padding-bottom: 5%;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    #yourorderpage .button_intro.outline:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #000;
+        padding: 2px 12px;
+        text-transform: uppercase;
+        font-size: 10px;
+        margin-top: 1%;
+        /* margin-left: 34%; */
+        margin-top: 0%;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    #left_menu ul li {
+        margin: 0px;
+        line-height: 43px;
+        font-size: 13px;
+        display: block;
+        text-align: right;
+        font-weight: 700;
+        padding-right: 0%;
+        width: 100%;
+    }
+
+    #our_story p {
+        text-align: right;
+        font-size: 15px;
+        color: #183141;
+        padding-right: 10%;
+        padding-left: 10%;
+        width: 100%;
+        padding-left: 25%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 15px;
+    }
+
+    .our_story_img_right p {
+        padding-right: 37% !important;
+        padding-left: 0% !important;
+    }
+
+    .our_story_img_right h4 {
+        text-align: right !important;
+        padding-right: 38% !important;
+    }
+
+    .our_team_BlueChalk_bg {
+        background-color: #dae7e2;
+        padding: 0px;
+        margin: 0px;
+        height: 157px;
+    }
+
+    .our_team_Floral_White_bg {
+        background-color: #f5f3f0;
+        padding: 0px;
+        margin: 0px;
+        height: 157px;
+    }
+
+    .box {
+        padding: 0px 6px;
+        margin-top: 15%;
+    }
+
+    #top-menu {
+        margin: 52px 0px 30px 0px;
+        padding: 0px;
+    }
+
+        #top-menu .line {
+            border-bottom: 1px solid #8b98a0;
+            width: 25%;
+            margin: 0px auto;
+            padding-top: 1%;
+            padding-bottom: 3%;
+        }
+
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 12px;
+        margin-bottom: 10px;
+    }
+
+    #top-menu h3 {
+        font-size: 13px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    #top-menu h2 {
+        font-size: 28px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    .send-Nofiy {
+        padding-top: 10px;
+        padding-left: 0px;
+    }
+
+    #top-menu h5 {
+        font-size: 16px;
+        padding-top: 1%;
+        font-weight: normal;
+        text-align: center;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    #register .button_intro.outline-login {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 6%;
+    }
+
+        #register .button_intro.outline-login:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 6%;
+        }
+
+    .forgotpassword-login {
+        padding-right: 9%;
+    }
+
+    label.control-label {
+        padding-top: 2%;
+        padding-left: 7%;
+    }
+    .form-horizontal .radio, .form-horizontal .checkbox {
+    min-height: 27px;
+    font-size: 15px;
+    font-family: 'Avenir Next Condensed';
+}
+    a.Registrationhref {
+    font-size: 15px;
+    color: black;
+    font-family: 'Avenir Next Condensed';
+}
+        .style-profile-radio-options {
+        padding-left: 31%;
+    width: 100%;
+    margin-left: 24%;
+}
+       .style-profile-btn {
+     margin-right: -2% !important;
+    margin-top: 3%;
+}
+
+}
+
+@media only screen and (min-width: 640px) and (max-width: 767px) {
+
+
+    #register .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #register .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    .contact-reg {
+        padding-top: 96px;
+        padding-left: 0%;
+    }
+
+    #contact {
+        width: 100%;
+        height: auto;
+        margin: 54px 0px 0px 0px;
+        padding-top: 0%;
+        background: #eeeeee;
+        background: -moz-linear-gradient(top, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        background: -webkit-linear-gradient(top, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        background: linear-gradient(to bottom, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#d9d9d9', GradientType=0 );
+    }
+
+    #type_qes {
+        width: 100%;
+        margin: 0px auto;
+        margin-top: 0%;
+        height: auto !important;
+    }
+
+        #type_qes h4 {
+            font-size: 15px;
+            line-height: 20px;
+            padding-top: 0px;
+            color: #183141;
+            font-family: 'Avenir Next Condensed';
+        }
+
+    #yourorderpage h4 {
+        /* padding: 0px; */
+        margin: 0px;
+        color: #183141;
+        font-weight: bold;
+        padding: 3% 0% !important;
+    }
+
+    p {
+        margin: 0 0 0px;
+    }
+
+    .number {
+        width: 100%;
+    }
+
+    .zip {
+        width: 100%;
+    }
+
+    .planscotybox {
+        margin-top: 17% !important;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .Your_order {
+        margin-top: 15% !important;
+    }
+
+    radio label, .checkbox label {
+        padding-top: 0px;
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    .account_password {
+        min-height: 27px;
+        font-size: 14px;
+        font-family: 'Avenir Next Condensed';
+        padding-top: 5px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+        padding-top: 0px;
+        position:static;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+
+    #styleprofile .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #styleprofile .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    .or-call {
+        padding: 0px;
+    }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: auto;
+    }
+
+    #Tell-us-aboutyourself p {
+        font-size: 16px;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        color: #183141;
+        padding: 0px;
+        margin: 0px;
+        padding-top: 10px;
+        font-family: 'Avenir Next Condensed';
+        line-height: 31px;
+    }
+
+    .our_team_BlueChalk_bg {
+        background-color: #dae7e2;
+        padding: 0px;
+        margin: 0px;
+        height: 299px;
+        width: 60%;
+        float: left;
+    }
+
+    .our_team_Floral_White_bg {
+        background-color: #f5f3f0;
+        padding: 0px;
+        margin: 0px;
+        height: 299px;
+        float: left;
+        width: 60%;
+    }
+
+    .our_team_BlueChalk_bg_img {
+        padding-left: 0px;
+        margin: 0px;
+        padding-right: 0px;
+        width: 40%;
+        float: left;
+    }
+
+    .our_team_BlueChalk_bg_img_right {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 40%;
+        float: left;
+    }
+
+    #register-top {
+        width: 100%;
+        margin: 0px;
+        background-color: #dae6e2;
+        padding: 0px;
+        overflow: hidden;
+        padding-top: 0px;
+        text-align: left;
+        font-size: 15px;
+        padding-bottom: 0px;
+    }
+
+    #register .form-control {
+        display: block;
+        margin-top: 0%;
+        width: 100%;
+        height: 40px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    #register .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-left: 83%;
+    }
+
+        #register .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-left: 83%;
+        }
+
+    .delivery_textbox {
+        width: 100% !important;
+        margin-bottom: 4%;
+    }
+
+    .delivery_textbox_right {
+        width: 100% !important;
+        margin-top: 4%;
+    }
+
+    #register .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-left: 76%;
+        margin-right: 0%;
+    }
+
+        #register .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-left: 76%;
+            margin-right: 0%;
+        }
+
+    #footer h3 {
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #153140;
+    }
+
+    #footer ul li a {
+        line-height: 24px;
+        font-size: 13px;
+        text-align: center;
+        color: #153140;
+        text-decoration: none;
+    }
+
+    #footer ul li {
+        line-height: 24px;
+        font-size: 13px;
+        text-align: left;
+    }
+
+    #contact .button_intro.outline {
+        border: 2px solid #fff;
+        color: #fff;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-left: 0%;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #contact .button_intro.outline:hover {
+            border: 2px solid #fff;
+            color: #fff;
+            background: #000;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-left: 0%;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    #footer h3 {
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+        text-align: left;
+        color: #153140;
+    }
+
+    #contact h2 {
+        color: #183141;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 10%;
+        font-size: 29px;
+        width: 100%;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .press_img ul li img {
+        width: 147px;
+    }
+
+    .press_img ul li {
+        display: inline;
+        padding-right: 4%;
+        padding-left: 1%;
+    }
+
+    .mobile_width {
+        margin: 0px;
+    }
+
+    #press .accordion {
+        width: 100%;
+        margin: 30px auto 20px;
+        background: #FFF;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding: 0px;
+    }
+
+    #Scottybons-stand h1 {
+        color: #183141;
+        font-size: 29px;
+        text-align: center;
+        padding-left: 0%;
+        line-height: 150%;
+        padding-right: 1%;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        padding-top: 2%;
+    }
+
+    .Scottybons-stand-right-border {
+        border-left: none;
+        padding-left: 2%;
+    }
+
+ 
+
+    .mobile_whoarewe-img {
+        width: 100%;
+        height: 436px;
+        background-image: url(/images/whoarewe_img_mobile.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    #whoarewe h2 {
+    font-size: 28px;
+    text-align: center;
+    color: #30373c;
+    padding-top: 2%;
+    /* padding-right: 26%; */
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+    #whoarewe p {
+    font-size: 16px;
+    text-align: center;
+    color: #183141;
+    line-height: 29px;
+    padding-left: 0%;
+    font-family: 'Avenir Next Condensed';
+}
+    .whoare-img {
+           width: 100%;
+           height:500px;
+    
+    }
+    .footer_tab {
+        width: 33%;
+    }
+
+    #whoarewe {
+        width: 100%;
+        overflow: hidden;
+        background-color: #efece7;
+        margin-top: 70px;
+    }
+
+    .col-xs-offset-2 {
+        margin-left: 0%;
+    }
+
+    .whatdoseitcost h2 {
+        padding-top: 2% !important;
+        font-size: 19px !important;
+        text-align: center !important;
+    }
+
+    .box {
+        padding: 0px 26px;
+        margin-top: 6%;
+    }
+
+    #Scottybons-stand h4 {
+        color: #183141;
+        text-align: center;
+        line-height: 33px;
+        font-size: 19px;
+        font-family: 'Playfair Display';
+        letter-spacing: 1px;
+        font-weight: 600;
+        padding-top: 0px;
+        margin-top: 0px;
+        /* font-weight: 600; */
+    }
+
+    #brands ul li {
+        margin: 0px auto;
+        display: inline-block;
+        margin-top: 7%;
+        float: left;
+    }
+
+    #Outfits .product_box {
+        background-color: #183141;
+        position: absolute;
+        height: 76px;
+        width: 100%;
+        z-index: 99;
+        left: 0%;
+    }
+
+    #Outfits h2 {
+        text-align: center;
+        color: #FFF;
+        vertical-align: text-bottom;
+        padding-top: 0%;
+        FONT-SIZE: 20px;
+    }
+
+    .product-head {
+        margin-top: -180px;
+        margin-bottom: 0px;
+        font-size: 42px;
+        color: #202020;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    #Outfits .line_bottom {
+        border-bottom: none;
+        width: 15%;
+        margin: 0px auto;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-next {
+        top: 20px;
+        color: #b60017;
+        font-size: 30px;
+        position: absolute;
+        z-index: 999;
+        left: 67%;
+    }
+
+    #Outfits span {
+        color: #000;
+        font-size: 16px;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-prev {
+        top: 20px;
+        position: absolute;
+        color: #b60017;
+        font-size: 30px;
+        z-index: 999;
+        left: 30%;
+    }
+
+    #Outfits .line {
+        border-bottom: none;
+        width: 15%;
+        margin: 0px auto;
+        padding-top: 24%;
+    }
+
+    #owl-product .item {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+        margin-top: 27%;
+    }
+
+    .Outfits_center_bg {
+        background-color: none;
+        height: auto;
+        margin: 0px auto;
+        height: auto;
+    }
+
+    .tab_footer {
+        width: 33%;
+    }
+
+    #left_menu ul li {
+        margin: 0px;
+        line-height: 43px;
+        font-size: 13px;
+        display: block;
+        text-align: left;
+        font-weight: 700;
+        padding-right: 3%;
+    }
+
+    .left_border {
+        border-left: none;
+    }
+
+    .myaccount_bg {
+        background-image: url( /media/1014/my_account.jpg);
+        background-size: cover;
+        width: 100%;
+        background-repeat: no-repeat;
+        height: 675px;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    #myaccount h3 {
+        border: 1px solid #000;
+        font-size: 14px;
+        text-align: center;
+        width: 23%;
+        line-height: 28px;
+        margin-left: 22%;
+        color: #183141;
+        float: left;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        margin-top: 9px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+        #myaccount h3:hover {
+            border: 1px solid #000;
+            font-size: 14px;
+            text-align: center;
+            width: 23%;
+            line-height: 28px;
+            margin-left: 22%;
+            color: #183141;
+            float: left;
+            background-color: #000;
+            color: #FFF;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            margin-top: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+    #myaccount h4 {
+        padding-top: 1%;
+        border: 1px solid #000;
+        padding: 2%;
+        font-size: 14px;
+        text-align: center;
+        width: 27%;
+        line-height: 23px;
+        margin-left: 4%;
+        color: #183141;
+        float: left;
+        cursor: pointer;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+        #myaccount h4:hover {
+            padding-top: 1%;
+            border: 1px solid #000;
+            padding: 2%;
+            font-size: 14px;
+            text-align: center;
+            width: 27%;
+            line-height: 23px;
+            margin-left: 4%;
+            color: #183141;
+            float: left;
+            background-color: #000;
+            color: #FFF;
+            text-transform: uppercase;
+        }
+
+    .col-xs-offset-1 {
+        margin-left: 0%;
+    }
+
+    .mobile_ourstory_desktop {
+        display: -webkit-inline-box;
+    }
+
+.our_story_img_left {
+     padding-right: 0%; 
+}
+
+    #our_story p {
+        text-align: center;
+        font-size: 15px;
+        color: #183141;
+        padding-right: 6%;
+        padding-left: 10%;
+        width: 100%;
+        padding-left: 0%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        padding-bottom: 2%;
+    }
+
+    .out_team_img_tab {
+        height: 298px;
+        width: 100%;
+    }
+
+    .team_mainimg {
+        height: auto;
+    }
+
+    .style-tips-img {
+        text-align: center;
+    }
+
+    .our_story_img_right p {
+        padding-right: 6% !important;
+        padding-left: 0% !important;
+    }
+
+    #our_story h4 {
+        text-align: center;
+        padding-right: 0%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    #reviews {
+        padding: 0px 4%;
+    }
+
+    .our_story_img_right h4 {
+        text-align: center !important;
+        padding-right: 6% !important;
+    }
+
+    .owl-item {
+        width: 282px !important;
+    }
+
+    .divice_ver {
+        width: 20%;
+        float: left;
+        margin: 0px auto;
+    }
+
+    .mobile_tab {
+        width: 14%;
+    }
+
+    .box {
+        padding: 0px 0px;
+        margin-top: 15%;
+    }
+
+    #register .plan-button_intro {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .plan-button_intro:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    #yourorderpage .payment_btn {
+        margin-top: 60px;
+        margin-right: 13px;
+    }
+
+    #register .register.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .register.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    #top-menu {
+        margin: 52px 0px 50px 0px;
+        padding: 0px;
+    }
+
+        #top-menu .line {
+            border-bottom: 1px solid #8b98a0;
+            width: 25%;
+            margin: 0px auto;
+            padding-top: 1%;
+            padding-bottom: 3%;
+        }
+
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 12px;
+        margin-bottom: 10px;
+    }
+
+    #top-menu h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    #top-menu h2 {
+        font-size: 28px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    #top-menu h5 {
+        font-size: 16px;
+        padding-top: 1%;
+        font-weight: normal;
+        text-align: center;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    label.control-label {
+        padding-top: 2%;
+        padding-left: 3%;
+        text-align: left !important;
+    }
+
+    #register .button_intro.outline-login {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .button_intro.outline-login:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    .forgotpassword-login {
+        padding-right: 2%;
+    }
+
+    .edit-save button {
+        border: 2px solid #000;
+        color: #000;
+        background: #fff;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        width: 100%;
+        margin-right: 1%;
+        margin-bottom: 15px;
+    }
+
+    a.next_btns {
+        border: 2px solid #000;
+        color: #000;
+        background: #fff;
+        padding: 4px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        margin-right: 29% !important;
+    }
+
+    .type-form-img-border {
+        border: 1px solid #CCC;
+        border-radius: 1%;
+        width: 100%;
+    }
+
+    #edit_save_qes {
+        width: 100%;
+        margin: 0px auto;
+        background-color: #dae7e2 !important;
+        height: 91px !important;
+        margin-top: 0%;
+    }
+
+    .edit_typeform_head {
+        margin: 30px 0px 120px 0px !important;
+        padding: 0px;
+        height: auto;
+    }
+
+    .typeform-radio {
+        text-align: left;
+        padding-left: 5% !important;
+    }
+
+    .typeform-text .form-control {
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        margin-top: 0px;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+    .style-profile-radio-options {
+    padding-left: 24%;
+}
+
+        .img_size{
+max-width:100%;
+ min-height:400px;
+}
+
+
+    .ltr_img{
+    display: block;
+}
+    .erl_desc {
+        display:none;
+
+}
+}
+
+@media only screen and (min-width: 480px) and (max-width: 639px) {
+
+
+    .edit-save button {
+        border: 2px solid #000;
+        color: #000;
+        background: #fff;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        width: 100%;
+        margin-right: 1%;
+        margin-bottom: 15px;
+    }
+
+    a.next_btns {
+        border: 2px solid #000;
+        color: #000;
+        background: #fff;
+        padding: 4px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        margin-right: 18% !important;
+    }
+
+    .type-form-img-border {
+        border: 1px solid #CCC;
+        border-radius: 1%;
+        width: 100%;
+    }
+
+    #edit_save_qes {
+        width: 100%;
+        margin: 0px auto;
+        background-color: #dae7e2 !important;
+        height: 83px !important;
+        margin-top: 0%;
+    }
+
+    .edit_typeform_head {
+        margin: 30px 0px 120px 0px !important;
+        padding: 0px;
+        height: auto;
+    }
+
+    .typeform-radio {
+        text-align: left;
+        padding-left: 5% !important;
+    }
+
+    .typeform-text .form-control {
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        margin-top: 0px;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    .planscotybox {
+        margin-top: 25% !important;
+    }
+
+    .Your_order {
+        margin-top: 5% !important;
+    }
+
+    #styleprofile .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #styleprofile .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    .or-call {
+        padding: 0px;
+    }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: auto;
+    }
+
+    .mobile_tab {
+        width: 14%;
+    }
+
+    #register .form-control {
+        display: block;
+        width: 100%;
+        height: 40px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    .slider_review_bg {
+        margin-top: 20%;
+        height: 123px;
+        border: 1px solid #ccc;
+        left: 0%;
+        position: absolute;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .intro_title_booking {
+        margin-top: 195px;
+        height: 315px; margin-bottom: -9%;
+    }
+
+    #Scottybons-stand h1 {
+        color: #183141;
+        font-size: 20px;
+        text-align: center;
+        padding-left: 0%;
+        line-height: 150%;
+        padding-right: 0%;
+        text-transform: uppercase;
+        border-bottom: 1px solid #fff;
+    }
+
+    #Scottybons-stand h4 {
+        color: #183141;
+        text-align: center;
+        line-height: 150%;
+        font-style: italic;
+        font-size: 17px;
+    }
+
+    .Scottybons-stand-right-border {
+        border-left: 0px solid #fff;
+        padding-left: 2%;
+    }
+
+    #brands ul li {
+        margin: 0px auto;
+        display: inline-block;
+        padding: 21px 21px;
+        float: left;
+    }
+
+    #Outfits .product_box {
+        background-color: #183141;
+        position: absolute;
+        height: 76px;
+        width: 100%;
+        z-index: 99;
+        left: 0%;
+    }
+
+    .outfits_bg {
+        width: 100%;
+        margin: 0px auto;
+        padding: 0%;
+    }
+
+    .owl-item {
+        width: 273px !important;
+    }
+
+    #Outfits h2 {
+        text-align: center;
+        color: #FFF;
+        vertical-align: text-bottom;
+        padding-top: 0%;
+        FONT-SIZE: 20px;
+    }
+
+    .product-head {
+        margin-top: -128px;
+        margin-bottom: 0px;
+        font-size: 42px;
+        color: #202020;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .mobile_lines {
+        display: none;
+    }
+
+    #slider_continer p {
+        font-size: 25px;
+        font-weight: 600;
+        color: #000;
+        font-style: italic;
+        margin: 0px;
+        padding-top: 19px;
+        letter-spacing: 5px;
+        padding-left: 26%;
+    }
+
+    #owl-product .item {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+        margin-top: 27%;
+    }
+
+        #owl-product .item:hover {
+            padding-left: 5px;
+            padding-right: 5px;
+            width: 100%;
+            margin-top: 27%;
+        }
+
+    .owl-carousel .owl-controls .owl-nav .owl-prev {
+        top: 22px;
+        color: #b60017;
+        font-size: 30px;
+        z-index: 999;
+        left: 40%;
+        position: absolute;
+    }
+
+    #Outfits .line {
+        border-bottom: none;
+        width: 15%;
+        margin: 0px auto;
+        padding-top: 24%;
+    }
+
+    #Outfits .line_bottom {
+        border-bottom: none;
+        width: 15%;
+        margin: 0px auto;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-next {
+        left: 65%;
+        position: absolute;
+        z-index: 999;
+        top: 22px;
+    }
+
+    #header_menu {
+        text-align: center;
+        padding: 4px 15px 10px;
+        position: relative;
+        display: block;
+        background: #040404;
+    }
+
+    .Outfits_center_bg {
+        background-color: none;
+        height: auto;
+        margin: 0px auto;
+        height: auto;
+    }
+
+    #Outfits span {
+        color: #000;
+        font-size: 30px;
+    }
+
+    i.fa.fa-close {
+        margin-top: 12px;
+        cursor: pointer;
+    }
+
+    .whoarewe-img {
+        display: none;
+    }
+
+    .mobile_whoarewe-img {
+        width: 100%;
+        height: 338px;
+        background-image: url(/media/1033/whoarewe_img_mobile.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .col-xs-offset-2 {
+        margin-left: 0%;
+    }
+
+    #whoarewe h2 {
+        font-size: 28px;
+        text-align: center;
+        color: #30373c;
+        padding-top: 10%;
+        padding-right: 5%;
+    }
+
+    #whoarewe {
+        width: 100%;
+        overflow: hidden;
+        background-color: #efece7;
+        margin-top: 50px;
+    }
+
+    .whatdoseitcost h2 {
+        padding-top: 4% !important;
+        font-size: 19px !important;
+    }
+
+    #whoarewe p {
+        font-size: 15px;
+        text-align: center;
+        color: #183141;
+        padding-right: 5%;
+    }
+
+    #whoarewe p {
+        font-size: 15px;
+        text-align: center;
+        padding-left: 11%;
+        color: #183141;
+        padding-right: 14%;
+    }
+
+    #whoarewe img {
+        width: 100%;
+        height:450px;
+    }
+
+    #footer h3 {
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #153140;
+    }
+
+    #footer ul li {
+        line-height: 24px;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    #What-does-it-cost-bg h2 {
+        text-align: center;
+    }
+
+    #register .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-left: 78%;
+    }
+
+        #register .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-left: 78%;
+        }
+
+    .delivery_textbox {
+        width: 100% !important;
+        margin-bottom: 4%;
+    }
+
+    .delivery_textbox_right {
+        width: 100% !important;
+        margin-top: 4%;
+    }
+
+    #register .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+        margin-left: 68%;
+    }
+
+        #register .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-left: 68%;
+            margin-right: 0%;
+        }
+
+    #contact .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-left: 0%;
+        margin-right: 0%;
+        margin-top: 1%;
+    }
+
+        #contact .button_intro.outline:hover {
+            border: 2px solid #fff;
+            color: #fff;
+            background: #000;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-left: 0%;
+            margin-right: 0%;
+            margin-top: 1%;
+        }
+
+    #contact h2 {
+        color: #183141;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 10%;
+        font-size: 29px;
+        width: 100%;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .press_img ul li {
+        display: inline;
+        padding-right: 7%;
+        padding-left: 1%;
+    }
+
+    .mobile_width {
+        margin: 0px;
+    }
+
+    #press .accordion {
+        width: 100%;
+        margin: 30px auto 20px;
+        background: #FFF;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding: 0px;
+    }
+
+    .press_img ul li {
+        display: inline-block;
+        padding-right: 3%;
+        padding-left: 15%;
+        /* padding-top: 5%; */
+        margin-top: 2%;
+        /* width: 266px; */
+    }
+
+ 
+    img.contact_img {
+        width: 100%;
+    }
+
+    .left_border {
+        border-left: none;
+    }
+
+    #left_menu ul li {
+        margin: 0px;
+        line-height: 43px;
+        font-size: 13px;
+        display: block;
+        text-align: left;
+        font-weight: 700;
+        padding-right: 3%;
+    }
+
+    #myaccount h3 {
+        border: 1px solid #000;
+        font-size: 14px;
+        text-align: center;
+        width: 72%;
+        line-height: 23px;
+        margin-left: 14%;
+        color: #183141;
+        /* float: left; */
+        padding-top: 3%;
+        padding-bottom: 3%;
+        margin-top: 9px;
+    }
+
+        #myaccount h3:hover {
+            border: 1px solid #000;
+            font-size: 14px;
+            text-align: center;
+            width: 72%;
+            line-height: 23px;
+            margin-left: 14%;
+            color: #183141;
+            /* float: left; */
+            padding-top: 3%;
+            padding-bottom: 3%;
+            margin-top: 9px;
+            background-color: #000;
+            color: #FFF;
+        }
+
+    #myaccount h4 {
+        padding-top: 1%;
+        border: 1px solid #000;
+        padding: 2%;
+        font-size: 14px;
+        text-align: center;
+        width: 72%;
+        line-height: 23px;
+        margin-left: 14%;
+        color: #183141;
+        float: left;
+    }
+
+        #myaccount h4:hover {
+            padding-top: 1%;
+            border: 1px solid #000;
+            padding: 2%;
+            font-size: 14px;
+            text-align: center;
+            width: 72%;
+            line-height: 23px;
+            margin-left: 14%;
+            color: #183141;
+            float: left;
+            background-color: #000;
+            color: #FFF;
+        }
+
+    .myaccount_bg {
+        background-image: url( /media/1014/my_account.jpg);
+        background-size: cover;
+        width: 100%;
+        background-repeat: no-repeat;
+        height: 675px;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .col-xs-offset-1 {
+        margin-left: 0%;
+    }
+
+    #our_story p {
+        text-align: left;
+        font-size: 15px;
+        color: #183141;
+        padding-right: 10%;
+        padding-left: 10%;
+        width: 100%;
+        padding-left: 0%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 15px;
+    }
+
+
+    .mobile_ourstory_desktop {
+        display: block;
+    }
+
+    .our_story_img_right p {
+        padding-right: 0% !important;
+        padding-left: 0% !important;
+    }
+
+    .our_story_img_right h4 {
+        text-align: left !important;
+        padding-right: 48% !important;
+    }
+
+    #our_story h4 {
+        text-align: left;
+        padding-right: 10%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .our_story_img_left {
+        padding: 0%;
+    }
+
+    .tellus_mob_tab {
+        width: 100%;
+        float: left;
+    }
+
+    .box {
+        padding: 0px 6px;
+        margin-top: 15%;
+    }
+
+    #register .register.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 4%;
+        margin-right: 0%;
+    }
+
+        #register .register.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 4%;
+            margin-right: 0%;
+        }
+
+    .col-sm-12, .col-md-12, .col-lg-12 {
+        position: inherit !important;
+    }
+
+    #register .plan-button_intro {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .plan-button_intro:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    #top-menu {
+        margin: 52px 0px 25px 0px;
+        padding: 0px;
+    }
+
+        #top-menu .line {
+            border-bottom: 1px solid #8b98a0;
+            width: 25%;
+            margin: 0px auto;
+            padding-top: 1%;
+            padding-bottom: 3%;
+        }
+
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 12px;
+        margin-bottom: 10px;
+    }
+
+    #top-menu h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    #top-menu h2 {
+        font-size: 28px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    #top-menu h5 {
+        font-size: 16px;
+        padding-top: 1%;
+        font-weight: normal;
+        text-align: center;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    label.control-label {
+        padding-top: 2%;
+        padding-left: 3%;
+        text-align: left !important;
+    }
+
+    #register .button_intro.outline-login {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .button_intro.outline-login:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    #slider_continer {
+        position: relative;
+        height: 834px;
+        padding-top: 50px;
+        background: #ccc url(/media/1029/slider_img.jpg) no-repeat center top;
+        background-size: cover;
+        color: #fff;
+        width: 100%;
+        margin-bottom: 0%;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+
+
+    .Your_order {
+        margin-top: 20% !important;
+    }
+
+    .forgotpassword-login {
+        padding-right: 5%;
+    }
+
+    .planscotybox label.control-label {
+        padding-top: 2%;
+        padding-left: 3% !important;
+    }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: auto;
+    }
+
+    .radio label, .checkbox label {
+        padding-top: 0px;
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    #register .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #register .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    .validation-control {
+        color: red;
+        font-size: 14px;
+        font-family: 'Avenir Next Condensed';
+        padding-top: 10px;
+    }
+
+    .payment-con {
+        margin-top: 1%;
+    }
+
+    #yourorderpage .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 7px;
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-top: 1%;
+        /* margin-left: 34%; */
+        margin-right: 4% !important;
+        margin-top: 0%;
+        font-weight: 700;
+    }
+
+        #yourorderpage .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #000;
+            padding: 2px 7px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-top: 1%;
+            /* margin-left: 34%; */
+            margin-right: 4% !important;
+            margin-top: 0%;
+            font-weight: 700;
+        }
+
+    #yourorderpage .payment_btn {
+        margin-top: 20px;
+        margin-right: 1px;
+    }
+
+    #yourorderpage .checkbox label {
+        padding-top: 5px !important;
+    }
+
+    #yourorderpage h2 {
+        padding-left: 5%;
+    }
+
+    #press p {
+        text-align: center;
+        color: #183141;
+        padding: 0%;
+        font-size: 15px;
+        font-family: 'Avenir Next Condensed';
+        margin-bottom: -29px;
+        margin-top: -3px;
+    }
+
+    .contact-reg {
+        padding-top: 96px;
+        padding-left: 0%;
+    }
+
+    .number {
+        width: 100%;
+    }
+
+    .zip {
+        width: 100%;
+    }
+
+    #type_qes {
+        width: 100%;
+        margin: 0px auto;
+        margin-top: 0%;
+        height: auto !important;
+    }
+
+    #contact {
+        width: 100%;
+        height: auto;
+        margin: 54px 0px 0px 0px;
+        padding-top: 0%;
+        background: #eeeeee;
+        background: -moz-linear-gradient(top, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        background: -webkit-linear-gradient(top, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        background: linear-gradient(to bottom, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#d9d9d9', GradientType=0 );
+    }
+
+    #reviews {
+        padding: 0px 4%;
+    }
+
+    .edit-save button {
+        border: 2px solid #000;
+        color: #000;
+        background: #fff;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        width: 100%;
+        margin-right: 1%;
+        margin-bottom: 15px;
+    }
+
+    a.next_btns {
+        border: 2px solid #000;
+        color: #000;
+        background: #fff;
+        padding: 4px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        margin-right: 18% !important;
+    }
+
+    .type-form-img-border {
+        border: 1px solid #CCC;
+        border-radius: 1%;
+        width: 100%;
+    }
+
+    #edit_save_qes {
+        width: 100%;
+        margin: 0px auto;
+        background-color: #dae7e2 !important;
+        height: 83px !important;
+        margin-top: 0%;
+    }
+
+    .edit_typeform_head {
+        margin: 30px 0px 120px 0px !important;
+        padding: 0px;
+        height: auto;
+    }
+
+    .typeform-radio {
+        text-align: left;
+        padding-left: 5% !important;
+    }
+
+    .typeform-text .form-control {
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        margin-top: 0px;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+    .form-horizontal .radio, .form-horizontal .checkbox {
+    min-height: 27px;
+    font-size: 15px;
+    font-family: 'Avenir Next Condensed';
+}
+    .style-profile-radio-options {
+    padding-left: 16%;
+}
+        .img_size{
+max-width:100%;
+ min-height:400px;
+}
+
+
+    .ltr_img{
+    display: block;
+}
+    .erl_desc {
+        display:none;
+}
+       .our_team_Floral_White_bg {
+    background-color: #f5f3f0;
+    padding: 0px;
+    margin: 0px;
+    height:auto;
+}
+    .our_team_BlueChalk_bg {
+    background-color: #dae7e2;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+}
+ .ltr_ourTm{
+    display:block;
+}
+    .erl_ourTm{
+    display:none;
+}
+}
+
+@media only screen and (max-width:468px) {
+    .ltr_ourTm{
+    display:block;
+}
+    .erl_ourTm{
+    display:none;
+}
+
+    .img_size{
+max-width:100%;
+ min-height:400px;
+}
+
+
+    .ltr_img{
+    display: block;
+}
+    .erl_desc {
+        display:none;
+
+}
+ ._2p3a{
+  min-width: 150px !important;
+   width: 200px !important;
+    }
+      
+
+    .our_team_BlueChalk_bg_img_right {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+}
+
+    .main-menu ul li.submenu ul li {
+        font-size: 12px;
+        border: 0;
+        border: 1px solid #ccc;
+        margin-top: 1%;
+    }
+
+    .form-horizontal .form-group {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    #register .line {
+        border-bottom: 1px solid #8b98a0;
+        width: 25%;
+        margin: 0px auto;
+        padding-top: 0%;
+        margin-bottom: 2%;
+    }
+
+    #type_qes {
+        width: 100%;
+        margin: 0px auto;
+        margin-top: 0%;
+        height: auto !important;
+    }
+
+    #styleprofile .plan-button_intro_next {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+    }
+
+        #styleprofile .plan-button_intro_next:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+    .or-call {
+        padding: 0px;
+    }
+
+    #register .button_intro.outline-login {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .button_intro.outline-login:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+
+
+    label.control-label {
+        padding-top: 2%;
+        /* padding-left: 19%; */
+    }
+
+    #slider_continer h1 {
+        font-size: 46px;
+        margin-bottom: -3px;
+        color: #000;
+        /* text-transform: uppercase; */
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0px;
+        line-height: 64px;
+        letter-spacing: 5px;
+        font-family: 'Playfair Display';
+        padding-right: 15%;
+    }
+
+    .button_intro.outline {
+        border: none;
+        color: #000;
+        background: none;
+        padding: 12px 0px;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 2px;
+        font-family: 'Playfair Display';
+        margin-right: 12% !important;
+    }
+
+        .button_intro.outline:hover {
+            border-bottom: 2px solid #000;
+            border-top: 2px solid #000;
+            color: #000;
+            padding: 12px 0px;
+            text-transform: uppercase;
+            font-size: 18px;
+            text-decoration: none;
+            margin-right: 12% !important;
+        }
+
+    #slider_continer .line {
+        border-bottom: 2px solid #3E3E3E;
+        width: 14%;
+        margin: 0px 0px 0px 36%;
+    }
+
+    #register .plan-button_intro {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .plan-button_intro:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    #register .register.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 4%;
+        margin-right: 0%;
+    }
+
+        #register .register.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 4%;
+            margin-right: 0%;
+        }
+
+    .slider_review_bg {
+        margin-top: 20%;
+        height: 123px;
+        border: 1px solid #ccc;
+        left: 0%;
+        position: absolute;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .radio label, .checkbox label {
+        padding-top: 0px;
+        margin-bottom: 0;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+        font-weight: normal;
+        color: #183141;
+    }
+
+    .intro_title_booking {
+        margin-top: 108px;
+        height: 300px;
+        margin-bottom: -9%;
+    }
+
+    #Scottybons-stand h1 {
+        color: #183141;
+        font-size: 20px;
+        text-align: center;
+        padding-bottom: 3%;
+        padding-left: 0%;
+        line-height: 150%;
+        padding-right: 0%;
+        text-transform: uppercase;
+        border-bottom: 1px solid #fff;
+    }
+
+    #Scottybons-stand h4 {
+        color: #183141;
+        text-align: center;
+        line-height: 150%;
+        font-style: italic;
+        font-size: 17px;
+    }
+
+    .Scottybons-stand-right-border {
+        border-left: 0px solid #fff;
+        padding-left: 2%;
+    }
+
+    #brands ul li {
+        margin: 0px auto;
+        display: inline-block;
+        margin-top: 16%;
+        float: left;
+    }
+
+    #brands {
+        width: 100%;
+        margin: 0px;
+        padding: 5px 75px 75px 75px;
+    }
+
+    #Outfits .product_box {
+        background-color: #183141;
+        position: absolute;
+        height: 76px;
+        width: 100%;
+        z-index: 99;
+        left: 0%;
+    }
+
+    #Outfits h2 {
+        text-align: center;
+        color: #FFF;
+        vertical-align: text-bottom;
+        padding-top: 11%;
+        FONT-SIZE: 20px;
+    }
+
+    .product-head {
+        margin-top: -123px;
+        margin-bottom: 0px;
+        font-size: 42px;
+        color: #202020;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .mobile_lines {
+        display: none;
+    }
+
+    #slider_continer p {
+        font-size: 25px;
+        font-weight: 600;
+        color: #000;
+        font-style: italic;
+        margin: 0px;
+        padding-top: 19px;
+        letter-spacing: 5px;
+        padding-left: 23%;
+    }
+
+    #owl-product .item {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+        margin-top: 27%;
+    }
+
+        #owl-product .item:hover {
+            padding-left: 5px;
+            padding-right: 5px;
+            width: 100%;
+            margin-top: 27%;
+        }
+
+    .owl-carousel .owl-controls .owl-nav .owl-prev {
+        top: 21px;
+        color: #b60017;
+        font-size: 30px;
+        z-index: 999;
+        left: 27%;
+        position: absolute;
+    }
+
+    #Outfits span {
+        color: #000000;
+        font-size: 30px;
+    }
+
+    #Outfits .line_bottom {
+        border-bottom: NONE;
+        width: 15%;
+        margin: 0px auto;
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-next {
+        left: 65%;
+        top: 21px;
+        z-index: 999;
+        position: absolute;
+    }
+
+    .Outfits_center_bg {
+        height: auto;
+        margin: 0px auto;
+        height: auto;
+    }
+
+    i.fa.fa-close {
+        margin-top: 12px;
+        cursor: pointer;
+    }
+
+    .whoarewe-img {
+        display: none;
+    }
+
+    .mobile_whoarewe-img {
+        width: 100%;
+        height: 197px;
+        background-image: url(/media/1032/whoarewe_img.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #whoarewe h2 {
+        font-size: 28px;
+        text-align: center;
+        color: #30373c;
+        padding-top: 10%;
+        padding-right: 5%;
+    }
+
+    #whoarewe p {
+        font-size: 15px;
+        text-align: center;
+        color: #183141;
+        padding-right: 5%;
+    }
+
+    #whoarewe p {
+        font-size: 15px;
+        text-align: center;
+        color: #183141;
+        padding-right: 0%;
+    }
+
+    #whoarewe img {
+        width: 100%;
+        height: 250px;
+    }
+
+    #footer h3 {
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #153140;
+    }
+
+    #footer ul li {
+        line-height: 24px;
+        font-size: 13px;
+        text-align: center;
+    }
+
+        #footer ul li a {
+            line-height: 24px;
+            font-family: 'Playfair Display';
+            text-align: left;
+            color: #153140;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+    #What-does-it-cost-bg h2 {
+        text-align: center;
+    }
+
+    #register .form-control {
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        margin-top: 0px;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    .number {
+        width: 100%;
+    }
+
+    .zip {
+        width: 100%;
+    }
+
+    #register-top {
+        width: 100%;
+        margin: 0px;
+        background-color: #dae6e2;
+        padding: 0px;
+        overflow: hidden;
+        padding-top: 0px;
+        text-align: left;
+        font-size: 10px;
+        padding-bottom: 0px;
+    }
+
+    .delivery_textbox {
+        width: 100% !important;
+        margin-bottom: 7%;
+    }
+
+    .delivery_textbox_right {
+        width: 100% !important;
+        margin-top: 7%;
+    }
+
+    #register .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-left: 35%;
+        margin-right: 0%;
+    }
+
+    .mobile_tab {
+        width: 100%;
+    }
+
+    #register .button_intro.outline:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #0A1B25;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-left: 35%;
+        margin-right: 0%;
+    }
+
+    .mobile_menu_options {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #contact .button_intro.outline {
+        border: 2px solid #fff;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-left: 0%;
+        margin-right: 0% !important;
+    }
+
+        #contact .button_intro.outline:hover {
+            border: 2px solid #fff;
+            color: #fff;
+            background: #000;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-left: 0%;
+            margin-right: 0% !important;
+            margin-top: 1%;
+        }
+
+    #contact {
+        width: 100%;
+        height: auto !important;
+        margin: 54px 0px 0px 0px;
+        height: 635px;
+        padding-top: 0%;
+        background: #eeeeee;
+        background: -moz-linear-gradient(top, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        background: -webkit-linear-gradient(top, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        background: linear-gradient(to bottom, #eeeeee 0%, #ededed 25%, #e8e8e8 52%, #d9d9d9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#d9d9d9', GradientType=0 );
+    }
+
+    #reviews {
+        padding: 0px 2%;
+    }
+
+    #contact h2 {
+        color: #183141;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 10%;
+        font-size: 29px;
+        width: 100%;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    #myaccount h3 {
+        border: 1px solid #000;
+        font-size: 14px;
+        text-align: center;
+        width: 72%;
+        line-height: 23px;
+        margin-left: 14%;
+        color: #183141;
+        /* float: left; */
+        padding-top: 3%;
+        padding-bottom: 3%;
+        margin-top: 9px;
+    }
+
+        #myaccount h3:hover {
+            border: 1px solid #000;
+            font-size: 14px;
+            text-align: center;
+            width: 72%;
+            line-height: 23px;
+            margin-left: 14%;
+            color: #183141;
+            /* float: left; */
+            padding-top: 3%;
+            padding-bottom: 3%;
+            margin-top: 9px;
+            background-color: #000;
+            color: #FFF;
+        }
+
+    #myaccount h4 {
+        padding-top: 1%;
+        border: 1px solid #000;
+        padding: 2%;
+        font-size: 14px;
+        text-align: center;
+        width: 72%;
+        line-height: 23px;
+        margin-left: 14%;
+        color: #183141;
+        float: left;
+    }
+
+        #myaccount h4:hover {
+            padding-top: 1%;
+            border: 1px solid #000;
+            padding: 2%;
+            font-size: 14px;
+            text-align: center;
+            width: 72%;
+            line-height: 23px;
+            margin-left: 14%;
+            color: #183141;
+            float: left;
+            background-color: #000;
+            color: #FFF;
+        }
+
+    .press_img ul li {
+        display: inline-block;
+        padding-right: 4%;
+        padding-left: 30%;
+        padding-top: 6%;
+    }
+
+    .mobile_width {
+        margin: 0px;
+    }
+
+    #press .accordion {
+        width: 100%;
+        margin: 30px auto 20px;
+        background: #FFF;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding: 0px;
+    }
+
+    .our_team_BlueChalk_bg {
+        background-color: #dae7e2;
+        padding: 0px;
+        /* margin: 0px; */
+        height: 307px;
+        /* padding-bottom: 1%; */
+        margin-bottom: 6%;
+    }
+
+    .our_team_BlueChalk_bg_img {
+        padding-left: 0px;
+        margin: 0px;
+        text-align: center;
+    }
+
+    .our_team_BlueChalk_bg_img_left {
+        padding-right: 0px;
+        margin: 0px;
+        text-align: center;
+        margin-left: -9%;
+    }
+
+    .our_team_Floral_White_bg {
+        background-color: #f5f3f0;
+        padding: 0px;
+        margin: 0px;
+        height: 328px;
+    }
+
+  
+
+    #whoarewe {
+        width: 100%;
+        overflow: hidden;
+        background-color: #efece7;
+        margin-top: 43px;
+    }
+
+        #whoarewe p {
+            font-size: 16px;
+            text-align: center;
+            color: #183141;
+            line-height: 29px;
+            padding-left: 0%;
+            font-family: 'Avenir Next Condensed';
+        }
+
+    .col-xs-offset-2 {
+        margin-left: 0%;
+    }
+
+    .contact_img {
+        width: 100%;
+    }
+
+    #left_menu ul li {
+        margin: 0px;
+        line-height: 43px;
+        font-size: 13px;
+        display: block;
+        text-align: left;
+        font-weight: 700;
+        padding-right: 3%;
+    }
+
+    .left_border {
+        border-left: none;
+    }
+
+    .col-xs-offset-1 {
+        margin-left: 0%;
+    }
+
+    #our_story p {
+        text-align: left;
+        font-size: 15px;
+        color: #183141;
+        padding-right: 3%;
+        padding-left: 3%;
+        width: 100%;
+        padding-left: 0%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 16px;
+    }
+
+
+    .our_story_img_right p {
+        padding-right: 3% !important;
+        padding-left: 3% !important;
+    }
+
+    .our_story_img_right h4 {
+        text-align: left !important;
+        padding-right: 48% !important;
+    }
+
+    #our_story h4 {
+        text-align: left;
+        padding-right: 10%;
+        font-family: 'Avenir Next Condensed';
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding-left:3%;
+    }
+
+    .our_story_img_left, .our-story-img {
+        padding: 0%;
+    }
+
+    .mobile_ourstory_desktop {
+        display: block;
+    }
+
+    .outfits_bg {
+        width: 87%;
+        margin: 0px auto;
+        padding: 0%;
+    }
+
+    .owl-item {
+        width: 302px !important;
+    }
+
+    #Outfits .line {
+        border-bottom: none;
+        width: 15%;
+        margin: 0px auto;
+        padding-top: 24%;
+    }
+
+    .process_arrows_device {
+        width: 50%;
+        margin: 0px auto;
+    }
+
+    .mobile_tab {
+        width: 100%;
+        text-align: center;
+    }
+
+    .col-sm-12, .col-md-12, .col-lg-12 {
+        position: inherit !important;
+    }
+
+    .dot_position {
+        display: none;
+    }
+
+    #Tell-us-aboutyourself p {
+        font-size: 16px;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        color: #183141;
+        padding: 1px 0% 0% 0%;
+        margin: 0px;
+        padding-top: 10px;
+        font-family: 'Avenir Next Condensed';
+        line-height: 31px;
+    }
+
+    .tellus_mob_tab {
+        width: 100%;
+        float: left;
+    }
+
+    .whatdoseitcost h2 {
+        padding-top: 10.5% !important;
+        font-size: 17px !important;
+    }
+
+    #top-menu {
+        margin: 52px 0px 50px 0px;
+        padding: 0px;
+    }
+
+        #top-menu .line {
+            border-bottom: 1px solid #8b98a0;
+            width: 25%;
+            margin: 0px auto;
+            padding-top: 1%;
+            padding-bottom: 3%;
+        }
+
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+
+    #top-menu h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    #top-menu h2 {
+        font-size: 28px;
+        padding-top: 0%;
+        text-align: center;
+        letter-spacing: 4px;
+        color: #183141;
+        line-height: 30px;
+    }
+
+    #top-menu h5 {
+        font-size: 16px;
+        padding-top: 1%;
+        font-weight: normal;
+        text-align: center;
+        color: #183141;
+        font-family: 'Avenir Next Condensed';
+    }
+
+    #top-menu form {
+        padding-top: 4%;
+    }
+
+    label.control-label {
+        padding-top: 2%;
+        padding-left: 5%;
+    }
+
+    #register .reset {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1%;
+        margin-right: 0%;
+    }
+
+        #register .reset:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #0A1B25;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+            margin-right: 0%;
+        }
+
+    .planscotybox {
+        margin-top: 63% !important;
+    }
+
+    .Your_order {
+        margin-top: 74% !important;
+    }
+
+    .forgotpassword-login {
+        padding-right: 5%;
+    }
+
+    .planscotybox label.control-label {
+        padding-top: 2%;
+        padding-left: 5% !important;
+    }
+
+    #register {
+        margin: 50px 0px 50px 0px;
+        padding: 0px;
+        height: auto;
+    }
+
+        #register .plan-button_intro_next {
+            border: 2px solid #000;
+            color: #000;
+            background: none;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 1%;
+        }
+
+            #register .plan-button_intro_next:hover {
+                border: 2px solid #000;
+                color: #fff;
+                background: #0A1B25;
+                padding: 2px 35px;
+                text-transform: uppercase;
+                font-size: 18px;
+                margin-top: 1%;
+            }
+
+    .validation-control {
+        color: red;
+        font-size: 14px;
+        font-family: 'Avenir Next Condensed';
+        padding-top: 10px;
+    }
+
+    .payment-con {
+        margin-top: 5%;
+    }
+
+    #yourorderpage .button_intro.outline {
+        border: 2px solid #000;
+        color: #000;
+        background: none;
+        padding: 2px 7px;
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-top: 1%;
+        /* margin-left: 34%; */
+        margin-right: 4% !important;
+        margin-top: 0%;
+        font-weight: 700;
+    }
+
+        #yourorderpage .button_intro.outline:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #000;
+            padding: 2px 7px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-top: 1%;
+            /* margin-left: 34%; */
+            margin-right: 4% !important;
+            margin-top: 0%;
+            font-weight: 700;
+        }
+
+    #yourorderpage .payment_btn {
+        margin-top: 20px;
+        margin-right: 1px;
+    }
+
+    #yourorderpage .checkbox label {
+        padding-top: 13px !important;
+    }
+
+    #yourorderpage h2 {
+        padding-left: 5%;
+    }
+
+    #press p {
+        text-align: center;
+        color: #183141;
+        padding: 0%;
+        font-size: 15px;
+        font-family: 'Avenir Next Condensed';
+        margin-bottom: -29px;
+        margin-top: -3px;
+    }
+
+    .contact-reg {
+        padding-top: 96px;
+        padding-left: 0%;
+    }
+
+    .checkbox.yesmypassword label {
+        padding-top: 0px !important;
+    }
+
+    .mobile_yourstyle {
+        width: 100%;
+        padding: 0px;
+    }
+
+    #slider_continer {
+        position: relative;
+        height: 640px;
+        padding-top: 50px;
+        background-size: cover;
+        color: #fff;
+        width: 100%;
+        margin-bottom: 0%;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    .edit-save button {
+        border: 2px solid #000;
+        color: #000;
+        background: #fff;
+        padding: 2px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 3.5%;
+        width: 100%;
+        margin-right: 1%;
+        margin-bottom: 15px;
+    }
+
+        .edit-save button:hover {
+            border: 2px solid #000;
+            color: #fff;
+            background: #000;
+            padding: 2px 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 3.5%;
+            width: 100%;
+            margin-right: 1%;
+            margin-bottom: 15px;
+        }
+
+    a.next_btns {
+        border: 2px solid #000;
+        color: #000;
+        background: #fff;
+        padding: 4px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        margin-right: 7% !important;
+    }
+
+    .type-form-img-border {
+        border: 1px solid #CCC;
+        border-radius: 1%;
+        width: 100%;
+    }
+
+    #edit_save_qes {
+        width: 100%;
+        margin: 0px auto;
+        background-color: #dae7e2 !important;
+        height: 96px !important;
+        margin-top: 0%;
+    }
+
+    .edit_typeform_head {
+        margin: 30px 0px 150px 0px !important;
+        padding: 0px;
+        height: auto;
+    }
+
+    .typeform-radio {
+        text-align: left;
+        padding-left: 5% !important;
+    }
+
+    .typeform-text .form-control {
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        margin-top: 0px;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    #register .line {
+        border-bottom: 1px solid #8b98a0;
+        width: 25%;
+        margin: 0px auto;
+        padding-top: 0%;
+        margin-bottom: 2%;
+    }
+}
+
+
+.hover-value {
+    display: inline-block;
+    /*visibility: collapse;*/
+    width: 0%;
+    -webkit-transition: width 2s;
+    transition: width 2s;
+    overflow: hidden;
+}
+
+button:hover .hover-value {
+    visibility: visible;
+    width: 100%;
+}
+
+
+
+.whoarewe-text {
+    padding: 32px 0px;
+}
+
+.planscotybox label.control-label {
+    padding-top: 2%;
+    padding-left: 2%;
+}
+
+
+
+#type_qes .radio {
+    min-height: 27px;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.radio + .radio, .checkbox + .checkbox {
+    margin-top: -32px;
+}
+
+#type_qes .checkbox {
+    text-align: left;
+}
+
+#type_qes .radio-btn {
+    text-align: center;
+}
+
+#styleprofile p {
+    padding-top: 3px;
+    margin-bottom: 0;
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+    font-weight: normal;
+    color: #183141;
+}
+
+
+
+
+a.next_btns {
+    border: 2px solid #000;
+    color: #000;
+    background: #fff;
+    padding: 4px 35px;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 1.5%;
+    margin-right: 1%;
+}
+
+    a.next_btns:hover {
+        border: 2px solid #000;
+        color: #fff;
+        background: #000;
+        padding: 4px 35px;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 1.5%;
+        margin-right: 1%;
+    }
+
+#edit_save_qes {
+    width: 100%;
+    margin: 0px auto;
+    background-color: #dae7e2 !important;
+    height: 50px;
+    margin-top: 0%;
+}
+
+    #edit_save_qes p {
+        font-size: 12px;
+        font-family: 'Avenir Next Condensed';
+        padding-top: 2px;
+        color: #183141;
+    }
+
+.typeform-radio {
+    text-align: left;
+    padding-left: 0%;
+}
+
+.type-form-img-border {
+    border: 1px solid #CCC;
+    border-radius: 1%;
+}
+
+.send-Nofiy label.control-label {
+    padding-top: 2%;
+    padding-left: 0% !important;
+}
+
+.plan-notify label.control-label {
+    padding-top: 2%;
+    padding-left: 2% !important;
+}
+
+a.show-submenu.yellow {
+    color: #ffbd24 !important;
+}
+
+span.valid_cls{
+    color: red !important;
+    font-size: 16px !important;
+    font-style: italic !important;
+    font-weight: 600 !important;
+}
+
+.ie-width{width:auto; float:right;
+}
+
+.style-profile-heading h1{  letter-spacing: 4px;     margin-top: 12px;
+    margin-bottom: 10px;}
+
+.style-profile-radio-options .checkbox label{      margin-top: 6px;
+    margin-bottom: 0px;     padding-top: 0px;}
+.style-profile-btn{    margin-right: 23%;
+    margin-top: 6%;}
+.style-profile-heading p{ padding-top:10px; padding-bottom:20px;}
+.payment-con {
+    cursor: auto !important;
+}
+.img-center {
+    height: 300px;
+    overflow: auto;
+    border: #ccc 0px solid;
+    border-radius: 1%;
+}
+#issuer_msg{
+    display: none;
+    color: red;
+    font-size: 14px;
+    font-family: 'Avenir Next Condensed';
+    float: left;
+}
+.success-message{
+    color:red;
+    font-size:15px;
+}
+
+.change-password-container{
+    margin:15% 0 12% 0 !important;
+    padding-top:5%;
+}
+.change-password-note h4 {
+    font-size: 17px;
+}
+.change-password-title {
+    text-transform: uppercase;
+}
+.success-message{
+    color:red;
+}
+.my-subscription-container{
+    margin:50px 0 50px 0;
+    margin:15% 0 12% 0 !important;
+    padding-top:5%;
+}
+.my-subscription-title {
+    margin:6% 0 1% 0 !important;    
+    text-transform: uppercase;
+}
+.subscription-items h5{
+    text-align:left !important;
+}
+.subscription-bottom-border {
+    border-bottom: 1px solid #ccc;
+    margin-top:1%;
+}
+
+.subscription-bottom-border h5 {
+    text-align: left !important;
+    text-transform:none;
+}
+.subscription-list h5{
+    text-align: left !important;
+}
+.edit-subscription-btn-bottom {
+
+}
+.my-subscription-title-line{
+    border-bottom: 1px solid #ccc;
+    width: 25%;
+    margin: 0px auto;
+    padding-top: 1%;
+    padding-bottom: 0%;
+}
+.account-items h4 {
+    width: 21% !important;
+    padding-top: 3% !important;
+    padding-bottom: 3% !important;
+    padding-left:1% !important;
+}
+
+.account-items {
+    padding-left: 31% !important;
+}
+.account-secondrow {
+    padding: 3% 1% !important;
+    font-size: 17px !important;    
+}

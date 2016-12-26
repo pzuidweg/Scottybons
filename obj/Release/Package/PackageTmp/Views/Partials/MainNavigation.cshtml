@@ -1,0 +1,181 @@
+@using Lucene.Net.Index
+@using ScottybonsMVC.AppConstants
+@using Umbraco.Core
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+
+@{ 
+    var home = CurrentPage.Site();
+    
+    
+   if (GetSession.CustomerId == 0)
+   {
+       TempData.Clear();
+       Session.Clear();
+       FormsAuthentication.SignOut();
+       var loginUrl = GlobalConstants.LanguageUrl +"/account/login";      
+   }
+
+}
+
+<nav class="col-md-8 col-sm-8 col-xs-8">
+    <a class="cmn-toggle-switch cmn-toggle-switch__rot  open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+    <div class="main-menu">
+        <div id="header_menu"> <img src="~/images/Logo_mobile.png" alt="Mobile" data-retina="true" /> </div>
+        <a href="#" class="open_close" id="close_in"><i class=" fa fa-close">&nbsp;</i></a>
+
+
+        <ul>
+
+            @{
+                var rootItem = CurrentPage.AncestorOrSelf(2);
+
+                if (@rootItem.Id == 1403)
+                {                
+
+                    var i = 0;
+                    foreach (var subPage in rootItem.Children)
+                    {
+                        if (i == 1)
+                        {
+                            <li> <a href=@Url.Content("/en/#Tell-us-aboutyourself")>@Resources.Scottybons.ScottybonsDataStrings.HowDoesItWork </a> </li>
+                        }
+                        if ((rootItem.Id == subPage.Parent.Id) && subPage.pageHide == false)
+                        {
+                        <li>
+                            <a href="@subPage.Url">
+                                @subPage.documentTitle.ToUpper()
+
+                            </a>
+                        </li>
+                        }
+                        i++;
+                    }
+
+                    <li class="submenu">
+
+                        @{
+                    if (!Members.IsLoggedIn())
+                    {
+                    <a href="javascript:void(0);" class="show-submenu">@Resources.Scottybons.ScottybonsDataStrings.LogIn<i class="icon-down-open-mini"></i></a>
+                        <ul>
+                            <span>@Resources.Scottybons.ScottybonsDataStrings.Already_an_account</span>
+                            <li>
+                                <a href=@Url.Content("/en/account/login")>@Resources.Scottybons.ScottybonsDataStrings.LogIn</a>
+                            </li>
+                            <span>@Resources.Scottybons.ScottybonsDataStrings.NoAccoutYet</span>
+                            <li><a href='@Url.Content("/en/account/login")?type=register'>@Resources.Scottybons.ScottybonsDataStrings.Create</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+                        var profile = Members.GetCurrentMemberProfileModel();
+                        <a href="javascript:void(0);" class="show-submenu yellow">HI,&nbsp;@profile.Name.Split(' ')[0]<i class="icon-down-open-mini"></i></a>
+                        <ul>
+                            <li><a href=@Url.Content("/en/account/myaccount/")>@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_MyAccount</a></li>
+                            <li><a href=@Url.Content("/umbraco/Surface/Profile/MemberLogout")>@Resources.Scottybons.ScottybonsDataStrings.LogOut</a></li>
+                        </ul>
+                    }
+                        }
+
+                    </li>
+                    <li class="submenu">
+                        <a href="javascript:void(0);" class="show-submenu">|&nbsp;@Resources.Scottybons.ScottybonsDataStrings.EN<span class="down_arrow"> <i class="fa fa-angle-down "></i></span></a>
+                        <ul>
+                            <li><a href="#" onclick="javascript:changeNLLanguage(); return false;">@Resources.Scottybons.ScottybonsDataStrings.NLnl</a></li>
+                            <li><a href="#" onclick="javascript:changeENLanguage(); return false;">@Resources.Scottybons.ScottybonsDataStrings.NLen</a></li>
+                        </ul>
+                    </li>
+                }
+                else
+                {                    
+
+                    var i = 0;
+                    foreach (var subPage in rootItem.Children)
+                    {
+                        if (i == 1)
+                        {
+                            <li> <a href=@Url.Content("/nl/#Tell-us-aboutyourself")>@Resources.Scottybons.ScottybonsDataStrings.HowDoesItWork</a> </li>
+                        }
+                        if ((rootItem.Id == subPage.Parent.Id) && subPage.pageHide == false)
+                        {
+                    <li>
+                        <a href="@subPage.Url">
+                            @subPage.documentTitle.ToUpper()
+
+                        </a>
+                    </li>
+                        }
+                       i++;
+                    }
+
+                    <li class="submenu">
+                        @{
+
+                    if (!Members.IsLoggedIn())
+                    {
+                            <a href="javascript:void(0);" class="show-submenu">@Resources.Scottybons.ScottybonsDataStrings.LogIn<i class="icon-down-open-mini"></i></a>
+                            <ul>
+                                <span>@Resources.Scottybons.ScottybonsDataStrings.Already_an_account</span>
+                                <li>
+                                    <a href=@Url.Content("/nl/account/login")>@Resources.Scottybons.ScottybonsDataStrings.LogIn</a>
+                                </li>
+                                <span>@Resources.Scottybons.ScottybonsDataStrings.NoAccoutYet</span>
+                                <li><a href='@Url.Content("/nl/account/login")?type=register'>@Resources.Scottybons.ScottybonsDataStrings.Create</a></li>
+                            </ul>
+                    }
+                    else
+                    {
+                        var profile = Members.GetCurrentMemberProfileModel();
+                        var name = string.Empty;
+                        if (!ReferenceEquals(profile, null))
+                        {
+                            name = Resources.Scottybons.ScottybonsDataStrings.StringHI + ", "  + profile.Name.Split(' ')[0];
+                        }
+
+                            <a href="javascript:void(0);" class="show-submenu yellow">&nbsp; @name<i class="icon-down-open-mini"></i></a>
+                            <ul>
+                                <li><a href=@Url.Content("/nl/account/myaccount/")>@Resources.Scottybons.ScottybonsDataStrings.MyAccountViewModel_My_Account_MyAccount</a></li>
+                                <li><a href=@Url.Content("/umbraco/Surface/Profile/MemberLogout")>@Resources.Scottybons.ScottybonsDataStrings.LogOut</a></li>
+                            </ul>
+                    }
+
+                        }
+
+                    </li>
+                    <li class="submenu">
+                        <a href="javascript:void(0);" class="show-submenu">|&nbsp;@Resources.Scottybons.ScottybonsDataStrings.NL<span class="down_arrow"> <i class="fa fa-angle-down "></i></span></a>
+                        <ul>
+                            <li><a href="#" onclick="javascript: changeNLLanguage(); return false;">@Resources.Scottybons.ScottybonsDataStrings.NLnl</a></li>
+                            <li><a href="#" onclick="javascript:changeENLanguage(); return false;">@Resources.Scottybons.ScottybonsDataStrings.NLen</a></li>
+                        </ul>
+                    </li>
+                }
+            }
+
+        </ul>
+
+    </div>
+    <!-- End main-menu -->
+</nav>
+
+<script language="javascript">
+    function changeENLanguage() {
+        var enLanguage = '/en';
+        var nlLanguage = '/nl';
+        var url = window.location.href;
+        url = url.replace(nlLanguage, enLanguage);
+        window.location.href = url;
+
+    }
+
+    function changeNLLanguage() {
+
+        var enLanguage = '/en';
+        var nlLanguage = '/nl';
+        var url = window.location.href;
+        url = url.replace(enLanguage, nlLanguage);
+        window.location.href = url;
+    }
+
+</script>

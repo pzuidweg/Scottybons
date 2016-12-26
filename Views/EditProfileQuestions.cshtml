@@ -1,0 +1,193 @@
+﻿@using ScottybonsMVC.AppConstants
+@using Microsoft.CodeAnalysis.CSharp.Syntax
+@using ScottybonsMVC.Models.Entities
+@using ScottybonsMVC.Models.ViewModels
+@model ScottybonsMVC.Models.ViewModels.Customer.ProfileQuestionsVm
+
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+    var greenBar = "StyleProfile";
+}
+@section BodyContent {
+    @if (@Request["Nav"] == "IsForOrder")
+    { <section id="top-menu"> @Html.Partial("Account/_GreenBar", greenBar) </section> }
+    else
+    { <div id="register-top_typeform"></div> }
+     @Html.Partial("Account/_EditProfile")
+
+}
+@section scripts {
+    <script type="text/javascript">
+
+    var notFilledAllQuestions = '@Session["NoFilledAllQuestions"]';
+       // alert(notFilledAllQuestions);
+        if (notFilledAllQuestions == 'True') {
+            alert('@Resources.Scottybons.ScottybonsDataStrings.StyelProfile_SaveBtn_Validation');
+
+        }
+
+    $(function () {
+        //$('.validation-control').length
+        if ($('.validation-control').length) {
+            toggleSave($('#edit-btn, #edit-btn-top').get(0));
+        } else {
+            $('fieldset#editProfile :input:not("button")').prop('disabled', true);
+            //$('#edit-btn').prop('disabled', false)
+        }
+        $('#edit-btn, #edit-btn-top').click(function (event) {
+            toggleSave(this);
+        });
+        //validating editquestion no 37
+        $('#ProfileQuestionsForEditAndView_36__SelectedAnswer').blur(function (event) {
+            var value = parseInt(document.getElementById("ProfileQuestionsForEditAndView_36__SelectedAnswer").value);
+            if (value < 100 || value > 200 || isNaN(value)) {
+                $("#ProfileQuestionsForEditAndView-37").html('@Resources.Scottybons.ScottybonsDataStrings.EditProfileValidationHeight');
+                return false;
+            } else {
+                $("#ProfileQuestionsForEditAndView-37").html('');
+                return true;
+            }
+            return true;
+        });
+        //validating editquestion no 38
+        $('#ProfileQuestionsForEditAndView_37__SelectedAnswer').blur(function (event) {
+            var value = parseInt(document.getElementById("ProfileQuestionsForEditAndView_37__SelectedAnswer").value);
+            if (value >= 100 || isNaN(value)) {
+                $("#ProfileQuestionsForEditAndView-38").html('@Resources.Scottybons.ScottybonsDataStrings.EditProfileValidationWeight');
+                return false;
+            } else {
+                $("#ProfileQuestionsForEditAndView-38").html('');
+                return true;
+            }
+            return true;
+        });
+        //validating editquestion no 40
+        $('#ProfileQuestionsForEditAndView_39__SelectedAnswer').blur(function (event) {
+
+            var value = '';
+            value = document.getElementById("ProfileQuestionsForEditAndView_39__SelectedAnswer").value;
+            
+            if (value != null || value!='') {
+                if (!isNaN(value))
+                {
+                    if (value < 30 || value > 45) {
+                        $("#ProfileQuestionsForEditAndView-40").html('@Resources.Scottybons.ScottybonsDataStrings.EditProfileValidationShoes');
+                        return false;
+                    }
+                }
+                $("#ProfileQuestionsForEditAndView-40").html('');
+                return true;
+            }
+            else {
+                $("#ProfileQuestionsForEditAndView-40").html('@Resources.Scottybons.ScottybonsDataStrings.EditProfileValidationShoes');
+                return false;
+            }
+            return true;
+        });
+
+        $('#save-btn, #save-btn-top').click(function (event) {
+            // alert('@Resources.Scottybons.ScottybonsDataStrings.EditProfileValidationShoes');
+            //$("#save-btn, #save-btn-top").html('@Resources.Scottybons.ScottybonsDataStrings.EditProfileValidationShoes');
+            if ($("#ProfileQuestionsForEditAndView-38").text() != '' || $("#ProfileQuestionsForEditAndView-37").text() != '' || $("#ProfileQuestionsForEditAndView-40").text() != '') {
+                alert('@Resources.Scottybons.ScottybonsDataStrings.StyelProfile_SaveBtn_Validation');
+                return false;
+            }
+
+
+            return true;
+
+            //
+            var nodes = document.querySelectorAll("input[type=text]");
+            for (var i = 0; i < nodes.length; i++) {
+                if(nodes[i].next("span").html!='')
+                    return false;
+            }
+            return true;
+
+            ///
+        });
+
+        //NONE Checkbox
+        $('.chkboxAnswers').change(function (event) {
+            $("." + this.id).attr("checked", false);
+            $(".chkboxOtherAnswers").attr("checked", false);
+            var str = this.id;
+            var res = str.slice(-2);
+            $(".chkboxOther" + res).css("display", "none");
+        });
+
+        //OTHER radio button
+        $('input[type = "radio"]').change(function () {
+            if ($(this).hasClass("RadiobtnOther")) {
+                $("." + this.id).css("display", "block");
+            } else {
+                $("." + this.id).css("display", "none");
+            }
+        });
+
+        //OTHER checkbox
+        $('input[type = "checkbox"]').change(function () {
+            if ($(this).hasClass("chkboxOtherAnswers")) {
+                if ($(this).is(':checked')) {
+                    $("." + this.id).css("display", "block");
+                } else {
+                    $("." + this.id).css("display", "none");
+                }
+            }
+            if (!$(this).hasClass("chkboxAnswers")) {
+                if ($(this).is(':checked') && !$("input:checkbox[id=" + this.id + "]:last").hasClass("chkboxOtherAnswers") && $("input:checkbox[id=" + this.id + "]:last").hasClass("chkboxAnswers")) {
+                    $("input:checkbox[id=" + this.id + "]:last").prop('checked', false);
+                    //$("#" + this.id).prop("checked", false);
+                }
+            }
+        });
+        //$('input[type = "checkbox"]').change(function () {
+        //    if (!$(this).hasClass("chkboxAnswers")) {
+        //        if ($(this).is(':checked') && !$("input:checkbox[id=" + this.id + "]:last").hasClass("chkboxOtherAnswers")) {
+        //            $("input:checkbox[id="+this.id+"]:last").prop('checked', false);
+        //            //$("#" + this.id).prop("checked", false);
+        //        }
+        //    }
+        //});
+        $(':input:disabled').prop('title', '@Resources.Scottybons.ScottybonsDataStrings.Click_Edit');
+        //$(':input').prop('title', '');
+        //file upload validation
+        $('body [id="files"]').change(function () {
+            var fileName = this.value;
+            var fileSize = this.files[0].size / 1024 / 1024;
+            var allowed_extensions = new Array("jpg", "JPG", "jpeg", "png", "gif");
+            // split the filename by dot(.), and pop function pop the last element from the array which will give you the extension as well.
+            //If there will be no extension then it will return the filename.
+            var file_extension = fileName.split('.').pop();
+            var valid_img = false;
+            for (var i = 0; i <= allowed_extensions.length; i++) {
+                if (allowed_extensions[i] == file_extension) {
+                    valid_img = true; // valid file extension
+                }
+            }
+            if (valid_img) {
+                $(this).next("span").html('');
+                if (fileSize > 1) {
+                    $(this).val('');
+                    $(this).next("span").html('@Resources.Scottybons.ScottybonsDataStrings.Image_size');
+                }
+            } else {
+                $(this).val('');
+                $(this).next("span").html('@Resources.Scottybons.ScottybonsDataStrings.Image_format');
+            }
+        });
+    });
+
+    function toggleSave(obj) {
+        //$(obj).parent().hide();
+        $('#edit-btn').parent().hide();
+        $('#edit-btn-top').parent().hide();
+        $('fieldset#editProfile :input').prop('disabled', false);
+        //$(obj).parent().next().show();
+        $('#edit-btn').parent().next().show();
+        $('#edit-btn-top').parent().next().show();
+        $('.next_btns').hide();
+        $(':input').prop('title', '');
+    }
+</script>
+}

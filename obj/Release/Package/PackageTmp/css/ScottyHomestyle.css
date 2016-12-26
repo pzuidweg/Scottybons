@@ -1,0 +1,88 @@
+/* backgroung image slider_img.jpg */
+.light {
+   
+    height:1054px;
+	    /* background-image: url(/media/1015/slider_img.jpg); */
+   /* height: 738px; */
+    position: relative;
+    /* height: 627px; */
+    padding-top: 50px;
+    background: #ccc url(../images/slider_img.jpg) no-repeat center top;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 119px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 71px;
+    font-size: 191%;
+	 font-family: serif;
+}
+p.banner_p {
+    font-size: 100%;
+    padding-top: 23%;
+}
+p.banner_shopping {
+     font-size: -webkit-xxx-large;
+    font-family: -webkit-body;
+    letter-spacing: 7px;
+}
+.banner_div {
+    resize: both;
+    margin-left: -126px;
+    margin-top: -5%;
+}
+.row.clearfix {
+    margin-left: -23%;
+    margin-top: -3%;
+}
+p.banner_try {
+    font-family: -webkit-body;
+}
+
+.text_person {
+    padding-top: 21%;
+}
+/*next three cloumn and fullcolumn */
+.about_space {
+    padding-top: 3%;
+}
+
+.Threecolumfullwidth{
+ padding-top: 3%;
+}
+.banner-content p{
+padding-top:1%;
+}
+.about_answer {
+    font-size: 75%;
+    text-align: center;
+}
+p.about_receive {
+    font-size: 75%;
+    text-align: center;
+}
+p.about_keep {
+font-size: 75%;
+text-align: center;
+}
+p.para_for {
+    font-size: 68%;
+	margin-top: -4%;
+}
+.what_h2 {
+    margin-top: -6%;    margin-left: 10%;
+}
+.space_p {
+    margin-top: -4%;
+}
+.hr_para {
+    margin-top: -2%;
+}
+
+
+/**umb_name:Heading1*/
+h1{font-size: 24px}

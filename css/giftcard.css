@@ -1,0 +1,600 @@
+﻿
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.padding-1ptg {
+    padding: 1%;
+}
+
+.padding-top-1ptg {
+    padding-top: 1%;
+}
+
+.padding-right-1ptg {
+    padding-right: 1%;
+}
+
+.padding-bottom-1ptg {
+    padding-bottom: 1%;
+}
+
+.padding-left-1ptg {
+    padding-left: 1%;
+}
+
+.gift-card-wizard {
+    margin: 0 0 2%;
+}
+
+.back-next-wizard {
+    margin-top: 4% !important;
+    margin-bottom: 8% !important;
+}
+/*============================== Add Gift Card Section CSS===========================*/
+.blockOverlay {
+    z-index: 1009 !important;
+}
+
+.blockMsg {
+    border: none !important;
+}
+#domMessage h1 {
+    font-size: 20px !important;
+    padding: 0% 1% 2% 1% !important;
+    font-family: 'Avenir Next Condensed' !important;
+    font-weight: 400 !important;
+}
+
+.btn-custom{
+    border-radius: 50% !important;
+    line-height: 1 !important;
+    padding: 6px 8px;
+    background: none;
+    color: #5a5a5a;
+    border: 1px solid #ccc;
+}
+ .btn-custom:hover{
+    border-radius: 50% !important;
+    line-height: 1 !important;
+    padding: 6px 8px;
+    background: #dae6e2;
+    color: #5a5a5a;
+    border: 1px solid #ccc;
+}
+input.required-field, input.required-field:focus, input.min-required-field, input.min-required-field:focus, input.zip-error, input.zip-error:focus {
+    border: solid 1px #e84944 !important;
+}
+
+span.gc-addr-post-error {
+    font-size:13px;
+}
+
+.gcfields-required-error,span.gc-addr-post-error, .required-field-error-holder, .gc-required-error, .gc-addr-required-error, .gc-login-required-error, .gc-login-valid-error, .gc-loginguest-required-error, .gc-loginguest-valid-error, .gc-login-invalid-user-error {
+    color: #e84944;
+}
+.order-gift-card-header{
+    margin-bottom:2%;
+}
+
+.order-gift-card-header h2, .order-gift-card-header h3 {
+    text-align: center;
+}
+
+.order-gift-card-header h3 {
+    margin: 2% 0;
+}
+
+.gift-cards-section {
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 3%;
+}
+
+.add-gift-card-note p {
+    font-size: 13px !important;
+    color: red;
+    text-align: left;
+    line-height: 15px !important;
+}
+
+.order-gift-card-copy {
+    padding: 0 2%;
+}
+
+.gift-card-row-separator {
+    border-top: solid 1px #807d7d;
+    width: 94%;
+    margin: 0% 2%;
+    font-size:14px !important;
+}
+
+textarea.gift-card-personal-msg, input.gift-card-for-whom {
+    width: 100%;
+}
+
+select.sel-prices {
+}
+
+span.gift-card-glyphicon-remove {
+    margin: 0 !important;
+}
+
+/*============================== Gift Card Login Section CSS===========================*/
+.gift-card-login-container, .gift-card-login-guest-container { /*border: solid thin #807d7d;*/
+    
+}
+
+.gift-card-login-fields, .gift-card-login-guest-fields {
+    margin: 5% 0;
+}
+
+.btn-address-them, .btn-guest-address-them {
+    float: right;
+}
+
+.gc-addr-name {
+    padding: 0 0 2% 0 !important;
+}
+
+.gc-deladdr-header, .gc-name-header {
+    padding-top: 1% !important;
+}
+
+.gc-addr-name, .gc-deladdr-flastname, .gc-deladdr-street-hnumber, .gc-deladdr-post-city, .gc-deladdr-country {
+    padding: 0 0 2% 0 !important;
+}
+
+/*============================== Gift Card Delivery Address Section CSS ================*/
+.order-gift-card-address h2{
+    font-size: 38px !important;    
+}
+.order-gift-card-address h4{
+    font-size: 28px !important;
+    text-transform: uppercase;
+}
+.gc-login-invalid-user-error{
+    font-size:14px;
+}
+/*============================== Gift Card Order Section CSS ==========================*/
+.gc-payt-items-holder div.row:last-Child {
+    /*border-top: solid thin #bbb;*/
+}
+
+.gc-payt-name-header {
+    border-bottom: none;
+}
+
+.gc-total {
+    text-align: right;
+}
+
+.order-gc-success-content, .order-gc-success-img-content, .order-gc-failure-content {
+    padding: 1% 0;
+    text-align: center;
+}
+.order-gc-failure-content p{
+    padding:0px !important;
+}
+.payment-fail-back-btn{
+     margin-top:0% !important;
+}
+    .order-gc-success-img-content img {
+        height: 350px;
+    }
+
+ .order-gc-success-line {
+    border-bottom: 1px solid #8b98a0;
+    width: 15%;
+    margin: 20px auto;
+    padding: 0px;
+    height: 5px;
+}
+.order-gift-card-main h2 {
+    font-size: 28px;
+    padding-top: 0%;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #183141;
+    line-height: 30px;
+}
+
+.order-gift-card-main h4 {
+    font-size: 20px;
+    padding-top: 0%;
+    text-align: left;
+    letter-spacing: 2px;
+    color: #183141;
+    line-height: 30px;
+    font-weight: 500;
+    font-family: 'Playfair Display';
+    text-transform: uppercase;
+}
+.gc-payt-order-action{
+        margin-bottom: 2% !important;
+}
+.lbl-payt-order-conditions{
+    margin-bottom: 0% !important;
+}
+.order-gift-card-main h3 {
+    font-size: 16px;
+    padding-top: 1%;
+    font-weight: normal;
+    text-align: center;
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+    line-height: 25px;
+}
+
+.order-gift-card-main h5 {
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+    height: 55px;
+    font-weight: 100;
+    color: #183141;
+    line-height: 25px;
+}
+
+.order-gift-card-main p {
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+    padding-top: 15px;
+    color: #183141;
+    line-height: 25px;
+}
+
+.next-btn {
+    display: inline-block;
+    padding: 2px 10px;
+    /*font-family: 'Playfair Display';*/
+    in-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    background: none;
+    vertical-align: middle;
+    border-radius: 0px !important;
+    border: 2px solid #000 !important;
+    cursor: pointer;
+    -webkit-user-select: none;
+    color: #000;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.next-btn:hover {
+    display: inline-block;
+    padding: 2px 10px;
+    /*font-family: 'Playfair Display';*/
+    in-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    background: #000;
+    vertical-align: middle;
+    border-radius: 0px !important;
+    border: 2px solid #000 !important;
+    cursor: pointer;
+    -webkit-user-select: none;
+    color: #fff;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.btn-login {
+    display: inline-block;
+    padding: 2px 10px;
+    font-family: 'Playfair Display';
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    background: none;
+    vertical-align: middle;
+    border-radius: 0px !important;
+    border: 2px solid #173140 !important;
+    cursor: pointer;
+    -webkit-user-select: none;
+    color: #000;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.btn-login:hover {
+    display: inline-block;
+    padding: 2px 10px;
+    font-family: 'Playfair Display';
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    background: #000;
+    vertical-align: middle;
+    border-radius: 0px !important;
+    border: 2px solid #173140 !important;
+    cursor: pointer;
+    -webkit-user-select: none;
+    color: #fff;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.order-gift-card-main .line {
+    border-bottom: 1px solid #8b98a0;
+    width: 15%;
+    margin: 50px auto;
+    padding: 0px;
+    height: 5px;
+}
+
+.order-gift-card-main .line_2 {
+    border-bottom: 1px solid #8b98a0;
+    width: 15%;
+    margin: -1% auto 2% auto;
+    padding: 0px;
+    height: 0px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #f4f3ef;
+    background-image: none;
+    border: 0px solid #ccc;
+    border-radius: 0px;
+    ;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    font-family: 'Avenir Next Condensed';
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    /*background-color: #183141;*/
+    background-color: #000;
+    border-color: #285e8e;
+}
+
+.delivery_border {
+    border-bottom: solid thin #aaa;
+}
+
+.gc-payt-item-separator {
+    border-bottom: solid thin #aaa;
+    width: 96%;
+    margin:0 auto;
+}
+
+.order-gift-card-main .box_bg {
+    background: #f4f3ef;
+    width: 100%;
+}
+
+    .order-gift-card-main .box_bg p {
+        padding-left: 15px;
+        text-align: left;
+        font-family: 'Avenir Next Condensed';
+        font-size: 15px;
+        padding-top: 0px;
+        color: #183141;
+        margin: 0 0 1px;
+        line-height: 30px;
+    }
+
+    .order-gift-card-main .box_bg h4 {
+        border-bottom: 1px solid #8b98a0;
+        padding: 0.5% 0%;
+        font-size: 18px;
+        margin: 0px 2%;
+        font-family: 'Avenir Next Condensed';
+        font-weight: bold;
+    }
+
+.order-gift-card-main h6 {
+    border-bottom: 1px solid #8b98a0;
+    padding: 0.5% 0%;
+    font-size: 18px;
+    margin: 11px 0%;
+    font-family: 'Avenir Next Condensed';
+    font-weight: bold;
+}
+
+
+.total-payment p {
+    padding: 10px 0px 10px 15px !important;
+}
+
+.order-gift-card-main .checkbox label {
+    padding-top: 5px;
+    margin-bottom: 0;
+    text-align: left;
+    font-family: 'Avenir Next Condensed';
+    font-size: 16px;
+    font-weight: normal;
+    color: #183141;
+}
+
+.gc-payt-order-terms h5{
+    margin-top:0%;
+    font-size: 15px;
+}
+
+@media only screen and (min-width:1920px) {
+	 .order-gift-card-main .form-control {
+        display: block;
+        width: 100%;
+        height: 34px;
+        font-style: italic;
+        padding: 6px 12px;
+        margin: 0% 0% 2% 0%;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #f4f3ef;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        font-family: 'Avenir Next Condensed';
+    }
+	}
+	
+	
+@media only screen and (min-width:1024px) and (max-width: 1366px) {
+	.no-padding {
+     padding-top:0px !important;
+    padding-left: 0% !important;
+}
+	
+	 .order-gift-card-main .form-control {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        margin: 0% 0% 2% 0%;
+        font-style: italic;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #f4f3ef;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        font-family: 'Avenir Next Condensed';
+    }
+	}
+	
+	
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+	.hetprocess {
+    width: 100%;
+    margin: 0px auto!important;
+}
+	.no-width{width:0%;!important;}
+	.full-width{width:100%;}
+	 .order-gift-card-main .form-control {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-style: italic;
+        margin: 0% 0% 2% 0%;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #f4f3ef;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        font-family: 'Avenir Next Condensed';
+    }
+}
+
+
+@media only screen and (min-width: 468px) and (max-width: 767px) {
+    .order-gift-card-main .form-control {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-style: italic;
+       margin: 0% 0% 2% 0%;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #f4f3ef;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        font-family: 'Avenir Next Condensed';
+    }
+}
+
+
+
+@media only screen and (max-width:468px) {
+    .order-gift-card-main .form-control {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-style: italic;
+       margin: 0% 0% 2% 0%;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #f4f3ef;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        font-family: 'Avenir Next Condensed';
+    }
+}
+

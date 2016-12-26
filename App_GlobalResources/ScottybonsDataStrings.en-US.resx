@@ -1,0 +1,1084 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcceptTermsandConditions" xml:space="preserve">
+    <value>Please read and accept our terms &amp; conditions</value>
+  </data>
+  <data name="CityRequired" xml:space="preserve">
+    <value>We need your city in order to deliver your order</value>
+  </data>
+  <data name="EmailExisted" xml:space="preserve">
+    <value>Ouch, this email address is already in use…</value>
+  </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>Oops, we need a valid email address…</value>
+  </data>
+  <data name="EmailNotRegistred" xml:space="preserve">
+    <value>In order to reset your password, please enter the email address you registered with</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>We need your email address for your registration/login</value>
+  </data>
+  <data name="EmailUnknown" xml:space="preserve">
+    <value>This email address is unknown to us</value>
+  </data>
+  <data name="EnterConfirmPassword" xml:space="preserve">
+    <value>Can you please confirm your password</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Please fill in your password to login</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>Oops, you forgot your first name</value>
+  </data>
+  <data name="InvoicePermission" xml:space="preserve">
+    <value>Please give us permission to collect future invoices (for articles your will keep)</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Oops, you forgot your name…</value>
+  </data>
+  <data name="OccasionRequired" xml:space="preserve">
+    <value>Please let us know for which occasion you would like to receive an outfit</value>
+  </data>
+  <data name="OrderConfirmation" xml:space="preserve">
+    <value>Thank you for your order.  A confirmation is currently on its way to your mailbox!</value>
+  </data>
+  <data name="PasswordInvalid" xml:space="preserve">
+    <value>Please fill in your password to login</value>
+  </data>
+  <data name="PasswordInvalidFormat" xml:space="preserve">
+    <value>Please choose a password of at least 8 characters, containing at least one number and special character</value>
+  </data>
+  <data name="PasswordRequiredForRegistration" xml:space="preserve">
+    <value>We need a password for your registration</value>
+  </data>
+  <data name="PasswordsNotMatched" xml:space="preserve">
+    <value>Ouch, both passwords don´t match…</value>
+  </data>
+  <data name="PhoneNumberInValid" xml:space="preserve">
+    <value>Oops, make sure you fill in a valid phone number ? (10 numbers, eg. 0857500490)</value>
+  </data>
+  <data name="PhoneNumberRequired" xml:space="preserve">
+    <value>Will you please leave your phone number?</value>
+  </data>
+  <data name="PostalCodeRequired" xml:space="preserve">
+    <value>We need your postal code in order to deliver your order (Example format: 1234AB)</value>
+  </data>
+  <data name="PrivacyPolicyAccept" xml:space="preserve">
+    <value>Please read and accept our privacy policy</value>
+  </data>
+  <data name="QuestionRequired" xml:space="preserve">
+    <value>What is your question or remark?</value>
+  </data>
+  <data name="StreetNameRequired" xml:space="preserve">
+    <value>We need your street name in order to deliver your order</value>
+  </data>
+  <data name="SurnameRequired" xml:space="preserve">
+    <value>Oops, you forgot your surname</value>
+  </data>
+  <data name="TopicRequired" xml:space="preserve">
+    <value>Would you mind filling in the topic?</value>
+  </data>
+  <data name="RegisterVm_Surname_Oops__you_forgot_your_Surname" xml:space="preserve">
+    <value>Oops, you forgot your Surname</value>
+  </data>
+  <data name="RegisterViewModel1_Email_Email" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="RegisterViewModel1_Password_AtLeast8CharLong" xml:space="preserve">
+    <value>The {0} must be at least {2} characters long.</value>
+  </data>
+  <data name="RegisterViewModel1_Password_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterViewModel1_ConfirmPassword_Confirm_password" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="RegisterViewModel1_ConfirmPassword_The_password_and_confirmation_password_do_not_match_" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="ContactUsViewModel_EmailAddress_Email_Address" xml:space="preserve">
+    <value>Your email address*</value>
+  </data>
+  <data name="ContactUsViewModel_Status_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ContactUsViewModel_Topic_Topic" xml:space="preserve">
+    <value>Topic*</value>
+  </data>
+  <data name="ContactUsViewModel_Message_Message" xml:space="preserve">
+    <value>Message*</value>
+  </data>
+  <data name="ContactUsViewModel_Name_Name" xml:space="preserve">
+    <value>Your name*</value>
+  </data>
+  <data name="LoginViewModel_EmailAddress_What_is_your_e_mail_address_" xml:space="preserve">
+    <value>What  is your email address?</value>
+  </data>
+  <data name="LoginViewModel_Password_Do_you_have_a_Scottybons_password_" xml:space="preserve">
+    <value>Do you have a scottybons password?</value>
+  </data>
+  <data name="PlanScottyBoxViewModel_PlanScottyBoxViewModel_Yes__of_course" xml:space="preserve">
+    <value>Yes, of course</value>
+  </data>
+  <data name="PlanScottyBoxViewModel_PlanScottyBoxViewModel_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PlanScottyBoxViewModel_PlanScottyBoxViewModel_Engagement" xml:space="preserve">
+    <value>Engagement</value>
+  </data>
+  <data name="PlanScottyBoxViewModel_PlanScottyBoxViewModel_Page3Party" xml:space="preserve">
+    <value>Page3Party</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_Outtfit_" xml:space="preserve">
+    <value>Complete outfit</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_Chooseapaymentmethod_" xml:space="preserve">
+    <value>Choose a payment method</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_CreditCard_" xml:space="preserve">
+    <value>Credit Card</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_Free_" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_Ideal_" xml:space="preserve">
+    <value>Ideal</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_retrospectivebilling_" xml:space="preserve">
+    <value>(Retrospective billing)</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsClickOnPayment_" xml:space="preserve">
+    <value>Click on to payment to confirm your order. You are entering a commitment.</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsDescription1_" xml:space="preserve">
+    <value>When you want to order a Scottybons outfit, we ask you to pay 15 euro. For this we select an outfit and write a personal style advice for you. The shipment of this outfit is for free, and so is any potential return.</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsDescription2_" xml:space="preserve">
+    <value>Your preferred style probably hasn’t changed much,</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsPermissions_" xml:space="preserve">
+    <value>I give Scottybons BV permission to automatically collect future invoices</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsPrivacyPolicy_" xml:space="preserve">
+    <value>By registering you agree with our </value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsProcess_" xml:space="preserve">
+    <value>THE PROCESS</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_Shippingcost_" xml:space="preserve">
+    <value>Shipping cost</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_Styleadvice_" xml:space="preserve">
+    <value>Style advice</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_TBD_" xml:space="preserve">
+    <value>TBD</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_tobepaiddirectly_" xml:space="preserve">
+    <value>(To be paid directly)</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_Totaltobepaiddirectly_" xml:space="preserve">
+    <value>Total to be paid directly</value>
+  </data>
+  <data name="ForgotPwdViewModel_EmailandPassword_Email_and_Password_" xml:space="preserve">
+    <value>Enter your e-mail address and we'll send you a link to reset password</value>
+  </data>
+  <data name="ForgotPwdViewModel_ResetYourPassword_Reset_Your_Password_" xml:space="preserve">
+    <value>RESET YOUR PASSWORD </value>
+  </data>
+  <data name="ForgotPasswordConfirmationModel_Forget_Password_Confirmation_ForgetPasswordConFirmation" xml:space="preserve">
+    <value>An email has been sent to you. Please follow the link in it to
+reset your password.</value>
+  </data>
+  <data name="MyAccountViewModel_My_Account_MyAccount" xml:space="preserve">
+    <value>MY ACCOUNT</value>
+  </data>
+  <data name="MyAccountViewModel_My_Account_Title_MyAccountTitle_" xml:space="preserve">
+    <value>MY STYLE </value>
+  </data>
+  <data name="RegisterVM_Email_Email" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="RegisterVM_First_Name_FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="RegisterVM_Language_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="RegisterVM_Password_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterVM_SurName_SurName" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="ResetPasswordConfirmationModel_Reset_Password_Confirmation_ResetPasswordConFirmation" xml:space="preserve">
+    <value>Your password has been reset successfully.</value>
+  </data>
+  <data name="RegisterVM_Terms_and_Conditions_TermsandConditions" xml:space="preserve">
+    <value>By registering you agree with our </value>
+  </data>
+  <data name="LoginViewModel_Error_Message_ErrorMessage_" xml:space="preserve">
+    <value>Problem signingIn, please provide valid credentials to login!</value>
+  </data>
+  <data name="RegisterVM_Email_Existed_EmailExisted" xml:space="preserve">
+    <value>Email already existed </value>
+  </data>
+  <data name="MyAccountViewModel_My_Account_PLaning_Next_Scotty_Box_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="MyAccountViewModel_My_Account_PLaning_Next_Scotty_Box_Planing" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+  <data name="MyAccountViewModel_My_Account_PLaning_Next_Scotty_Box_ScottyBox" xml:space="preserve">
+    <value>ScottyBox</value>
+  </data>
+  <data name="MyAccountViewModel_My_Account_Profile_MyAccountProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="RegisterVm_EmailExisted_Member_already_exists_with_same_email__Aborting_" xml:space="preserve">
+    <value>Member already exists with same email. Aborting!</value>
+  </data>
+  <data name="RegisterVm_Password_YourPassword" xml:space="preserve">
+    <value>Please choose a password of at least 8 characters, containing at least one number and special character</value>
+  </data>
+  <data name="OrderVm_OrderVm_Yes_Offcourse" xml:space="preserve">
+    <value>Yes, Of course</value>
+  </data>
+  <data name="ProfileController_ResetPassword_Reset_Key_has_expired" xml:space="preserve">
+    <value>Oops, sorry, the Reset Key has expired, please try again</value>
+  </data>
+  <data name="OrderVm_OrderVm_No__please_come_back_later" xml:space="preserve">
+    <value> No, please come back later</value>
+  </data>
+  <data name="OrderVm_OrderVm_Yes__please" xml:space="preserve">
+    <value>Yes, please</value>
+  </data>
+  <data name="OrderVm_OrderOccesions_For_which_occasion_is_your_next_Scottybox_" xml:space="preserve">
+    <value>For which occasion is your next Scottybox?</value>
+  </data>
+  <data name="OrderVm_PeriodicalScottyBox_Send_me_automatically_periodically_a_Scottybox" xml:space="preserve">
+    <value>Send me automatically periodically a Scottybox</value>
+  </data>
+  <data name="OrderVm_StylistContactTypes___May_the_stylist_contact_you_" xml:space="preserve">
+    <value>May the stylist contact you?</value>
+  </data>
+  <data name="OrderVm_DeliveryNeighbours_Can_we_leave_your_order_with_the_neighbours__if_you_are_not_there_" xml:space="preserve">
+    <value>Can we leave your order with the neighbours, if you are not there?</value>
+  </data>
+  <data name="OrderVm_DeliveryAddress_Where_can_we_deliver_your_Scottybox_" xml:space="preserve">
+    <value>Where can we deliver your Scottybox?</value>
+  </data>
+  <data name="OrderVm_ContactNumber_If_yes__on_what_number_can_we_best_reach_you_" xml:space="preserve">
+    <value>If yes, on what number can we best reach you?</value>
+  </data>
+  <data name="OrderVm_PlanScottyboxHeader_PLAN_YOUR_NEXT_SCOTTYBOX" xml:space="preserve">
+    <value>PLAN YOUR NEXT SCOTTYBOX</value>
+  </data>
+  <data name="EmailLogin" xml:space="preserve">
+    <value>Please fill in your email address to login/register</value>
+  </data>
+  <data name="ResetPasswordViewModel_enterEmail_Enter_your_Email" xml:space="preserve">
+    <value>What is your email address?</value>
+  </data>
+  <data name="ResetPasswordViewModel_enterPassword_Enter_your_New_Password" xml:space="preserve">
+    <value>Enter your new password</value>
+  </data>
+  <data name="ResetPasswordViewModel_ReenterPassword_Reenter_your_New_Password" xml:space="preserve">
+    <value>Re_enter your new password</value>
+  </data>
+  <data name="ForgotPwdViewModel_EmailAddress_Enter_Email_Address" xml:space="preserve">
+    <value>Enter email address</value>
+  </data>
+  <data name="ForgotPwdViewModel_Paragraph_Please_check_your_Email_to_reset_your_password" xml:space="preserve">
+    <value>Please check your email to reset your password</value>
+  </data>
+  <data name="RegisterVm_RegisterHeader_CONFIRM_YOUR_REGISTRATION" xml:space="preserve">
+    <value>CONFIRM YOUR REGISTRATION</value>
+  </data>
+  <data name="RegisterVm_RegistersubHeader_And_let_us_select_an_outfit_for_you__or_just_do_the_style_intake" xml:space="preserve">
+    <value>And let us select an outfit for you (or first just take the style intake)</value>
+  </data>
+  <data name="LoginVm_loginheader_YOUR_SCOTTYBONS_ACCOUNT" xml:space="preserve">
+    <value>YOUR SCOTTYBONS ACCOUNT</value>
+  </data>
+  <data name="LoginVm_loginsubheader_Log_in_and_manage_your_information__your_styleprofile_and_your_orders" xml:space="preserve">
+    <value>Login and manage your information, your styleprofile and your orders</value>
+  </data>
+  <data name="LoginVm_Register_REGISTER" xml:space="preserve">
+    <value>REGISTER</value>
+  </data>
+  <data name="LoginVm_Forgotpasssword_Forgot_your_Password_" xml:space="preserve">
+    <value>Forgot your Password?</value>
+  </data>
+  <data name="ContactUsViewModel_Contact_CONTACT" xml:space="preserve">
+    <value>CONTACT</value>
+  </data>
+  <data name="ContactUsViewModel_Remarkorquestion_Do_you_have_a_remark_or_question_" xml:space="preserve">
+    <value>Do you have a remark or question?</value>
+  </data>
+  <data name="ContactUsViewModel_Sendmessage_Send_us_a_message_" xml:space="preserve">
+    <value>Send us a message.</value>
+  </data>
+  <data name="ContactUsViewModel_Callus__Or_call_us_on_number__31_85_7500_490" xml:space="preserve">
+    <value> Or call us on number </value>
+  </data>
+  <data name="ContactUsViewModel_Loginsuccess__Login_Success_" xml:space="preserve">
+    <value> Login Success.</value>
+  </data>
+  <data name="ConfirmYourOrderModel_YourorderHeading_YOUR_ORDER_" xml:space="preserve">
+    <value>YOUR ORDER</value>
+  </data>
+  <data name="ConfirmYourOrderModel_Overview_Overview_" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Heading" xml:space="preserve">
+    <value>ScottyBons</value>
+  </data>
+  <data name="GreenBar_Order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="GreenBar_Pay" xml:space="preserve">
+    <value>Pay</value>
+  </data>
+  <data name="GreenBar_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="StyleProfile" xml:space="preserve">
+    <value>Style profile</value>
+  </data>
+  <data name="IsYourStyleProfileUpToDate" xml:space="preserve">
+    <value>IS YOUR STYLE PROFILE  </value>
+  </data>
+  <data name="WhatisYourEmailAdderss" xml:space="preserve">
+    <value>What is your e-mail address ?</value>
+  </data>
+  <data name="Already_an_account" xml:space="preserve">
+    <value>Already registered?</value>
+  </data>
+  <data name="Scottybons_Account_No_MakingNewAccount" xml:space="preserve">
+    <value>No, I'm making a new account</value>
+  </data>
+  <data name="Scottybons_Account_Yes_my_password_is" xml:space="preserve">
+    <value>Yes, my password is</value>
+  </data>
+  <data name="ThanksForYourMessageWeWillGet" xml:space="preserve">
+    <value>THANKS FOR YOUR </value>
+  </data>
+  <data name="RegisterViewModel1_Password_PasswordNotStrongEnoughMessage" xml:space="preserve">
+    <value>Password not strong enough</value>
+  </data>
+  <data name="Error_page_Oops_" xml:space="preserve">
+    <value>Oops!</value>
+  </data>
+  <data name="ErrorPageString" xml:space="preserve">
+    <value>Please try the main navigation to return to the site</value>
+  </data>
+  <data name="Error_page_Sorry_there_has_been_an_error_and_you_are_now_lost" xml:space="preserve">
+    <value>Sorry there has been an error and you are now lost.</value>
+  </data>
+  <data name="Faq_Frequently_asked_questions" xml:space="preserve">
+    <value>Frequently asked questions</value>
+  </data>
+  <data name="ProblemWhileLoggingIn" xml:space="preserve">
+    <value>Problem while logging in</value>
+  </data>
+  <data name="NoAccoutYet" xml:space="preserve">
+    <value>No account yet?</value>
+  </data>
+  <data name="Nomaybenot_I_willreviewitfirst" xml:space="preserve">
+    <value>No, maybe not, I will review it first</value>
+  </data>
+  <data name="ThanksForYourOrder" xml:space="preserve">
+    <value>THANKS FOR YOUR ORDER</value>
+  </data>
+  <data name="YesIcanmovedirectlythrutoorderingmynextScottybox" xml:space="preserve">
+    <value>Yes, I can move directly through to ordering my next scottybox</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsDescription3_" xml:space="preserve">
+    <value>We do however ask you your permission to automatically collect this invoice. You will receive a message from your bank when they will debit your account.</value>
+  </data>
+  <data name="OneOfOurScottybonStylistsWillGetInTouch" xml:space="preserve">
+    <value>One of our Scottybons stylists will get in touch with you shortly. As soon as she has spoken with you,</value>
+  </data>
+  <data name="SheCanStartTheSelection" xml:space="preserve">
+    <value>she can start the selection of an outfit. If you did not leave a phonenumber, she will contact you via email.</value>
+  </data>
+  <data name="ThanksForYourTrust" xml:space="preserve">
+    <value>Thanks for your trust in us to select a new outfit for you!</value>
+  </data>
+  <data name="WeWillSendYouAMessage" xml:space="preserve">
+    <value>We will send you a message as soon as we have shipped your outfit and style advice.</value>
+  </data>
+  <data name="ContactUsViewModel_CallusContactNumber" xml:space="preserve">
+    <value> +31 85 7500 490</value>
+  </data>
+  <data name="PleaseAcceptTermsAndConditionsToCompleteTheRegistration" xml:space="preserve">
+    <value>Please read and accept our privacy policy</value>
+  </data>
+  <data name="RegistrationProblem" xml:space="preserve">
+    <value>Problem in registration process! Please contact administrator.</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="AnErrorOccurredwhileProcessingYourRequest" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="LockedOut" xml:space="preserve">
+    <value>Locked out.</value>
+  </data>
+  <data name="ThisAccounThasBeenLockedOutPleaseTryAgainLater" xml:space="preserve">
+    <value>This account has been locked out, please try again later.</value>
+  </data>
+  <data name="LoginVm_Email_Invalid_Email_Address" xml:space="preserve">
+    <value>Invalid email address</value>
+  </data>
+  <data name="ButtonLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ButtonNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="ButtonPrevious" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="ButtonRegister" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ButtonSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Please fill in your password here</value>
+  </data>
+  <data name="BusinessCasual" xml:space="preserve">
+    <value>Business Casual</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ButtonGoToPayment" xml:space="preserve">
+    <value>to payment</value>
+  </data>
+  <data name="ButtonOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonSend" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Anders</value>
+  </data>
+  <data name="StringHI" xml:space="preserve">
+    <value>HI</value>
+  </data>
+  <data name="LinkClickHere" xml:space="preserve">
+    <value>Click here</value>
+  </data>
+  <data name="ThankYouOrderWithOrderNumber" xml:space="preserve">
+    <value>Order Number:  *|ORDNUM|*</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>CREATE</value>
+  </data>
+  <data name="EN" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="HowDoesItWork" xml:space="preserve">
+    <value>HOW DOES IT WORK</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>LOGIN</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>LOG OUT</value>
+  </data>
+  <data name="NL" xml:space="preserve">
+    <value>NL</value>
+  </data>
+  <data name="NLen" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="NLnl" xml:space="preserve">
+    <value>NL</value>
+  </data>
+  <data name="Email_address" xml:space="preserve">
+    <value>E-mail address</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Company name (if any)</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="Town" xml:space="preserve">
+    <value>Town</value>
+  </data>
+  <data name="ZIP" xml:space="preserve">
+    <value>ZIP</value>
+  </data>
+  <data name="ProfileQuestionsHeading" xml:space="preserve">
+    <value>TELL US ABOUT YOU</value>
+  </data>
+  <data name="ProfileQuestionsSubHeading" xml:space="preserve">
+    <value>About 50 questions will follow. Your answers will give us a good</value>
+  </data>
+  <data name="GETBACK" xml:space="preserve">
+    <value>GET BACK</value>
+  </data>
+  <data name="MESSAGEWELL" xml:space="preserve">
+    <value>MESSAGE WE’LL</value>
+  </data>
+  <data name="TOYOUSHORTLY" xml:space="preserve">
+    <value>TO YOU SHORTLY</value>
+  </data>
+  <data name="YourOrder_Permissons" xml:space="preserve">
+    <value>Please accept the general conditions to complete your order</value>
+  </data>
+  <data name="PaymentGatewaySelectIssuer" xml:space="preserve">
+    <value>Select issuer</value>
+  </data>
+  <data name="PaymentErrorDescription" xml:space="preserve">
+    <value>Should your payment continue to fail, you can also transfer the initial payment for the style advice to bankaccount NL28INGB0007137940, in name of Scottybons, while referencing your name and ordernumber. You can also contact us via 085-7500490 or Stylingteam@scottybons.com</value>
+  </data>
+  <data name="PaymentErrorHeadingOrderNumber" xml:space="preserve">
+    <value>OrderNumber: *|ORDNUM|*</value>
+  </data>
+  <data name="PaymentErrorSubHeading" xml:space="preserve">
+    <value>An error occurred during your payment for order</value>
+  </data>
+  <data name="PaymentErrorTitle" xml:space="preserve">
+    <value>UNFORTUNATELY YOUR PAYMENT FAILED</value>
+  </data>
+  <data name="IAmAgreeWithTheGeneralConditons" xml:space="preserve">
+    <value>I agree with the </value>
+  </data>
+  <data name="YourOrder_Permissons_future_invoices" xml:space="preserve">
+    <value>We need your permission before you can proceed</value>
+  </data>
+  <data name="Profile_Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsPrivacyPolicy_policy" xml:space="preserve">
+    <value>privacy policy</value>
+  </data>
+  <data name="IAmAgreeWithTheGeneralConditons_general_conditons" xml:space="preserve">
+    <value>general conditions</value>
+  </data>
+  <data name="ForgotPasswordTokenExpired" xml:space="preserve">
+    <value>Forgot password token expired</value>
+  </data>
+  <data name="OrderPageController_ConfirmYourOrder_Invalid_OrderNumber" xml:space="preserve">
+    <value>Invalid OrderNumber</value>
+  </data>
+  <data name="EditProfileValidationHeight" xml:space="preserve">
+    <value>If you are shorter that 100cm, or taller than 200cm, it will probably be difficult for us to find you an outfit</value>
+  </data>
+  <data name="EditProfileValidationShoes" xml:space="preserve">
+    <value>Your shoe size is probably a number between 30 and 45?</value>
+  </data>
+  <data name="EditProfileValidationWeight" xml:space="preserve">
+    <value>If you weigh more than 100kg, it will probably be difficult for us to find you an outfit</value>
+  </data>
+  <data name="PaymentErrorClickHereToRePay" xml:space="preserve">
+    <value>click here to re-pay</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value> here</value>
+  </data>
+  <data name="Edit_profile_Als_jestijlprofielcompleetis_kun_jeverdergaanomeenstijladviesen_Scottyboxtebestellen" xml:space="preserve">
+    <value>If your style profile complete , you can continue to order a style advice and Scottybox</value>
+  </data>
+  <data name="Edit_Profile_ButtonEdit" xml:space="preserve">
+    <value>EDIT</value>
+  </data>
+  <data name="Edit_profile_Button_GoToPlanScottyBox" xml:space="preserve">
+    <value>GO TO PLAN SCOTTYBOX</value>
+  </data>
+  <data name="ProfileQuestionsSubHeading_idea_ofyour_style" xml:space="preserve">
+    <value>idea of your style. And what sizes and colors suit you best.</value>
+  </data>
+  <data name="RegisterVm_Emailaddress_The_EmailadresFieldIsNotValidEmailAddress" xml:space="preserve">
+    <value>Oops, we need a valid email address…</value>
+  </data>
+  <data name="ResetPassword_ClickHere_ToLogin" xml:space="preserve">
+    <value>Click here to login</value>
+  </data>
+  <data name="IsYourStyleStillUptodate" xml:space="preserve">
+    <value>STILL UP TO DATE ?</value>
+  </data>
+  <data name="ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsDescription2_StyleProfilesubtitle1" xml:space="preserve">
+    <value>but maybe your sizes are slightly different, or your wishlist has changed?</value>
+  </data>
+  <data name="ResetPwdViewModel_EmailandPassword_Email_and_Password_" xml:space="preserve">
+    <value>Please fill in a new password below</value>
+  </data>
+  <data name="StyelProfile_SaveBtn_Validation" xml:space="preserve">
+    <value>Please fill all mandatory questions (1,2,3,4,5,6,7,8,9, 16, 18, 19, 36, 37, 38, 40)</value>
+  </data>
+  <data name="text" xml:space="preserve">
+    <value>text</value>
+  </data>
+  <data name="Forgot_EmailUnknown" xml:space="preserve">
+    <value>This email address is unknown to us</value>
+  </data>
+  <data name="ConfirmYourOrderModel_YourOrder_HTPROCESS_SubtextLine_2" xml:space="preserve">
+    <value>For the items you want to keep, you pay the normal retail prices, and you will receive an invoice only afterwards.</value>
+  </data>
+  <data name="Image_format" xml:space="preserve">
+    <value>Image format should be .jpg or .png or .gif</value>
+  </data>
+  <data name="Image_size" xml:space="preserve">
+    <value>This image is too big, upload a different file (smaller then 1MB)</value>
+  </data>
+  <data name="PlanScottyboxdropdown_validation" xml:space="preserve">
+    <value>Please let us know for which occasion you would like to receive an outfit</value>
+  </data>
+  <data name="HouseNumberRequired" xml:space="preserve">
+    <value>What is the house number?</value>
+  </data>
+  <data name="PlanScottybox_occasionPlaceHolder" xml:space="preserve">
+    <value>Choose an occasion</value>
+  </data>
+  <data name="LinkHere" xml:space="preserve">
+    <value>here</value>
+  </data>
+  <data name="Issuer_error" xml:space="preserve">
+    <value>Please select your bank.</value>
+  </data>
+  <data name="Click_Edit" xml:space="preserve">
+    <value>Please click edit button on top or bottom of page in order to edit your style profile</value>
+  </data>
+  <data name="GC_Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="GC_ForWho" xml:space="preserve">
+    <value>For Who</value>
+  </data>
+  <data name="GC_GiftCardNote" xml:space="preserve">
+    <value>You can order multiple giftcards for different people at once, but chose only one delivery address per order.</value>
+  </data>
+  <data name="GC_Iwanttoorderagiftcard" xml:space="preserve">
+    <value>I want to order a giftcard</value>
+  </data>
+  <data name="GC_OrderaGiftCard" xml:space="preserve">
+    <value>ORDER A GIFT CARD</value>
+  </data>
+  <data name="GC_OrderaGiftCardTitle1" xml:space="preserve">
+    <value>You can order multiple giftcards at once</value>
+  </data>
+  <data name="GC_OrderaGiftCardTitle2" xml:space="preserve">
+    <value>but chose only one delivery address per order.</value>
+  </data>
+  <data name="GC_PersonalMessage" xml:space="preserve">
+    <value>Personal Message</value>
+  </data>
+  <data name="GC_PhFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="GC_PhMax100characters" xml:space="preserve">
+    <value>Max 100 characters</value>
+  </data>
+  <data name="GC_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="GC_ValueOtherError" xml:space="preserve">
+    <value>Please fill in a value &gt; €25</value>
+  </data>
+  <data name="GC_Delivary_Address_City" xml:space="preserve">
+    <value>Town</value>
+  </data>
+  <data name="GC_Delivary_Address_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="GC_Delivery_Address_Firstname_Error_Msg" xml:space="preserve">
+    <value>To whom would you like to send this present?</value>
+  </data>
+  <data name="GC_Delivery_Address_House" xml:space="preserve">
+    <value>House Number</value>
+  </data>
+  <data name="GC_Delivery_Address_House_Error_Msg" xml:space="preserve">
+    <value>We need your housenumber in order to deliver your order</value>
+  </data>
+  <data name="GC_Delivery_Address_Lastname_Error_Msg" xml:space="preserve">
+    <value>To whom would you like to send this present?</value>
+  </data>
+  <data name="GC_Delivery_Address_OrderButton" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="GC_Delivery_Address_PhFirstname" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="GC_Delivery_Address_PhLastname" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="GC_Delivery_Address_Postalcode_Error_Msg" xml:space="preserve">
+    <value>We need your postal code in order to deliver your order (Example format: 1234AB)</value>
+  </data>
+  <data name="GC_Delivery_Address_Street" xml:space="preserve">
+    <value>Street Name</value>
+  </data>
+  <data name="GC_Delivery_Address_Street_Error_Msg" xml:space="preserve">
+    <value>We need your street name in order to deliver your order</value>
+  </data>
+  <data name="GC_Delivery_Address_Text" xml:space="preserve">
+    <value>Delivery Address</value>
+  </data>
+  <data name="GC_Delivery_Address_Town_Error_Msg" xml:space="preserve">
+    <value>We need your town in order to deliver your order</value>
+  </data>
+  <data name="GC_Delivery_Address_Zip" xml:space="preserve">
+    <value>Postal Code</value>
+  </data>
+  <data name="GC_Delivery_Firstname_Error_Msg" xml:space="preserve">
+    <value>Oops, you forgot your first name</value>
+  </data>
+  <data name="GC_Delivery_Lastname_Error_Msg" xml:space="preserve">
+    <value>Oops, you forgot your surname</value>
+  </data>
+  <data name="GC_Delivery_PhFirstname" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="GC_Delivery_PhLastname" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="GC_Delivery_Title1" xml:space="preserve">
+    <value>Delivery</value>
+  </data>
+  <data name="GC_Delivery_Title2" xml:space="preserve">
+    <value>Fill in your own name first, followed by the name of the person where you would like the giftcard to be delivered. </value>
+  </data>
+  <data name="GC_Delivery_YourName_Text" xml:space="preserve">
+    <value>Your Name</value>
+  </data>
+  <data name="GC_Giftcard_Other_Error_Msg" xml:space="preserve">
+    <value>Please fill in a value &gt; €25</value>
+  </data>
+  <data name="GC_Login_Guest_Button" xml:space="preserve">
+    <value>NEXT</value>
+  </data>
+  <data name="GC_Login_Guest_Description" xml:space="preserve">
+    <value>It is not mandatory to make an account</value>
+  </data>
+  <data name="GC_Login_Guest_EmailAddress" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="GC_Login_Guest_PhEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GC_Login_Guest_Text" xml:space="preserve">
+    <value>Order As A Guest</value>
+  </data>
+  <data name="GC_Login_Guest_Valid_Email" xml:space="preserve">
+    <value>Oops, we need a valid email address…</value>
+  </data>
+  <data name="GC_Login_Title1" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
+  <data name="GC_Login_User_Button" xml:space="preserve">
+    <value>NEXT</value>
+  </data>
+  <data name="GC_Login_User_Description" xml:space="preserve">
+    <value>Fill in your email address and password and your saved information will be used.</value>
+  </data>
+  <data name="GC_Login_User_EmailAddress" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="GC_Login_User_Email_Error_Msg" xml:space="preserve">
+    <value>This email address is unknown to us</value>
+  </data>
+  <data name="GC_Login_User_Login_Error_Msg" xml:space="preserve">
+    <value>There is a problem logging in, please fill in a valid email address and password</value>
+  </data>
+  <data name="GC_Login_User_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="GC_Login_User_Password_Error_Msg" xml:space="preserve">
+    <value>Please fill in your password to login</value>
+  </data>
+  <data name="GC_Login_User_PhEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GC_Login_User_PhPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="GC_Login_User_Text" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="GC_Next_Button" xml:space="preserve">
+    <value>NEXT</value>
+  </data>
+  <data name="GC_Order_ConfirmOrder_Text" xml:space="preserve">
+    <value>Click on go to payment to confirm you order. You are entering a commitment.</value>
+  </data>
+  <data name="GC_Order_GeneralConditions" xml:space="preserve">
+    <value>I accept the general conditions</value>
+  </data>
+  <data name="GC_Order_Overview_GiftFor" xml:space="preserve">
+    <value>Giftcard For</value>
+  </data>
+  <data name="GC_Order_Overview_Text" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="GC_Order_Overview_Total" xml:space="preserve">
+    <value>Total to be paid</value>
+  </data>
+  <data name="GC_Order_Payment_Bank" xml:space="preserve">
+    <value>Choose an Issuer</value>
+  </data>
+  <data name="GC_Order_Payment_Button" xml:space="preserve">
+    <value>Go To Payment</value>
+  </data>
+  <data name="GC_Order_Payment_Error_Msg" xml:space="preserve">
+    <value>Please choose a payment method</value>
+  </data>
+  <data name="GC_Order_Payment_Issuer_Error_Msg" xml:space="preserve">
+    <value>Please select an issuer</value>
+  </data>
+  <data name="GC_Order_Payment_Text" xml:space="preserve">
+    <value>Choose a payment method</value>
+  </data>
+  <data name="GC_Order_Response_Back_To_Catalog" xml:space="preserve">
+    <value>Back To Homepage</value>
+  </data>
+  <data name="GC_Order_Response_Back_To_Payment" xml:space="preserve">
+    <value>Back To Payment</value>
+  </data>
+  <data name="GC_Order_Response_Description" xml:space="preserve">
+    <value>Thanks for your order! We´ll roll up our sleeves and get to work. Your ordernumber is</value>
+  </data>
+  <data name="GC_Order_Response_Fail_Title" xml:space="preserve">
+    <value>UNFORTUNATELY YOUR PAYMENT FAILED</value>
+  </data>
+  <data name="GC_Order_Response_Title" xml:space="preserve">
+    <value>Thanks for your order</value>
+  </data>
+  <data name="GC_Order_Title" xml:space="preserve">
+    <value>Your Order</value>
+  </data>
+  <data name="GC_PS_Confirm_Payment_Button" xml:space="preserve">
+    <value>Confirm payment</value>
+  </data>
+  <data name="GC_PS_GiftCard_Balance_After_Pay" xml:space="preserve">
+    <value>Giftcard balance after payment</value>
+  </data>
+  <data name="GC_PS_GiftCard_CheckBalance_Button" xml:space="preserve">
+    <value>Check balance</value>
+  </data>
+  <data name="GC_PS_GiftCard_Code" xml:space="preserve">
+    <value>Code:</value>
+  </data>
+  <data name="GC_PS_GiftCard_Fill_Text" xml:space="preserve">
+    <value>Fill in your giftcard code</value>
+  </data>
+  <data name="GC_PS_GiftCard_Text" xml:space="preserve">
+    <value>Gift Card</value>
+  </data>
+  <data name="GC_PS_Still_To_Be_Paid" xml:space="preserve">
+    <value>Still to be paid</value>
+  </data>
+  <data name="GC_Back_Button" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="GC_Check_Mandatory" xml:space="preserve">
+    <value>Please fill the mandatory fields.</value>
+  </data>
+  <data name="MyAccountViewModel_My_Account_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="ChangePassword_Required" xml:space="preserve">
+    <value>Please fill the New Password</value>
+  </data>
+  <data name="Change_Password" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Change_Password_Confirm" xml:space="preserve">
+    <value>Again Your New Password</value>
+  </data>
+  <data name="Confirm_ChangePassword_Required" xml:space="preserve">
+    <value>Please Mention Confirm Password</value>
+  </data>
+  <data name="GC_Delivery_Title3" xml:space="preserve">
+    <value>That can also be your own name once more.</value>
+  </data>
+  <data name="MyAccountViewModel_My_Account_Manage_Subscription" xml:space="preserve">
+    <value>My Subscription</value>
+  </data>
+  <data name="GC_Iwanttoorderanothergiftcard" xml:space="preserve">
+    <value>I want to order another giftcard</value>
+  </data>
+  <data name="Change_Password_SubTitle" xml:space="preserve">
+    <value>You can enter a new password below. </value>
+  </data>
+  <data name="Change_Password_Title" xml:space="preserve">
+    <value>Change Your Password</value>
+  </data>
+  <data name="GC_Giftcard_For" xml:space="preserve">
+    <value>Giftcard for</value>
+  </data>
+  <data name="GC_Other_Value" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Change_Password_Change_Button" xml:space="preserve">
+    <value>CHANGE</value>
+  </data>
+  <data name="Change_Password_Confirmation_Back_Button" xml:space="preserve">
+    <value>BACK TO MY ACCOUNT</value>
+  </data>
+  <data name="Change_Password_Confirmation_SubTitle" xml:space="preserve">
+    <value>You can now log in with your new password</value>
+  </data>
+  <data name="Change_Password_Confirmation_Title" xml:space="preserve">
+    <value>YOUR PASSWORD IS CHANGED</value>
+  </data>
+  <data name="Change_Password_Note" xml:space="preserve">
+    <value>Your password must be at least 8 characters and one digit and one special charecter (! @ # $% &amp;)</value>
+  </data>
+  <data name="GC_Login_Invaid_User_Login_Error_Msg" xml:space="preserve">
+    <value>There is a problem with logging in, please enter a valid email address and password</value>
+  </data>
+  <data name="GC_Payment_Fail_Ordernumber" xml:space="preserve">
+    <value>Order Number:</value>
+  </data>
+  <data name="Change_Password_SubTitle2" xml:space="preserve">
+    <value>After changing, you can log in with your new password.</value>
+  </data>
+  <data name="PC_PS_PromoCode_Apply_Button" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="PC_PS_PromoCode_Fill_Text" xml:space="preserve">
+    <value>Fill in your promo code</value>
+  </data>
+  <data name="PC_PS_PromoCode_Text" xml:space="preserve">
+    <value>Promo Code</value>
+  </data>
+</root>

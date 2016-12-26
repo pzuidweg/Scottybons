@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcceptTermsandConditions" xml:space="preserve">
+    <value>Lees en accepteer alsjeblieft onze algemene voorwaarden</value>
+  </data>
+  <data name="CityRequired" xml:space="preserve">
+    <value>We hebben een stad nodig om te kunnen bezorgen</value>
+  </data>
+  <data name="EmailAddressRequired" xml:space="preserve">
+    <value>Oeps, we hebben een geldig e-mailadres nodig…</value>
+  </data>
+  <data name="EmailAlreadyExists" xml:space="preserve">
+    <value>Aj, dit e-mailadres is al in gebruik bij ons…</value>
+  </data>
+  <data name="EmailNotRegistred" xml:space="preserve">
+    <value>Om jouw wachtwoord te resetten, vul alsjeblieft het email adres waar mee jij je hebt geregistreerd</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>We hebben je e-mailadres nodig om een account voor je aan te maken</value>
+  </data>
+  <data name="EmailUnknown" xml:space="preserve">
+    <value>Dit e-mailadres is niet bekend bij ons</value>
+  </data>
+  <data name="EnterConfirmPassword" xml:space="preserve">
+    <value>Wil je hier je wachtwoord bevestigen?</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>Oeps, je bent je voornaam vergeten</value>
+  </data>
+  <data name="InvoicePermission" xml:space="preserve">
+    <value>Geef ons alsjeblieft toestemming om toekomstige facturen te innen (voor de artikelen die je houdt)</value>
+  </data>
+  <data name="MessageRequired" xml:space="preserve">
+    <value>Wat is je vraag of opmerking?</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Oeps, je bent je naam vergeten…</value>
+  </data>
+  <data name="OccasionRequired" xml:space="preserve">
+    <value>Laat ons weten voor welke gelegenheid je deze keer een outfit wil ontvangen</value>
+  </data>
+  <data name="OrderConfirmation" xml:space="preserve">
+    <value>Bedankt voor jouw bestelling. Een bevestiging is momenteel onderweg naar jouw inbox!</value>
+  </data>
+  <data name="PasswordInvalid" xml:space="preserve">
+    <value>Vul alsjeblieft hier je wachtwoord in</value>
+  </data>
+  <data name="PasswordInvalidFormat" xml:space="preserve">
+    <value>Kies alsjeblieft een wachtwoord dat minimaal 8 karakters heeft, en minimaal een cijfer bevat</value>
+  </data>
+  <data name="PasswordIsRequiredForRegistration" xml:space="preserve">
+    <value>We hebben een wachtwoord nodig om een account voor je aan te maken</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Vul je wachtwoord in om in te loggen</value>
+  </data>
+  <data name="PasswordsNotMatched" xml:space="preserve">
+    <value>Aj, beide wachtwoorden komen niet overeen…</value>
+  </data>
+  <data name="PhoneNumberInValid" xml:space="preserve">
+    <value>Oeps, wil je een geldig telefoonnummer invullen? (10 cijfers, bv. 0857500490)</value>
+  </data>
+  <data name="PhoneNumberRequired" xml:space="preserve">
+    <value>Op welk nummer kunnen we je bereiken?</value>
+  </data>
+  <data name="PostalCodeRequired" xml:space="preserve">
+    <value>We hebben een postcode nodig om te kunnen bezorgen (Vb formaat: 1234AB)</value>
+  </data>
+  <data name="PrivacyPolicyAccept" xml:space="preserve">
+    <value>Lees en accepteer alsjeblieft onze privacy policy</value>
+  </data>
+  <data name="StreetNameRequired" xml:space="preserve">
+    <value>We hebben een straatnaam nodig om te kunnen bezorgen</value>
+  </data>
+  <data name="SurnameRequired" xml:space="preserve">
+    <value>Oeps, je bent je achternaam vergeten</value>
+  </data>
+  <data name="TopicRequired" xml:space="preserve">
+    <value>Wil je het onderwerp invullen?</value>
+  </data>
+</root>

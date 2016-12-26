@@ -1,0 +1,10 @@
+﻿@using ScottybonsMVC.Models.ViewModels
+@using ScottybonsMVC.Models.ViewModels.Customer
+@inherits UmbracoTemplatePage
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+}
+@section BodyContent {
+
+    @Html.Partial("Account/_MyAccount", new MyAccountViewModel())
+}

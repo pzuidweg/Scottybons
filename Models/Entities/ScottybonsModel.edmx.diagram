@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9f29e59b9b74162a053776637d6d213" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="ScottybonsEComModel.StyleProfileAnswer" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.GiftCard" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.GiftCardStatu" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.CustomerType" Width="1.5" PointX="6.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.GiftCardOrderByType" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.GiftCardRedemption" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.GIftCardsOrder" Width="1.5" PointX="6.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.GiftCardRedemptionStatu" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.OrderPeriodicSubscriptionDetail" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ScottybonsEComModel.PromoCodeOrder" Width="1.5" PointX="8.375" PointY="4.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

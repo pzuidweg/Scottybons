@@ -1,0 +1,195 @@
+﻿@using ScottybonsMVC.Models.Entities
+@using ScottybonsMVC.Models.ViewModels;
+@model ScottybonsMVC.Models.ViewModels.Customer.StyleProfileVm
+
+@{
+    
+    var i = 0;
+}
+ 
+
+    <form class="form-horizontal">
+
+
+        <section id="register">
+            <div class="container">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10 ">
+                    <div class="row">
+                        <h2>@Resources.Scottybons.ScottybonsDataStrings.ProfileQuestionsHeading</h2>
+                        <h5>
+                            @Resources.Scottybons.ScottybonsDataStrings.ProfileQuestionsSubHeading
+                        </h5>
+                    </div>
+                    <div class="line"></div>
+
+                    @foreach (StyleProfileQuestion objQuestion in Model.StyleProfileViewModel.ProfileQuestion.ToList())
+                    {
+                        i = i + 1;
+
+                        if (objQuestion.AnswerControlID == 2)
+                        {
+
+                            string questionId = "Question" + @i;
+                            string questionControl = "Question" + @i + "Control";
+
+                    <div class="row">
+
+                        <h2>@i. @objQuestion.Question</h2>
+
+                        @if (!string.IsNullOrEmpty(objQuestion.QuestionDescription))
+                                {
+                                <h5>@objQuestion.QuestionDescription</h5>
+                                }
+
+                        <div class="form-group">
+                            <div class="col-xs-12 col-sm-12">
+                                <input type="email" class="form-control" style="width:100%; text-align:center" id="@questionId" placeholder="">
+                                <label id="@questionControl" style="display:none;">@objQuestion.AnswerControlID</label>
+                            </div>
+                        </div>
+
+                    </div>
+                        }
+
+                        if (objQuestion.AnswerControlID == 8 || objQuestion.AnswerControlID == 5)
+                        {
+
+                            string questionId = "Question" + @i;
+                            string questionControl = "Question" + @i + "Control";
+
+                    <div class="row">
+                        <h2>@i. @objQuestion.Question</h2>
+
+                        @if (!string.IsNullOrEmpty(objQuestion.QuestionDescription))
+                                {
+                                <h5>@objQuestion.QuestionDescription</h5>
+                                }
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label for="inputEmail" class="control-label col-sm-4 col-xs-12"></label>
+
+                            <div class="col-xs-12 col-sm-8">
+                                @foreach (StyleProfileAnswer objAnswer in Model.StyleProfileViewModel.ProfileAnswers.Where(x => x.QuestionID == objQuestion.QuestionID).ToList())
+                                        {
+                                        <div class="checkbox">
+                                            <label>
+                                                @*@if (Convert.ToInt32(objAnswer.IsImageTobeShown) == 1)
+                                                    {
+                                                    @Html.RadioButton(@questionId, @objAnswer.AnswerID, isChecked: false)
+                                                    <img src="@objAnswer.Answer" alt="@objAnswer.AnswerID" />
+                                                    }
+                                                    else
+                                                    {
+                                                    @Html.RadioButton(@questionId, @objAnswer.AnswerID, isChecked: false)@objAnswer.Answer
+                                                    <
+                                                    <br />
+                                                    }*@
+
+                                            </label>
+                                        </div>
+                                        }
+                                <label id="@questionControl" style="display:none;">@objQuestion.AnswerControlID</label>
+                            </div>
+                        </div>
+
+                    </div>
+                        }
+
+                        if (objQuestion.AnswerControlID == 7)
+                        {
+
+                            string questionId = "Question" + @i;
+                            string questionControl = "Question" + @i + "Control";
+
+                    <div class="row">
+                        <h2>@i. @objQuestion.Question</h2>
+
+                        @if (!string.IsNullOrEmpty(objQuestion.QuestionDescription))
+                                {
+                                <h5>@objQuestion.QuestionDescription</h5>
+                                }
+                    </div>
+
+                    <div class="row text-center">
+
+                        <div class="form-group">
+
+                            @foreach (StyleProfileAnswer objAnswer in Model.StyleProfileViewModel.ProfileAnswers.Where(x => x.QuestionID == objQuestion.QuestionID).ToList())
+                                    {
+                                       
+                                    <div class="col-xs-12 col-sm-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="@questionId" value="@objAnswer.AnswerID" class="checkbox_typeform" name="@questionId">
+                                                <img src="@objAnswer.Answer" alt="@objAnswer.AnswerID" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                       
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="@questionId" value="@objAnswer.AnswerID" class="checkbox_typeform" name="@questionId">
+                                                <span class="check_box_text"> @objAnswer.Answer </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                         
+
+                                    }
+                            <label id="@questionControl" style="display:none;">@objQuestion.AnswerControlID</label>
+                        </div>
+
+                    </div>
+                        }
+
+                    }
+
+                </div>
+
+                <div class="col-sm-10 ">
+                    <div class="row">
+                        <button class="submitAnswers">Submit</button>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-1"></div>
+            </div>
+        </section>
+        <section id="process_arrows">
+            <div class="container">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6">
+                            <p>50% voltooid</p>
+                            <div class="process_box">
+                                <div class="process_box_active"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-6 text-right">
+                            <div class="row">
+
+                                <div class="process_arrows">
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                                <div class="process_arrows">
+                                    <i class="fa fa-chevron-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </section>
+        <!-- starting footer -->
+        <!-- starting footer -->
+        <section id="footerendingline"></section>
+    </form>
+

@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    string OrderNumber = Request["OrderNumber"];
+}
+<section id ="top-menu">
+    <div id="register-top_no_menu">
+
+    </div>
+</section>
+<section id="thankyou_fororder">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+
+
+                <h1>@CurrentPage.title</h1>
+                <br>
+           
+                <p style="text-align: center">
+                    @if (!String.IsNullOrEmpty(OrderNumber))
+                    {
+                        @Resources.Scottybons.ScottybonsDataStrings.ThankYouOrderWithOrderNumber.Replace("*|ORDNUM|*", OrderNumber)
+                      
+                        <br/>
+                    }
+                    @CurrentPage.thankYouSubheading
+
+                </p>
+                <p> @CurrentPage.orderThankYouDescription</p>
+                <br>
+                @{
+                    try
+                    {
+                        var mainImage = Umbraco.Media(CurrentPage.orderThankYouImage);
+
+                        if (@mainImage.umbracoFile != null)
+                        {
+                            <img src="@mainImage.umbracoFile" alt="@mainImage.Name" />
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+
+                    }
+
+
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

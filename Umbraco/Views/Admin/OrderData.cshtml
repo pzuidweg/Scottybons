@@ -1,0 +1,311 @@
+﻿<html ng-app="app">
+<head>
+    <title>Order Details</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-aria.js"></script>
+
+    <script src="~/Scripts/ui-grid.js"></script>
+    <link href="~/css/ui-grid.css" rel="stylesheet" />
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/release/ui-grid-unstable.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid-unstable.css" type="text/css">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+
+
+    <style>
+        .grid {
+            width: 100%;
+            height: 550px;
+        }
+
+
+        .red {
+            color: red;
+            background-color: yellow !important;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .header-filtered {
+            color: blue;
+        }
+
+        .gridTable {
+            background: white;
+            width: 100%;
+        }
+    </style>
+
+
+    <script type="text/ng-template" id="ngTemplate/infoPopup.html">
+        <div class="modal-header">
+            <h4>Customer - Order Details</h4>
+        </div>
+        <div class="modal-body">
+            <span style="font-weight:bold;">ORDER NUMBER: </span> <span>{{selectedRow.OrderId}}</span>
+            <br />
+            <span style="font-weight:bold;">ORDER DATE: </span> <span>{{selectedRow.CreatedOn}}</span>
+            <br />
+            <span style="font-weight:bold;">CUSTOMER: </span> <span>{{selectedRow.FirstName + selectedRow.LastName}}</span>
+            <br />
+            <div ng-controller="ChildCtrl">
+                <div id="CustomerGrid" ui-grid="paginationGridOptions" class="grid" ui-grid-selection ui-grid-exporter ui-grid-pagination ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-auto-resize></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary btnCustom" ng-click="ok()">OK</button>
+            <button class="btn btn-primary btnCustom" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+
+
+
+    <script>
+
+        //'ngAnimate', 'ngTouch',
+
+        var app = angular.module('app', ['ui.grid.selection', 'ui.grid.saveState', 'ui.grid.pagination', 'ui.grid.selection', 'ui.grid.cellNav', 'ui.grid.resizeColumns', 'ui.grid.moveColumns', 'ui.grid.pinning', 'ui.bootstrap', 'ui.grid.autoResize']);
+
+        //Child Controller - Customer Details
+        app.controller('ChildCtrl', ['$scope', '$http', 'uiGridConstants', '$interval', '$modal', '$log', function ($scope, $http, $interval, uiGridConstants, $modal, $log) {
+            var data = [];
+
+            $scope.myAppScopeProvider = {
+                showInfo: function (row) {
+                    var modalInstance = $modal.open({
+                        controller: 'InfoController',
+                        templateUrl: 'ngTemplate/infoPopup.html',
+                        resolve: {
+                            selectedRow: function () {
+                                return row.entity;
+                            }
+                        }
+                    });
+
+                    modalInstance.result.then(function (selectedItem) {
+                        $log.log('modal selected Row: ' + selectedItem);
+                    }, function () {
+                        $log.info('Modal dismissed at: ' + new Date());
+                    });
+                }
+            }
+
+            $scope.gridOptions = {
+
+                enableGridMenu: true,
+
+                columnDefs: [
+
+                    { field: 'FirstName', width: '13%', displayName: 'First Name' },
+                    { field: 'LastName', width: '13%', displayName: 'Last Name' }
+
+                ],
+
+                data: data,
+                onRegisterApi: function (gridApi) {
+                    $scope.gridApi = gridApi;
+                },
+
+                exporterCsvFilename: 'CustomerDetails.csv',
+                exporterPdfDefaultStyle: { fontSize: 9 },
+                exporterPdfTableStyle: { margin: [10, 10, 10, 10] },
+                exporterPdfTableHeaderStyle: { fontSize: 10, bold: true, italics: true, color: 'Blue' },
+                exporterPdfHeader: { text: "Order List", style: 'headerStyle' },
+                exporterPdfFooter: function (currentPage, pageCount) {
+                    return { text: currentPage.toString() + ' of ' + pageCount.toString(), style: 'footerStyle' };
+                },
+                exporterPdfCustomFormatter: function (docDefinition) {
+                    docDefinition.styles.headerStyle = { fontSize: 22, bold: true };
+                    docDefinition.styles.footerStyle = { fontSize: 10, bold: true };
+                    return docDefinition;
+                },
+                exporterPdfOrientation: 'landscape',
+                exporterPdfPageSize: 'LETTER',
+                exporterPdfMaxGridWidth: 500,
+                exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
+
+            };
+
+            $http.get('/api/OrderAdmin')
+                .success(function (data) {
+                    data.forEach(function (row) {
+                        row.registered = Date.parse(row.registered);
+                    });
+                    $scope.gridOptions.data = data;
+                    $scope.paginationGridOptions.data = data;
+                }).error(function () {
+                    $scope.title = "Oops... something went wrong";
+                    $scope.working = false;
+                });
+        }
+
+        ]);
+
+        //Main Controller - Order List
+
+        app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', '$interval', '$modal', '$log', function ($scope, $http, $interval, uiGridConstants, $modal, $log) {
+            var data = [];
+
+            $scope.myAppScopeProvider = {
+                showInfo: function (row) {
+                    var modalInstance = $modal.open({
+                        controller: 'InfoController',
+                        templateUrl: 'ngTemplate/infoPopup.html',
+                        resolve: {
+                            selectedRow: function () {
+                                return row.entity;
+                            }
+                        }
+                    });
+
+                    modalInstance.result.then(function (selectedItem) {
+                        $log.log('modal selected Row: ' + selectedItem);
+                    }, function () {
+                        $log.info('Modal dismissed at: ' + new Date());
+                    });
+                }
+            }
+
+
+            $scope.gridOptions = {
+                enableSorting: true,
+                showGridFooter: true,
+                enableFiltering: true,
+                enableGridMenu: true,
+                multiSelect: false,
+                enableRowSelection: true,
+                enableSelectAll: false,
+                enableRowHeaderSelection: false,
+                selectionRowHeaderWidth: 35,
+                noUnselect: true,
+
+                columnDefs: [
+                    { field: 'OrderId', width: '13%', displayName: 'Order Number' },
+                    { field: 'CreatedOn', width: '13%', displayName: 'Order Date' },
+                    { field: 'CustomerID', width: '13%', displayName: 'Customer ID' },
+                    { field: 'FirstName', width: '13%', displayName: 'First Name' },
+                    { field: 'LastName', width: '13%', displayName: 'Last Name' },
+                    { field: 'ContactNumber', width: '13%', displayName: 'Phone Number' },
+                    { field: 'OrderStatusName', width: '13%', displayName: 'Order Status' },
+                ],
+
+                data: data,
+                onRegisterApi: function (gridApi) {
+                    $scope.gridApi = gridApi;
+                },
+
+                exporterCsvFilename: 'OrderList.csv',
+                exporterPdfDefaultStyle: { fontSize: 9 },
+                exporterPdfTableStyle: { margin: [30, 30, 30, 30] },
+                exporterPdfTableHeaderStyle: { fontSize: 10, bold: true, italics: true, color: 'red' },
+                exporterPdfHeader: { text: "Order List", style: 'headerStyle' },
+                exporterPdfFooter: function (currentPage, pageCount) {
+                    return { text: currentPage.toString() + ' of ' + pageCount.toString(), style: 'footerStyle' };
+                },
+                exporterPdfCustomFormatter: function (docDefinition) {
+                    docDefinition.styles.headerStyle = { fontSize: 22, bold: true };
+                    docDefinition.styles.footerStyle = { fontSize: 10, bold: true };
+                    return docDefinition;
+                },
+                exporterPdfOrientation: 'landscape',
+                exporterPdfPageSize: 'LETTER',
+                exporterPdfMaxGridWidth: 500,
+                exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
+                appScopeProvider: $scope.myAppScopeProvider,
+                rowTemplate: "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>"
+
+            };
+
+            $scope.paginationGridOptions = {
+                paginationPageSizes: [20, 40, 60, 80],
+                paginationPageSize: 20,
+            };
+            angular.extend($scope.paginationGridOptions, $scope.gridOptions);
+
+            $http.get('/api/OrderAdmin')
+                .success(function (data) {
+                    data.forEach(function (row) {
+                        row.registered = Date.parse(row.registered);
+                    });
+                    $scope.gridOptions.data = data;
+                    $scope.paginationGridOptions.data = data;
+                }).error(function () {
+                    $scope.title = "Oops... something went wrong";
+                    $scope.working = false;
+                });
+
+
+            $scope.toggleFiltering = function () {
+
+                $scope.gridOptions.enableFiltering = !$scope.gridOptions.enableFiltering;
+                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.OPTIONS);
+                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.ROW);
+                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+            };
+
+            $scope.toggleFooter = function () {
+                $scope.gridOptions.showGridFooter = !$scope.gridOptions.showGridFooter;
+                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.OPTIONS);
+            };
+
+            $scope.toggleColumnFooter = function () {
+                $scope.gridOptions.showColumnFooter = !$scope.gridOptions.showColumnFooter;
+                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.OPTIONS);
+            };
+        }
+
+        ]);
+
+
+        app.controller('InfoController',
+        ['$scope', '$modal', '$modalInstance', '$filter', '$interval', 'selectedRow',
+            function ($scope, $modal, $modalInstance, $filter, $interval, selectedRow) {
+
+                $scope.selectedRow = selectedRow;
+
+                $scope.ok = function () {
+                    $scope.selectedRow = null;
+                    $modalInstance.close();
+                };
+
+                $scope.cancel = function () {
+                    $scope.selectedRow = null;
+                    $modalInstance.dismiss('cancel');
+                };
+            }
+        ]);
+
+
+    </script>
+</head>
+
+<body>
+
+
+    <div ng-controller="MainCtrl">
+        <button id='Filtering' ng-click="toggleFiltering()" class="btn btn-success">Toggle Filtering</button>
+        <div id="grid" ui-grid="paginationGridOptions" class="grid" ui-grid-selection ui-grid-exporter ui-grid-pagination ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-auto-resize></div>
+    </div>
+
+</body>
+</html>

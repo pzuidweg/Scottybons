@@ -1,0 +1,243 @@
+﻿@model ScottybonsMVC.Models.ViewModels.Customer.OrderVm
+@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using ScottybonsMVC.Controllers
+
+@{
+    var customerOrderModel = Model.CustomerOrder;
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("/umbraco_client/ui/jquery.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.min.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.unobtrusive.min.js");
+
+    //var success = TempData["FormSuccess"] != null;
+    var iCount = 0;
+}
+
+@Html.RenderJsHere()
+<style>
+    span.ui-helper-hidden-accessible {
+        display: block;
+    }
+</style>
+
+@using (Html.BeginUmbracoForm<OrderPageController>("HandleScottyBoxAction", FormMethod.Post, new { @class = "form-horizontal" }))
+{<section id="register" class="planscotybox plan-notify">
+        <div class="container">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 plan-your_scottybox_tab">
+                <div class="row ">
+                    <h2>@Resources.Scottybons.ScottybonsDataStrings.OrderVm_PlanScottyboxHeader_PLAN_YOUR_NEXT_SCOTTYBOX</h2>
+                </div>
+                <div class="line"></div>
+                <div class="row plan_box_line_space">
+                    <div class="form-group">
+                        @Html.ValidationSummary(true, null, new { @class = "validation-control" })
+                    </div>
+                    <div class="form-group">
+
+                        @Html.LabelFor(m => Model.OrderOccesions, new { @class = "control-label col-sm-5 col-xs-12" })
+                        <div class="col-xs-12 col-sm-7">
+                            @Html.DropDownListFor(m => m.PlanScottyboxdropdownOccesions, (List<SelectListItem>)Model.OrderOccesions, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Name })
+                            @Html.ValidationMessageFor(m => m.PlanScottyboxdropdownOccesions, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => Model.DeliveryAddress, new { @class = "control-label col-sm-5 col-xs-12" })
+                        <div class="col-xs-12 col-sm-7">
+                            @Html.TextBoxFor(m => Model.DeliveryAddress.Name, string.Empty, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Name })
+                            @Html.ValidationMessageFor(m => Model.DeliveryAddress.Name, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label col-sm-5 col-xs-12"></div>
+                        <div class="col-xs-12 col-sm-4">
+                            @Html.TextBoxFor(m => Model.DeliveryAddress.Street, string.Empty, new { @class = "form-control delivery_textbox", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Street })
+                            @Html.ValidationMessageFor(m => Model.DeliveryAddress.Street, null, new { @class = "validation-control" })
+                        </div>
+                        <div class="col-xs-12 col-sm-2 number">
+                            @Html.TextBoxFor(m => Model.DeliveryAddress.Number, string.Empty, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Number })
+                            @Html.ValidationMessageFor(m => Model.DeliveryAddress.Number, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label col-sm-5 col-xs-12"></div>
+                        <div class="col-xs-12 col-sm-2 zip">
+                            @Html.TextBoxFor(m => Model.DeliveryAddress.Zip, string.Empty, new { @class = "form-control delivery_textbox delivery_textbox_right", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.ZIP })
+
+                        </div>
+                        <div class="col-xs-12 col-sm-4 ">
+                            @Html.TextBoxFor(m => Model.DeliveryAddress.Town, string.Empty, new { @class = "form-control delivery_textbox delivery_textbox_right", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Town })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-5 col-xs-12"></div>
+                        <div class="col-sm-5 col-xs-12">
+                            @Html.ValidationMessageFor(m => Model.DeliveryAddress.Zip, null, new { @class = "validation-control" })
+
+                            @Html.ValidationMessageFor(m => Model.DeliveryAddress.Town, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label col-sm-5 col-xs-12"></div>
+                        <div class="col-xs-12 col-sm-7">
+
+                            @Html.DropDownListFor(m => Model.CustomerOrder.OrderCountryID, (List<SelectListItem>)ViewBag.Country, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => Model.CustomerOrder.OrderCountryID, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => Model.DeliveryNeighbours, new { @class = "control-label col-sm-5 col-xs-12" })
+                        <div class="col-xs-12 col-sm-7">
+                            <div class="checkbox">
+                                @foreach (var neighbour in Model.DeliveryNeighbours)
+                                {
+                                    <label>@Html.RadioButtonFor(m => Model.CustomerOrder.DeliverNeighbours, neighbour.Value, new { id = "DeliveryNeighbours" })</label>
+
+                                    @Html.Label(neighbour.Text, neighbour.Text, new { @for = neighbour.Value, @class = "neighbour-type", @style = "padding-right:10px; padding-left:10px;" })
+                                }
+                                @Html.ValidationMessageFor(m => Model.CustomerOrder.DeliverNeighbours, null, new { @class = "validation-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        @Html.LabelFor(m => Model.StylistContactTypes, new { @class = "control-label col-sm-5 col-xs-12" })
+                        <div class="col-xs-12 col-sm-7">
+                            @Html.DropDownListFor(m => Model.CustomerOrder.IsStylistContactYou, (List<SelectListItem>)Model.StylistContactTypes, new { @class = "form-control", @onchange = "javascript: toggleContactVisibility();" })
+
+                            @Html.ValidationMessageFor(m => Model.CustomerOrder.IsStylistContactYou, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+                    <div class="form-group" id="divContact" style="display: block">
+                        @Html.LabelFor(m => Model.ContactNumber, new { @class = "control-label col-sm-5 col-xs-12" })
+
+                        <div class="col-xs-12 col-sm-7">
+                            @Html.TextBoxFor(m => m.ContactNumber, string.Empty, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Number, @maxlength = "10", @id = "Phonenumber", onkeypress = "return validate(event)" })
+                            @Html.ValidationMessageFor(m => m.ContactNumber, null, new { @class = "validation-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-5 col-xs-12 send-Nofiy ">
+                            <label>
+                                @Html.CheckBoxFor(m => Model.PeriodicalScottyBoxSelected, htmlAttributes: new { @checked = false })
+                            </label>
+                            @Html.LabelFor(m => Model.PeriodicalScottyBox, new { @class = "control-label" })
+                            @Html.ValidationMessageFor(m => Model.PeriodicalScottyBoxSelected, null, new { @class = "validation-control" })
+
+
+                        </div>
+                        <div class="col-xs-12 col-sm-7">
+                            <div class="checkbox" id="divPeriodicalScottyBox" style="display: block;">
+
+                                @foreach (var periodicScottyBox in Model.PeriodicalScottyBox)
+                                {
+                                    var isPeriodicallOrderSelected = false;
+                                    if (!ReferenceEquals(null, ViewBag.PeriodicalScottyBoxID))
+                                    {
+                                        <input type="hidden" id="periodic_radio" name="periodic_radio" value="@ViewBag.PeriodicalScottyBoxID" />
+                                        var selectedPeriod = 0;
+                                        var temp = int.TryParse(periodicScottyBox.Value, out selectedPeriod);
+                                        if (ViewBag.PeriodicalScottyBoxID == selectedPeriod)
+                                        {
+                                            isPeriodicallOrderSelected = true;
+                                        }
+
+                                    }
+
+                                    if (isPeriodicallOrderSelected)
+                                    {
+                                        <label> @Html.RadioButtonFor(m => Model.CustomerOrder.PeriodicalScottyBoxID, periodicScottyBox.Value, new { id = "periodicScottyBox", @checked = "checked" })</label>
+                                    }
+                                    else
+                                    {
+                                        <label> @Html.RadioButtonFor(m => Model.CustomerOrder.PeriodicalScottyBoxID, periodicScottyBox.Value, new { id = "periodicScottyBox" })</label>
+                                    }
+
+                                    @Html.Label(periodicScottyBox.Text, periodicScottyBox.Text, new { @for = "Every" + periodicScottyBox.Value, @class = "periodic-scotty", @style = "padding-right:10px;" })
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class=" col-sm-12 text-right">
+                            <input id="CreateOrder" type="submit" value="@Resources.Scottybons.ScottybonsDataStrings.ButtonNext" class="animated fadeInUp plan-button_intro_next outline" />
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </section>
+}
+<div class="col-md-2 column"></div>
+
+<script type="text/javascript">
+    function toggleContactVisibility() {
+        if ($('#CustomerOrder_IsStylistContactYou').val() == 'true') {
+            ($("#divContact").show());
+
+        } else {
+            ($("#divContact").hide());
+        }
+    }
+
+    $(document).ready(function () {
+        //Occasion
+        //$("select option[value='1006']").attr("disabled", "disabled");
+        // $("select option[value='1007']").attr("disabled", "disabled");
+        //To show default values
+        $("input:radio[id=DeliveryNeighbours]:first").attr('checked', true);
+
+        //$("input:radio[id=periodicScottyBox]:first").attr('checked', false);
+        //$("input:checkbox[id=PeriodicalScottyBoxSelected]").attr('checked', false);
+        //$("input:radio[id=periodicScottyBox]").attr('disabled', true);
+        $('#divPeriodicalScottyBox').addClass('disabled');
+
+        $('#CustomerOrder_IsStylistContactYou').val('true');
+        if ($('input:radio[id=periodicScottyBox]:checked').length > 0) {
+            $('#divPeriodicalScottyBox').toggleClass('disabled');
+        } else {
+            $("input:checkbox[id=PeriodicalScottyBoxSelected]").attr('checked', false);
+            $("input:radio[id=periodicScottyBox]").attr('disabled', true);
+            $('#divPeriodicalScottyBox').addClass('disabled');
+        }
+        $('[type="checkbox"]').change(function () {
+            $('#divPeriodicalScottyBox').toggleClass('disabled');
+            var radiosBtns = $('#divPeriodicalScottyBox').find("input[type='radio']");
+            radiosBtns.attr('disabled', !$(this).is(':checked'));
+            if ($('input:checkbox[id=PeriodicalScottyBoxSelected]').is(':checked')) {
+                var periodic_radio = $('#periodic_radio').val();
+                if (periodic_radio == "0" || periodic_radio == "" || periodic_radio == null) {
+                    //alert("First" + periodic_radio);
+                    $("input:radio[id=periodicScottyBox]:first").prop('checked', true);
+                }
+
+                if (periodic_radio != "" || periodic_radio != null || periodic_radio > 0) {
+                    //alert("Second IF" + periodic_radio);
+                    $('input:radio[id=periodicScottyBox][value="' + periodic_radio + '"]').prop('checked', true);
+                }
+                else {
+                    //alert("Second else" + periodic_radio);
+                    $("input:radio[id=periodicScottyBox]:first").prop('checked', true);
+                }
+            }
+            if (!$('input:checkbox[id=PeriodicalScottyBoxSelected]').is(':checked')) {
+                //$("input:radio[id=periodicScottyBox]").prop('checked', false);
+                $('input:radio[id=periodicScottyBox]').removeAttr('checked');
+            }
+        });
+
+
+
+    });
+
+
+</script>

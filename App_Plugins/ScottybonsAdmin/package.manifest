@@ -1,0 +1,16 @@
+{
+     
+    "css": [
+
+        "~/App_Plugins/ScottybonsAdmin/css/AdminOrder.css",
+         "~/App_Plugins/ScottybonsAdmin/Fonts/ui-grid.min.css"
+    ],
+    "javascript": [
+     
+         "~/App_Plugins/ScottybonsAdmin/js/ui-grid.js",
+        "~/App_Plugins/ScottybonsAdmin/Backoffice/ScottybonsAdminDashboard/Controllers/OrderControllers.js"
+
+       
+
+    ]
+}

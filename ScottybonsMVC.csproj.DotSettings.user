@@ -1,0 +1,4 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeEditing/Localization/MoveToResource/LastResourceFile/@EntryValue">B46AE0C9-5357-4125-8F2F-F76F7DD6A960/d:App_GlobalResources/f:ScottybonsDataStrings.resx</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=ACCOUNT_005CFORGOTPASSWORD/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=ACCOUNT_005CFORGOTPASSWORD/@EntryIndexedValue">account\forgotpassword</s:String></wpf:ResourceDictionary>

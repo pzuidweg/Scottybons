@@ -1,0 +1,2345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ScottybonsEComModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AnswerTypeofControl">
+    <Key>
+      <PropertyRef Name="ControlID" />
+    </Key>
+    <Property Name="ControlID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ControlName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleID" />
+    </Key>
+    <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="GenerID" Type="int" />
+    <Property Name="SubCategoryID" Type="int" />
+    <Property Name="SubCategoryPropertyID" Type="int" />
+    <Property Name="BrandID" Type="int" />
+    <Property Name="ArticleName" Type="int" Nullable="false" />
+    <Property Name="ArticleDescription" Type="int" Nullable="false" />
+    <Property Name="SizeConsistencey" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticleColor">
+    <Key>
+      <PropertyRef Name="ArticleColorID" />
+    </Key>
+    <Property Name="ArticleColorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleID" Type="int" />
+    <Property Name="ColorSubCategoryID" Type="int" />
+    <Property Name="ColorpalletID" Type="int" />
+    <Property Name="WearMomentID" Type="int" />
+    <Property Name="MoodID" Type="int" />
+    <Property Name="StyleID" Type="int" />
+    <Property Name="ExtravaganceID" Type="int" />
+    <Property Name="SexynessID" Type="int" />
+    <Property Name="GenderID" Type="int" />
+    <Property Name="SeasonID" Type="int" />
+    <Property Name="ArticleColorDescription" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticlePhotos">
+    <Key>
+      <PropertyRef Name="ArticlePhotoID" />
+    </Key>
+    <Property Name="ArticlePhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleColorID" Type="int" />
+    <Property Name="Photo" Type="image" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticleSKU">
+    <Key>
+      <PropertyRef Name="ArticleSKUID" />
+    </Key>
+    <Property Name="ArticleSKUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleID" Type="int" />
+    <Property Name="ArticleColorID" Type="int" />
+    <Property Name="SizeID" Type="int" />
+    <Property Name="CostPrice" Type="money" Nullable="false" />
+    <Property Name="Margin" Type="money" Nullable="false" />
+    <Property Name="CurrentRRP" Type="money" Nullable="false" />
+    <Property Name="OriginalRRP" Type="money" Nullable="false" />
+    <Property Name="Stock" Type="image" Nullable="false" />
+    <Property Name="NumberReceived" Type="int" Nullable="false" />
+    <Property Name="NumberCustSent" Type="int" Nullable="false" />
+    <Property Name="NumberCustReturns" Type="int" Nullable="false" />
+    <Property Name="NumberReturned" Type="int" Nullable="false" />
+    <Property Name="NumberPaid" Type="int" Nullable="false" />
+    <Property Name="StatusSKUID" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="BrandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrandName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BudgetMaster">
+    <Key>
+      <PropertyRef Name="BudgetID" />
+    </Key>
+    <Property Name="BudgetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BudgetName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DisplayOrder" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BudgetOptionMaster">
+    <Key>
+      <PropertyRef Name="BudgetOptionID" />
+    </Key>
+    <Property Name="BudgetOptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BudgetOptionName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DisplayOrder" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ColarTypeMaster">
+    <Key>
+      <PropertyRef Name="ColarTypeID" />
+    </Key>
+    <Property Name="ColarTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColarTypeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ColorCategoryMaster">
+    <Key>
+      <PropertyRef Name="ColorCategoryID" />
+    </Key>
+    <Property Name="ColorCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorCategoryName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ColorPalletMaster">
+    <Key>
+      <PropertyRef Name="ColorPalletID" />
+    </Key>
+    <Property Name="ColorPalletID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorPalletName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ColorSubCategoryMaster">
+    <Key>
+      <PropertyRef Name="ColorSubCategoryID" />
+    </Key>
+    <Property Name="ColorSubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorCategoryID" Type="int" Nullable="false" />
+    <Property Name="ColorSubCategoryName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComfortMaster">
+    <Key>
+      <PropertyRef Name="ComfortID" />
+    </Key>
+    <Property Name="ComfortID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComfortName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TwoLetterISOCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="TwoLetterLanguageCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="ThreeLetterISOCode" Type="nvarchar" MaxLength="3" />
+    <Property Name="NumericISOCode" Type="nvarchar" MaxLength="3" />
+    <Property Name="Published" Type="tinyint" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="ExtensionData" Type="nvarchar(max)" />
+    <Property Name="VATPercentage1" Type="int" />
+    <Property Name="VATPercentage2" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="LanguageName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="CustomerstatusID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PrePosition" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="SaltKey" Type="int" Nullable="false" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="AlternativePhoneNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="LocaleSetting" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Active" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerAnswers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="QuestionId" Type="int" />
+    <Property Name="AnswerId" Type="int" />
+    <Property Name="Answer" Type="varchar(max)" />
+    <Property Name="QuestionControlId" Type="int" />
+    <Property Name="CustomerImage" Type="image" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="QuestionNumber" Type="int" />
+    <Property Name="ANSWERNUMBER" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherAnswer" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CustomerStatusMaster">
+    <Key>
+      <PropertyRef Name="CustomerStatusID" />
+    </Key>
+    <Property Name="CustomerStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerStatusName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerType">
+    <Key>
+      <PropertyRef Name="CustomerTypeId" />
+    </Key>
+    <Property Name="CustomerTypeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CustomerTypeForm">
+    <Key>
+      <PropertyRef Name="CustomerTypeID" />
+    </Key>
+    <Property Name="CustomerTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="CFirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CLastName" Type="nvarchar" MaxLength="1" />
+    <Property Name="CEmailAddress" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyleBohemian" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle2" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle3" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle4" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle5" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle6" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle7" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle8" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle9" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreStyle10" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScorePants" Type="nvarchar" MaxLength="1" />
+    <Property Name="CommentScorepants" Type="nvarchar" MaxLength="1" />
+    <Property Name="ScoreExperiment" Type="nvarchar" MaxLength="1" />
+    <Property Name="Sector" Type="nvarchar" MaxLength="1" />
+    <Property Name="CommentSector" Type="nvarchar" MaxLength="1" />
+    <Property Name="Function" Type="nvarchar" MaxLength="1" />
+    <Property Name="Transportation" Type="nvarchar" MaxLength="1" />
+    <Property Name="DescriptionWorkDresscode" Type="nvarchar" MaxLength="1" />
+    <Property Name="PerceivedAge" Type="nvarchar" MaxLength="1" />
+    <Property Name="CBirthdate" Type="datetime" />
+    <Property Name="FreqBusiness" Type="nvarchar" MaxLength="1" />
+    <Property Name="OrderOccasion" Type="nvarchar" MaxLength="1" />
+    <Property Name="CommentOrderOccasion" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorPreference" Type="nvarchar" MaxLength="1" />
+    <Property Name="HairColor" Type="nvarchar" MaxLength="1" />
+    <Property Name="EyeColor" Type="nvarchar" MaxLength="1" />
+    <Property Name="SkinColor" Type="nvarchar" MaxLength="1" />
+    <Property Name="Photograph" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyBlack" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyBrown" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyGreen" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyYellow" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyOrange" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyRed" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyWhite" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyPurple" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyPink" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyGray" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyOther" Type="nvarchar" MaxLength="1" />
+    <Property Name="ColorAntipathyNone" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathyWool" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathyPolyester" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathySilk" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathyViscose" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathyAcryl" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathyNylon" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathyCotton" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathyLinnen" Type="nvarchar" MaxLength="1" />
+    <Property Name="MaterialAntipathyOther" Type="nvarchar" MaxLength="1" />
+    <Property Name="Length" Type="nvarchar" MaxLength="1" />
+    <Property Name="Weight" Type="nvarchar" MaxLength="1" />
+    <Property Name="BodyShape" Type="nvarchar" MaxLength="1" />
+    <Property Name="AccentArms" Type="nvarchar" MaxLength="1" />
+    <Property Name="AccentLegs" Type="nvarchar" MaxLength="1" />
+    <Property Name="AccentBum" Type="nvarchar" MaxLength="1" />
+    <Property Name="AccentWaist" Type="nvarchar" MaxLength="1" />
+    <Property Name="AccentHoulders" Type="nvarchar" MaxLength="1" />
+    <Property Name="AccentDecollet" Type="nvarchar" MaxLength="1" />
+    <Property Name="AccentBoosom" Type="nvarchar" MaxLength="1" />
+    <Property Name="AccentNone" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageUpperarms" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageShoulders" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageNeck" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageBreasts" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageDecollete" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageBelly" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageUpperlegs" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageLowerlegs" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageBum" Type="nvarchar" MaxLength="1" />
+    <Property Name="CamouflageAnkles" Type="nvarchar" MaxLength="1" />
+    <Property Name="SizeTop" Type="nvarchar" MaxLength="1" />
+    <Property Name="CommentSizeTop" Type="nvarchar" MaxLength="1" />
+    <Property Name="SizeCup" Type="nvarchar" MaxLength="1" />
+    <Property Name="CommentSizeCup" Type="nvarchar" MaxLength="1" />
+    <Property Name="FitTop" Type="nvarchar" MaxLength="1" />
+    <Property Name="SizePants" Type="nvarchar" MaxLength="1" />
+    <Property Name="CommentSizePants" Type="nvarchar" MaxLength="1" />
+    <Property Name="FitPants" Type="nvarchar" MaxLength="1" />
+    <Property Name="HighWaistJeans" Type="nvarchar" MaxLength="1" />
+    <Property Name="AverageWaistJeans" Type="nvarchar" MaxLength="1" />
+    <Property Name="LowWaistJeans" Type="nvarchar" MaxLength="1" />
+    <Property Name="SizeShoes" Type="nvarchar" MaxLength="1" />
+    <Property Name="NoHeel" Type="nvarchar" MaxLength="1" />
+    <Property Name="LowHeel" Type="nvarchar" MaxLength="1" />
+    <Property Name="AverageHeel" Type="nvarchar" MaxLength="1" />
+    <Property Name="HighHeel" Type="nvarchar" MaxLength="1" />
+    <Property Name="BudgetBottom" Type="nvarchar" MaxLength="1" />
+    <Property Name="BudgetPumps" Type="nvarchar" MaxLength="1" />
+    <Property Name="BudgetSneakers" Type="nvarchar" MaxLength="1" />
+    <Property Name="BudgetBag" Type="nvarchar" MaxLength="1" />
+    <Property Name="BudgetOutfit" Type="nvarchar" MaxLength="1" />
+    <Property Name="BudgetMonth" Type="nvarchar" MaxLength="1" />
+    <Property Name="ArticleNOTTops" Type="nvarchar" MaxLength="1" />
+    <Property Name="ArticleNOTPants" Type="nvarchar" MaxLength="1" />
+    <Property Name="ArticleNOTSkirt" Type="nvarchar" MaxLength="1" />
+    <Property Name="ArticleNOTDresses" Type="nvarchar" MaxLength="1" />
+    <Property Name="ArticleNOTBlazers" Type="nvarchar" MaxLength="1" />
+    <Property Name="ArticleNOTAccesories" Type="nvarchar" MaxLength="1" />
+    <Property Name="ArticleNOTShoes" Type="nvarchar" MaxLength="1" />
+    <Property Name="ArticleNOTOther" Type="nvarchar" MaxLength="1" />
+    <Property Name="Wishlist" Type="nvarchar" MaxLength="1" />
+    <Property Name="CStreet" Type="nvarchar" MaxLength="1" />
+    <Property Name="CNumber" Type="int" />
+    <Property Name="CPostalcode" Type="int" />
+    <Property Name="CTown" Type="nvarchar" MaxLength="1" />
+    <Property Name="PermissionToCall" Type="nvarchar" MaxLength="1" />
+    <Property Name="CPhoneNumber1" Type="int" />
+    <Property Name="DateStarted" Type="datetime" />
+    <Property Name="DateJoined" Type="datetime" />
+    <Property Name="NetworkID" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailContent">
+    <Key>
+      <PropertyRef Name="EmailContentID" />
+    </Key>
+    <Property Name="EmailContentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailContentLang" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="EmailType" Type="int" Nullable="false" />
+    <Property Name="EmailTypeDescription" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Intro" Type="ntext" Nullable="false" />
+    <Property Name="BodyMiddle" Type="ntext" />
+    <Property Name="Closing" Type="ntext" />
+    <Property Name="EndNote" Type="ntext" />
+    <Property Name="EmailHTMLFormat" Type="ntext" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ErrorDate" Type="datetime" Nullable="false" />
+    <Property Name="Source" Type="nvarchar" MaxLength="200" />
+    <Property Name="ErrorMessage" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExtravaganceMaster">
+    <Key>
+      <PropertyRef Name="ExtravaganceID" />
+    </Key>
+    <Property Name="ExtravaganceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExtravaganceName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FigureMaster">
+    <Key>
+      <PropertyRef Name="FigureID" />
+    </Key>
+    <Property Name="FigureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FigureName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FitMaster">
+    <Key>
+      <PropertyRef Name="FitID" />
+    </Key>
+    <Property Name="FitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FitName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FootWidthMaster">
+    <Key>
+      <PropertyRef Name="FootWidthID" />
+    </Key>
+    <Property Name="FootWidthID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FootWidthName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ForgotPassword">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="ResetGuid" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenderMaster">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenderName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GiftCardOrderByType">
+    <Key>
+      <PropertyRef Name="GiftCardOrderByTypeId" />
+    </Key>
+    <Property Name="GiftCardOrderByTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GiftCardOrderById" Type="int" />
+    <Property Name="GiftCardOrderByType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GiftCardRedemption">
+    <Key>
+      <PropertyRef Name="GiftCardRedemptionId" />
+    </Key>
+    <Property Name="GiftCardRedemptionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNumber" Type="varchar" MaxLength="50" />
+    <Property Name="GiftCardCode" Type="varchar" MaxLength="50" />
+    <Property Name="AmounOfRedemption" Type="float" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="RedemptionDateTime" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="StatusText" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GiftCardRedemptionStatus">
+    <Key>
+      <PropertyRef Name="GiftCardRedemptionStatusId" />
+    </Key>
+    <Property Name="GiftCardRedemptionStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GiftCardRedemptionStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GiftCards">
+    <Key>
+      <PropertyRef Name="GiftCardId" />
+    </Key>
+    <Property Name="GiftCardId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GiftCardCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="GiftCardValue" Type="float" Nullable="false" />
+    <Property Name="CurrentGiftCardValue" Type="float" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="PersonalMessage" Type="varchar(max)" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GIftCardsOrder">
+    <Key>
+      <PropertyRef Name="GiftCardOrderId" />
+    </Key>
+    <Property Name="GiftCardOrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerType" Type="bigint" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="500" />
+    <Property Name="OrderNumber" Type="varchar" MaxLength="50" />
+    <Property Name="OrderTotal" Type="float" />
+    <Property Name="PayerFirstName" Type="varchar" MaxLength="500" />
+    <Property Name="PayerLastName" Type="varchar" MaxLength="500" />
+    <Property Name="ShipmentFirstName" Type="varchar" MaxLength="500" />
+    <Property Name="ShipmentLastName" Type="varchar" MaxLength="500" />
+    <Property Name="StreetName" Type="varchar(max)" />
+    <Property Name="HouseNumber" Type="varchar(max)" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="Town" Type="varchar" MaxLength="500" />
+    <Property Name="Country" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="PaymentId" Type="varchar" MaxLength="50" />
+    <Property Name="TransactionId" Type="varchar" MaxLength="50" />
+    <Property Name="IssuerType" Type="varchar" MaxLength="50" />
+    <Property Name="VendorId" Type="int" />
+    <Property Name="OrderBy" Type="int" />
+    <Property Name="RandomOrderSuffixer" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GiftCardStatus">
+    <Key>
+      <PropertyRef Name="GiftCardOrderStatusId" />
+    </Key>
+    <Property Name="GiftCardOrderStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GiftCardOrderStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HeelHeightMaster">
+    <Key>
+      <PropertyRef Name="HeelHeightID" />
+    </Key>
+    <Property Name="HeelHeightID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HeelHeightName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="ModifiedUserID" />
+    </Key>
+    <Property Name="ModifiedUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModifiedDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="100" />
+    <Property Name="RecordId" Type="nvarchar" MaxLength="100" />
+    <Property Name="OldValue" Type="datetime" />
+    <Property Name="NewValue" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Language" Type="varchar" MaxLength="50" />
+    <Property Name="LanguageAbbre" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="MaterialMaster">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+    </Key>
+    <Property Name="MaterialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaterialName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MoodMaster">
+    <Key>
+      <PropertyRef Name="MoodID" />
+    </Key>
+    <Property Name="MoodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MoodName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewsletterMailList">
+    <Key>
+      <PropertyRef Name="NewsletterMailListID" />
+    </Key>
+    <Property Name="NewsletterMailListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="SubscriptionConfirmed" Type="bit" />
+    <Property Name="AddedOn" Type="datetime" />
+    <Property Name="SubscribedOn" Type="datetime" />
+    <Property Name="UnsubscribedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OccasionForScottyBoxMaster">
+    <Key>
+      <PropertyRef Name="OccasionForScottyBoxID" />
+    </Key>
+    <Property Name="OccasionForScottyBoxID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OccasionForScottyBoxName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="Language" Type="nvarchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="OrderIcePayTransactions">
+    <Key>
+      <PropertyRef Name="OrderTransactionID" />
+    </Key>
+    <Property Name="OrderTransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentID" Type="int" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Duration" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerAccountNumber" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerHouseNumber" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerCity" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerCountry" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerEmail" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerPhoneNumber" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConsumerIPAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="Issuer" Type="nvarchar" MaxLength="500" />
+    <Property Name="OrderID" Type="nvarchar" MaxLength="500" />
+    <Property Name="OrderTime" Type="nvarchar" MaxLength="500" />
+    <Property Name="PaymentMethod" Type="nvarchar" MaxLength="500" />
+    <Property Name="PaymentTime" Type="nvarchar" MaxLength="500" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="nvarchar" MaxLength="500" />
+    <Property Name="StatusCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="TestMode" Type="nvarchar" MaxLength="500" />
+    <Property Name="Message" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="OrderItemReviewGeneralMaster">
+    <Key>
+      <PropertyRef Name="OrderItemReviewGeneralID" />
+    </Key>
+    <Property Name="OrderItemReviewGeneralID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderItemReviewGeneral" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItemReviewPriceMaster">
+    <Key>
+      <PropertyRef Name="OrderItemReviewPriceID" />
+    </Key>
+    <Property Name="OrderItemReviewPriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderItemReviewPriceName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItemReviewSizeMaster">
+    <Key>
+      <PropertyRef Name="OrderItemReviewSizeID" />
+    </Key>
+    <Property Name="OrderItemReviewSizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderItemReviewSizeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItemReviewStyleMaster">
+    <Key>
+      <PropertyRef Name="OrderItemReviewStyleID" />
+    </Key>
+    <Property Name="OrderItemReviewStyleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderItemReviewStyleName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="2" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItems">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="SKUID" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Quantity" Type="smallint" Nullable="false" />
+    <Property Name="Discount" Type="money" Nullable="false" />
+    <Property Name="Total" Type="money" Nullable="false" />
+    <Property Name="Fulfilled" Type="bit" Nullable="false" />
+    <Property Name="OrderItemStatusID" Type="int" Nullable="false" />
+    <Property Name="SalesTax" Type="int" Nullable="false" />
+    <Property Name="VAT" Type="int" Nullable="false" />
+    <Property Name="VAT1" Type="int" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="1" />
+    <Property Name="StylistID" Type="int" />
+    <Property Name="OrderCommentStylist" Type="nvarchar" MaxLength="1" />
+    <Property Name="OrderStyleAdvice" Type="nvarchar" MaxLength="1" />
+    <Property Name="NumberOfArticles" Type="int" />
+    <Property Name="ReviewOverallInformation" Type="nvarchar" MaxLength="1" />
+    <Property Name="OrderItemReviewStyleID" Type="int" />
+    <Property Name="OrderItemReviewSizeID" Type="int" />
+    <Property Name="OrderItemReviewPriceID" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItemStatusMaster">
+    <Key>
+      <PropertyRef Name="OrderItemStatusID" />
+    </Key>
+    <Property Name="OrderItemStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderItemStatusName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderPeriodicSubscriptionDetail">
+    <Key>
+      <PropertyRef Name="OrderPeriodicSubscriptionID" />
+    </Key>
+    <Property Name="OrderPeriodicSubscriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="PeriodicalScottyBoxID" Type="int" />
+    <Property Name="NewPeriodicalScottyBoxID" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ChangedByAdmin" Type="bit" Nullable="false" />
+    <Property Name="AdminId" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="OrderOccasion" Type="int" />
+    <Property Name="OccasionComments" Type="nvarchar" MaxLength="250" />
+    <Property Name="WishList" Type="nvarchar" MaxLength="250" />
+    <Property Name="DateOrder" Type="datetime" Nullable="false" />
+    <Property Name="RequiredDate" Type="datetime" Nullable="false" />
+    <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+    <Property Name="AgreeGeneralConditions" Type="bit" />
+    <Property Name="OrderStreet" Type="nvarchar(max)" />
+    <Property Name="OrderHouseNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderPostalCode" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderTown" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderCountryID" Type="int" />
+    <Property Name="OrderComments" Type="nvarchar" MaxLength="250" />
+    <Property Name="DeliverNeighbours" Type="bit" />
+    <Property Name="OrderStatusID" Type="int" />
+    <Property Name="PaymentDate" Type="datetime" Nullable="false" />
+    <Property Name="IsStylistContactYou" Type="bit" />
+    <Property Name="ContactNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="OrderCommentStylist" Type="nvarchar(max)" />
+    <Property Name="OrderStyleAdvice" Type="nvarchar" MaxLength="250" />
+    <Property Name="NumberOfArticles" Type="int" Nullable="false" />
+    <Property Name="ReviewOverall" Type="nvarchar" MaxLength="250" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="PeriodicalScottyBoxID" Type="int" Nullable="false" />
+    <Property Name="NextPerodicalScottyBoxDate" Type="datetime" />
+    <Property Name="ParentOrderID" Type="int" />
+    <Property Name="PermissionToCollectFutureInvoices" Type="bit" />
+    <Property Name="OrderComanyName" Type="nvarchar" MaxLength="500" />
+    <Property Name="PromoCodeOrderId" Type="int" />
+    <Property Name="PromoCode" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="OrderShipping">
+    <Key>
+      <PropertyRef Name="OrderShippingID" />
+    </Key>
+    <Property Name="OrderShippingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="ShipDate" Type="datetime" Nullable="false" />
+    <Property Name="ShipperID" Type="int" Nullable="false" />
+    <Property Name="Freight" Type="money" />
+    <Property Name="Octroi" Type="money" />
+    <Property Name="ShippingNotes" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderStatusMaster">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderStatusName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="2" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderTransactions">
+    <Key>
+      <PropertyRef Name="OrderTransactionID" />
+    </Key>
+    <Property Name="OrderTransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="TransactStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="ErrLoc" Type="nvarchar" MaxLength="50" />
+    <Property Name="ErrMsg" Type="nvarchar" MaxLength="250" />
+    <Property Name="Fulfilled" Type="bit" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="2000" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PantsLengthMaster">
+    <Key>
+      <PropertyRef Name="PantsLengthID" />
+    </Key>
+    <Property Name="PantsLengthID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PantsLengthName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PantsModelMaster">
+    <Key>
+      <PropertyRef Name="PantsModelID" />
+    </Key>
+    <Property Name="PantsModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PantsModelName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PantsWaistMaster">
+    <Key>
+      <PropertyRef Name="PantsWaistID" />
+    </Key>
+    <Property Name="PantsWaistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PantsWaistName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PasswordLog">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+    <Property Name="OldPassword" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SaltKey" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentTypeMaster">
+    <Key>
+      <PropertyRef Name="PaymentTypeID" />
+    </Key>
+    <Property Name="PaymentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentTypeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PeriodicalScottyBoxMaster">
+    <Key>
+      <PropertyRef Name="PeriodicalScottyBoxID" />
+    </Key>
+    <Property Name="PeriodicalScottyBoxID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PeriodicalScottyBox" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="PerodicalMonths" Type="int" />
+    <Property Name="Language" Type="nvarchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="PromoCodeOrder">
+    <Key>
+      <PropertyRef Name="PromoCodeOrderId" />
+    </Key>
+    <Property Name="PromoCodeOrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PromoCode" Type="varchar(max)" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="PromoCodeValue" Type="float" />
+    <Property Name="IsPercentage" Type="bit" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="SeasonMaster">
+    <Key>
+      <PropertyRef Name="SeasonID" />
+    </Key>
+    <Property Name="SeasonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeasonName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SexynessMaster">
+    <Key>
+      <PropertyRef Name="SexynessID" />
+    </Key>
+    <Property Name="SexynessID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SexynessName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShoeMaterialMaster">
+    <Key>
+      <PropertyRef Name="ShoeMaterialID" />
+    </Key>
+    <Property Name="ShoeMaterialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShoeMaterialName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SizeConsistencyMaster">
+    <Key>
+      <PropertyRef Name="SizeConsistencyID" />
+    </Key>
+    <Property Name="SizeConsistencyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SizeConsistencyName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SizeMaster">
+    <Key>
+      <PropertyRef Name="SizeID" />
+    </Key>
+    <Property Name="SizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="SubCategoryID" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="AdditionalSize" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SkirtLengthMaster">
+    <Key>
+      <PropertyRef Name="SkirtLengthID" />
+    </Key>
+    <Property Name="SkirtLengthID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkirtLengthName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SkirtWidthMaster">
+    <Key>
+      <PropertyRef Name="SkirtWidthID" />
+    </Key>
+    <Property Name="SkirtWidthID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkirtWidthName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SKUStatusMaster">
+    <Key>
+      <PropertyRef Name="SKUStatusID" />
+    </Key>
+    <Property Name="SKUStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SKUStatusName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SleeveLengthMaster">
+    <Key>
+      <PropertyRef Name="SleeveLengthID" />
+    </Key>
+    <Property Name="SleeveLengthID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SleeveLengthName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StyleMaster">
+    <Key>
+      <PropertyRef Name="StyleID" />
+    </Key>
+    <Property Name="StyleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StyleName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StyleProfileAnswer">
+    <Key>
+      <PropertyRef Name="AnswerID" />
+    </Key>
+    <Property Name="AnswerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionID" Type="int" />
+    <Property Name="Answer" Type="varchar" MaxLength="500" />
+    <Property Name="DependentQuestion" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="AnswerDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="AnswerImagePath" Type="nvarchar" MaxLength="2000" />
+    <Property Name="FLAG" Type="char" MaxLength="1" />
+    <Property Name="QuestionNumber" Type="char" MaxLength="4" />
+    <Property Name="AnswerNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StyleProfileQuestions">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="ntext" />
+    <Property Name="AnswerControlID" Type="int" />
+    <Property Name="QuestionDescription" Type="ntext" />
+    <Property Name="isRequired" Type="bit" />
+    <Property Name="ValidationMessage" Type="ntext" />
+    <Property Name="IsImageTobeShown" Type="bit" />
+    <Property Name="isDependent" Type="bit" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="IsActive" Type="smallint" />
+    <Property Name="Language" Type="nvarchar" MaxLength="2" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="QuestionNumber" Type="int" />
+    <Property Name="AdminDescription" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Stylist">
+    <Key>
+      <PropertyRef Name="StylistID" />
+    </Key>
+    <Property Name="StylistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PrePosition" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="25" />
+    <Property Name="Active" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StylistToolTransaction">
+    <Key>
+      <PropertyRef Name="StylistToolTransactionID" />
+    </Key>
+    <Property Name="StylistToolTransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ModuleRecordID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TransactionMode" Type="int" Nullable="false" />
+    <Property Name="StylistID" Type="int" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="OrderStatusID" Type="int" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubCategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubCategoryProperties">
+    <Key>
+      <PropertyRef Name="SubCategoryPropertyID" />
+    </Key>
+    <Property Name="SubCategoryPropertyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubCategoryName" Type="int" Nullable="false" />
+    <Property Name="SubCategoryID" Type="int" />
+    <Property Name="MaterialID" Type="int" />
+    <Property Name="FitID" Type="int" />
+    <Property Name="ComfortID" Type="int" />
+    <Property Name="FigureID" Type="int" />
+    <Property Name="PantsWaistID" Type="int" />
+    <Property Name="PantsModelID" Type="int" />
+    <Property Name="PantsLengthID" Type="int" />
+    <Property Name="SkirtWidthID" Type="int" />
+    <Property Name="SkirtLengthID" Type="int" />
+    <Property Name="SleeveLengthID" Type="int" />
+    <Property Name="WaistFitID" Type="int" />
+    <Property Name="ColarTypeID" Type="int" />
+    <Property Name="FootWidthID" Type="int" />
+    <Property Name="ShoeMaterialID" Type="int" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PortalURL" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="PortalUserName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="PortalPassword" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="RecordNames" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="PaymentMethods" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="MarkUp" Type="int" Nullable="false" />
+    <Property Name="PaymentTerm" Type="int" Nullable="false" />
+    <Property Name="ReturnRight" Type="bit" Nullable="false" />
+    <Property Name="CostPerOrder" Type="money" Nullable="false" />
+    <Property Name="CostPerReturn" Type="money" Nullable="false" />
+    <Property Name="Credit" Type="money" Nullable="false" />
+    <Property Name="Other" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DiscountType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="ScottybonsCustomerID" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplierContact">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierContactTypeID" Type="int" Nullable="false" />
+    <Property Name="SupplierContactTypeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CPEmailAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CPFirstName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CPLastName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CPPreposition" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CPFunction" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CPStreet" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CPHouseNumber" Type="money" Nullable="false" />
+    <Property Name="CPPostalCode" Type="money" Nullable="false" />
+    <Property Name="CPTown" Type="money" Nullable="false" />
+    <Property Name="CPCountry" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CPLanguage" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CPPhoneNumber1" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="CPPhoneNumber2" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplierContactTypeMaster">
+    <Key>
+      <PropertyRef Name="SupplierContactTypeID" />
+    </Key>
+    <Property Name="SupplierContactTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierContactTypeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WaistFitMaster">
+    <Key>
+      <PropertyRef Name="WaistFitID" />
+    </Key>
+    <Property Name="WaistFitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WaistFitName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WearMomentMaster">
+    <Key>
+      <PropertyRef Name="WearMomentID" />
+    </Key>
+    <Property Name="WearMomentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WearMomentName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Article_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_GenerMaster">
+    <End Role="GenderMaster" Type="Self.GenderMaster" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderMaster">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="GenerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_SubCategoryProperty">
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategoryProperties">
+        <PropertyRef Name="SubCategoryPropertyID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="SubCategoryPropertyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Article_Suppliery">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_Article">
+    <End Role="Article" Type="Self.Article" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="ArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_ColorpalletMaster">
+    <End Role="ColorPalletMaster" Type="Self.ColorPalletMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColorPalletMaster">
+        <PropertyRef Name="ColorPalletID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="ColorpalletID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_ColorSubCategory">
+    <End Role="ColorSubCategoryMaster" Type="Self.ColorSubCategoryMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColorSubCategoryMaster">
+        <PropertyRef Name="ColorSubCategoryID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="ColorSubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_ExtravaganceMaster">
+    <End Role="ExtravaganceMaster" Type="Self.ExtravaganceMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExtravaganceMaster">
+        <PropertyRef Name="ExtravaganceID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="ExtravaganceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_GendereMaster">
+    <End Role="GenderMaster" Type="Self.GenderMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderMaster">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_MoodMaster">
+    <End Role="MoodMaster" Type="Self.MoodMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MoodMaster">
+        <PropertyRef Name="MoodID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="MoodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_SeasonMaster">
+    <End Role="SeasonMaster" Type="Self.SeasonMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SeasonMaster">
+        <PropertyRef Name="SeasonID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="SeasonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_SexynessMaster">
+    <End Role="SexynessMaster" Type="Self.SexynessMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SexynessMaster">
+        <PropertyRef Name="SexynessID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="SexynessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_StyleMaster">
+    <End Role="StyleMaster" Type="Self.StyleMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StyleMaster">
+        <PropertyRef Name="StyleID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="StyleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleColor_WearMomentMaster">
+    <End Role="WearMomentMaster" Type="Self.WearMomentMaster" Multiplicity="0..1" />
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WearMomentMaster">
+        <PropertyRef Name="WearMomentID" />
+      </Principal>
+      <Dependent Role="ArticleColor">
+        <PropertyRef Name="WearMomentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticlePhotos_ArticleColor">
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="0..1" />
+    <End Role="ArticlePhotos" Type="Self.ArticlePhotos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArticleColor">
+        <PropertyRef Name="ArticleColorID" />
+      </Principal>
+      <Dependent Role="ArticlePhotos">
+        <PropertyRef Name="ArticleColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleSKU_Article">
+    <End Role="Article" Type="Self.Article" Multiplicity="0..1" />
+    <End Role="ArticleSKU" Type="Self.ArticleSKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleID" />
+      </Principal>
+      <Dependent Role="ArticleSKU">
+        <PropertyRef Name="ArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleSKU_ArticleColor">
+    <End Role="ArticleColor" Type="Self.ArticleColor" Multiplicity="0..1" />
+    <End Role="ArticleSKU" Type="Self.ArticleSKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArticleColor">
+        <PropertyRef Name="ArticleColorID" />
+      </Principal>
+      <Dependent Role="ArticleSKU">
+        <PropertyRef Name="ArticleColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleSKU_Size">
+    <End Role="SizeMaster" Type="Self.SizeMaster" Multiplicity="0..1" />
+    <End Role="ArticleSKU" Type="Self.ArticleSKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SizeMaster">
+        <PropertyRef Name="SizeID" />
+      </Principal>
+      <Dependent Role="ArticleSKU">
+        <PropertyRef Name="SizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticleSKU_StatusSKU">
+    <End Role="SKUStatusMaster" Type="Self.SKUStatusMaster" Multiplicity="0..1" />
+    <End Role="ArticleSKU" Type="Self.ArticleSKU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SKUStatusMaster">
+        <PropertyRef Name="SKUStatusID" />
+      </Principal>
+      <Dependent Role="ArticleSKU">
+        <PropertyRef Name="StatusSKUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ForgotPassword_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="ForgotPassword" Type="Self.ForgotPassword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="ForgotPassword">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_OrderItemReviewPriceMaster">
+    <End Role="OrderItemReviewPriceMaster" Type="Self.OrderItemReviewPriceMaster" Multiplicity="0..1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemReviewPriceMaster">
+        <PropertyRef Name="OrderItemReviewPriceID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="OrderItemReviewPriceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_OrderItemReviewSizeMaster">
+    <End Role="OrderItemReviewSizeMaster" Type="Self.OrderItemReviewSizeMaster" Multiplicity="0..1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemReviewSizeMaster">
+        <PropertyRef Name="OrderItemReviewSizeID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="OrderItemReviewSizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_OrderItemReviewStyleMaster">
+    <End Role="OrderItemReviewStyleMaster" Type="Self.OrderItemReviewStyleMaster" Multiplicity="0..1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemReviewStyleMaster">
+        <PropertyRef Name="OrderItemReviewStyleID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="OrderItemReviewStyleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_OrderItemStatusMaster">
+    <End Role="OrderItemStatusMaster" Type="Self.OrderItemStatusMaster" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItemStatusMaster">
+        <PropertyRef Name="OrderItemStatusID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="OrderItemStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_Stylist">
+    <End Role="Stylist" Type="Self.Stylist" Multiplicity="0..1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stylist">
+        <PropertyRef Name="StylistID" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="StylistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_OccasionForScottyBoxMaster">
+    <End Role="OccasionForScottyBoxMaster" Type="Self.OccasionForScottyBoxMaster" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OccasionForScottyBoxMaster">
+        <PropertyRef Name="OccasionForScottyBoxID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderOccasion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_OrderCountry">
+    <End Role="CountryMaster" Type="Self.CountryMaster" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryMaster">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderCountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_OrderStatusMaster">
+    <End Role="OrderStatusMaster" Type="Self.OrderStatusMaster" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatusMaster">
+        <PropertyRef Name="OrderStatusID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_PaymentTypeMaster">
+    <End Role="PaymentTypeMaster" Type="Self.PaymentTypeMaster" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentTypeMaster">
+        <PropertyRef Name="PaymentTypeID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="PaymentMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderShipping_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="OrderShipping" Type="Self.OrderShipping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="OrderShipping">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderTransactions_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="OrderTransactions" Type="Self.OrderTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="OrderTransactions">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PasswordLog_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="PasswordLog" Type="Self.PasswordLog" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="PasswordLog">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SizeMaster_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="SizeMaster" Type="Self.SizeMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SizeMaster">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SizeMaster_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="SizeMaster" Type="Self.SizeMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="SizeMaster">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StylistToolTransaction_OrderStatusMaster">
+    <End Role="OrderStatusMaster" Type="Self.OrderStatusMaster" Multiplicity="0..1" />
+    <End Role="StylistToolTransaction" Type="Self.StylistToolTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatusMaster">
+        <PropertyRef Name="OrderStatusID" />
+      </Principal>
+      <Dependent Role="StylistToolTransaction">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StylistToolTransaction_Stylist">
+    <End Role="Stylist" Type="Self.Stylist" Multiplicity="0..1" />
+    <End Role="StylistToolTransaction" Type="Self.StylistToolTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stylist">
+        <PropertyRef Name="StylistID" />
+      </Principal>
+      <Dependent Role="StylistToolTransaction">
+        <PropertyRef Name="StylistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_ColorTypeMaster">
+    <End Role="ColarTypeMaster" Type="Self.ColarTypeMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColarTypeMaster">
+        <PropertyRef Name="ColarTypeID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="ColarTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_ComfortMaster">
+    <End Role="ComfortMaster" Type="Self.ComfortMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComfortMaster">
+        <PropertyRef Name="ComfortID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="ComfortID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_FigureMaster">
+    <End Role="FigureMaster" Type="Self.FigureMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FigureMaster">
+        <PropertyRef Name="FigureID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="FigureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_FitMaster">
+    <End Role="FitMaster" Type="Self.FitMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FitMaster">
+        <PropertyRef Name="FitID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="FitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_FootWidthMaster">
+    <End Role="FootWidthMaster" Type="Self.FootWidthMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FootWidthMaster">
+        <PropertyRef Name="FootWidthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="FootWidthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_MaterialMaster">
+    <End Role="MaterialMaster" Type="Self.MaterialMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialMaster">
+        <PropertyRef Name="MaterialID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="MaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_PantsLengthMaster">
+    <End Role="PantsLengthMaster" Type="Self.PantsLengthMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PantsLengthMaster">
+        <PropertyRef Name="PantsLengthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="PantsLengthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_PantsModelMaster">
+    <End Role="PantsModelMaster" Type="Self.PantsModelMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PantsModelMaster">
+        <PropertyRef Name="PantsModelID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="PantsModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_PantsWaistMaster">
+    <End Role="PantsWaistMaster" Type="Self.PantsWaistMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PantsWaistMaster">
+        <PropertyRef Name="PantsWaistID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="PantsWaistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_ShoeMaterialMaster">
+    <End Role="ShoeMaterialMaster" Type="Self.ShoeMaterialMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShoeMaterialMaster">
+        <PropertyRef Name="ShoeMaterialID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="ShoeMaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_SkirtLengthMaster">
+    <End Role="SkirtLengthMaster" Type="Self.SkirtLengthMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkirtLengthMaster">
+        <PropertyRef Name="SkirtLengthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="SkirtLengthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_SkirtWidthMaster">
+    <End Role="SkirtWidthMaster" Type="Self.SkirtWidthMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkirtWidthMaster">
+        <PropertyRef Name="SkirtWidthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="SkirtWidthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_SleeveLengthMaster">
+    <End Role="SleeveLengthMaster" Type="Self.SleeveLengthMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SleeveLengthMaster">
+        <PropertyRef Name="SleeveLengthID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="SleeveLengthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="SubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryProperties_WaistFitMaster">
+    <End Role="WaistFitMaster" Type="Self.WaistFitMaster" Multiplicity="0..1" />
+    <End Role="SubCategoryProperties" Type="Self.SubCategoryProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WaistFitMaster">
+        <PropertyRef Name="WaistFitID" />
+      </Principal>
+      <Dependent Role="SubCategoryProperties">
+        <PropertyRef Name="WaistFitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetCustomerDetailsByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="IsCustomerAnsweredAllRequiredQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Language" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_PerodicalScottyBox" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ScottybonsEComModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnswerTypeofControl" EntityType="Self.AnswerTypeofControl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleColor" EntityType="Self.ArticleColor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticlePhotos" EntityType="Self.ArticlePhotos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleSKU" EntityType="Self.ArticleSKU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BudgetMaster" EntityType="Self.BudgetMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BudgetOptionMaster" EntityType="Self.BudgetOptionMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ColarTypeMaster" EntityType="Self.ColarTypeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ColorCategoryMaster" EntityType="Self.ColorCategoryMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ColorPalletMaster" EntityType="Self.ColorPalletMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ColorSubCategoryMaster" EntityType="Self.ColorSubCategoryMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComfortMaster" EntityType="Self.ComfortMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerAnswers" EntityType="Self.CustomerAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerStatusMaster" EntityType="Self.CustomerStatusMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerType" EntityType="Self.CustomerType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerTypeForm" EntityType="Self.CustomerTypeForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailContent" EntityType="Self.EmailContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExtravaganceMaster" EntityType="Self.ExtravaganceMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FigureMaster" EntityType="Self.FigureMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FitMaster" EntityType="Self.FitMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FootWidthMaster" EntityType="Self.FootWidthMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ForgotPassword" EntityType="Self.ForgotPassword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenderMaster" EntityType="Self.GenderMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiftCardOrderByType" EntityType="Self.GiftCardOrderByType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiftCardRedemption" EntityType="Self.GiftCardRedemption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiftCardRedemptionStatus" EntityType="Self.GiftCardRedemptionStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiftCards" EntityType="Self.GiftCards" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIftCardsOrder" EntityType="Self.GIftCardsOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiftCardStatus" EntityType="Self.GiftCardStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HeelHeightMaster" EntityType="Self.HeelHeightMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialMaster" EntityType="Self.MaterialMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MoodMaster" EntityType="Self.MoodMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsletterMailList" EntityType="Self.NewsletterMailList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OccasionForScottyBoxMaster" EntityType="Self.OccasionForScottyBoxMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderIcePayTransactions" EntityType="Self.OrderIcePayTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItemReviewGeneralMaster" EntityType="Self.OrderItemReviewGeneralMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItemReviewPriceMaster" EntityType="Self.OrderItemReviewPriceMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItemReviewSizeMaster" EntityType="Self.OrderItemReviewSizeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItemReviewStyleMaster" EntityType="Self.OrderItemReviewStyleMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItemStatusMaster" EntityType="Self.OrderItemStatusMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderPeriodicSubscriptionDetail" EntityType="Self.OrderPeriodicSubscriptionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderShipping" EntityType="Self.OrderShipping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatusMaster" EntityType="Self.OrderStatusMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderTransactions" EntityType="Self.OrderTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PantsLengthMaster" EntityType="Self.PantsLengthMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PantsModelMaster" EntityType="Self.PantsModelMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PantsWaistMaster" EntityType="Self.PantsWaistMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PasswordLog" EntityType="Self.PasswordLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentTypeMaster" EntityType="Self.PaymentTypeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PeriodicalScottyBoxMaster" EntityType="Self.PeriodicalScottyBoxMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PromoCodeOrder" EntityType="Self.PromoCodeOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SeasonMaster" EntityType="Self.SeasonMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SexynessMaster" EntityType="Self.SexynessMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShoeMaterialMaster" EntityType="Self.ShoeMaterialMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SizeConsistencyMaster" EntityType="Self.SizeConsistencyMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SizeMaster" EntityType="Self.SizeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkirtLengthMaster" EntityType="Self.SkirtLengthMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkirtWidthMaster" EntityType="Self.SkirtWidthMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SKUStatusMaster" EntityType="Self.SKUStatusMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SleeveLengthMaster" EntityType="Self.SleeveLengthMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StyleMaster" EntityType="Self.StyleMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StyleProfileAnswer" EntityType="Self.StyleProfileAnswer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StyleProfileQuestions" EntityType="Self.StyleProfileQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stylist" EntityType="Self.Stylist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StylistToolTransaction" EntityType="Self.StylistToolTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategoryProperties" EntityType="Self.SubCategoryProperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplierContact" EntityType="Self.SupplierContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplierContactTypeMaster" EntityType="Self.SupplierContactTypeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WaistFitMaster" EntityType="Self.WaistFitMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WearMomentMaster" EntityType="Self.WearMomentMaster" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Article_Brand" Association="Self.FK_Article_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_Category" Association="Self.FK_Article_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_GenerMaster" Association="Self.FK_Article_GenerMaster">
+      <End Role="GenderMaster" EntitySet="GenderMaster" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_SubCategory" Association="Self.FK_Article_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_SubCategoryProperty" Association="Self.FK_Article_SubCategoryProperty">
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Article_Suppliery" Association="Self.FK_Article_Suppliery">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_Article" Association="Self.FK_ArticleColor_Article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_ColorpalletMaster" Association="Self.FK_ArticleColor_ColorpalletMaster">
+      <End Role="ColorPalletMaster" EntitySet="ColorPalletMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_ColorSubCategory" Association="Self.FK_ArticleColor_ColorSubCategory">
+      <End Role="ColorSubCategoryMaster" EntitySet="ColorSubCategoryMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_ExtravaganceMaster" Association="Self.FK_ArticleColor_ExtravaganceMaster">
+      <End Role="ExtravaganceMaster" EntitySet="ExtravaganceMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_GendereMaster" Association="Self.FK_ArticleColor_GendereMaster">
+      <End Role="GenderMaster" EntitySet="GenderMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_MoodMaster" Association="Self.FK_ArticleColor_MoodMaster">
+      <End Role="MoodMaster" EntitySet="MoodMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_SeasonMaster" Association="Self.FK_ArticleColor_SeasonMaster">
+      <End Role="SeasonMaster" EntitySet="SeasonMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_SexynessMaster" Association="Self.FK_ArticleColor_SexynessMaster">
+      <End Role="SexynessMaster" EntitySet="SexynessMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_StyleMaster" Association="Self.FK_ArticleColor_StyleMaster">
+      <End Role="StyleMaster" EntitySet="StyleMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleColor_WearMomentMaster" Association="Self.FK_ArticleColor_WearMomentMaster">
+      <End Role="WearMomentMaster" EntitySet="WearMomentMaster" />
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticlePhotos_ArticleColor" Association="Self.FK_ArticlePhotos_ArticleColor">
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+      <End Role="ArticlePhotos" EntitySet="ArticlePhotos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleSKU_Article" Association="Self.FK_ArticleSKU_Article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="ArticleSKU" EntitySet="ArticleSKU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleSKU_ArticleColor" Association="Self.FK_ArticleSKU_ArticleColor">
+      <End Role="ArticleColor" EntitySet="ArticleColor" />
+      <End Role="ArticleSKU" EntitySet="ArticleSKU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleSKU_Size" Association="Self.FK_ArticleSKU_Size">
+      <End Role="SizeMaster" EntitySet="SizeMaster" />
+      <End Role="ArticleSKU" EntitySet="ArticleSKU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticleSKU_StatusSKU" Association="Self.FK_ArticleSKU_StatusSKU">
+      <End Role="SKUStatusMaster" EntitySet="SKUStatusMaster" />
+      <End Role="ArticleSKU" EntitySet="ArticleSKU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ForgotPassword_Customer" Association="Self.FK_ForgotPassword_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="ForgotPassword" EntitySet="ForgotPassword" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_OrderItemReviewPriceMaster" Association="Self.FK_OrderItems_OrderItemReviewPriceMaster">
+      <End Role="OrderItemReviewPriceMaster" EntitySet="OrderItemReviewPriceMaster" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_OrderItemReviewSizeMaster" Association="Self.FK_OrderItems_OrderItemReviewSizeMaster">
+      <End Role="OrderItemReviewSizeMaster" EntitySet="OrderItemReviewSizeMaster" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_OrderItemReviewStyleMaster" Association="Self.FK_OrderItems_OrderItemReviewStyleMaster">
+      <End Role="OrderItemReviewStyleMaster" EntitySet="OrderItemReviewStyleMaster" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_OrderItemStatusMaster" Association="Self.FK_OrderItems_OrderItemStatusMaster">
+      <End Role="OrderItemStatusMaster" EntitySet="OrderItemStatusMaster" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Stylist" Association="Self.FK_OrderItems_Stylist">
+      <End Role="Stylist" EntitySet="Stylist" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customer" Association="Self.FK_Orders_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_OccasionForScottyBoxMaster" Association="Self.FK_Orders_OccasionForScottyBoxMaster">
+      <End Role="OccasionForScottyBoxMaster" EntitySet="OccasionForScottyBoxMaster" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_OrderCountry" Association="Self.FK_Orders_OrderCountry">
+      <End Role="CountryMaster" EntitySet="CountryMaster" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_OrderStatusMaster" Association="Self.FK_Orders_OrderStatusMaster">
+      <End Role="OrderStatusMaster" EntitySet="OrderStatusMaster" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_PaymentTypeMaster" Association="Self.FK_Orders_PaymentTypeMaster">
+      <End Role="PaymentTypeMaster" EntitySet="PaymentTypeMaster" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderShipping_Customer" Association="Self.FK_OrderShipping_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderShipping" EntitySet="OrderShipping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderTransactions_Customer" Association="Self.FK_OrderTransactions_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderTransactions" EntitySet="OrderTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PasswordLog_Customer" Association="Self.FK_PasswordLog_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="PasswordLog" EntitySet="PasswordLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SizeMaster_Category" Association="Self.FK_SizeMaster_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SizeMaster" EntitySet="SizeMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SizeMaster_SubCategory" Association="Self.FK_SizeMaster_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="SizeMaster" EntitySet="SizeMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StylistToolTransaction_OrderStatusMaster" Association="Self.FK_StylistToolTransaction_OrderStatusMaster">
+      <End Role="OrderStatusMaster" EntitySet="OrderStatusMaster" />
+      <End Role="StylistToolTransaction" EntitySet="StylistToolTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StylistToolTransaction_Stylist" Association="Self.FK_StylistToolTransaction_Stylist">
+      <End Role="Stylist" EntitySet="Stylist" />
+      <End Role="StylistToolTransaction" EntitySet="StylistToolTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_ColorTypeMaster" Association="Self.FK_SubCategoryProperties_ColorTypeMaster">
+      <End Role="ColarTypeMaster" EntitySet="ColarTypeMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_ComfortMaster" Association="Self.FK_SubCategoryProperties_ComfortMaster">
+      <End Role="ComfortMaster" EntitySet="ComfortMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_FigureMaster" Association="Self.FK_SubCategoryProperties_FigureMaster">
+      <End Role="FigureMaster" EntitySet="FigureMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_FitMaster" Association="Self.FK_SubCategoryProperties_FitMaster">
+      <End Role="FitMaster" EntitySet="FitMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_FootWidthMaster" Association="Self.FK_SubCategoryProperties_FootWidthMaster">
+      <End Role="FootWidthMaster" EntitySet="FootWidthMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_MaterialMaster" Association="Self.FK_SubCategoryProperties_MaterialMaster">
+      <End Role="MaterialMaster" EntitySet="MaterialMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_PantsLengthMaster" Association="Self.FK_SubCategoryProperties_PantsLengthMaster">
+      <End Role="PantsLengthMaster" EntitySet="PantsLengthMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_PantsModelMaster" Association="Self.FK_SubCategoryProperties_PantsModelMaster">
+      <End Role="PantsModelMaster" EntitySet="PantsModelMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_PantsWaistMaster" Association="Self.FK_SubCategoryProperties_PantsWaistMaster">
+      <End Role="PantsWaistMaster" EntitySet="PantsWaistMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_ShoeMaterialMaster" Association="Self.FK_SubCategoryProperties_ShoeMaterialMaster">
+      <End Role="ShoeMaterialMaster" EntitySet="ShoeMaterialMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_SkirtLengthMaster" Association="Self.FK_SubCategoryProperties_SkirtLengthMaster">
+      <End Role="SkirtLengthMaster" EntitySet="SkirtLengthMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_SkirtWidthMaster" Association="Self.FK_SubCategoryProperties_SkirtWidthMaster">
+      <End Role="SkirtWidthMaster" EntitySet="SkirtWidthMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_SleeveLengthMaster" Association="Self.FK_SubCategoryProperties_SleeveLengthMaster">
+      <End Role="SleeveLengthMaster" EntitySet="SleeveLengthMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_SubCategory" Association="Self.FK_SubCategoryProperties_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryProperties_WaistFitMaster" Association="Self.FK_SubCategoryProperties_WaistFitMaster">
+      <End Role="WaistFitMaster" EntitySet="WaistFitMaster" />
+      <End Role="SubCategoryProperties" EntitySet="SubCategoryProperties" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

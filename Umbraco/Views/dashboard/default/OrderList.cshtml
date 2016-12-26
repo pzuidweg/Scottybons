@@ -1,0 +1,59 @@
+﻿@*@*  *@
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<head>
+    <title></title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+   
+    <script src="/release/ui-grid.css"></script>
+    <script src="~/scripts/ui-grid.js"></script>
+    <script>
+        var app = angular.module('app', ['ngTouch', 'ui.grid']);
+
+        app.controller('MainCtrl', ['$scope', function ($scope) {
+
+            $scope.myData = [
+                {
+                    "firstName": "Cox",
+                    "lastName": "Carney",
+                    "company": "Enormo",
+                    "employed": true
+                },
+                {
+                    "firstName": "Lorraine",
+                    "lastName": "Wise",
+                    "company": "Comveyer",
+                    "employed": false
+                },
+                {
+                    "firstName": "Nancy",
+                    "lastName": "Waters",
+                    "company": "Fuelton",
+                    "employed": false
+                }
+            ];
+        }]);
+
+    </script>
+    <style>
+        .grid {
+            width: 500px;
+            height: 250px;
+        }
+    </style>
+</head>
+<h2>title</h2>
+<div ng-app="app">
+    <div ng-controller="MainCtrl">
+        <div id="grid1" ui-grid="{ data: myData }" class="grid"></div>
+    </div>
+</div>*@

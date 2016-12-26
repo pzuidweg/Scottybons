@@ -1,0 +1,199 @@
+﻿@inherits UmbracoViewPage<ScottybonsMVC.Models.PageViewModels.SubscriptionPageViewModel>
+@using System.Web.Mvc.Html
+@using ScottybonsMVC.Controllers
+
+@*if (!User.Identity.IsAuthenticated)
+    {
+        HttpContext.Current.Response.Redirect("/");
+    }*@
+<style type="text/css">
+    h5 .is-subscription {
+    margin: 1% !important;
+    vertical-align: middle;
+}
+</style>
+
+@{
+    using (Html.BeginUmbracoForm("HandleSubscription", "OrderPage", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        var customerOrderModel = Model;
+        <fieldset id="mysubscriptions">
+            <section id="register">
+                <div class="container subscription-section">
+                    <div class="row my-subscription-title">
+                        <h2>@Model.PageTitle</h2>
+                        <h5>@Model.PageSubTitle </h5>
+                        <div class="my-subscription-title-line"></div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8 subscription-items" id="">
+                        @*<div class="row my-subscription-title">
+                                <h2>@pageTitle.Value</h2>
+                                <h5>@pageSubTitle.Value </h5>
+                                <div class="line"></div>
+                            </div>*@
+                        @*<div class="row"><div class="line"></div></div>*@
+                        <div class="row subscription-bottom-border ">
+                            <div class="col-sm-6"><h5>@Model.SelectPeriod @Model.NextScottyBoxDate</h5></div>
+                            <div class="col-sm-6"><h5 class="frmCms">@Model.DeliveryDurationNote</h5></div>
+                        </div>
+                        <div class="row col-sm-12">
+                            <input type="button" class=" btn animated fadeInUp reset outline edit-subscription-btn" value="Edit" id="enableEditSubscription" name="@Model.EditButton" />
+                            @*<input type="button" class=" btn animated fadeInUp reset outline edit-subscription-btn-bottom " value="Save" id="saveSubscription" name="@saveButton.Value" />*@
+                        </div>
+                        <div class="row subscription-list">
+                            <div class="col-sm-6 ">
+                                <h5>
+                                    <label>@Model.SendMeScottybox &nbsp; </label>
+                                    @Html.CheckBoxFor(m => Model.IsSubscription, new { @class = "form-group is-subscription", id = "sendMeScottybox" })
+                                    @*<input type="checkbox" name="sendMeScottybox" id="sendMeScottybox" value="1" class="form-group" />*@
+                                </h5>
+                                @*<h5>@subscriptionTypeList.Value</h5>*@
+                                <div class="checkbox" id="divPeriodicalScottyBox" style="display: block;">
+
+                                    @foreach (var periodicScottyBox in Model.OrderContent.PeriodicalScottyBox)
+                                    {
+                                        var isPeriodicallOrderSelected = false;
+                                        if (!ReferenceEquals(null, ViewBag.PeriodicalScottyBoxID))
+                                        {
+                                            <input type="hidden" id="periodic_radio" name="periodic_radio" value="@ViewBag.PeriodicalScottyBoxID" />
+                                            var selectedPeriod = 0;
+                                            var temp = int.TryParse(periodicScottyBox.Value, out selectedPeriod);
+                                            if (ViewBag.PeriodicalScottyBoxID == selectedPeriod)
+                                            {
+                                                isPeriodicallOrderSelected = true;
+                                            }
+                                        }
+
+                                        if (isPeriodicallOrderSelected)
+                                        {
+                                            @Html.RadioButtonFor(m => Model.SelectedPeriod, periodicScottyBox.Value, new { id = "periodicScottyBox", @checked = "checked" })
+                                        }
+                                        else
+                                        {
+                                            @Html.RadioButtonFor(m => Model.SelectedPeriod, periodicScottyBox.Value, new { id = "periodicScottyBox" })
+                                        }
+
+                                        @Html.Label(periodicScottyBox.Text, periodicScottyBox.Text, new { @for = "Every" + periodicScottyBox.Value, @class = "periodic-scotty", @style = "padding-right:10px;" })
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="frmCms">@Model.HowToChangeNote</h5>
+                            </div>
+                        </div>
+                        <div class="row subscription-occasion">
+                            <div class="col-sm-6 ">
+                                <h5>@Model.OccasionText</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                @*<select class="form-control">
+                                        <option value="">Choose an Occasion</option>
+                                        <option value="1">Business/Casual</option>
+                                        <option value="2">Casual/Trendy</option>
+                                        <option value="1002">Other</option>
+                                    </select>*@
+                                @Html.DropDownListFor(m => m.OrderContent.PlanScottyboxdropdownOccesions, (List<SelectListItem>)Model.OrderContent.OrderOccesions, new { @class = "form-control drp-occasions", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Name })
+                                @Html.ValidationMessageFor(m => m.OrderContent.PlanScottyboxdropdownOccesions, null, new { @class = "validation-control" })
+                                <span id="occasion-err" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.OccasionRequired</span>
+                            </div>
+                        </div>
+                        <div class="row subscription-phone">
+                            <div class="col-sm-6 ">
+                                <h5>@Model.PhoneNumberText</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                @*<input type="text" name="" class="form-control" placeholder="Phone Number" />*@
+                                @Html.TextBoxFor(m => Model.OrderContent.ContactNumber, string.Empty, new { @class = "form-control drp-phone", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Number })
+                                @Html.ValidationMessageFor(m => Model.OrderContent.ContactNumber, null, new { @class = "validation-control" })
+                                <span id="dAddressPhone-err" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.PhoneNumberInValid</span>
+                            </div>
+                        </div>
+                        <div class="row subscription-delivery-address">
+                            <div class="col-sm-6 ">
+                                <h5>@Model.DeliveryAddressText</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                @*<input type="text" name="companyname" class="form-control" placeholder="Company name (if necessary)" />*@
+                                @Html.TextBoxFor(m => Model.OrderContent.DeliveryAddress.Name, string.Empty, new { @class = "form-control", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Name })
+                                @Html.ValidationMessageFor(m => Model.OrderContent.DeliveryAddress.Name, null, new { @class = "validation-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6">
+                                <div class="col-sm-4 no-padding">
+                                    @*<input type="text" name="street" placeholder="Street" class="form-control delivery_textbox" />*@
+                                    @Html.TextBoxFor(m => Model.OrderContent.DeliveryAddress.Street, string.Empty, new { @class = "form-control delivery_textbox drp-street", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Street })
+                                    @Html.ValidationMessageFor(m => Model.OrderContent.DeliveryAddress.Street, null, new { @class = "validation-control" })
+                                    <span id="dAddressStreet-err" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.StreetNameRequired</span>
+                                </div>
+                                <div class="col-sm-2 no-padding">
+                                    @*<input type="text" name="housenumber" placeholder="H No" class="form-control" />*@
+                                    @Html.TextBoxFor(m => Model.OrderContent.DeliveryAddress.Number, string.Empty, new { @class = "form-control drp-hno", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Number })
+                                    @Html.ValidationMessageFor(m => Model.OrderContent.DeliveryAddress.Number, null, new { @class = "validation-control" })
+                                    <span id="dAddressHno-err" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.HouseNumberRequired</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6">
+                                <div class="col-sm-2 no-padding">
+                                    @*<input type="text" name="pincode" placeholder="Pincode" class="form-control delivery_textbox delivery_textbox_right" />*@
+                                    @Html.TextBoxFor(m => Model.OrderContent.DeliveryAddress.Zip, string.Empty, new { @class = "form-control delivery_textbox delivery_textbox_right drp-zip", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.ZIP })
+                                    <span id="dAddressZip-err" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.PostalCodeRequired</span>
+                                </div>
+                                <div class="col-sm-4 no-padding">
+                                    @*<input type="text" name="city" placeholder="City" class="form-control delivery_textbox delivery_textbox_right" />*@
+                                    @Html.TextBoxFor(m => Model.OrderContent.DeliveryAddress.Town, string.Empty, new { @class = "form-control delivery_textbox delivery_textbox_right drp-town", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.Town })
+                                    <span id="dAddressTown-err" style="display:none">@Resources.Scottybons.ScottybonsDataStrings.CityRequired</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-5 col-xs-12"></div>
+                            <div class="col-sm-5 col-xs-12">
+                                @Html.ValidationMessageFor(m => Model.OrderContent.DeliveryAddress.Zip, null, new { @class = "validation-control" })
+
+                                @Html.ValidationMessageFor(m => Model.OrderContent.DeliveryAddress.Town, null, new { @class = "validation-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6">
+                                @*<input type="text" name="country" placeholder="Country" class="form-control" />*@
+                                @Html.DropDownListFor(m => Model.OrderContent.CustomerOrder.OrderCountryID, (List<SelectListItem>)ViewBag.Country, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => Model.OrderContent.CustomerOrder.OrderCountryID, null, new { @class = "validation-control" })
+                            </div>
+                        </div>
+                        <div class="row subscription-neighbour">
+                            <div class="col-sm-6 ">
+                                <h5>@Model.DeliveryAtNeighbourText</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m => m.StylistContactType, (List<SelectListItem>)Model.OrderContent.StylistContactTypes, new { @class = "form-control" })
+                                @*<select class="form-control" name="">
+                                        <option value="true">Yes,Of course</option>
+                                        <option value="false">No</option>
+                                    </select>*@
+                                @*@foreach (var neighbour in Model.OrderContent.DeliveryNeighbours)
+                                    {
+                                        <label>@Html.RadioButtonFor(m => Model.OrderContent.CustomerOrder.DeliverNeighbours, neighbour.Value, new { id = "DeliveryNeighbours" })</label>
+                                        @Html.Label(neighbour.Text, neighbour.Text, new { @for = neighbour.Value, @class = "neighbour-type", @style = "padding-right:10px; padding-left:10px;" })
+                                    }
+                                    @Html.ValidationMessageFor(m => Model.OrderContent.CustomerOrder.DeliverNeighbours, null, new { @class = "validation-control" })*@
+                            </div>
+                        </div>
+                        <div class="row text-right">
+                            <input type="submit" class="btn animated fadeInUp reset outline edit-subscription-btn-bottom" value="Save" id="saveSubscription" name="@Model.SaveButton"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+        </fieldset>
+    }
+}

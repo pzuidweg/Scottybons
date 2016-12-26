@@ -1,0 +1,59 @@
+﻿
+@model ScottybonsMVC.Models.ViewModels.Customer.ConfirmYourOrderVm
+@using System.Web.Mvc.Html
+@using ScottybonsMVC.AppConstants
+@using ClientDependency.Core.Mvc
+@using ScottybonsMVC.Models.ViewModels
+
+@{
+    string OrderNumber = Request["OrderID"];
+    string paymentId = Request["PaymentID"];
+}
+<section id="top-menu">
+    <div id="register-top_no_menu">
+
+    </div>
+</section>
+
+@using (Html.BeginUmbracoForm("Login", "Profile", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <section id="thankyou_fororder">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+
+
+                    <h1>@Resources.Scottybons.ScottybonsDataStrings.PaymentErrorTitle</h1>
+                    <br>
+
+                    <p style="text-align: center">
+                        @if (!String.IsNullOrEmpty(OrderNumber))
+                        {
+                            if (OrderNumber.Contains("F"))
+                            {
+                                OrderNumber = OrderNumber.Split('F')[0];
+                            }
+
+                            @Resources.Scottybons.ScottybonsDataStrings.PaymentErrorHeadingOrderNumber.Replace("*|ORDNUM|*", OrderNumber)
+
+                            <br />
+                        }
+                        @Resources.Scottybons.ScottybonsDataStrings.PaymentErrorSubHeading
+
+                    </p>
+                    @if (!String.IsNullOrEmpty(OrderNumber))
+                    {
+                        <p style="text-align: center">
+                            <a id="register-btn" href=@Url.Content( GlobalConstants.LanguageUrl + "/Order/confirmYourOrder?OrderID=" + OrderNumber + "&PaymentId=" + paymentId) class="animated fadeInUp button_intro outline-login">@Resources.Scottybons.ScottybonsDataStrings.PaymentErrorClickHereToRePay</a>
+
+
+                        </p>
+                    }
+                    <p> @Resources.Scottybons.ScottybonsDataStrings.PaymentErrorDescription</p>
+                </div>
+                @*<div class="col-sm-12 text-center">
+                </div>*@
+            </div>
+        </div>
+    </section>
+}

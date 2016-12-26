@@ -1,0 +1,61 @@
+﻿.float-left{float:left;}
+.float-right{float:right;}
+.padding-1ptg {padding: 1%;}
+.padding-top-1ptg {padding-top:1%;}
+.padding-right-1ptg {padding-right: 1%;}
+.padding-bottom-1ptg {padding-bottom: 1% ;}
+.padding-left-1ptg {padding-left:1% ;}
+.gift-card-wizard {margin: 0 0 2%;}
+.back-next-wizard {margin-top: 2% !important;margin-bottom: 2% !important;}
+
+/*============================== Add Gift Card Section CSS===========================*/
+input.required-field, input.required-field:focus, input.min-required-field, input.min-required-field:focus {border: solid 1px #e84944 !important;}
+.gcfields-required-error, .required-field-error-holder, 
+.gc-required-error, .gc-addr-required-error,
+.gc-login-required-error, .gc-login-valid-error, 
+.gc-loginguest-required-error, .gc-loginguest-valid-error {color: #e84944;}
+.order-gift-card-header h2, 
+.order-gift-card-header h3 {text-align: center;}
+.order-gift-card-header h3 {margin: 2% 0;}
+.gift-cards-section {max-height: 450px;overflow-x: hidden;overflow-y: scroll;}
+.add-gift-card-note p {font-size: 14px;color: red;text-align: center;}
+.order-gift-card-copy {padding: 0 2%;}
+.gift-card-row-separator {border-bottom: solid 2px #807d7d;}
+textarea.gift-card-personal-msg, input.gift-card-for-whom{width: 100%;}
+select.sel-prices {}
+span.gift-card-glyphicon-remove {margin:0 !important;}
+
+/*============================== Gift Card Login Section CSS===========================*/
+.gift-card-login-container,.gift-card-login-guest-container {/*border: solid thin #807d7d;*/height:225px;}
+.gift-card-login-fields, .gift-card-login-guest-fields{margin:2% 0;}
+.btn-address-them, .btn-guest-address-them{float:right;}
+.gc-addr-name {border-bottom: solid thin #aaa;padding: 0 0 2% 0 !important;}
+.gc-deladdr-header, .gc-name-header {padding-top: 3% !important;}
+.gc-addr-name, .gc-deladdr-flastname, .gc-deladdr-street-hnumber, .gc-deladdr-post-city, .gc-deladdr-country {padding: 0 0 2% 0 !important;}
+
+/*============================== Gift Card Order Section CSS ==========================*/
+.gc-payt-items-holder div.row:last-Child {border-top: solid thin #bbb;}
+.gc-payt-name-header {border-bottom: solid thin #bbb;}
+.gc-total {text-align: right;}
+.order-gc-success-content, .order-gc-success-img-content, .order-gc-failure-content {padding: 6.5% 0;text-align: center;border: solid thin #bbb;}
+.order-gc-success-img-content img {height:350px;}
+
+
+
+.order-gift-card-main h2 {
+	.font-size: 28px;
+    padding-top: 0%;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #183141;
+    line-height: 30px;
+}
+.order-gift-card-main h3 {
+    font-size: 16px;
+    padding-top: 1%;
+    font-weight: normal;
+    text-align: center;
+    color: #183141;
+    font-family: 'Avenir Next Condensed';
+
+}

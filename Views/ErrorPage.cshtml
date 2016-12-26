@@ -1,0 +1,37 @@
+﻿@using ScottybonsMVC.AppConstants
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+
+    var error = Request["Error"];
+}
+
+@section BodyContent {
+    <section id="top-menu">
+        <div id="register-top_no_menu">
+        </div>
+
+    </section>
+    <section id="opps">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>@Resources.Scottybons.ScottybonsDataStrings.Error_page_Oops_</h2>
+                    <h4>@Resources.Scottybons.ScottybonsDataStrings.Error_page_Sorry_there_has_been_an_error_and_you_are_now_lost</h4>
+                    <h4>@Resources.Scottybons.ScottybonsDataStrings.ErrorPageString </h4>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(error) && (GlobalConstants.ShowActualErrorMessage))
+            {
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>@error</h2>
+                </div>
+            </div>
+            }
+
+        </div>
+    </section>
+}
+

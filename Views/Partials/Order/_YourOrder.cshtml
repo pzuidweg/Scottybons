@@ -1,0 +1,681 @@
+﻿@model ScottybonsMVC.Models.ViewModels.Customer.ConfirmYourOrderVm
+@using ScottybonsMVC.AppConstants
+@using ScottybonsMVC.Controllers
+@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using ScottybonsMVC.Controllers
+
+
+
+@{
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    Html.RequiresJs("/umbraco_client/ui/jquery.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.min.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.unobtrusive.min.js");
+
+}
+
+@using (Html.BeginUmbracoForm<OrderPageController>("ConfirmYourOrder", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+
+    <section id="yourorderpage" class="Your_order">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-3 col-xs-12 " id="left_menu"></div>
+                <div class="col-sm-6 col-xs-12 text-left ">
+
+                    <h2>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_YourorderHeading_YOUR_ORDER_</h2>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 " id="left_menu">
+            </div>
+            <div class="col-sm-6 col-xs-12 no_border">
+                <div class="box_bg">
+                    <h4>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_Overview_Overview_</h4>
+                    <div class="row" id="order_sub">
+                        <div class="form-group">
+                            @Html.ValidationSummary(true, null, new { @class = "validation-control" })
+                        </div>
+                        <div class="col-sm-5 col-xs-5">
+                            <p>
+                                @Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_Outtfit_
+                            </p>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_TBD_</p>
+                        </div>
+                        <div class="col-sm-5 col-xs-5">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_retrospectivebilling_</p>
+                        </div>
+                    </div>
+                    <div class="row" id="order_sub">
+                        <div class="col-sm-5 col-xs-5">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_Styleadvice_</p>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">
+                            <p>
+                                €@string.Format("{0}.00", GlobalConstants.IcePayTranInitialAmount)
+                            </p>
+                        </div>
+                        <div class="col-sm-5 col-xs-5">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_tobepaiddirectly_</p>
+                        </div>
+                    </div>
+                    <div class="row" id="order_sub">
+                        <div class="col-sm-5 col-xs-5">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_Shippingcost_</p>
+                        </div>
+                        <div class="col-sm-2 col-xs-2">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_Free_</p>
+                        </div>
+                        <div class="col-sm-5 col-xs-5">
+                            <p></p>
+                        </div>
+                    </div>
+                    <h4></h4>
+                    <div class="row" id="order_sub">
+                        <div class="col-sm-5 col-xs-5 total-payment">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_Totaltobepaiddirectly_</p>
+                        </div>
+                        <div class="col-sm-2 col-xs-2 total-payment">
+                            <p>€@string.Format("{0}.00", GlobalConstants.IcePayTranInitialAmount)</p>
+                        </div>
+                        <div class="col-sm-5 col-xs-5">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row" id="order_sub-gc" style="display:none">
+                        <div class="col-sm-5 col-xs-5 gc-total-payment">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.GC_PS_GiftCard_Text</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-2 gc-total-payment">
+                            <p class="sp-gc-amount">
+                                -/- €<span class="gc-amount"></span> &nbsp;
+                                <span class="remove-gift-card glyphicon glyphicon glyphicon-remove gift-card-glyphicon-remove" onclick="RemoveGiftCard(this)"></span>
+                            </p>
+                        </div>
+                        <div class="col-sm-3 col-xs-5">
+                            <p></p>
+                        </div>
+                    </div>
+                    <h4></h4>
+
+                    <div class="row" id="order_sub-pcs">
+                    </div>
+
+                    <div class="row" id="order_total" style="display:none">
+                        <div class="col-sm-5 col-xs-5 total-payment">
+                            <p>@Resources.Scottybons.ScottybonsDataStrings.GC_PS_Still_To_Be_Paid</p>
+                        </div>
+                        <div class="col-sm-2 col-xs-2 total-payment">
+                            <p>€<span class="grand-amount">@string.Format("{0}.00", GlobalConstants.IcePayTranInitialAmount)</span></p>
+                        </div>
+                        <div class="col-sm-5 col-xs-5">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order_sub-pc-clone" id="order_sub-pc" style="display:none">
+                    <div class="col-sm-5 col-xs-5 pc-total-payment">
+                        <p>@Resources.Scottybons.ScottybonsDataStrings.PC_PS_PromoCode_Text</p>
+                    </div>
+                    <div class="col-sm-4 col-xs-2 pc-total-payment">
+                        <p class="sp-pc-amount">
+                            -/- €<span class="pc-amount"></span> &nbsp;
+                            <span class="remove-promo-code glyphicon glyphicon glyphicon-remove promo-code-glyphicon-remove" onclick="RemovePromoCode(this)"></span>
+                        </p>
+                    </div>
+                    <div class="col-sm-3 col-xs-5">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12" style="margin: 0px; padding: 0px;">
+                    <h3>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_Chooseapaymentmethod_</h3>
+                    <div class="checkbox">
+                        @if (ViewBag.PaymentTypes != null)
+                        {
+                            foreach (var paymentTypes in ViewBag.PaymentTypes as List<SelectListItem>)
+                            {
+                                if (paymentTypes.Selected)
+                                {
+                                    <label> @Html.RadioButtonFor(m => m.PaymentMethodId, paymentTypes.Value, new { @checked = "checked", @class = "rdb-payment-type", id = paymentTypes.Value, @onchange = "ConfigurePaymentType(this)" })</label>
+                                    @Html.Label(paymentTypes.Text, paymentTypes.Text, new { @for = paymentTypes.Value, @class = "paymentTypes-type", @style = "padding-right:10px;" })
+                                }
+                                else
+                                {
+                                    <label> @Html.RadioButtonFor(m => m.PaymentMethodId, paymentTypes.Value, new { @class = "rdb-payment-type", id = paymentTypes.Value, @onchange = "ConfigurePaymentType(this)" })</label>
+                                    @Html.Label(paymentTypes.Text, paymentTypes.Text, new { @for = paymentTypes.Value, @class = "paymentTypes-type", @style = "padding-right:10px;" })
+                                }
+                            }
+                        }
+                    </div>
+
+                    <div class="checkbox check_box your_order_terms">
+                        <label>
+                            @Html.CheckBoxFor(m => m.PermissionToCollectFutureInvoices, new { id = "PermissionToCollectFutureInvoices" })
+                            &nbsp;@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsPermissions_
+                            <span id="permission_msg">@Resources.Scottybons.ScottybonsDataStrings.YourOrder_Permissons_future_invoices</span>
+                        </label>
+                    </div>
+                    <div class="payment-ideal-type-content">
+                        <h5></h5>
+                        <h3>@Resources.Scottybons.ScottybonsDataStrings.PaymentGatewaySelectIssuer</h3>
+                        <div class="checkbox">
+                            @if (ViewBag.IssuerTypes != null)
+                            {
+                                foreach (var iTypes in ViewBag.IssuerTypes as List<SelectListItem>)
+                                {
+
+                                    <label>
+                                        @Html.RadioButtonFor(m => m.SelectIssuer, iTypes.Value, new { id = iTypes.Value })
+                                        @Html.Label(iTypes.Text, iTypes.Text, new { @for = iTypes.Value, @class = "paymentTypes-type", @style = "padding-right:10px;" })
+                                    </label>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                    <div class="dv-hide" style="display:none;">
+                        @Html.TextBoxFor(m => Model.GiftCardRedeemed, new { @class = "gc-redeemed" });
+                        @Html.TextBoxFor(m => Model.PromoCodeRedeemed, new { @class = "pc-redeemed" });
+                        @Html.TextBoxFor(m => Model.RedeemType, new { @class = "redeem-type" });
+                        @Html.TextBoxFor(m => Model.GiftCardRedeemedValue, new { @class = "gc-redeemed-value" });
+                    </div>
+
+
+                    <div class="payment-gc-type-content" style="display:none;">
+                        <h5></h5>
+                        <h3>@Resources.Scottybons.ScottybonsDataStrings.GC_PS_GiftCard_Fill_Text</h3>
+                        <div class="gc-section">
+                            <div class="row col-xs-12 col-sm-12">
+                                <div class="col-sm-2 no-padding">
+                                    <label class="lbl-gc-code">@Resources.Scottybons.ScottybonsDataStrings.GC_PS_GiftCard_Code</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(m => Model.GiftCardCode, string.Empty, new { @class = "form-control gc-code-holder", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.GC_PS_GiftCard_Text })
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="button" class="btn-check-gift-card animated fadeInUp button_intro outline" value="@Resources.Scottybons.ScottybonsDataStrings.GC_PS_GiftCard_CheckBalance_Button" onclick="CheckGiftCardCode(this)" />
+                                </div>
+                            </div>
+                            <div class="row col-xs-12 col-sm-12">
+                                <div class="col-sm-5 no-padding">
+                                    <label class="lbl-gc-code-balance-after-pay">@Resources.Scottybons.ScottybonsDataStrings.GC_PS_GiftCard_Balance_After_Pay (€)</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <span class="sp-gc-code-balance-after-pay"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-pc-type-content" style="display:none;">
+                        <h5></h5>
+                        <h3>@Resources.Scottybons.ScottybonsDataStrings.PC_PS_PromoCode_Fill_Text</h3>
+                        <div class="gc-section">
+                            <div class="row col-xs-12 col-sm-12">
+                                <div class="col-sm-2 no-padding">
+                                    <label class="lbl-gc-code">@Resources.Scottybons.ScottybonsDataStrings.GC_PS_GiftCard_Code</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(m => Model.PromoCode, string.Empty, new { @class = "form-control pc-code-holder", @placeholder = @Resources.Scottybons.ScottybonsDataStrings.PC_PS_PromoCode_Text })
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="button" class="btn-check-promo-code animated fadeInUp button_intro outline" value="@Resources.Scottybons.ScottybonsDataStrings.PC_PS_PromoCode_Apply_Button" onclick="CheckPromoCode(this)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(m => m.OrderNumber)
+                    @Html.HiddenFor(m => m.CustomerId)
+                    @Html.HiddenFor(m => m.PromoCodes, new { @class = "promo-codes" })
+
+                </div>
+                <!-- Error message for bank selection -->
+                <span id="issuer_msg">@Resources.Scottybons.ScottybonsDataStrings.Issuer_error</span>
+
+                <div class="col-xs-12 col-sm-12" style="margin: 0px; padding: 0px;">
+                    <div class="form-group">
+                        <div class="row text-right payment_btn">
+                            <input type="submit" value="@Resources.Scottybons.ScottybonsDataStrings.ButtonGoToPayment" class="animated fadeInUp button_intro outline btn-submit" onclick="return CheckTermsConditions();" />
+                            <input type="submit" value="@Resources.Scottybons.ScottybonsDataStrings.GC_PS_Confirm_Payment_Button" style="display:none;" class="animated fadeInUp button_intro outline btn-gc-pc-submit" onclick="return CheckTermsConditions();" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12  text-right" style="margin: 0px 0px 0px 0px; padding: 0px; float:right;">
+                    <div class="col-sm-4 text-right">
+                    </div>
+                    <div class="col-sm-8 text-right " style="padding:0px;">
+                        <div class="checkbox ie-width">
+                            @Html.CheckBoxFor(m => Model.AgreeGeneralConditions, new { @class = "terms-condition" })
+                            @Resources.Scottybons.ScottybonsDataStrings.IAmAgreeWithTheGeneralConditons <a href=@Url.Content("/" +@GlobalConstants.Language+ "/termsandcondition/") target="_blank" style="text-decoration:underline;" class="Registrationhref"> @Resources.Scottybons.ScottybonsDataStrings.IAmAgreeWithTheGeneralConditons_general_conditons</a>
+                        </div>
+                    </div>
+                    <div class="checkbox ">
+                        @Html.ValidationMessageFor(m => m.AgreeGeneralConditions, null, new { @class = "validation-control" }) <br>
+                        <span id="tc_msg"> @Resources.Scottybons.ScottybonsDataStrings.YourOrder_Permissons</span>
+                    </div>
+
+                    <div class="checkbox your_order_terms">
+                        <label class="payment-con" style="padding-top:0px !important;">
+                            @Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsClickOnPayment_
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 hetprocess col-xs-12">
+                <h4>@Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsProcess_</h4>
+                <p>
+                    @Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsDescription1_
+                </p>
+                <p>
+                    @Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_YourOrder_HTPROCESS_SubtextLine_2
+                </p>
+                <p>
+                    @Resources.Scottybons.ScottybonsDataStrings.ConfirmYourOrderModel_CompleteOutfit_Complete_ScottyBonsDescription3_
+                </p>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            function CheckTermsConditions() {
+
+                var issuer_check = false;
+                if (parseInt($('.rdb-payment-type:checked').val()) == 2) {
+                    if ($("input[name='SelectIssuer']:checked").val()) {
+                        issuer_check = true;
+                        $('#issuer_msg').css('display', 'none');
+                    }
+                } else {
+                    issuer_check = true;
+                }
+
+                if (issuer_check) {
+                    if ($('#AgreeGeneralConditions').is(':checked') && $('#PermissionToCollectFutureInvoices').is(':checked') && issuer_check) {
+                        return true;
+                    }
+                    else {
+
+                        if (!$('#AgreeGeneralConditions').is(':checked')) {
+                            $('#tc_msg').css('display', 'block');
+                        }
+                        if (!$('#PermissionToCollectFutureInvoices').is(':checked')) {
+                            $('#permission_msg').css('display', 'block');
+                        }
+                        if (!issuer_check) {
+                            $('#issuer_msg').css('display', 'block');
+                        }
+
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+
+
+            var giftCardApplied = false;
+            var promoCodeApplied = false;
+            var promoCodes = [];
+
+            function ConfigurePaymentType(ctrl) {
+
+                var paymentId = parseInt(ctrl.id);
+
+                switch (paymentId) {
+                    case 4:
+                        //payment-pc-type-content
+                        $('.payment-ideal-type-content').slideUp('slow');
+                        $('.payment-gc-type-content').slideUp('slow');
+                        $('.payment-pc-type-content').slideDown('slow');
+                        //$('.btn-gc-pc-submit').slideDown('slow');
+                        $('.btn-submit').slideUp('slow');
+                        $('.btn-gc-pc-submit').slideUp('slow');
+                        break;
+                    case 2:
+                        $('.payment-ideal-type-content').slideDown('slow');
+                        $('.payment-gc-type-content').slideUp('slow');
+                        $('.payment-pc-type-content').slideUp('slow');
+                        $('.btn-gc-pc-submit').slideUp('slow');
+                        $('.btn-submit').slideDown('slow');
+                        break;
+                    case 3:
+                        if (giftCardApplied) {
+                            $('.btn-gc-pc-submit').slideDown('slow');
+                            $('.btn-submit').slideUp('slow');
+                        } else {
+                            $('.btn-gc-pc-submit').slideUp('slow');
+                            $('.btn-submit').slideUp('slow');
+                        }
+
+                        if (parseFloat($('.grand-amount').html()) > 0) {
+                            $('.btn-gc-pc-submit').prop("disabled", true);
+                        } else {
+                            $('.btn-gc-pc-submit').prop("disabled", false);
+                        }
+                        $('.payment-gc-type-content').slideDown('slow');
+                        $('.payment-ideal-type-content').slideUp('slow');
+                        $('.payment-pc-type-content').slideUp('slow');
+                        break;
+                    default:
+
+                }
+            }
+
+            var orderTotal = 0.00;
+
+            function CheckPromoCode(ctrl) {
+                promoCodeApplied = false;
+
+                if ($('.pc-code-holder').val().trim() != "") {
+
+                    var promoCodeValue = $('.pc-code-holder').val().trim();
+
+                    $(promoCodes).each(function (index, code) {
+                        if ((code.split(":")[0].trim()) == promoCodeValue.trim()) {
+                            alert('Promo Code "' + promoCodeValue + '" already used, Please use other promo code.');
+                            return;
+                        }
+                    });
+
+                    //if (promoCodes.indexOf(promoCodeValue) == -1) {
+                    //    promoCodes.push(promoCodeValue);
+                    //    $('.promo-codes').val(promoCodes.join(','));
+                    //} else {
+                    //    alert('Promo Code "' + promoCodeValue + '" already used, Please use other promo code.');
+                    //    return;
+                    //}
+
+                    $.ajax({
+                        //url: '/ScottyBonsPhase2Test/umbraco/surface/OrderPage/CheckGiftCardCode?giftCardCode=' + $('.gc-code-holder').val().trim(),
+                        url: '/umbraco/surface/OrderPage/ValidatePromoCode?promoCode=' + $('.pc-code-holder').val().trim(), //ram Machine
+                        type: 'GET',
+                        async: false,
+                        success: function (data) {
+                            if (data.Valid) {
+                                if (data.Expired) {
+                                    alert("PromoCode Expired");
+                                } else {
+                                    var orderCost = (Math.round(15) * 100 / 100).toFixed(2);
+                                    var getAllPromos = GetPromoCodeAppliedTotals();
+                                    var getAllGiftCards = GetGiftCardsAppliedTotals();
+                                    var totAmount = (parseFloat(getAllPromos) + parseFloat(getAllGiftCards));
+
+                                    if (totAmount >= orderCost)
+                                        return;
+
+                                    promoCodeApplied = true;
+                                    var pcAppliedValue = 0.00;
+                                    var promoVal = data.PromoCodeValue;
+                                    var appliedPrmoCodesValue = (totAmount + promoVal).toFixed(2);
+
+                                    if (data.IsPercentage) {
+                                        var pendingAmount = (parseFloat(orderCost) - parseFloat(totAmount));
+                                        promoVal = ((promoVal / 100) * pendingAmount);
+                                        appliedPrmoCodesValue = (totAmount + promoVal).toFixed(2);
+                                    }                                 
+
+                                    pcAppliedValue = parseFloat(appliedPrmoCodesValue) > parseFloat(orderCost)
+                                        ? (orderCost - totAmount).toFixed(2)
+                                        : (Math.round(promoVal * 100) / 100).toFixed(2);
+
+                                    var payBalAfterPCUsed = parseFloat(appliedPrmoCodesValue) > parseFloat(orderCost)
+                                        ? "0.00"
+                                        : (Math.round((parseFloat(orderCost) - parseFloat(appliedPrmoCodesValue)) * 100) / 100).toFixed(2);
+
+                                    $('.pc-redeemed').val('true');
+
+                                    if (payBalAfterPCUsed > 0) {
+                                        $('.payment-ideal-type-content').slideDown('slow');
+                                        $('.payment-pc-type-content').slideUp('slow');
+                                        $('.rdb-payment-type:eq(0)').prop("checked", true);
+                                        $('.btn-gc-pc-submit').slideUp('slow');
+                                        $('.btn-submit').slideDown('slow');
+                                        $('.btn-gc-pc-submit').prop("disabled", true);
+                                    } else {
+                                        $('.btn-gc-pc-submit').slideDown('slow').prop("disabled", false);
+                                        //disable payment method(Ideal)
+                                        //$('.rdb-payment-type:eq(0)').attr("disabled", 'disabled');
+                                        $('.rdb-payment-type').each(function (index, obj) {
+                                            if (!obj.checked) {
+                                                $(obj).attr("disabled", 'disabled');
+                                            }
+                                        });
+                                    }
+
+                                    $('#order_sub-pcs').slideDown('slow');
+                                    var clonePromoCodeContent = $('.order_sub-pc-clone').clone();
+                                    $(clonePromoCodeContent).addClass('order_sub-pc').attr('promo', promoCodeValue);
+                                    $(clonePromoCodeContent).removeClass('order_sub-pc-clone');
+                                    $(clonePromoCodeContent).show();
+                                    $(clonePromoCodeContent).find('span.pc-amount').html(pcAppliedValue);
+
+                                    promoCodes.push(promoCodeValue + ":" + pcAppliedValue);
+                                    $('.promo-codes').val(promoCodes.join(','));
+
+                                    $('#order_sub-pcs').append(clonePromoCodeContent);
+                                    $('.grand-amount').html(payBalAfterPCUsed);
+                                    $('#order_total').slideDown('slow');
+                                }
+                            }
+                            else if (data.Error) {
+                                alert(data.Message);
+                            }
+                            else {
+                                alert("Invalid Promo Code");
+                            }
+                        },
+                        error: function () {
+                            alert('Error');
+                        }
+                    });
+                }
+            }
+
+            function GetGiftCardsAppliedTotals() {
+
+                var orderTotal = 0.00;
+                $('.gc-amount').each(function (index, ele) {
+                    orderTotal += parseFloat($(ele).html() == "" ? 0.00 : $(ele).html());
+                });
+
+                return isNaN(orderTotal) ? 0.00 : orderTotal;
+            }
+
+            function GetPromoCodeAppliedTotals() {
+
+                var orderTotal = 0.00;
+                $('.pc-amount').each(function (index, ele) {
+                    orderTotal += parseFloat($(ele).html() == "" ? 0.00 : $(ele).html());
+                });
+                return isNaN(orderTotal) ? 0.00 : orderTotal;
+            }
+
+            function GetOrderTotalsApllied() {
+                var orderTotal = 0.00;
+                $('.gc-amount').each(function (index, ele) {
+                    orderTotal += parseFloat($(ele).html() == "" ? 0.00 : $(ele).html());
+                });
+
+                $('.pc-amount').each(function (index, ele) {
+                    orderTotal += parseFloat($(ele).html() == "" ? 0.00 : $(ele).html());
+                });
+                return isNaN(orderTotal) ? 0.00 : orderTotal;
+            }
+
+            function CheckGiftCardCode(ctrl) {
+                giftCardApplied = false;
+                $('.sp-gc-code-balance-after-pay').html('');
+                $('.gc-redeemed').val('false');
+                if ($('.gc-code-holder').val().trim() != "") {
+                    $.ajax({
+                        //url: '/ScottyBonsPhase2Test/umbraco/surface/OrderPage/CheckGiftCardCode?giftCardCode=' + $('.gc-code-holder').val().trim(),
+                        url: '/umbraco/surface/OrderPage/CheckGiftCardCode?giftCardCode=' + $('.gc-code-holder').val().trim(), //ram Machine
+                        //url: '/umbraco/surface/OrderPage/CheckGiftCardCode?giftCardCode=' + $('.gc-code-holder').val().trim(),
+                        type: 'GET',
+                        async: false,
+                        success: function (data) {
+                            if (data.Exists) {
+                                if (data.Expired) {
+                                    alert("GiftCard Expired");
+                                    $('#order_sub-gc').slideUp('slow');
+                                    $('.gc-amount').html('');
+                                    $('.grand-amount').html('');
+                                    $('.sp-gc-code-balance-after-pay').html('');
+                                    $('#order_total').slideUp('slow');
+                                } else {
+
+                                    var orderCostDefault = (Math.round(15) * 100 / 100).toFixed(2);
+
+                                    var giftCardTotals = GetGiftCardsAppliedTotals();
+                                    var promoCodeTotals = GetPromoCodeAppliedTotals();
+
+                                    var orderTotals = GetOrderTotalsApllied();
+
+                                    var orderCost = promoCodeTotals > 0
+                                        ? (parseFloat(orderCostDefault) - promoCodeTotals)
+                                        : parseFloat(orderCostDefault).toFixed(2);
+
+                                    giftCardApplied = true;
+
+                                    var displayBalAfterGCUsed = data.CurrentBalance > orderCost ? (Math.round((data.CurrentBalance - orderCost) * 100) / 100).toFixed(2) : "0.00";
+                                    var gcAppliedValue = data.CurrentBalance > orderCost ? orderCost : (Math.round(data.CurrentBalance * 100) / 100).toFixed(2);
+
+                                    var payBalAfterGCUsed = data.CurrentBalance > orderCost ? "0.00" : (Math.round((orderCost - data.CurrentBalance) * 100) / 100).toFixed(2);
+
+                                    var balStillNeedToPaid = "0.00";
+                                    $('.gc-redeemed').val('true');
+
+                                    if (payBalAfterGCUsed > 0) {
+                                        $('.payment-ideal-type-content').slideDown('slow');
+                                        $('.payment-gc-type-content').slideUp('slow');
+                                        $('.rdb-payment-type:eq(0)').prop("checked", true);
+                                        $('.btn-gc-pc-submit').slideUp('slow');
+                                        $('.btn-submit').slideDown('slow');
+                                        $('.btn-gc-pc-submit').prop("disabled", true);
+                                    } else {
+                                        $('.btn-gc-pc-submit').slideDown('slow').prop("disabled", false);
+
+                                        //disable payment method(Ideal)
+                                        //$('.rdb-payment-type:eq(0)').attr("disabled", 'disabled');
+
+                                        $('.rdb-payment-type').each(function (index, obj) {
+                                            if (!obj.checked) {
+                                                $(obj).attr("disabled", 'disabled');
+                                            }
+                                        });
+                                    }
+
+                                    $('#order_sub-gc').slideDown('slow');
+                                    $('.gc-amount').html(gcAppliedValue);
+                                    $('.gc-redeemed-value').val(gcAppliedValue);
+                                    $('.grand-amount').html(payBalAfterGCUsed);
+                                    $('.sp-gc-code-balance-after-pay').html(displayBalAfterGCUsed);
+                                    $('#order_total').slideDown('slow');
+                                }
+                            } else {
+                                alert("Invalid GiftCard");
+                                $('#order_sub-gc').slideUp('slow');
+                                $('.gc-amount').html('');
+                                $('.grand-amount').html('');
+                                $('.sp-gc-code-balance-after-pay').html('');
+                                $('#order_total').slideUp('slow');
+                            }
+                        },
+                        error: function () {
+                            alert('Error');
+                        }
+                    });
+                }
+            }
+
+
+            function RemoveGiftCard(ctrl) {
+                var orderCost = (Math.round(15) * 100 / 100).toFixed(2);
+                $('.gc-redeemed-value').val('');
+                $('.rdb-payment-type:eq(0)').prop("disabled", false);
+                //$('.rdb-payment-type:eq(0)').prop("checked", true);
+                $('.gc-code-holder').val('');
+
+                $('.sp-gc-code-balance-after-pay').html('');
+                $('#order_sub-gc').slideUp('slow');
+
+                if ($('.pc-redeemed').val() == 'true') {
+                    var gcAmount = parseFloat($('.gc-amount').html());
+                    //var amount = Math.round((parseFloat($('.grand-amount').html()) + parseFloat(gcAmount)) * 100 / 100).toFixed(2);
+                    var amount = (parseFloat($('.grand-amount').html()) + parseFloat(gcAmount)).toFixed(2);
+                    $('.grand-amount').html(amount);
+                } else {
+                    $('#order_total').slideUp('slow');
+                    $('.grand-amount').html(orderCost);
+                    $('.btn-gc-pc-submit').slideUp('slow');
+                }
+
+                $('.rdb-payment-type').each(function (index, obj) {
+                    $(obj).removeAttr("disabled");
+                });
+
+                $('.gc-amount').html('0');
+            }
+
+
+            function RemovePromoCode(ctrl) {
+                var orderCost = (Math.round(15) * 100 / 100).toFixed(2);
+                $(ctrl).closest('div#order_sub-pc').remove();
+
+                var promoCodeAmounts = GetPromoCodeAppliedTotals();
+                var giftCardsAmounts = GetGiftCardsAppliedTotals();
+
+                var totalAmounts = (giftCardsAmounts + promoCodeAmounts);
+                var finalAmount = (parseFloat(orderCost) - totalAmounts).toFixed(2);
+
+                $('.grand-amount').html(finalAmount);
+
+                if (finalAmount < orderCost) {
+                    $('.rdb-payment-type').each(function (index, obj) {
+                        $(obj).removeAttr("disabled");
+                    });
+                    $('.btn-gc-pc-submit').slideUp('slow');
+                }
+
+                if (promoCodeAmounts == 0 && giftCardsAmounts == 0) {
+                    $('.pc-redeemed').val('false');
+                    $('.gc-redeemed').val('false');
+                    $('#order_total').slideUp('slow');
+
+                } else if (promoCodeAmounts == 0) {
+                    $('.pc-redeemed').val('false');
+                }
+
+                var promoCodeValue = $(ctrl).closest('div#order_sub-pc').attr('promo').trim();
+                var remIndex = -1;
+                
+                $(promoCodes).each(function (index, code) {
+                    if ((code.split(":")[0].trim()) == promoCodeValue.trim()) {
+                        remIndex = index;
+                        return;
+                    }
+                });
+
+                if (remIndex != -1) {
+                    promoCodes.splice(remIndex, 1);
+                    $('.promo-codes').val(promoCodes.join(','));
+                } 
+
+                
+                //var remIndex = promoCodes.indexOf(promoCodeValue);
+                //if (remIndex != -1) {
+                //    promoCodes.splice(remIndex, 1);
+                //    $('.promo-codes').val(promoCodes.join(','));
+                //} else {
+                //    return;
+                //}
+            }
+
+        </script>
+    </section>
+
+}

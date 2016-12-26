@@ -1,0 +1,15 @@
+﻿@using ScottybonsMVC.Models.ViewModels.Customer
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "ScottyBonsMaster.cshtml";
+}
+<div class="order-content">
+    @if (!Members.IsLoggedIn())
+    {
+        @Html.Partial("Account/_Login", new LoginVm())
+    }
+    else
+    {
+        @Html.Partial("Order/_StyleProfile", new OrderVm())
+    }
+</div>

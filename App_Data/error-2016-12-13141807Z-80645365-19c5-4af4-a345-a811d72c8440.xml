@@ -1,0 +1,145 @@
+﻿<error errorId="80645365-19c5-4af4-a345-a811d72c8440" application="/LM/W3SVC/2/ROOT" host="18X1TQ1-N" type="System.ComponentModel.Win32Exception" message="The semaphore timeout period has expired" detail="System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) ---&gt; System.ComponentModel.Win32Exception (0x80004005): The semaphore timeout period has expired&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;&#xA;   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;&#xA;   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)&#xD;&#xA;   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()&#xD;&#xA;   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()&#xD;&#xA;   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()&#xD;&#xA;   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte&amp; value)&#xD;&#xA;   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;&#xA;   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)&#xD;&#xA;   at System.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)&#xD;&#xA;   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)&#xD;&#xA;   at System.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;&#xA;   at Umbraco.Core.Persistence.Database.OpenSharedConnection()&#xD;&#xA;   at Umbraco.Core.Persistence.Database.&lt;Query&gt;d__7`1.MoveNext()&#xD;&#xA;   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)&#xD;&#xA;   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)&#xD;&#xA;   at Umbraco.Core.Sync.DatabaseServerMessenger.ProcessDatabaseInstructions()&#xD;&#xA;   at Umbraco.Core.Sync.DatabaseServerMessenger.Sync()&#xD;&#xA;   at Umbraco.Web.UmbracoModule.OnRouteAttempt(RoutableAttemptEventArgs args)&#xD;&#xA;   at Umbraco.Web.UmbracoModule.ProcessRequest(HttpContextBase httpContext)&#xD;&#xA;   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)&#xD;&#xA;ClientConnectionId:76ae88f2-2a74-4f8e-b6e0-9922625c68b5&#xD;&#xA;Error Number:121,State:0,Class:20" time="2016-12-13T14:18:07.8464466Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONTENT_LENGTH:0&#xD;&#xA;HTTP_CONTENT_TYPE:text/plain; charset=utf-8&#xD;&#xA;HTTP_AUTHORIZATION:AToken val=&quot;MEUzQTdEQTEyQ0JBMUZBOERFN0E2QzU0NEZGRDgyNDkxNUU0QzIwMkM5MTM5RDJFNTE5QUY2NjUwMTM3NkNDNzRBQTEwRjlGRDRFQzg1QjkwMjQ0N0Y4NEM1Qzg4NTNFQTJGQ0Y3OTc5QzEwN0NFMDE4NDA0MjJGQzBENkM5MDk0M0ZGQkQxMzEzMUJDNEUyMEUwNTBFMEE1NENDMEIzN0E5NUI0QkE5MkUwOUJBQzVBMjI2QTFEQjQzRTRBMTI0RDZBMTY1M0U0MThFNDY4MDQ0RTg2RUE4RkVGMTQ3N0FBMzI3RDNDQTNFNjM1QTVFMDBFNUUwN0IyNENFQjNCRUQ0RUJDQTIxNDM2RjYxMEIwOTA0QTBBRjYzMTkxNDRGOTE1MzJFNUEzQjA4NUZDRkU5MDhGNEJDMDcxQThBNEZGN0REOUNFREZFOTY3RjEzNkIwRTU4NDFCRDZGQkMxNTZDMTE3QjBEMzg0RUQxODkyOEM3NjM1N0M5RTMxRTNCRTkzQ0Y5RDExNDhDRDJCRDYwQjQ1RjVDRjRFMEZENEE0RDA1RDdFQUE2NkI2QzFDRTRBNEI5ODdERjlGOUQ2MkU4NUY3N0JBODU3MDZCMEREMTlGRDQ3MzhFNjgzQ0NG&quot;&#xD;&#xA;HTTP_HOST:localhost:81&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Content-Length: 0&#xD;&#xA;Content-Type: text/plain; charset=utf-8&#xD;&#xA;Authorization: AToken val=&quot;MEUzQTdEQTEyQ0JBMUZBOERFN0E2QzU0NEZGRDgyNDkxNUU0QzIwMkM5MTM5RDJFNTE5QUY2NjUwMTM3NkNDNzRBQTEwRjlGRDRFQzg1QjkwMjQ0N0Y4NEM1Qzg4NTNFQTJGQ0Y3OTc5QzEwN0NFMDE4NDA0MjJGQzBENkM5MDk0M0ZGQkQxMzEzMUJDNEUyMEUwNTBFMEE1NENDMEIzN0E5NUI0QkE5MkUwOUJBQzVBMjI2QTFEQjQzRTRBMTI0RDZBMTY1M0U0MThFNDY4MDQ0RTg2RUE4RkVGMTQ3N0FBMzI3RDNDQTNFNjM1QTVFMDBFNUUwN0IyNENFQjNCRUQ0RUJDQTIxNDM2RjYxMEIwOTA0QTBBRjYzMTkxNDRGOTE1MzJFNUEzQjA4NUZDRkU5MDhGNEJDMDcxQThBNEZGN0REOUNFREZFOTY3RjEzNkIwRTU4NDFCRDZGQkMxNTZDMTE3QjBEMzg0RUQxODkyOEM3NjM1N0M5RTMxRTNCRTkzQ0Y5RDExNDhDRDJCRDYwQjQ1RjVDRjRFMEZENEE0RDA1RDdFQUE2NkI2QzFDRTRBNEI5ODdERjlGOUQ2MkU4NUY3N0JBODU3MDZCMEREMTlGRDQ3MzhFNjgzQ0NG&quot;&#xD;&#xA;Host: localhost:81&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\Ceredox\Projects\Ram-SB\Scottybons04112016\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="text/plain; charset=utf-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/umbraco/RestServices/ScheduledPublish/Index" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\Ceredox\Projects\Ram-SB\Scottybons04112016\umbraco\RestServices\ScheduledPublish\Index" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="62185" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/umbraco/RestServices/ScheduledPublish/Index" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="81" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/umbraco/RestServices/ScheduledPublish/Index" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="text/plain; charset=utf-8" />
+    </item>
+    <item name="HTTP_AUTHORIZATION">
+      <value string="AToken val=&quot;MEUzQTdEQTEyQ0JBMUZBOERFN0E2QzU0NEZGRDgyNDkxNUU0QzIwMkM5MTM5RDJFNTE5QUY2NjUwMTM3NkNDNzRBQTEwRjlGRDRFQzg1QjkwMjQ0N0Y4NEM1Qzg4NTNFQTJGQ0Y3OTc5QzEwN0NFMDE4NDA0MjJGQzBENkM5MDk0M0ZGQkQxMzEzMUJDNEUyMEUwNTBFMEE1NENDMEIzN0E5NUI0QkE5MkUwOUJBQzVBMjI2QTFEQjQzRTRBMTI0RDZBMTY1M0U0MThFNDY4MDQ0RTg2RUE4RkVGMTQ3N0FBMzI3RDNDQTNFNjM1QTVFMDBFNUUwN0IyNENFQjNCRUQ0RUJDQTIxNDM2RjYxMEIwOTA0QTBBRjYzMTkxNDRGOTE1MzJFNUEzQjA4NUZDRkU5MDhGNEJDMDcxQThBNEZGN0REOUNFREZFOTY3RjEzNkIwRTU4NDFCRDZGQkMxNTZDMTE3QjBEMzg0RUQxODkyOEM3NjM1N0M5RTMxRTNCRTkzQ0Y5RDExNDhDRDJCRDYwQjQ1RjVDRjRFMEZENEE0RDA1RDdFQUE2NkI2QzFDRTRBNEI5ODdERjlGOUQ2MkU4NUY3N0JBODU3MDZCMEREMTlGRDQ3MzhFNjgzQ0NG&quot;" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:81" />
+    </item>
+  </serverVariables>
+</error>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="scottybonsTest" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\Ceredox\\Projects\\Ram-SB\\Scottybons04112016\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\Ceredox\\Projects\\Ram-SB\\Scottybons04112016\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="umbracoDbDSN-Web.config Connection String" description="umbracoDbDSN Connection String used in web.config by the application to access the database." value="server=scottybonsdbserver.database.windows.net;database=ScottybonsCMS_Staging_1;user id=ScottybonsSAAdmin;password=$0ftware" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Ceredox\\Projects\\Ram-SB\\Scottybons04112016\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='umbracoDbDSN']/@connectionString" />
+  </parameter>
+  <parameter name="ScottybonsEComEntities-Web.config Connection String" description="ScottybonsEComEntities Connection String used in web.config by the application to access the database." value="metadata=res://*/Models.Entities.ScottybonsModel.csdl|res://*/Models.Entities.ScottybonsModel.ssdl|res://*/Models.Entities.ScottybonsModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=scottybonsdbserver.database.windows.net;initial catalog=ScottybonsECom_Staging_1; user id=ScottybonsSAAdmin;password=$0ftware;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Ceredox\\Projects\\Ram-SB\\Scottybons04112016\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ScottybonsEComEntities']/@connectionString" />
+  </parameter>
+</parameters>
